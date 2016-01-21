@@ -4,7 +4,7 @@
 
 // font
 
-#define fontname                @"HelveticaNeue-Thin"
+#define fontname                @"HelveticaNeue-Light"
 #define fontboldname            @"HelveticaNeue-Medium"
 
 // ids

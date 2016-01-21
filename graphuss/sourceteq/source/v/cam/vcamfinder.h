@@ -1,13 +1,5 @@
-//
-//  vcamfinder.h
-//  graphuss
-//
-//  Created by zero on 1/21/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
-
-@interface vcamfinder : NSObject
+@interface vcamfinder:UIView
 
 @end

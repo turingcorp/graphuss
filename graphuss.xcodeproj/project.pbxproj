@@ -24,6 +24,7 @@
 		DA14785E1C5172DE0024141B /* ccam.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14785D1C5172DE0024141B /* ccam.m */; };
 		DA1478621C51735C0024141B /* vcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478611C51735C0024141B /* vcam.m */; };
 		DA1478651C51782C0024141B /* vcamfinder.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478641C51782C0024141B /* vcamfinder.m */; };
+		DA1478691C517C950024141B /* valert.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478681C517C950024141B /* valert.m */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -74,6 +75,8 @@
 		DA1478611C51735C0024141B /* vcam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcam.m; sourceTree = "<group>"; };
 		DA1478631C51782C0024141B /* vcamfinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcamfinder.h; sourceTree = "<group>"; };
 		DA1478641C51782C0024141B /* vcamfinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcamfinder.m; sourceTree = "<group>"; };
+		DA1478671C517C950024141B /* valert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = valert.h; sourceTree = "<group>"; };
+		DA1478681C517C950024141B /* valert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = valert.m; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -203,6 +206,15 @@
 				DA1478641C51782C0024141B /* vcamfinder.m */,
 			);
 			path = cam;
+			sourceTree = "<group>";
+		};
+		DA1478661C517C860024141B /* alert */ = {
+			isa = PBXGroup;
+			children = (
+				DA1478671C517C950024141B /* valert.h */,
+				DA1478681C517C950024141B /* valert.m */,
+			);
+			path = alert;
 			sourceTree = "<group>";
 		};
 		DA3D99A31C51228A0072F69B = {
@@ -422,6 +434,7 @@
 			children = (
 				DA3D9A111C5126720072F69B /* v.h */,
 				DA1478411C5141680024141B /* pic */,
+				DA1478661C517C860024141B /* alert */,
 				DA14785F1C51734F0024141B /* cam */,
 				DA3D9A031C5126720072F69B /* general */,
 			);
@@ -595,6 +608,7 @@
 				DA3D9A1A1C5126720072F69B /* tools.m in Sources */,
 				DA1478401C51403B0024141B /* cpiclist.m in Sources */,
 				DA3D9A1B1C5126720072F69B /* updater.m in Sources */,
+				DA1478691C517C950024141B /* valert.m in Sources */,
 				DA1478621C51735C0024141B /* vcam.m in Sources */,
 				DA14785A1C5150930024141B /* mpagesitemconfig.m in Sources */,
 				DA1478511C51500C0024141B /* mpagesitem.m in Sources */,

@@ -23,6 +23,7 @@
     [super viewDidLoad];
     [self.navigationBar setTintColor:colormain];
     [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:fontboldname size:16], NSForegroundColorAttributeName:colormain}];
+    [self.navigationBar setTranslucent:NO];
     
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:fontname size:16]} forState:UIControlStateNormal];
 }
