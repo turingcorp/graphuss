@@ -1,6 +1,6 @@
 #import "appdel.h"
 
-@interface cmain:UINavigationController
+@interface cpages:UIPageViewController
 
 +(instancetype)singleton;
 

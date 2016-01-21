@@ -1,3 +1,3 @@
 #import "cmain.h"
-#import "clibrary.h"
-#import "clibrarylist.h"
+#import "cpages.h"
+#import "cpiclist.h"
