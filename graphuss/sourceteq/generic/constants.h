@@ -13,10 +13,6 @@
 #define footerid                @"footer"
 #define headerid                @"header"
 
-// metrics
-
-#define menuheight              50
-
 // notifications
 
 #define notloadfinished         @"loadfinished"

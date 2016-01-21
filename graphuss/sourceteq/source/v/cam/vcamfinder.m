@@ -2,17 +2,12 @@
 
 @implementation vcamfinder
 
--(instancetype)init:(AVCaptureSession*)session
+-(instancetype)init
 {
     self = [super init];
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor clearColor]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
-    AVCaptureVideoPreviewLayer *preview = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
-    [preview setVideoGravity:AVLayerVideoGravityResizeAspect];
-    self.preview = preview;
-    [self.layer addSublayer:preview];
     
     return self;
 }
@@ -22,7 +17,17 @@
     [super layoutSubviews];
     
     CGFloat width = self.bounds.size.width;
-    [self.preview setFrame:CGRectMake(0, 0, width, width * 4.0 / 3.0)];
+    [self.preview setFrame:self.bounds];
+}
+
+#pragma mark public
+
+-(void)startsession:(AVCaptureSession*)session
+{
+    AVCaptureVideoPreviewLayer *preview = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
+    [preview setVideoGravity:AVLayerVideoGravityResizeAspect];
+    self.preview = preview;
+    [self.layer addSublayer:preview];
 }
 
 @end

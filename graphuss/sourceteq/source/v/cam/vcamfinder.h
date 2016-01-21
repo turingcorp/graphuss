@@ -2,7 +2,7 @@
 
 @interface vcamfinder:UIView
 
--(instancetype)init:(AVCaptureSession*)session;
+-(void)startsession:(AVCaptureSession*)session;
 
 @property(weak, nonatomic)AVCaptureVideoPreviewLayer *preview;
 
