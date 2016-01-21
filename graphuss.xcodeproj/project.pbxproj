@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		5F067C4693C4A746240A3EA8 /* libPods-graphuss.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DC6396465FBFCB5272311C /* libPods-graphuss.a */; };
 		DA14782D1C5132A30024141B /* analytics.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA14782C1C5132A30024141B /* analytics.plist */; };
-		DA14782F1C5132CE0024141B /* graphus.db in Resources */ = {isa = PBXBuildFile; fileRef = DA14782E1C5132CE0024141B /* graphus.db */; };
 		DA1478331C5136740024141B /* clibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478321C5136740024141B /* clibrary.m */; };
 		DA1478361C5136AF0024141B /* clibrarylist.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478351C5136AF0024141B /* clibrarylist.m */; };
+		DA1478381C513A400024141B /* graphuss.db in Resources */ = {isa = PBXBuildFile; fileRef = DA1478371C513A400024141B /* graphuss.db */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -36,11 +36,11 @@
 		79C0FF78360E9A027FEEB05F /* Pods-graphuss.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphuss.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphuss/Pods-graphuss.release.xcconfig"; sourceTree = "<group>"; };
 		C0DC6396465FBFCB5272311C /* libPods-graphuss.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphuss.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA14782C1C5132A30024141B /* analytics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = analytics.plist; sourceTree = "<group>"; };
-		DA14782E1C5132CE0024141B /* graphus.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphus.db; sourceTree = "<group>"; };
 		DA1478311C5136740024141B /* clibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clibrary.h; sourceTree = "<group>"; };
 		DA1478321C5136740024141B /* clibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clibrary.m; sourceTree = "<group>"; };
 		DA1478341C5136AF0024141B /* clibrarylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clibrarylist.h; sourceTree = "<group>"; };
 		DA1478351C5136AF0024141B /* clibrarylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clibrarylist.m; sourceTree = "<group>"; };
+		DA1478371C513A400024141B /* graphuss.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphuss.db; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		DA3D99C61C5126720072F69B /* db */ = {
 			isa = PBXGroup;
 			children = (
-				DA14782E1C5132CE0024141B /* graphus.db */,
+				DA1478371C513A400024141B /* graphuss.db */,
 			);
 			path = db;
 			sourceTree = "<group>";
@@ -425,11 +425,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA14782F1C5132CE0024141B /* graphus.db in Resources */,
 				DAE468E01C512F30006EBE52 /* in in Resources */,
 				DA3D9A151C5126720072F69B /* Localizable.strings in Resources */,
 				DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */,
 				DA3D9A141C5126720072F69B /* defs.plist in Resources */,
+				DA1478381C513A400024141B /* graphuss.db in Resources */,
 				DA14782D1C5132A30024141B /* analytics.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
