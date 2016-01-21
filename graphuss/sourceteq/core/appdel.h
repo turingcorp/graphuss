@@ -2,8 +2,6 @@
 
 #import <UIKit/UIKit.h>
 #import <Google/Analytics.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "analytics.h"
 #import "db.h"
 #import "timerbg.h"

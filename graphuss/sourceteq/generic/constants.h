@@ -1,11 +1,11 @@
 // color
 
-#define colormain               [UIColor colorWithRed:0.4862 green:0.2862 blue:1 alpha:1]
+#define colormain               [UIColor colorWithRed:1 green:0.1333 blue:0 alpha:1]
 
 // font
 
-#define fontname                @"STHeitiTC-Light"
-#define fontboldname            @"STHeitiTC-Medium"
+#define fontname                @"HelveticaNeue-Thin"
+#define fontboldname            @"HelveticaNeue-Medium"
 
 // ids
 
@@ -18,10 +18,6 @@
 #define menuheight              50
 
 // notifications
-
-#define notloadfinish           @"loadfinish"
-#define notmenuchanged          @"menuchanged"
-#define notprofileupdate        @"profileupdate"
 
 // extra
 

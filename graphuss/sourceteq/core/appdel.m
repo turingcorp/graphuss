@@ -12,20 +12,9 @@
     [window setBackgroundColor:[UIColor whiteColor]];
     [window setRootViewController:[cmain singleton]];
 
-    [[FBSDKApplicationDelegate sharedInstance] application:app didFinishLaunchingWithOptions:options];
     [updater launch];
     
     return YES;
-}
-
--(BOOL)application:(UIApplication*)app openURL:(NSURL*)url sourceApplication:(NSString*)source annotation:(id)ann
-{
-    return [[FBSDKApplicationDelegate sharedInstance] application:app openURL:url sourceApplication:source annotation:ann];
-}
-
--(void)applicationDidBecomeActive:(UIApplication*)app
-{
-    [FBSDKAppEvents activateApp];
 }
 
 @end
