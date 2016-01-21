@@ -34,6 +34,7 @@
 		DA14787A1C51A04E0024141B /* spinner3.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478711C51A04E0024141B /* spinner3.png */; };
 		DA14787B1C51A04E0024141B /* spinner3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478721C51A04E0024141B /* spinner3@2x.png */; };
 		DA14787C1C51A04E0024141B /* spinner3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478731C51A04E0024141B /* spinner3@3x.png */; };
+		DA14787F1C51A3A30024141B /* vcammenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14787E1C51A3A30024141B /* vcammenu.m */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -95,6 +96,8 @@
 		DA1478711C51A04E0024141B /* spinner3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spinner3.png; sourceTree = "<group>"; };
 		DA1478721C51A04E0024141B /* spinner3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner3@2x.png"; sourceTree = "<group>"; };
 		DA1478731C51A04E0024141B /* spinner3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner3@3x.png"; sourceTree = "<group>"; };
+		DA14787D1C51A3A30024141B /* vcammenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcammenu.h; sourceTree = "<group>"; };
+		DA14787E1C51A3A30024141B /* vcammenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcammenu.m; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				DA1478611C51735C0024141B /* vcam.m */,
 				DA1478631C51782C0024141B /* vcamfinder.h */,
 				DA1478641C51782C0024141B /* vcamfinder.m */,
+				DA14787D1C51A3A30024141B /* vcammenu.h */,
+				DA14787E1C51A3A30024141B /* vcammenu.m */,
 			);
 			path = cam;
 			sourceTree = "<group>";
@@ -637,6 +642,7 @@
 			files = (
 				DA14784E1C514FC30024141B /* mpages.m in Sources */,
 				DA3D9A181C5126720072F69B /* main.m in Sources */,
+				DA14787F1C51A3A30024141B /* vcammenu.m in Sources */,
 				DA3D9A161C5126720072F69B /* appdel.m in Sources */,
 				DA14785E1C5172DE0024141B /* ccam.m in Sources */,
 				DA1478651C51782C0024141B /* vcamfinder.m in Sources */,

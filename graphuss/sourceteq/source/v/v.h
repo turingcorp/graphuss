@@ -4,3 +4,4 @@
 #import "valert.h"
 #import "vcam.h"
 #import "vcamfinder.h"
+#import "vcammenu.h"
