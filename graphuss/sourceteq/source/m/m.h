@@ -2,3 +2,5 @@
 #import "mdirs.h"
 #import "mdb.h"
 #import "mdbcreate.h"
+#import "mpages.h"
+#import "mpagesitem.h"

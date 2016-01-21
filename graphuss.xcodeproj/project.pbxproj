@@ -16,6 +16,11 @@
 		DA1478481C51452F0024141B /* engine.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478451C51452F0024141B /* engine.png */; };
 		DA1478491C51452F0024141B /* engine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478461C51452F0024141B /* engine@2x.png */; };
 		DA14784A1C51452F0024141B /* engine@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478471C51452F0024141B /* engine@3x.png */; };
+		DA14784E1C514FC30024141B /* mpages.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14784D1C514FC30024141B /* mpages.m */; };
+		DA1478511C51500C0024141B /* mpagesitem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478501C51500C0024141B /* mpagesitem.m */; };
+		DA1478541C5150390024141B /* mpagesitemcamera.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478531C5150390024141B /* mpagesitemcamera.m */; };
+		DA1478571C5150860024141B /* mpagesitemlist.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478561C5150860024141B /* mpagesitemlist.m */; };
+		DA14785A1C5150930024141B /* mpagesitemconfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478591C5150930024141B /* mpagesitemconfig.m */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -50,6 +55,16 @@
 		DA1478451C51452F0024141B /* engine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engine.png; sourceTree = "<group>"; };
 		DA1478461C51452F0024141B /* engine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "engine@2x.png"; sourceTree = "<group>"; };
 		DA1478471C51452F0024141B /* engine@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "engine@3x.png"; sourceTree = "<group>"; };
+		DA14784C1C514FC30024141B /* mpages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpages.h; sourceTree = "<group>"; };
+		DA14784D1C514FC30024141B /* mpages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpages.m; sourceTree = "<group>"; };
+		DA14784F1C51500C0024141B /* mpagesitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpagesitem.h; sourceTree = "<group>"; };
+		DA1478501C51500C0024141B /* mpagesitem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpagesitem.m; sourceTree = "<group>"; };
+		DA1478521C5150390024141B /* mpagesitemcamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpagesitemcamera.h; sourceTree = "<group>"; };
+		DA1478531C5150390024141B /* mpagesitemcamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpagesitemcamera.m; sourceTree = "<group>"; };
+		DA1478551C5150860024141B /* mpagesitemlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpagesitemlist.h; sourceTree = "<group>"; };
+		DA1478561C5150860024141B /* mpagesitemlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpagesitemlist.m; sourceTree = "<group>"; };
+		DA1478581C5150930024141B /* mpagesitemconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpagesitemconfig.h; sourceTree = "<group>"; };
+		DA1478591C5150930024141B /* mpagesitemconfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpagesitemconfig.m; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -142,6 +157,23 @@
 				DA1478431C5141780024141B /* vpiclist.m */,
 			);
 			path = pic;
+			sourceTree = "<group>";
+		};
+		DA14784B1C514F0C0024141B /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				DA14784C1C514FC30024141B /* mpages.h */,
+				DA14784D1C514FC30024141B /* mpages.m */,
+				DA14784F1C51500C0024141B /* mpagesitem.h */,
+				DA1478501C51500C0024141B /* mpagesitem.m */,
+				DA1478521C5150390024141B /* mpagesitemcamera.h */,
+				DA1478531C5150390024141B /* mpagesitemcamera.m */,
+				DA1478551C5150860024141B /* mpagesitemlist.h */,
+				DA1478561C5150860024141B /* mpagesitemlist.m */,
+				DA1478581C5150930024141B /* mpagesitemconfig.h */,
+				DA1478591C5150930024141B /* mpagesitemconfig.m */,
+			);
+			path = pages;
 			sourceTree = "<group>";
 		};
 		DA3D99A31C51228A0072F69B = {
@@ -321,6 +353,7 @@
 				DA3D9A011C5126720072F69B /* m.h */,
 				DA3D99F31C5126720072F69B /* db */,
 				DA3D99FA1C5126720072F69B /* dirs */,
+				DA14784B1C514F0C0024141B /* pages */,
 				DA3D99FD1C5126720072F69B /* general */,
 			);
 			path = m;
@@ -514,9 +547,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA14784E1C514FC30024141B /* mpages.m in Sources */,
 				DA3D9A181C5126720072F69B /* main.m in Sources */,
 				DA3D9A161C5126720072F69B /* appdel.m in Sources */,
 				DA3D9A261C5126720072F69B /* viewbase.m in Sources */,
+				DA1478541C5150390024141B /* mpagesitemcamera.m in Sources */,
 				DA3D9A271C5126720072F69B /* vspinner.m in Sources */,
 				DA3D9A201C5126720072F69B /* mdb.m in Sources */,
 				DA3D9A191C5126720072F69B /* analytics.m in Sources */,
@@ -527,7 +562,10 @@
 				DA3D9A1A1C5126720072F69B /* tools.m in Sources */,
 				DA1478401C51403B0024141B /* cpiclist.m in Sources */,
 				DA3D9A1B1C5126720072F69B /* updater.m in Sources */,
+				DA14785A1C5150930024141B /* mpagesitemconfig.m in Sources */,
+				DA1478511C51500C0024141B /* mpagesitem.m in Sources */,
 				DA3D9A221C5126720072F69B /* mdbcreate.m in Sources */,
+				DA1478571C5150860024141B /* mpagesitemlist.m in Sources */,
 				DA3D9A251C5126720072F69B /* vblur.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
