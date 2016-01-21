@@ -19,6 +19,8 @@
 
 // notifications
 
+#define notloadfinished         @"loadfinished"
+
 // extra
 
 #define stringdrawing           NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin

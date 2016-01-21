@@ -11,7 +11,7 @@ NSString *documents;
                    {
                        [updater update];
                        [[analytics singleton] start];
-                       [[NSNotificationCenter defaultCenter] postNotificationName:notloadfinish object:nil];
+                       [[NSNotificationCenter defaultCenter] postNotificationName:notloadfinished object:nil];
                    });
 }
 

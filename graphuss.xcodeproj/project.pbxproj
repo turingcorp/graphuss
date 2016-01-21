@@ -10,6 +10,8 @@
 		5F067C4693C4A746240A3EA8 /* libPods-graphuss.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DC6396465FBFCB5272311C /* libPods-graphuss.a */; };
 		DA14782D1C5132A30024141B /* analytics.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA14782C1C5132A30024141B /* analytics.plist */; };
 		DA14782F1C5132CE0024141B /* graphus.db in Resources */ = {isa = PBXBuildFile; fileRef = DA14782E1C5132CE0024141B /* graphus.db */; };
+		DA1478331C5136740024141B /* clibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478321C5136740024141B /* clibrary.m */; };
+		DA1478361C5136AF0024141B /* clibrarylist.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478351C5136AF0024141B /* clibrarylist.m */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -35,6 +37,10 @@
 		C0DC6396465FBFCB5272311C /* libPods-graphuss.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphuss.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA14782C1C5132A30024141B /* analytics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = analytics.plist; sourceTree = "<group>"; };
 		DA14782E1C5132CE0024141B /* graphus.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphus.db; sourceTree = "<group>"; };
+		DA1478311C5136740024141B /* clibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clibrary.h; sourceTree = "<group>"; };
+		DA1478321C5136740024141B /* clibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clibrary.m; sourceTree = "<group>"; };
+		DA1478341C5136AF0024141B /* clibrarylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clibrarylist.h; sourceTree = "<group>"; };
+		DA1478351C5136AF0024141B /* clibrarylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = clibrarylist.m; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -100,6 +106,17 @@
 				C0DC6396465FBFCB5272311C /* libPods-graphuss.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA1478301C5136590024141B /* library */ = {
+			isa = PBXGroup;
+			children = (
+				DA1478311C5136740024141B /* clibrary.h */,
+				DA1478321C5136740024141B /* clibrary.m */,
+				DA1478341C5136AF0024141B /* clibrarylist.h */,
+				DA1478351C5136AF0024141B /* clibrarylist.m */,
+			);
+			path = library;
 			sourceTree = "<group>";
 		};
 		DA3D99A31C51228A0072F69B = {
@@ -255,6 +272,7 @@
 			children = (
 				DA3D99EC1C5126720072F69B /* c.h */,
 				DA3D99ED1C5126720072F69B /* main */,
+				DA1478301C5136590024141B /* library */,
 			);
 			path = c;
 			sourceTree = "<group>";
@@ -476,10 +494,12 @@
 				DA3D9A261C5126720072F69B /* viewbase.m in Sources */,
 				DA3D9A271C5126720072F69B /* vspinner.m in Sources */,
 				DA3D9A201C5126720072F69B /* mdb.m in Sources */,
+				DA1478361C5136AF0024141B /* clibrarylist.m in Sources */,
 				DA3D9A191C5126720072F69B /* analytics.m in Sources */,
 				DA3D9A231C5126720072F69B /* mdirs.m in Sources */,
 				DA3D9A1F1C5126720072F69B /* cmain.m in Sources */,
 				DA3D9A1A1C5126720072F69B /* tools.m in Sources */,
+				DA1478331C5136740024141B /* clibrary.m in Sources */,
 				DA3D9A1B1C5126720072F69B /* updater.m in Sources */,
 				DA3D9A221C5126720072F69B /* mdbcreate.m in Sources */,
 				DA3D9A251C5126720072F69B /* vblur.m in Sources */,
@@ -537,7 +557,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -575,7 +595,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -589,6 +609,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/graphuss/sourceteq/core/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -597,6 +618,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.graphuss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -606,6 +628,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/graphuss/sourceteq/core/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -614,6 +637,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.graphuss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
