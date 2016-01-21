@@ -21,6 +21,8 @@
 		DA1478541C5150390024141B /* mpagesitemcamera.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478531C5150390024141B /* mpagesitemcamera.m */; };
 		DA1478571C5150860024141B /* mpagesitemlist.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478561C5150860024141B /* mpagesitemlist.m */; };
 		DA14785A1C5150930024141B /* mpagesitemconfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478591C5150930024141B /* mpagesitemconfig.m */; };
+		DA14785E1C5172DE0024141B /* ccam.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14785D1C5172DE0024141B /* ccam.m */; };
+		DA1478621C51735C0024141B /* vcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478611C51735C0024141B /* vcam.m */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -65,6 +67,10 @@
 		DA1478561C5150860024141B /* mpagesitemlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpagesitemlist.m; sourceTree = "<group>"; };
 		DA1478581C5150930024141B /* mpagesitemconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpagesitemconfig.h; sourceTree = "<group>"; };
 		DA1478591C5150930024141B /* mpagesitemconfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpagesitemconfig.m; sourceTree = "<group>"; };
+		DA14785C1C5172DE0024141B /* ccam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccam.h; sourceTree = "<group>"; };
+		DA14785D1C5172DE0024141B /* ccam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccam.m; sourceTree = "<group>"; };
+		DA1478601C51735C0024141B /* vcam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcam.h; sourceTree = "<group>"; };
+		DA1478611C51735C0024141B /* vcam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcam.m; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -174,6 +180,24 @@
 				DA1478591C5150930024141B /* mpagesitemconfig.m */,
 			);
 			path = pages;
+			sourceTree = "<group>";
+		};
+		DA14785B1C5172D30024141B /* cam */ = {
+			isa = PBXGroup;
+			children = (
+				DA14785C1C5172DE0024141B /* ccam.h */,
+				DA14785D1C5172DE0024141B /* ccam.m */,
+			);
+			path = cam;
+			sourceTree = "<group>";
+		};
+		DA14785F1C51734F0024141B /* cam */ = {
+			isa = PBXGroup;
+			children = (
+				DA1478601C51735C0024141B /* vcam.h */,
+				DA1478611C51735C0024141B /* vcam.m */,
+			);
+			path = cam;
 			sourceTree = "<group>";
 		};
 		DA3D99A31C51228A0072F69B = {
@@ -332,6 +356,7 @@
 			children = (
 				DA3D99EC1C5126720072F69B /* c.h */,
 				DA3D99ED1C5126720072F69B /* main */,
+				DA14785B1C5172D30024141B /* cam */,
 				DA14783D1C51402E0024141B /* pic */,
 				DA1478391C513BB40024141B /* pages */,
 			);
@@ -392,6 +417,7 @@
 			children = (
 				DA3D9A111C5126720072F69B /* v.h */,
 				DA1478411C5141680024141B /* pic */,
+				DA14785F1C51734F0024141B /* cam */,
 				DA3D9A031C5126720072F69B /* general */,
 			);
 			path = v;
@@ -550,6 +576,7 @@
 				DA14784E1C514FC30024141B /* mpages.m in Sources */,
 				DA3D9A181C5126720072F69B /* main.m in Sources */,
 				DA3D9A161C5126720072F69B /* appdel.m in Sources */,
+				DA14785E1C5172DE0024141B /* ccam.m in Sources */,
 				DA3D9A261C5126720072F69B /* viewbase.m in Sources */,
 				DA1478541C5150390024141B /* mpagesitemcamera.m in Sources */,
 				DA3D9A271C5126720072F69B /* vspinner.m in Sources */,
@@ -562,6 +589,7 @@
 				DA3D9A1A1C5126720072F69B /* tools.m in Sources */,
 				DA1478401C51403B0024141B /* cpiclist.m in Sources */,
 				DA3D9A1B1C5126720072F69B /* updater.m in Sources */,
+				DA1478621C51735C0024141B /* vcam.m in Sources */,
 				DA14785A1C5150930024141B /* mpagesitemconfig.m in Sources */,
 				DA1478511C51500C0024141B /* mpagesitem.m in Sources */,
 				DA3D9A221C5126720072F69B /* mdbcreate.m in Sources */,
