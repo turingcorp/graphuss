@@ -5,7 +5,8 @@
 -(app_page)pageleft;
 -(app_page)pageright;
 -(BOOL)showitemcamera;
--(BOOL)showitemlist;
+-(BOOL)showitemlistleft;
+-(BOOL)showitemlistright;
 -(BOOL)showitemconfig;
 -(UIViewController*)controller;
 

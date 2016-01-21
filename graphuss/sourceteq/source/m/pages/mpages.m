@@ -41,6 +41,9 @@
     self = [super init];
     
     dict = [NSMutableDictionary dictionary];
+    [self add:app_page_camera];
+    [self add:app_page_list];
+    [self add:app_page_config];
     
     return self;
 }

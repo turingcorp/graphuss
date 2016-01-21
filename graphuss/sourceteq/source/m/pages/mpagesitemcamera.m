@@ -19,7 +19,7 @@
     return app_page_list;
 }
 
--(BOOL)showitemlist
+-(BOOL)showitemlistleft
 {
     return YES;
 }

@@ -26,7 +26,12 @@
     return NO;
 }
 
--(BOOL)showitemlist
+-(BOOL)showitemlistleft
+{
+    return NO;
+}
+
+-(BOOL)showitemlistright
 {
     return NO;
 }
