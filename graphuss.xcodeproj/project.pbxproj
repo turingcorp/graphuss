@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5F067C4693C4A746240A3EA8 /* libPods-graphuss.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DC6396465FBFCB5272311C /* libPods-graphuss.a */; };
-		DA3D9A121C5126720072F69B /* gattaca.db in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99C71C5126720072F69B /* gattaca.db */; };
+		DA14782D1C5132A30024141B /* analytics.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA14782C1C5132A30024141B /* analytics.plist */; };
+		DA14782F1C5132CE0024141B /* graphus.db in Resources */ = {isa = PBXBuildFile; fileRef = DA14782E1C5132CE0024141B /* graphus.db */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -18,19 +19,13 @@
 		DA3D9A1B1C5126720072F69B /* updater.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99DF1C5126720072F69B /* updater.m */; };
 		DA3D9A1C1C5126720072F69B /* libdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3D99E51C5126720072F69B /* libdb.a */; };
 		DA3D9A1D1C5126720072F69B /* libtimerbg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3D99E61C5126720072F69B /* libtimerbg.a */; };
-		DA3D9A1E1C5126720072F69B /* cloading.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99EF1C5126720072F69B /* cloading.m */; };
 		DA3D9A1F1C5126720072F69B /* cmain.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99F11C5126720072F69B /* cmain.m */; };
 		DA3D9A201C5126720072F69B /* mdb.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99F51C5126720072F69B /* mdb.m */; };
-		DA3D9A211C5126720072F69B /* mdbclean.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99F71C5126720072F69B /* mdbclean.m */; };
 		DA3D9A221C5126720072F69B /* mdbcreate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99F91C5126720072F69B /* mdbcreate.m */; };
 		DA3D9A231C5126720072F69B /* mdirs.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99FC1C5126720072F69B /* mdirs.m */; };
-		DA3D9A241C5126720072F69B /* msession.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A001C5126720072F69B /* msession.m */; };
 		DA3D9A251C5126720072F69B /* vblur.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A051C5126720072F69B /* vblur.m */; };
 		DA3D9A261C5126720072F69B /* viewbase.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A071C5126720072F69B /* viewbase.m */; };
 		DA3D9A271C5126720072F69B /* vspinner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A091C5126720072F69B /* vspinner.m */; };
-		DA3D9A281C5126720072F69B /* vloading.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A0C1C5126720072F69B /* vloading.m */; };
-		DA3D9A291C5126720072F69B /* vmenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A0E1C5126720072F69B /* vmenu.m */; };
-		DA3D9A2A1C5126720072F69B /* vmenucel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A101C5126720072F69B /* vmenucel.m */; };
 		DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DD1C512C1A006EBE52 /* Images.xcassets */; };
 		DAE468E01C512F30006EBE52 /* in in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DF1C512F2F006EBE52 /* in */; };
 /* End PBXBuildFile section */
@@ -38,8 +33,9 @@
 /* Begin PBXFileReference section */
 		79C0FF78360E9A027FEEB05F /* Pods-graphuss.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphuss.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphuss/Pods-graphuss.release.xcconfig"; sourceTree = "<group>"; };
 		C0DC6396465FBFCB5272311C /* libPods-graphuss.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphuss.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA14782C1C5132A30024141B /* analytics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = analytics.plist; sourceTree = "<group>"; };
+		DA14782E1C5132CE0024141B /* graphus.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphus.db; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA3D99C71C5126720072F69B /* gattaca.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gattaca.db; sourceTree = "<group>"; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA3D99D01C5126720072F69B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -62,21 +58,15 @@
 		DA3D99E81C5126720072F69B /* private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = private.h; sourceTree = "<group>"; };
 		DA3D99E91C5126720072F69B /* privateconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = privateconstants.h; sourceTree = "<group>"; };
 		DA3D99EC1C5126720072F69B /* c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c.h; sourceTree = "<group>"; };
-		DA3D99EE1C5126720072F69B /* cloading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cloading.h; sourceTree = "<group>"; };
-		DA3D99EF1C5126720072F69B /* cloading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cloading.m; sourceTree = "<group>"; };
 		DA3D99F01C5126720072F69B /* cmain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmain.h; sourceTree = "<group>"; };
 		DA3D99F11C5126720072F69B /* cmain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cmain.m; sourceTree = "<group>"; };
 		DA3D99F41C5126720072F69B /* mdb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mdb.h; sourceTree = "<group>"; };
 		DA3D99F51C5126720072F69B /* mdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mdb.m; sourceTree = "<group>"; };
-		DA3D99F61C5126720072F69B /* mdbclean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mdbclean.h; sourceTree = "<group>"; };
-		DA3D99F71C5126720072F69B /* mdbclean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mdbclean.m; sourceTree = "<group>"; };
 		DA3D99F81C5126720072F69B /* mdbcreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mdbcreate.h; sourceTree = "<group>"; };
 		DA3D99F91C5126720072F69B /* mdbcreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mdbcreate.m; sourceTree = "<group>"; };
 		DA3D99FB1C5126720072F69B /* mdirs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mdirs.h; sourceTree = "<group>"; };
 		DA3D99FC1C5126720072F69B /* mdirs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mdirs.m; sourceTree = "<group>"; };
 		DA3D99FE1C5126720072F69B /* mgeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgeneral.h; sourceTree = "<group>"; };
-		DA3D99FF1C5126720072F69B /* msession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msession.h; sourceTree = "<group>"; };
-		DA3D9A001C5126720072F69B /* msession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = msession.m; sourceTree = "<group>"; };
 		DA3D9A011C5126720072F69B /* m.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m.h; sourceTree = "<group>"; };
 		DA3D9A041C5126720072F69B /* vblur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vblur.h; sourceTree = "<group>"; };
 		DA3D9A051C5126720072F69B /* vblur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vblur.m; sourceTree = "<group>"; };
@@ -84,12 +74,6 @@
 		DA3D9A071C5126720072F69B /* viewbase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewbase.m; sourceTree = "<group>"; };
 		DA3D9A081C5126720072F69B /* vspinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vspinner.h; sourceTree = "<group>"; };
 		DA3D9A091C5126720072F69B /* vspinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vspinner.m; sourceTree = "<group>"; };
-		DA3D9A0B1C5126720072F69B /* vloading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vloading.h; sourceTree = "<group>"; };
-		DA3D9A0C1C5126720072F69B /* vloading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vloading.m; sourceTree = "<group>"; };
-		DA3D9A0D1C5126720072F69B /* vmenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vmenu.h; sourceTree = "<group>"; };
-		DA3D9A0E1C5126720072F69B /* vmenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vmenu.m; sourceTree = "<group>"; };
-		DA3D9A0F1C5126720072F69B /* vmenucel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vmenucel.h; sourceTree = "<group>"; };
-		DA3D9A101C5126720072F69B /* vmenucel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vmenucel.m; sourceTree = "<group>"; };
 		DA3D9A111C5126720072F69B /* v.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v.h; sourceTree = "<group>"; };
 		DAE468DD1C512C1A006EBE52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAE468DF1C512F2F006EBE52 /* in */ = {isa = PBXFileReference; lastKnownFileType = folder; path = in; sourceTree = "<group>"; };
@@ -151,7 +135,7 @@
 		DA3D99C61C5126720072F69B /* db */ = {
 			isa = PBXGroup;
 			children = (
-				DA3D99C71C5126720072F69B /* gattaca.db */,
+				DA14782E1C5132CE0024141B /* graphus.db */,
 			);
 			path = db;
 			sourceTree = "<group>";
@@ -175,6 +159,7 @@
 		DA3D99CC1C5126720072F69B /* langteq */ = {
 			isa = PBXGroup;
 			children = (
+				DA14782C1C5132A30024141B /* analytics.plist */,
 				DA3D99CD1C5126720072F69B /* defs.plist */,
 				DA3D99CE1C5126720072F69B /* Localizable.strings */,
 			);
@@ -277,8 +262,6 @@
 		DA3D99ED1C5126720072F69B /* main */ = {
 			isa = PBXGroup;
 			children = (
-				DA3D99EE1C5126720072F69B /* cloading.h */,
-				DA3D99EF1C5126720072F69B /* cloading.m */,
 				DA3D99F01C5126720072F69B /* cmain.h */,
 				DA3D99F11C5126720072F69B /* cmain.m */,
 			);
@@ -301,8 +284,6 @@
 			children = (
 				DA3D99F41C5126720072F69B /* mdb.h */,
 				DA3D99F51C5126720072F69B /* mdb.m */,
-				DA3D99F61C5126720072F69B /* mdbclean.h */,
-				DA3D99F71C5126720072F69B /* mdbclean.m */,
 				DA3D99F81C5126720072F69B /* mdbcreate.h */,
 				DA3D99F91C5126720072F69B /* mdbcreate.m */,
 			);
@@ -322,8 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				DA3D99FE1C5126720072F69B /* mgeneral.h */,
-				DA3D99FF1C5126720072F69B /* msession.h */,
-				DA3D9A001C5126720072F69B /* msession.m */,
 			);
 			path = general;
 			sourceTree = "<group>";
@@ -354,12 +333,6 @@
 		DA3D9A0A1C5126720072F69B /* main */ = {
 			isa = PBXGroup;
 			children = (
-				DA3D9A0B1C5126720072F69B /* vloading.h */,
-				DA3D9A0C1C5126720072F69B /* vloading.m */,
-				DA3D9A0D1C5126720072F69B /* vmenu.h */,
-				DA3D9A0E1C5126720072F69B /* vmenu.m */,
-				DA3D9A0F1C5126720072F69B /* vmenucel.h */,
-				DA3D9A101C5126720072F69B /* vmenucel.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -434,11 +407,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA14782F1C5132CE0024141B /* graphus.db in Resources */,
 				DAE468E01C512F30006EBE52 /* in in Resources */,
 				DA3D9A151C5126720072F69B /* Localizable.strings in Resources */,
 				DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */,
 				DA3D9A141C5126720072F69B /* defs.plist in Resources */,
-				DA3D9A121C5126720072F69B /* gattaca.db in Resources */,
+				DA14782D1C5132A30024141B /* analytics.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,22 +471,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA3D9A291C5126720072F69B /* vmenu.m in Sources */,
 				DA3D9A181C5126720072F69B /* main.m in Sources */,
-				DA3D9A211C5126720072F69B /* mdbclean.m in Sources */,
 				DA3D9A161C5126720072F69B /* appdel.m in Sources */,
 				DA3D9A261C5126720072F69B /* viewbase.m in Sources */,
 				DA3D9A271C5126720072F69B /* vspinner.m in Sources */,
-				DA3D9A1E1C5126720072F69B /* cloading.m in Sources */,
 				DA3D9A201C5126720072F69B /* mdb.m in Sources */,
 				DA3D9A191C5126720072F69B /* analytics.m in Sources */,
 				DA3D9A231C5126720072F69B /* mdirs.m in Sources */,
-				DA3D9A2A1C5126720072F69B /* vmenucel.m in Sources */,
-				DA3D9A281C5126720072F69B /* vloading.m in Sources */,
 				DA3D9A1F1C5126720072F69B /* cmain.m in Sources */,
 				DA3D9A1A1C5126720072F69B /* tools.m in Sources */,
 				DA3D9A1B1C5126720072F69B /* updater.m in Sources */,
-				DA3D9A241C5126720072F69B /* msession.m in Sources */,
 				DA3D9A221C5126720072F69B /* mdbcreate.m in Sources */,
 				DA3D9A251C5126720072F69B /* vblur.m in Sources */,
 			);

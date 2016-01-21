@@ -9,6 +9,6 @@
 	<key>dbfolder</key>
 	<string>sqlite</string>
 	<key>dbname</key>
-	<string>gattaca.db</string>
+	<string>graphuss.db</string>
 </dict>
 </plist>
