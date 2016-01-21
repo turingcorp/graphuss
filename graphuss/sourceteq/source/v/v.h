@@ -2,3 +2,4 @@
 #import "vspinner.h"
 #import "vpiclist.h"
 #import "vcam.h"
+#import "vcamfinder.h"
