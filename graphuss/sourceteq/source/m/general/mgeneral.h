@@ -4,9 +4,9 @@
 
 typedef NS_ENUM(NSInteger, app_page)
 {
-    app_page_camera,
+    app_page_config,
     app_page_list,
-    app_page_config
+    app_page_camera,
 };
 
 // analytics
