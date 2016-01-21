@@ -2,12 +2,11 @@
 
 // app
 
-typedef NS_ENUM(NSInteger, appsection)
+typedef NS_ENUM(NSInteger, app_page)
 {
-    appsectionlogin,
-    appsectionconfig,
-    appsectionbrowse,
-    appsectioncontact
+    app_page_camera,
+    app_page_list,
+    app_page_config
 };
 
 // analytics

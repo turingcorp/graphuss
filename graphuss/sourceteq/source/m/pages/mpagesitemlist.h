@@ -1,13 +1,6 @@
-//
-//  mpagesitemlist.h
-//  graphuss
-//
-//  Created by zero on 1/21/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
+#import "mpagesitem.h"
 
-#import <Foundation/Foundation.h>
-
-@interface mpagesitemlist : NSObject
+@interface mpagesitemlist:mpagesitem
 
 @end
