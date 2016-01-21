@@ -8,7 +8,14 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor whiteColor]];
     
-    vcamfinder *finder = [[vcamfinder alloc] init];
+    return self;
+}
+
+#pragma mark public
+
+-(void)addfinder:(AVCaptureSession*)session
+{
+    vcamfinder *finder = [[vcamfinder alloc] init:session];
     self.finder = finder;
     
     [self addSubview:finder];
@@ -18,8 +25,6 @@
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[finder]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[finder]-0-|" options:0 metrics:metrics views:views]];
-    
-    return self;
 }
 
 @end

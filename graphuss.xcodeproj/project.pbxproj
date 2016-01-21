@@ -25,6 +25,15 @@
 		DA1478621C51735C0024141B /* vcam.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478611C51735C0024141B /* vcam.m */; };
 		DA1478651C51782C0024141B /* vcamfinder.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478641C51782C0024141B /* vcamfinder.m */; };
 		DA1478691C517C950024141B /* valert.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1478681C517C950024141B /* valert.m */; };
+		DA1478741C51A04E0024141B /* spinner1.png in Resources */ = {isa = PBXBuildFile; fileRef = DA14786B1C51A04E0024141B /* spinner1.png */; };
+		DA1478751C51A04E0024141B /* spinner1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA14786C1C51A04E0024141B /* spinner1@2x.png */; };
+		DA1478761C51A04E0024141B /* spinner1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA14786D1C51A04E0024141B /* spinner1@3x.png */; };
+		DA1478771C51A04E0024141B /* spinner2.png in Resources */ = {isa = PBXBuildFile; fileRef = DA14786E1C51A04E0024141B /* spinner2.png */; };
+		DA1478781C51A04E0024141B /* spinner2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA14786F1C51A04E0024141B /* spinner2@2x.png */; };
+		DA1478791C51A04E0024141B /* spinner2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478701C51A04E0024141B /* spinner2@3x.png */; };
+		DA14787A1C51A04E0024141B /* spinner3.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478711C51A04E0024141B /* spinner3.png */; };
+		DA14787B1C51A04E0024141B /* spinner3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478721C51A04E0024141B /* spinner3@2x.png */; };
+		DA14787C1C51A04E0024141B /* spinner3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478731C51A04E0024141B /* spinner3@3x.png */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -77,6 +86,15 @@
 		DA1478641C51782C0024141B /* vcamfinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcamfinder.m; sourceTree = "<group>"; };
 		DA1478671C517C950024141B /* valert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = valert.h; sourceTree = "<group>"; };
 		DA1478681C517C950024141B /* valert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = valert.m; sourceTree = "<group>"; };
+		DA14786B1C51A04E0024141B /* spinner1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spinner1.png; sourceTree = "<group>"; };
+		DA14786C1C51A04E0024141B /* spinner1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner1@2x.png"; sourceTree = "<group>"; };
+		DA14786D1C51A04E0024141B /* spinner1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner1@3x.png"; sourceTree = "<group>"; };
+		DA14786E1C51A04E0024141B /* spinner2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spinner2.png; sourceTree = "<group>"; };
+		DA14786F1C51A04E0024141B /* spinner2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner2@2x.png"; sourceTree = "<group>"; };
+		DA1478701C51A04E0024141B /* spinner2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner2@3x.png"; sourceTree = "<group>"; };
+		DA1478711C51A04E0024141B /* spinner3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spinner3.png; sourceTree = "<group>"; };
+		DA1478721C51A04E0024141B /* spinner3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner3@2x.png"; sourceTree = "<group>"; };
+		DA1478731C51A04E0024141B /* spinner3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner3@3x.png"; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -217,6 +235,22 @@
 			path = alert;
 			sourceTree = "<group>";
 		};
+		DA14786A1C51A04E0024141B /* spinner */ = {
+			isa = PBXGroup;
+			children = (
+				DA14786B1C51A04E0024141B /* spinner1.png */,
+				DA14786C1C51A04E0024141B /* spinner1@2x.png */,
+				DA14786D1C51A04E0024141B /* spinner1@3x.png */,
+				DA14786E1C51A04E0024141B /* spinner2.png */,
+				DA14786F1C51A04E0024141B /* spinner2@2x.png */,
+				DA1478701C51A04E0024141B /* spinner2@3x.png */,
+				DA1478711C51A04E0024141B /* spinner3.png */,
+				DA1478721C51A04E0024141B /* spinner3@2x.png */,
+				DA1478731C51A04E0024141B /* spinner3@3x.png */,
+			);
+			path = spinner;
+			sourceTree = "<group>";
+		};
 		DA3D99A31C51228A0072F69B = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +301,7 @@
 		DA3D99CA1C5126720072F69B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DA14786A1C51A04E0024141B /* spinner */,
 				DA1478451C51452F0024141B /* engine.png */,
 				DA1478461C51452F0024141B /* engine@2x.png */,
 				DA1478471C51452F0024141B /* engine@3x.png */,
@@ -524,14 +559,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA14787B1C51A04E0024141B /* spinner3@2x.png in Resources */,
+				DA1478791C51A04E0024141B /* spinner2@3x.png in Resources */,
+				DA14787A1C51A04E0024141B /* spinner3.png in Resources */,
 				DA1478491C51452F0024141B /* engine@2x.png in Resources */,
 				DAE468E01C512F30006EBE52 /* in in Resources */,
+				DA1478751C51A04E0024141B /* spinner1@2x.png in Resources */,
+				DA1478781C51A04E0024141B /* spinner2@2x.png in Resources */,
 				DA3D9A151C5126720072F69B /* Localizable.strings in Resources */,
 				DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */,
+				DA1478761C51A04E0024141B /* spinner1@3x.png in Resources */,
 				DA14784A1C51452F0024141B /* engine@3x.png in Resources */,
 				DA1478481C51452F0024141B /* engine.png in Resources */,
 				DA3D9A141C5126720072F69B /* defs.plist in Resources */,
+				DA14787C1C51A04E0024141B /* spinner3@3x.png in Resources */,
+				DA1478741C51A04E0024141B /* spinner1.png in Resources */,
 				DA1478381C513A400024141B /* graphuss.db in Resources */,
+				DA1478771C51A04E0024141B /* spinner2.png in Resources */,
 				DA14782D1C5132A30024141B /* analytics.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

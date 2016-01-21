@@ -1,1 +1,4 @@
 "app_title"="Graphuss";
+
+"error_notauthorized"="Not authorized to use the camera";
+"error_empty_input"="Couldn't connect to camera";
