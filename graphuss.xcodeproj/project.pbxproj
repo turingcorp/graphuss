@@ -318,10 +318,10 @@
 		DA3D99F21C5126720072F69B /* m */ = {
 			isa = PBXGroup;
 			children = (
+				DA3D9A011C5126720072F69B /* m.h */,
 				DA3D99F31C5126720072F69B /* db */,
 				DA3D99FA1C5126720072F69B /* dirs */,
 				DA3D99FD1C5126720072F69B /* general */,
-				DA3D9A011C5126720072F69B /* m.h */,
 			);
 			path = m;
 			sourceTree = "<group>";
@@ -357,9 +357,9 @@
 		DA3D9A021C5126720072F69B /* v */ = {
 			isa = PBXGroup;
 			children = (
+				DA3D9A111C5126720072F69B /* v.h */,
 				DA1478411C5141680024141B /* pic */,
 				DA3D9A031C5126720072F69B /* general */,
-				DA3D9A111C5126720072F69B /* v.h */,
 			);
 			path = v;
 			sourceTree = "<group>";
