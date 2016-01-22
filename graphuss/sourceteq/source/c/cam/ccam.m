@@ -18,6 +18,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[analytics singleton] trackscreen:ga_screen_camera];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -72,6 +74,8 @@
 
 -(void)startsession
 {
+    [[analytics singleton] trackevent:ga_event_shoot action:ga_action_start label:nil];
+    
     self.session = [[AVCaptureSession alloc] init];
     self.session.sessionPreset = AVCaptureSessionPresetPhoto;
     
@@ -84,11 +88,17 @@
     
     if(error)
     {
-        NSLog(@"%@", error.localizedDescription);
+        NSString *errorstr = error.localizedDescription;
+        [[analytics singleton] trackevent:ga_event_shoot action:ga_action_error label:errorstr];
+        
+        NSLog(@"%@", errorstr);
     }
     else if(!input)
     {
-        NSLog(@"%@", NSLocalizedString(@"error_empty_input", nil));
+        NSString *errorstr = NSLocalizedString(@"error_empty_input", nil);
+        [[analytics singleton] trackevent:ga_event_shoot action:ga_action_error label:errorstr];
+        
+        NSLog(@"%@", errorstr);
     }
     else
     {
@@ -191,6 +201,8 @@
 
 -(void)shoot
 {
+    [[analytics singleton] trackevent:ga_event_shoot action:ga_action_shoot label:nil];
+    
     dispatch_async(queue,
                    ^
                    {

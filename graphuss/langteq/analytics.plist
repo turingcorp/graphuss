@@ -7,7 +7,7 @@
         <string>pic_list</string>
         <string>camera</string>
         <string>config</string>
-	<array/>
+	</array>
 	<key>events</key>
 	<array>
 		<string>shoot</string>

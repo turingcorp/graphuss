@@ -5,6 +5,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[analytics singleton] trackscreen:ga_screen_pic_list];
 }
 
 -(void)loadView
