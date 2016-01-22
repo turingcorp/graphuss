@@ -44,7 +44,7 @@
 
 -(void)showimage:(UIImage*)image
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 300), dispatch_get_main_queue(),
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 200), dispatch_get_main_queue(),
                    ^
                    {
                        [self.imageview setImage:image];

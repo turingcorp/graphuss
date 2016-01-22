@@ -31,10 +31,12 @@
     self.comenuheight = [NSLayoutConstraint constraintWithItem:menu attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:50];
     self.cofinderheight = [NSLayoutConstraint constraintWithItem:finder attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:0];
     self.copreviewheight = [NSLayoutConstraint constraintWithItem:preview attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:0];
+    self.copreviewmargin = [NSLayoutConstraint constraintWithItem:preview attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:0];
     
     [self addConstraint:self.comenuheight];
     [self addConstraint:self.cofinderheight];
     [self addConstraint:self.copreviewheight];
+    [self addConstraint:self.copreviewmargin];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[spinner]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[spinner(50)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[menu]-0-|" options:0 metrics:metrics views:views]];
@@ -62,15 +64,17 @@
     
     self.comenuheight.constant = menuheight;
     self.cofinderheight.constant = previewheight;
+    self.copreviewheight.constant = previewheight;
+    self.copreviewmargin.constant = previewheight;
 }
 
 #pragma mark functionality
 
 -(void)animatepreviewshow
 {
-    self.copreviewheight.constant = self.cofinderheight.constant;
+    self.copreviewmargin.constant = 0;
     
-    [UIView animateWithDuration:0.3 animations:
+    [UIView animateWithDuration:0.2 animations:
      ^(void)
      {
          [self layoutIfNeeded];
@@ -79,7 +83,13 @@
 
 -(void)animatepreviewhide
 {
+    self.copreviewmargin.constant = self.copreviewheight.constant;
     
+    [UIView animateWithDuration:0.4 animations:
+     ^(void)
+     {
+         [self layoutIfNeeded];
+     }];
 }
 
 #pragma mark public
@@ -104,6 +114,11 @@
 -(void)picturetaken:(UIImage*)image
 {
     [self.preview showimage:image];
+}
+
+-(void)restart
+{
+    [self animatepreviewhide];
 }
 
 @end

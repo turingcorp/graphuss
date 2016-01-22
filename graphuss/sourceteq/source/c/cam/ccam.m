@@ -135,6 +135,7 @@
                  if(image)
                  {
                      [self.cam picturetaken:image];
+                     [self restarttimeout];
                  }
                  else
                  {
@@ -147,6 +148,21 @@
              }
          }
      }];
+}
+
+-(void)restarttimeout
+{
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       [NSTimer scheduledTimerWithTimeInterval:0.6 target:self selector:@selector(timeout:) userInfo:nil repeats:NO];
+                   });
+}
+
+-(void)timeout:(NSTimer*)timer
+{
+    [timer invalidate];
+    [self.cam restart];
 }
 
 #pragma mark public
