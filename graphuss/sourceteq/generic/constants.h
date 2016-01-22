@@ -16,6 +16,7 @@
 // notifications
 
 #define notloadfinished         @"loadfinished"
+#define notreloadpics           @"reloadpics"
 
 // extra
 

@@ -7,7 +7,7 @@
     NSString *query;
     db *dbcon = [db begin];
     
-    query = @"CREATE TABLE img (id INTEGER PRIMARY KEY, created INTEGER, syncstamp INTEGER);";
+    query = @"CREATE TABLE pic (id INTEGER PRIMARY KEY, created INTEGER, syncstamp INTEGER);";
     
     [dbcon query:query];
     

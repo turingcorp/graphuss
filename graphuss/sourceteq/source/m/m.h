@@ -5,3 +5,4 @@
 #import "mpages.h"
 #import "mpagesitem.h"
 #import "mpic.h"
+#import "mpicitem.h"
