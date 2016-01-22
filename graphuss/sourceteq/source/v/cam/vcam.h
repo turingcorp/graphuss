@@ -12,5 +12,7 @@
 @property(weak, nonatomic)vcamfinder *finder;
 @property(weak, nonatomic)vspinner *spinner;
 @property(weak, nonatomic)vcammenu *menu;
+@property(weak, nonatomic)NSLayoutConstraint *comenuheight;
+@property(weak, nonatomic)NSLayoutConstraint *copreviewheight;
 
 @end

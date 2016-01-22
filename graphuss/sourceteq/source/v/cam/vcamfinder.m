@@ -15,8 +15,6 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    
-    CGFloat width = self.bounds.size.width;
     [self.preview setFrame:self.bounds];
 }
 
