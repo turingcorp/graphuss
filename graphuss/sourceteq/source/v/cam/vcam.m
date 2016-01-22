@@ -1,6 +1,9 @@
 #import "vcam.h"
 
 @implementation vcam
+{
+    BOOL marginfirsttime;
+}
 
 -(instancetype)init:(ccam*)controller
 {
@@ -8,6 +11,8 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor whiteColor]];
 
+    marginfirsttime = YES;
+    
     vspinner *spinner = [[vspinner alloc] init];
     self.spinner = spinner;
     
@@ -30,8 +35,8 @@
     
     self.comenuheight = [NSLayoutConstraint constraintWithItem:menu attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:50];
     self.cofinderheight = [NSLayoutConstraint constraintWithItem:finder attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:0];
-    self.copreviewheight = [NSLayoutConstraint constraintWithItem:preview attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:0];
-    self.copreviewmargin = [NSLayoutConstraint constraintWithItem:preview attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+    self.copreviewheight = [NSLayoutConstraint constraintWithItem:preview attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:1];
+    self.copreviewmargin = [NSLayoutConstraint constraintWithItem:preview attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:1];
     
     [self addConstraint:self.comenuheight];
     [self addConstraint:self.cofinderheight];
@@ -40,7 +45,7 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[spinner]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[spinner(50)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[menu]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[preview]-0-[menu]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[menu]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[finder]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[finder]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[preview]-0-|" options:0 metrics:metrics views:views]];
@@ -65,7 +70,12 @@
     self.comenuheight.constant = menuheight;
     self.cofinderheight.constant = previewheight;
     self.copreviewheight.constant = previewheight;
-    self.copreviewmargin.constant = previewheight;
+    
+    if(marginfirsttime)
+    {
+        self.copreviewmargin.constant = previewheight;
+        marginfirsttime = NO;
+    }
 }
 
 #pragma mark functionality
@@ -89,6 +99,10 @@
      ^(void)
      {
          [self layoutIfNeeded];
+     } completion:
+     ^(BOOL done)
+     {
+         [self.preview clearimage];
      }];
 }
 
@@ -119,6 +133,7 @@
 -(void)restart
 {
     [self animatepreviewhide];
+    [self.menu setUserInteractionEnabled:YES];
 }
 
 @end

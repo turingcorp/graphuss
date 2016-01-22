@@ -51,4 +51,9 @@
                    });
 }
 
+-(void)clearimage
+{
+    [self.imageview setImage:nil];
+}
+
 @end
