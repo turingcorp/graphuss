@@ -58,7 +58,7 @@
     
     self.modelitem = [self.model item:page];
     __weak cpages *weakself = self;
-    
+
     [self setViewControllers:@[[self.modelitem controller]] direction:direction animated:animated completion:
      ^(BOOL done)
      {

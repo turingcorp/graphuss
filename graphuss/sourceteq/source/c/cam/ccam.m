@@ -20,26 +20,35 @@
     [super viewDidLoad];
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [self cleanup];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
-    if(!self.cam)
-    {
-        self.cam = (vcam*)self.view;
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 300), dispatch_get_main_queue(),
-                       ^
-                       {
-                           [self auth];
-                       });
-    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 300), dispatch_get_main_queue(),
+                   ^
+                   {
+                       [self auth];
+                   });
 }
 
 -(void)loadView
 {
     self.view = [[vcam alloc] init:self];
+    self.cam = (vcam*)self.view;
 }
 
 #pragma mark functionality
+
+-(void)cleanup
+{
+    [self.session stopRunning];
+    self.session = nil;
+}
 
 -(void)auth
 {
@@ -63,10 +72,10 @@
 
 -(void)startsession
 {
-    AVCaptureSession *session = [[AVCaptureSession alloc] init];
-    session.sessionPreset = AVCaptureSessionPresetPhoto;
+    self.session = [[AVCaptureSession alloc] init];
+    self.session.sessionPreset = AVCaptureSessionPresetPhoto;
     
-    [self.cam addfinder:session];
+    [self.cam addfinder:self.session];
     
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
@@ -83,12 +92,12 @@
     }
     else
     {
-        [session addInput:input];
+        [self.session addInput:input];
         
         AVCaptureStillImageOutput *output = [[AVCaptureStillImageOutput alloc] init];
         [output setOutputSettings:@{AVVideoCodecKey:AVVideoCodecJPEG}];
-        [session addOutput:output];
-        [session startRunning];
+        [self.session addOutput:output];
+        [self.session startRunning];
     }
 }
 

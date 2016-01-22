@@ -6,7 +6,7 @@
 {
     self = [super init];
     [self setClipsToBounds:YES];
-    [self setBackgroundColor:[UIColor whiteColor]];
+    [self setBackgroundColor:[UIColor blueColor]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     UIView *border = [[UIView alloc] init];

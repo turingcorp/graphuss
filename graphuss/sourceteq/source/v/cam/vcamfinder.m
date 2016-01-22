@@ -22,6 +22,7 @@
 
 -(void)startsession:(AVCaptureSession*)session
 {
+    [self.preview removeFromSuperlayer];
     AVCaptureVideoPreviewLayer *preview = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
     [preview setVideoGravity:AVLayerVideoGravityResizeAspect];
     self.preview = preview;
