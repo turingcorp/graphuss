@@ -94,11 +94,89 @@
     {
         [self.session addInput:input];
         
-        AVCaptureStillImageOutput *output = [[AVCaptureStillImageOutput alloc] init];
-        [output setOutputSettings:@{AVVideoCodecKey:AVVideoCodecJPEG}];
-        [self.session addOutput:output];
+        self.output = [[AVCaptureStillImageOutput alloc] init];
+        [self.output setOutputSettings:@{AVVideoCodecKey:AVVideoCodecJPEG}];
+        [self.session addOutput:self.output];
         [self.session startRunning];
     }
+}
+
+-(void)insideshoot
+{
+    [self.output captureStillImageAsynchronouslyFromConnection:[self.output connectionWithMediaType:AVMediaTypeVideo] completionHandler:
+     ^(CMSampleBufferRef buffer, NSError *error)
+     {
+         if(_error)
+         {
+             [ctralert alert:_error.localizedDescription];
+             [preview cancel];
+         }
+         else if(!_buffer)
+         {
+             [ctralert alert:NSLocalizedString(@"error_wrongbuffer", nil)];
+             [preview cancel];
+         }
+         else
+         {
+             NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:_buffer];
+             
+             if(data && data.length)
+             {
+                 UIImage *image = [[UIImage alloc] initWithData:data];
+                 
+                 if(image)
+                 {
+                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                                    ^(void)
+                                    {
+                                        UIImage *orientedimage;
+                                        
+                                        switch(orientation)
+                                        {
+                                            case UIDeviceOrientationFaceUp:
+                                            case UIDeviceOrientationPortrait:
+                                            case UIDeviceOrientationUnknown:
+                                                
+                                                orientedimage = image;
+                                                
+                                                break;
+                                                
+                                            case UIDeviceOrientationFaceDown:
+                                            case UIDeviceOrientationPortraitUpsideDown:
+                                                
+                                                orientedimage = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:UIImageOrientationRight];
+                                                
+                                                break;
+                                                
+                                            case UIDeviceOrientationLandscapeLeft:
+                                                
+                                                orientedimage = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:UIImageOrientationUp];
+                                                
+                                                break;
+                                                
+                                            case UIDeviceOrientationLandscapeRight:
+                                                
+                                                orientedimage = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:UIImageOrientationDown];
+                                                
+                                                break;
+                                        }
+                                        
+                                        [preview imagetaken:orientedimage];
+                                    });
+                 }
+                 else
+                 {
+                     [ctralert alert:NSLocalizedString(@"error_emptypicture", nil)];
+                     [preview cancel];
+                 }
+             }
+             else
+             {
+                 [ctralert alert:NSLocalizedString(@"error_emptypicture", nil)];
+                 [preview cancel];
+             }
+         }
+     }];
 }
 
 #pragma mark public
@@ -106,109 +184,9 @@
 -(void)shoot
 {
     dispatch_async(queue,
-                   ^(void)
+                   ^
                    {
-                       UIDeviceOrientation orientation;
-                       CGFloat yacc = [tools sha].motion.accelerometerData.acceleration.y;
-                       CGFloat xacc = [tools sha].motion.accelerometerData.acceleration.x;
-                       
-                       if(fabs(yacc) < 0.7)
-                       {
-                           if(xacc > 0)
-                           {
-                               orientation = UIDeviceOrientationLandscapeRight;
-                           }
-                           else
-                           {
-                               orientation = UIDeviceOrientationLandscapeLeft;
-                           }
-                       }
-                       else
-                       {
-                           if(yacc < 0)
-                           {
-                               orientation = UIDeviceOrientationPortrait;
-                           }
-                           else
-                           {
-                               orientation = UIDeviceOrientationPortraitUpsideDown;
-                           }
-                       }
-                       
-                       [output captureStillImageAsynchronouslyFromConnection:[output connectionWithMediaType:AVMediaTypeVideo] completionHandler:
-                        ^(CMSampleBufferRef _buffer, NSError *_error)
-                        {
-                            if(_error)
-                            {
-                                [ctralert alert:_error.localizedDescription];
-                                [preview cancel];
-                            }
-                            else if(!_buffer)
-                            {
-                                [ctralert alert:NSLocalizedString(@"error_wrongbuffer", nil)];
-                                [preview cancel];
-                            }
-                            else
-                            {
-                                NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:_buffer];
-                                
-                                if(data && data.length)
-                                {
-                                    UIImage *image = [[UIImage alloc] initWithData:data];
-                                    
-                                    if(image)
-                                    {
-                                        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-                                                       ^(void)
-                                                       {
-                                                           UIImage *orientedimage;
-                                                           
-                                                           switch(orientation)
-                                                           {
-                                                               case UIDeviceOrientationFaceUp:
-                                                               case UIDeviceOrientationPortrait:
-                                                               case UIDeviceOrientationUnknown:
-                                                                   
-                                                                   orientedimage = image;
-                                                                   
-                                                                   break;
-                                                                   
-                                                               case UIDeviceOrientationFaceDown:
-                                                               case UIDeviceOrientationPortraitUpsideDown:
-                                                                   
-                                                                   orientedimage = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:UIImageOrientationRight];
-                                                                   
-                                                                   break;
-                                                                   
-                                                               case UIDeviceOrientationLandscapeLeft:
-                                                                   
-                                                                   orientedimage = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:UIImageOrientationUp];
-                                                                   
-                                                                   break;
-                                                                   
-                                                               case UIDeviceOrientationLandscapeRight:
-                                                                   
-                                                                   orientedimage = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:UIImageOrientationDown];
-                                                                   
-                                                                   break;
-                                                           }
-                                                           
-                                                           [preview imagetaken:orientedimage];
-                                                       });
-                                    }
-                                    else
-                                    {
-                                        [ctralert alert:NSLocalizedString(@"error_emptypicture", nil)];
-                                        [preview cancel];
-                                    }
-                                }
-                                else
-                                {
-                                    [ctralert alert:NSLocalizedString(@"error_emptypicture", nil)];
-                                    [preview cancel];
-                                }
-                            }
-                        }];
+                       [self insideshoot];
                    });
 }
 

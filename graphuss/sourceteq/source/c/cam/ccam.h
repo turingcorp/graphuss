@@ -8,5 +8,6 @@
 
 @property(weak, nonatomic)vcam *cam;
 @property(strong, nonatomic)AVCaptureSession *session;
+@property(strong, nonatomic)AVCaptureStillImageOutput *output;
 
 @end

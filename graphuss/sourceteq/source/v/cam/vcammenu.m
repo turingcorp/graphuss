@@ -5,12 +5,14 @@
     CGFloat shootwidth;
 }
 
--(instancetype)init
+-(instancetype)init:(vcam*)viewcam
 {
     self = [super init];
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor whiteColor]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+ 
+    self.viewcam = viewcam;
     
     UIView *border = [[UIView alloc] init];
     [border setUserInteractionEnabled:NO];
@@ -58,6 +60,7 @@
 -(void)actionshoot:(UIButton*)button
 {
     [button setEnabled:NO];
+    [(ccam*)self.viewcam.controller shoot];
 }
 
 @end

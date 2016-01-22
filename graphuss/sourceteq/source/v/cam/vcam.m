@@ -11,7 +11,7 @@
     vspinner *spinner = [[vspinner alloc] init];
     self.spinner = spinner;
     
-    vcammenu *menu = [[vcammenu alloc] init];
+    vcammenu *menu = [[vcammenu alloc] init:self];
     self.menu = menu;
     
     vcamfinder *finder = [[vcamfinder alloc] init];
