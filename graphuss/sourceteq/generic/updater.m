@@ -56,7 +56,7 @@ NSString *documents;
     [userdef setValue:dictionary forKey:@"settings"];
     [userdef synchronize];
     
-    [mpic firsttime];
+    [[mpic singleton] firsttime];
 }
 
 @end

@@ -134,8 +134,7 @@
                  
                  if(image)
                  {
-                     [self.cam picturetaken:image];
-                     [self restarttimeout];
+                     [self imagereceived:image];
                  }
                  else
                  {
@@ -148,6 +147,22 @@
              }
          }
      }];
+}
+
+-(void)imagereceived:(UIImage*)image
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       [self saveimage:image];
+                       [self.cam picturetaken:image];
+                       [self restarttimeout];
+                   });
+}
+
+-(void)saveimage:(UIImage*)image
+{
+    
 }
 
 -(void)restarttimeout
