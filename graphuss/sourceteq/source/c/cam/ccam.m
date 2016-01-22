@@ -1,10 +1,16 @@
 #import "ccam.h"
 
 @implementation ccam
+{
+    dispatch_queue_t queue;
+}
 
 -(instancetype)init
 {
     self = [super init];
+    
+    queue = dispatch_queue_create(@"capture".UTF8String, DISPATCH_QUEUE_SERIAL);
+    dispatch_set_target_queue(queue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0));
     
     return self;
 }
@@ -20,7 +26,7 @@
     {
         self.cam = (vcam*)self.view;
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(),
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 300), dispatch_get_main_queue(),
                        ^
                        {
                            [self auth];
@@ -42,7 +48,7 @@
      {
          if(granted)
          {
-             dispatch_async(dispatch_get_main_queue(),
+             dispatch_async(queue,
                             ^
                             {
                                 [self startsession];
@@ -82,36 +88,7 @@
         AVCaptureStillImageOutput *output = [[AVCaptureStillImageOutput alloc] init];
         [output setOutputSettings:@{AVVideoCodecKey:AVVideoCodecJPEG}];
         [session addOutput:output];
-        [session startRunning];/*
-        
-        if(applicationtype == apptypepad)
-        {
-            AVCaptureConnection *con = [output connectionWithMediaType:AVMediaTypeVideo];
-            
-            if(con.supportsVideoOrientation)
-            {
-                dispatch_async(dispatch_get_main_queue(),
-                               ^(void)
-                               {
-                                   [con setVideoOrientation:orientation];
-                                   [previewlayer.connection setVideoOrientation:orientation];
-                               });
-            }
-        }
-        
-        if(applicationios != ioslevel7)
-        {
-            if([device lockForConfiguration:nil])
-            {
-                __weak modcapture *stats = master.stats;
-                __weak AVCaptureDeviceFormat *active = device.activeFormat;
-                
-                [device setFocusModeLockedWithLensPosition:stats.focusposition completionHandler:nil];
-                [device setExposureModeCustomWithDuration:[stats exposurefor:active.maxExposureDuration and:active.minExposureDuration] ISO:[stats isofor:active.maxISO and:active.minISO] completionHandler:nil];
-                [device setWhiteBalanceModeLockedWithDeviceWhiteBalanceGains:[stats gains:device.deviceWhiteBalanceGains max:device.maxWhiteBalanceGain] completionHandler:nil];
-                [device unlockForConfiguration];
-            }
-        }*/
+        [session startRunning];
     }
 }
 

@@ -48,7 +48,10 @@
     CGFloat previewheight = width * 4.0 / 3.0;
     CGFloat menuheight = height - previewheight;
     
-    NSLog(@"%@, %@, %@", @(height), @(previewheight), @(menuheight));
+    if(menuheight < 60)
+    {
+        menuheight = 60;
+    }
     
     self.comenuheight.constant = menuheight;
     self.copreviewheight.constant = previewheight;
@@ -58,8 +61,12 @@
 
 -(void)addfinder:(AVCaptureSession*)session
 {
-    [self.spinner removeFromSuperview];
-    [self.finder startsession:session];
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       [self.spinner removeFromSuperview];
+                       [self.finder startsession:session];
+                   });
 }
 
 @end
