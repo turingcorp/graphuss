@@ -58,6 +58,9 @@ NSString *documents;
     
     NSString *imgfolder = [documents stringByAppendingPathComponent:@"images"];
     NSString *thumbfolder = [documents stringByAppendingPathComponent:@"thumbs"];
+    
+    [mdirs createdir:[NSURL fileURLWithPath:imgfolder]];
+    [mdirs createdir:[NSURL fileURLWithPath:thumbfolder]];
 }
 
 @end
