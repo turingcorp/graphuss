@@ -3,23 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>screens</key>
-	<array>
-	</array>
+    <array>
+        <string>pic_list</string>
+        <string>camera</string>
+        <string>config</string>
+	<array/>
 	<key>events</key>
 	<array>
+		<string>shoot</string>
 	</array>
 	<key>actions</key>
 	<array>
-		<string>on</string>
-		<string>off</string>
-		<string>opt-in</string>
-		<string>start</string>
-		<string>cancelled</string>
 		<string>error</string>
-		<string>done</string>
-		<string>changed</string>
-		<string>stopped</string>
-		<string>selected</string>
+        <string>start</string>
+        <string>cancel</string>
+        <string>shoot</string>
+        <string>completed</string>
 	</array>
 </dict>
 </plist>

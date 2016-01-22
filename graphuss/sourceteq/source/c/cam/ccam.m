@@ -103,9 +103,15 @@
 
 -(void)insideshoot
 {
+    /*
     [self.output captureStillImageAsynchronouslyFromConnection:[self.output connectionWithMediaType:AVMediaTypeVideo] completionHandler:
      ^(CMSampleBufferRef buffer, NSError *error)
      {
+         if(error)
+         {
+             [];
+         }
+         
 #warning grap
          
          if(_error)
@@ -178,7 +184,7 @@
                  [preview cancel];
              }
          }
-     }];
+     }];*/
 }
 
 #pragma mark public
