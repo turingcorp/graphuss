@@ -6,8 +6,6 @@
 	<string>1072431086</string>
 	<key>version</key>
 	<integer>10</integer>
-	<key>dbfolder</key>
-	<string>sqlite</string>
 	<key>dbname</key>
 	<string>graphuss.db</string>
 </dict>

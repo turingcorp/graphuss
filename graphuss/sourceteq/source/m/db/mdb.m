@@ -7,10 +7,10 @@
     NSUserDefaults *userdef = [NSUserDefaults standardUserDefaults];
     NSDictionary *def = [tools defaultdict];
     
+    NSString *dbfoldername = @"db";
     NSString *defdbname = def[@"dbname"];
-    NSString *defdbfolder = def[@"dbfolder"];
-    NSString *relative = [defdbfolder stringByAppendingPathComponent:defdbname];
-    NSString *dbfolder = [documents stringByAppendingPathComponent:defdbfolder];
+    NSString *relative = [dbfoldername stringByAppendingPathComponent:defdbname];
+    NSString *dbfolder = [documents stringByAppendingPathComponent:dbfoldername];
     [userdef setValue:relative forKey:@"dbname"];
     
     NSString *originaldb = [[NSBundle mainBundle] pathForResource:defdbname ofType:@""];

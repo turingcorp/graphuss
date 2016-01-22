@@ -55,6 +55,9 @@ NSString *documents;
     [userdef setValue:[[NSUUID UUID] UUIDString] forKey:@"uuid"];
     [userdef setValue:dictionary forKey:@"settings"];
     [userdef synchronize];
+    
+    NSString *imgfolder = [documents stringByAppendingPathComponent:@"images"];
+    NSString *thumbfolder = [documents stringByAppendingPathComponent:@"thumbs"];
 }
 
 @end
