@@ -2,7 +2,7 @@
 
 @interface mpicitem:NSObject
 
--(instancetype)init:(NSNumber*)picid created:(NSInteger)created syncstamp:(NSInteger)syncstamp;
+-(instancetype)init:(NSNumber*)picid created:(NSNumber*)created syncstamp:(NSNumber*)syncstamp;
 -(UIImage*)thumb;
 
 @property(nonatomic)NSInteger picid;

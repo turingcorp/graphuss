@@ -5,13 +5,13 @@
     UIImage *thumb;
 }
 
--(instancetype)init:(NSNumber*)picid created:(NSInteger)created syncstamp:(NSInteger)syncstamp
+-(instancetype)init:(NSNumber*)picid created:(NSNumber*)created syncstamp:(NSNumber*)syncstamp
 {
     self = [super init];
     
     self.picid = picid.integerValue;
-    self.created = created;
-    self.syncstamp = syncstamp;
+    self.created = created.integerValue;
+    self.syncstamp = syncstamp.integerValue;
     
     return self;
 }

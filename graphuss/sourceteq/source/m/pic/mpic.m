@@ -42,7 +42,12 @@
                        for(NSInteger i = 0; i < count; i++)
                        {
                            NSDictionary *rawpic = rawpics[i];
-                           NSInteger
+                           NSNumber *picid = rawpic[@"id"];
+                           NSNumber *created = rawpic[@"created"];
+                           NSNumber *syncstamp = rawpic[@"syncstamp"];
+                           
+                           mpicitem *item = [[mpicitem alloc] init:picid created:created syncstamp:syncstamp];
+                           [array addObject:item];
                        }
                        
                        [[NSNotificationCenter defaultCenter] postNotificationName:notreloadpics object:nil];
@@ -75,13 +80,23 @@
                        @(now), @(now)];
     NSInteger picid = [db query_identity:query];
     
-    NSURL *imageurl = [self urlforimage:picid];
-    NSURL *thumburl = [self urlforthumb:picid];
+    NSURL *imageurl = [NSURL fileURLWithPath:[self fileforimage:picid]];
+    NSURL *thumburl = [NSURL fileURLWithPath:[self fileforthumb:picid]];
     
     [UIImageJPEGRepresentation(pic, 1) writeToURL:imageurl atomically:YES];
     [UIImageJPEGRepresentation(pic, 0.01) writeToURL:thumburl atomically:YES];
     
     [self loadpics];
+}
+
+-(NSInteger)count
+{
+    return array.count;
+}
+
+-(mpicitem*)item:(NSInteger)index
+{
+    return array[index];
 }
 
 @end

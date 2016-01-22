@@ -1,5 +1,7 @@
 #import "appdel.h"
 
+@class mpicitem;
+
 @interface mpic:NSObject
 
 +(instancetype)singleton;
@@ -8,6 +10,7 @@
 -(NSString*)fileforthumb:(NSInteger)picid;
 -(void)savepic:(UIImage*)pic;
 -(NSInteger)count;
+-(mpicitem*)item:(NSInteger)index;
 
 
 @property(copy, nonatomic)NSString *imagesfolder;
