@@ -1,13 +1,11 @@
-//
-//  mpic.h
-//  graphuss
-//
-//  Created by zero on 1/22/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
+@interface mpic:NSObject
 
-@interface mpic : NSObject
++(instancetype)singleton;
+-(void)firsttime;
+
+@property(copy, nonatomic)NSString *imagesfolder;
+@property(copy, nonatomic)NSString *thumbsfolder;
 
 @end

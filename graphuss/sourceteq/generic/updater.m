@@ -56,11 +56,7 @@ NSString *documents;
     [userdef setValue:dictionary forKey:@"settings"];
     [userdef synchronize];
     
-    NSString *imgfolder = [documents stringByAppendingPathComponent:@"images"];
-    NSString *thumbfolder = [documents stringByAppendingPathComponent:@"thumbs"];
-    
-    [mdirs createdir:[NSURL fileURLWithPath:imgfolder]];
-    [mdirs createdir:[NSURL fileURLWithPath:thumbfolder]];
+    [mpic firsttime];
 }
 
 @end

@@ -4,3 +4,4 @@
 #import "mdbcreate.h"
 #import "mpages.h"
 #import "mpagesitem.h"
+#import "mpic.h"
