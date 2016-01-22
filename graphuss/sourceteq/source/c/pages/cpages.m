@@ -20,6 +20,7 @@
     self.itemcamera = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(actionright)];
     self.itemlistleft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(actionleft)];
     self.itemlistright = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(actionright)];
+    
     [self loadpage:app_page_list animated:NO];
 }
 

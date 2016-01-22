@@ -46,6 +46,12 @@
 
 #pragma mark functionality
 
+-(void)error:(NSString*)error
+{
+    [[analytics singleton] trackevent:ga_event_shoot action:ga_action_error label:error];
+    NSLog(@"%@", error);
+}
+
 -(void)cleanup
 {
     [self.session stopRunning];
@@ -88,17 +94,11 @@
     
     if(error)
     {
-        NSString *errorstr = error.localizedDescription;
-        [[analytics singleton] trackevent:ga_event_shoot action:ga_action_error label:errorstr];
-        
-        NSLog(@"%@", errorstr);
+        [self error:error.localizedDescription];
     }
     else if(!input)
     {
-        NSString *errorstr = NSLocalizedString(@"error_empty_input", nil);
-        [[analytics singleton] trackevent:ga_event_shoot action:ga_action_error label:errorstr];
-        
-        NSLog(@"%@", errorstr);
+        [self error:NSLocalizedString(@"error_empty_input", nil)];
     }
     else
     {
@@ -113,30 +113,20 @@
 
 -(void)insideshoot
 {
-    /*
     [self.output captureStillImageAsynchronouslyFromConnection:[self.output connectionWithMediaType:AVMediaTypeVideo] completionHandler:
      ^(CMSampleBufferRef buffer, NSError *error)
      {
          if(error)
          {
-             [];
+             [self error:error.localizedDescription];
          }
-         
-#warning grap
-         
-         if(_error)
+         else if(!buffer)
          {
-             [ctralert alert:_error.localizedDescription];
-             [preview cancel];
-         }
-         else if(!_buffer)
-         {
-             [ctralert alert:NSLocalizedString(@"error_wrongbuffer", nil)];
-             [preview cancel];
+             [self error:NSLocalizedString(@"error_wrongbuffer", nil)];
          }
          else
          {
-             NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:_buffer];
+             NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:buffer];
              
              if(data && data.length)
              {
@@ -144,57 +134,19 @@
                  
                  if(image)
                  {
-                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-                                    ^(void)
-                                    {
-                                        UIImage *orientedimage;
-                                        
-                                        switch(orientation)
-                                        {
-                                            case UIDeviceOrientationFaceUp:
-                                            case UIDeviceOrientationPortrait:
-                                            case UIDeviceOrientationUnknown:
-                                                
-                                                orientedimage = image;
-                                                
-                                                break;
-                                                
-                                            case UIDeviceOrientationFaceDown:
-                                            case UIDeviceOrientationPortraitUpsideDown:
-                                                
-                                                orientedimage = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:UIImageOrientationRight];
-                                                
-                                                break;
-                                                
-                                            case UIDeviceOrientationLandscapeLeft:
-                                                
-                                                orientedimage = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:UIImageOrientationUp];
-                                                
-                                                break;
-                                                
-                                            case UIDeviceOrientationLandscapeRight:
-                                                
-                                                orientedimage = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:UIImageOrientationDown];
-                                                
-                                                break;
-                                        }
-                                        
-                                        [preview imagetaken:orientedimage];
-                                    });
+                     
                  }
                  else
                  {
-                     [ctralert alert:NSLocalizedString(@"error_emptypicture", nil)];
-                     [preview cancel];
+                     [self error:NSLocalizedString(@"error_emptypicture", nil)];
                  }
              }
              else
              {
-                 [ctralert alert:NSLocalizedString(@"error_emptypicture", nil)];
-                 [preview cancel];
+                 [self error:NSLocalizedString(@"error_emptypicture", nil)];
              }
          }
-     }];*/
+     }];
 }
 
 #pragma mark public
