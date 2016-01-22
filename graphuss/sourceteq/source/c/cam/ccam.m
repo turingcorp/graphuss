@@ -134,7 +134,7 @@
                  
                  if(image)
                  {
-                     
+                     [self.cam picturetaken:image];
                  }
                  else
                  {

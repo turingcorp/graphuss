@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F067C4693C4A746240A3EA8 /* libPods-graphuss.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DC6396465FBFCB5272311C /* libPods-graphuss.a */; };
+		DA03AF661C52ACE0005DB3C9 /* vcampreview.m in Sources */ = {isa = PBXBuildFile; fileRef = DA03AF651C52ACE0005DB3C9 /* vcampreview.m */; };
 		DA14782D1C5132A30024141B /* analytics.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA14782C1C5132A30024141B /* analytics.plist */; };
 		DA1478381C513A400024141B /* graphuss.db in Resources */ = {isa = PBXBuildFile; fileRef = DA1478371C513A400024141B /* graphuss.db */; };
 		DA14783C1C513BC90024141B /* cpages.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14783B1C513BC90024141B /* cpages.m */; };
@@ -61,6 +62,8 @@
 /* Begin PBXFileReference section */
 		79C0FF78360E9A027FEEB05F /* Pods-graphuss.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphuss.release.xcconfig"; path = "Pods/Target Support Files/Pods-graphuss/Pods-graphuss.release.xcconfig"; sourceTree = "<group>"; };
 		C0DC6396465FBFCB5272311C /* libPods-graphuss.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphuss.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA03AF641C52ACE0005DB3C9 /* vcampreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcampreview.h; sourceTree = "<group>"; };
+		DA03AF651C52ACE0005DB3C9 /* vcampreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcampreview.m; sourceTree = "<group>"; };
 		DA14782C1C5132A30024141B /* analytics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = analytics.plist; sourceTree = "<group>"; };
 		DA1478371C513A400024141B /* graphuss.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphuss.db; sourceTree = "<group>"; };
 		DA14783A1C513BC90024141B /* cpages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpages.h; sourceTree = "<group>"; };
@@ -233,6 +236,8 @@
 				DA1478641C51782C0024141B /* vcamfinder.m */,
 				DA14787D1C51A3A30024141B /* vcammenu.h */,
 				DA14787E1C51A3A30024141B /* vcammenu.m */,
+				DA03AF641C52ACE0005DB3C9 /* vcampreview.h */,
+				DA03AF651C52ACE0005DB3C9 /* vcampreview.m */,
 			);
 			path = cam;
 			sourceTree = "<group>";
@@ -671,6 +676,7 @@
 				DA1478401C51403B0024141B /* cpiclist.m in Sources */,
 				DA3D9A1B1C5126720072F69B /* updater.m in Sources */,
 				DA1478691C517C950024141B /* valert.m in Sources */,
+				DA03AF661C52ACE0005DB3C9 /* vcampreview.m in Sources */,
 				DA1478621C51735C0024141B /* vcam.m in Sources */,
 				DA14785A1C5150930024141B /* mpagesitemconfig.m in Sources */,
 				DA1478511C51500C0024141B /* mpagesitem.m in Sources */,

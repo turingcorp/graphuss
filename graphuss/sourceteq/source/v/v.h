@@ -5,3 +5,4 @@
 #import "vcam.h"
 #import "vcamfinder.h"
 #import "vcammenu.h"
+#import "vcampreview.h"

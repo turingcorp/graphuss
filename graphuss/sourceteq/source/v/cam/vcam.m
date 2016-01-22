@@ -17,8 +17,12 @@
     vcamfinder *finder = [[vcamfinder alloc] init];
     self.finder = finder;
     
+    vcampreview *preview = [[vcampreview alloc] init];
+    self.preview = preview;
+    
     [self addSubview:finder];
     [self addSubview:spinner];
+    [self addSubview:preview];
     [self addSubview:menu];
     
     NSDictionary *views = @{@"spinner":spinner, @"menu":menu, @"finder":finder};
@@ -35,6 +39,8 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[menu]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[finder]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[finder]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[preview]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[preview]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -67,6 +73,11 @@
                        [self.spinner removeFromSuperview];
                        [self.finder startsession:session];
                    });
+}
+
+-(void)picturetaken:(UIImage*)image
+{
+    
 }
 
 @end
