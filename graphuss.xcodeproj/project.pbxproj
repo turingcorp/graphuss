@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5F067C4693C4A746240A3EA8 /* libPods-graphuss.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DC6396465FBFCB5272311C /* libPods-graphuss.a */; };
 		DA03AF661C52ACE0005DB3C9 /* vcampreview.m in Sources */ = {isa = PBXBuildFile; fileRef = DA03AF651C52ACE0005DB3C9 /* vcampreview.m */; };
+		DA03AF6A1C52E312005DB3C9 /* mpic.m in Sources */ = {isa = PBXBuildFile; fileRef = DA03AF691C52E312005DB3C9 /* mpic.m */; };
 		DA14782D1C5132A30024141B /* analytics.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA14782C1C5132A30024141B /* analytics.plist */; };
 		DA1478381C513A400024141B /* graphuss.db in Resources */ = {isa = PBXBuildFile; fileRef = DA1478371C513A400024141B /* graphuss.db */; };
 		DA14783C1C513BC90024141B /* cpages.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14783B1C513BC90024141B /* cpages.m */; };
@@ -64,6 +65,8 @@
 		C0DC6396465FBFCB5272311C /* libPods-graphuss.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-graphuss.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA03AF641C52ACE0005DB3C9 /* vcampreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcampreview.h; sourceTree = "<group>"; };
 		DA03AF651C52ACE0005DB3C9 /* vcampreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcampreview.m; sourceTree = "<group>"; };
+		DA03AF681C52E312005DB3C9 /* mpic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpic.h; sourceTree = "<group>"; };
+		DA03AF691C52E312005DB3C9 /* mpic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpic.m; sourceTree = "<group>"; };
 		DA14782C1C5132A30024141B /* analytics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = analytics.plist; sourceTree = "<group>"; };
 		DA1478371C513A400024141B /* graphuss.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphuss.db; sourceTree = "<group>"; };
 		DA14783A1C513BC90024141B /* cpages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpages.h; sourceTree = "<group>"; };
@@ -172,6 +175,15 @@
 				C0DC6396465FBFCB5272311C /* libPods-graphuss.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA03AF671C52E302005DB3C9 /* pic */ = {
+			isa = PBXGroup;
+			children = (
+				DA03AF681C52E312005DB3C9 /* mpic.h */,
+				DA03AF691C52E312005DB3C9 /* mpic.m */,
+			);
+			path = pic;
 			sourceTree = "<group>";
 		};
 		DA1478391C513BB40024141B /* pages */ = {
@@ -448,6 +460,7 @@
 			children = (
 				DA3D9A011C5126720072F69B /* m.h */,
 				DA3D99F31C5126720072F69B /* db */,
+				DA03AF671C52E302005DB3C9 /* pic */,
 				DA3D99FA1C5126720072F69B /* dirs */,
 				DA14784B1C514F0C0024141B /* pages */,
 				DA3D99FD1C5126720072F69B /* general */,
@@ -675,6 +688,7 @@
 				DA3D9A1A1C5126720072F69B /* tools.m in Sources */,
 				DA1478401C51403B0024141B /* cpiclist.m in Sources */,
 				DA3D9A1B1C5126720072F69B /* updater.m in Sources */,
+				DA03AF6A1C52E312005DB3C9 /* mpic.m in Sources */,
 				DA1478691C517C950024141B /* valert.m in Sources */,
 				DA03AF661C52ACE0005DB3C9 /* vcampreview.m in Sources */,
 				DA1478621C51735C0024141B /* vcam.m in Sources */,
