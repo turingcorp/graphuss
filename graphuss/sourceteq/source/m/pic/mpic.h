@@ -4,8 +4,8 @@
 
 +(instancetype)singleton;
 -(void)firsttime;
--(NSURL*)urlforimage:(NSInteger)picid;
--(NSURL*)urlforthumb:(NSInteger)picid;
+-(NSString*)fileforimage:(NSInteger)picid;
+-(NSString*)fileforthumb:(NSInteger)picid;
 -(void)savepic:(UIImage*)pic;
 -(NSInteger)count;
 

@@ -35,6 +35,16 @@
                    {
                        array = [NSMutableArray array];
                        
+                       NSString *query = @"SELECT id, created, syncstamp FROM pic ORDER BY created asc;";
+                       NSArray *rawpics = [db rows:query];
+                       NSInteger count = rawpics.count;
+                       
+                       for(NSInteger i = 0; i < count; i++)
+                       {
+                           NSDictionary *rawpic = rawpics[i];
+                           NSInteger
+                       }
+                       
                        [[NSNotificationCenter defaultCenter] postNotificationName:notreloadpics object:nil];
                    });
 }
@@ -47,14 +57,14 @@
     [mdirs createdir:[NSURL fileURLWithPath:self.thumbsfolder]];
 }
 
--(NSURL*)urlforimage:(NSInteger)picid
+-(NSString*)fileforimage:(NSInteger)picid
 {
-    return [NSURL fileURLWithPath:[self.imagesfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", @(picid)]]];
+    return [self.imagesfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", @(picid)]];
 }
 
--(NSURL*)urlforthumb:(NSInteger)picid
+-(NSString*)fileforthumb:(NSInteger)picid
 {
-    return [NSURL fileURLWithPath:[self.thumbsfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", @(picid)]]];
+    return [self.thumbsfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", @(picid)]];
 }
 
 -(void)savepic:(UIImage*)pic

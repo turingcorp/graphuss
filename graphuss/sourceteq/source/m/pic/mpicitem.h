@@ -1,13 +1,12 @@
-//
-//  mpicitem.h
-//  graphuss
-//
-//  Created by zero on 1/22/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
+@interface mpicitem:NSObject
 
-@interface mpicitem : NSObject
+-(instancetype)init:(NSNumber*)picid created:(NSInteger)created syncstamp:(NSInteger)syncstamp;
+-(UIImage*)thumb;
+
+@property(nonatomic)NSInteger picid;
+@property(nonatomic)NSInteger created;
+@property(nonatomic)NSInteger syncstamp;
 
 @end

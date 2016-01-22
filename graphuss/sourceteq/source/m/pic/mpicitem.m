@@ -1,13 +1,31 @@
-//
-//  mpicitem.m
-//  graphuss
-//
-//  Created by zero on 1/22/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
-
 #import "mpicitem.h"
 
 @implementation mpicitem
+{
+    UIImage *thumb;
+}
+
+-(instancetype)init:(NSNumber*)picid created:(NSInteger)created syncstamp:(NSInteger)syncstamp
+{
+    self = [super init];
+    
+    self.picid = picid.integerValue;
+    self.created = created;
+    self.syncstamp = syncstamp;
+    
+    return self;
+}
+
+#pragma mark public
+
+-(UIImage*)thumb
+{
+    if(!thumb)
+    {
+        thumb = [UIImage imageWithContentsOfFile:[[mpic singleton] fileforthumb:self.picid]];
+    }
+    
+    return thumb;
+}
 
 @end
