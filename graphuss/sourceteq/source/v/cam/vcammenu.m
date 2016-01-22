@@ -59,8 +59,7 @@
 
 -(void)actionshoot:(UIButton*)button
 {
-    [button setEnabled:NO];
-    [(ccam*)self.viewcam.controller shoot];
+    [self.viewcam takepicture];
 }
 
 @end

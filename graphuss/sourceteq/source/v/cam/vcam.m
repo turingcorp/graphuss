@@ -25,22 +25,23 @@
     [self addSubview:preview];
     [self addSubview:menu];
     
-    NSDictionary *views = @{@"spinner":spinner, @"menu":menu, @"finder":finder};
+    NSDictionary *views = @{@"spinner":spinner, @"menu":menu, @"finder":finder, @"preview":preview};
     NSDictionary *metrics = @{};
     
     self.comenuheight = [NSLayoutConstraint constraintWithItem:menu attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:50];
-    self.copreviewheight = [NSLayoutConstraint constraintWithItem:finder attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:0];
+    self.cofinderheight = [NSLayoutConstraint constraintWithItem:finder attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:0];
+    self.copreviewheight = [NSLayoutConstraint constraintWithItem:preview attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:0];
     
     [self addConstraint:self.comenuheight];
+    [self addConstraint:self.cofinderheight];
     [self addConstraint:self.copreviewheight];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[spinner]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[spinner(50)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[menu]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[menu]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[preview]-0-[menu]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[finder]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[finder]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[preview]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[preview]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -60,7 +61,25 @@
     }
     
     self.comenuheight.constant = menuheight;
-    self.copreviewheight.constant = previewheight;
+    self.cofinderheight.constant = previewheight;
+}
+
+#pragma mark functionality
+
+-(void)animatepreviewshow
+{
+    self.copreviewheight.constant = self.cofinderheight.constant;
+    
+    [UIView animateWithDuration:0.3 animations:
+     ^(void)
+     {
+         [self layoutIfNeeded];
+     }];
+}
+
+-(void)animatepreviewhide
+{
+    
 }
 
 #pragma mark public
@@ -75,9 +94,16 @@
                    });
 }
 
+-(void)takepicture
+{
+    [self.menu setUserInteractionEnabled:NO];
+    [(ccam*)self.controller shoot];
+    [self animatepreviewshow];
+}
+
 -(void)picturetaken:(UIImage*)image
 {
-    
+    [self.preview showimage:image];
 }
 
 @end

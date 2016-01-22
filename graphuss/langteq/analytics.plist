@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>screens</key>
-    <array>
-        <string>pic_list</string>
-        <string>camera</string>
-        <string>config</string>
+	<array>
+		<string>pic_list</string>
+		<string>camera</string>
+		<string>config</string>
 	</array>
 	<key>events</key>
 	<array>
@@ -15,10 +15,9 @@
 	<key>actions</key>
 	<array>
 		<string>error</string>
-        <string>start</string>
-        <string>cancel</string>
-        <string>shoot</string>
-        <string>completed</string>
+		<string>start</string>
+		<string>shoot</string>
+		<string>completed</string>
 	</array>
 </dict>
 </plist>

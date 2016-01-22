@@ -9,6 +9,7 @@
 @interface vcam:viewbase
 
 -(void)addfinder:(AVCaptureSession*)session;
+-(void)takepicture;
 -(void)picturetaken:(UIImage*)image;
 
 @property(weak, nonatomic)vcamfinder *finder;
@@ -16,6 +17,7 @@
 @property(weak, nonatomic)vcammenu *menu;
 @property(weak, nonatomic)vcampreview *preview;
 @property(weak, nonatomic)NSLayoutConstraint *comenuheight;
+@property(weak, nonatomic)NSLayoutConstraint *cofinderheight;
 @property(weak, nonatomic)NSLayoutConstraint *copreviewheight;
 
 @end
