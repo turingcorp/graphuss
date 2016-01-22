@@ -35,6 +35,9 @@
 		DA14787B1C51A04E0024141B /* spinner3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478721C51A04E0024141B /* spinner3@2x.png */; };
 		DA14787C1C51A04E0024141B /* spinner3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478731C51A04E0024141B /* spinner3@3x.png */; };
 		DA14787F1C51A3A30024141B /* vcammenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14787E1C51A3A30024141B /* vcammenu.m */; };
+		DA1478831C51B5060024141B /* shoot.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478801C51B5060024141B /* shoot.png */; };
+		DA1478841C51B5060024141B /* shoot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478811C51B5060024141B /* shoot@2x.png */; };
+		DA1478851C51B5060024141B /* shoot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478821C51B5060024141B /* shoot@3x.png */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -98,6 +101,9 @@
 		DA1478731C51A04E0024141B /* spinner3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spinner3@3x.png"; sourceTree = "<group>"; };
 		DA14787D1C51A3A30024141B /* vcammenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcammenu.h; sourceTree = "<group>"; };
 		DA14787E1C51A3A30024141B /* vcammenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcammenu.m; sourceTree = "<group>"; };
+		DA1478801C51B5060024141B /* shoot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoot.png; sourceTree = "<group>"; };
+		DA1478811C51B5060024141B /* shoot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shoot@2x.png"; sourceTree = "<group>"; };
+		DA1478821C51B5060024141B /* shoot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shoot@3x.png"; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -306,6 +312,9 @@
 		DA3D99CA1C5126720072F69B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DA1478801C51B5060024141B /* shoot.png */,
+				DA1478811C51B5060024141B /* shoot@2x.png */,
+				DA1478821C51B5060024141B /* shoot@3x.png */,
 				DA14786A1C51A04E0024141B /* spinner */,
 				DA1478451C51452F0024141B /* engine.png */,
 				DA1478461C51452F0024141B /* engine@2x.png */,
@@ -570,6 +579,7 @@
 				DA1478491C51452F0024141B /* engine@2x.png in Resources */,
 				DAE468E01C512F30006EBE52 /* in in Resources */,
 				DA1478751C51A04E0024141B /* spinner1@2x.png in Resources */,
+				DA1478831C51B5060024141B /* shoot.png in Resources */,
 				DA1478781C51A04E0024141B /* spinner2@2x.png in Resources */,
 				DA3D9A151C5126720072F69B /* Localizable.strings in Resources */,
 				DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */,
@@ -580,7 +590,9 @@
 				DA14787C1C51A04E0024141B /* spinner3@3x.png in Resources */,
 				DA1478741C51A04E0024141B /* spinner1.png in Resources */,
 				DA1478381C513A400024141B /* graphuss.db in Resources */,
+				DA1478851C51B5060024141B /* shoot@3x.png in Resources */,
 				DA1478771C51A04E0024141B /* spinner2.png in Resources */,
+				DA1478841C51B5060024141B /* shoot@2x.png in Resources */,
 				DA14782D1C5132A30024141B /* analytics.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
