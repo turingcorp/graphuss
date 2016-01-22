@@ -106,6 +106,8 @@
     [self.output captureStillImageAsynchronouslyFromConnection:[self.output connectionWithMediaType:AVMediaTypeVideo] completionHandler:
      ^(CMSampleBufferRef buffer, NSError *error)
      {
+#warning grap
+         
          if(_error)
          {
              [ctralert alert:_error.localizedDescription];
