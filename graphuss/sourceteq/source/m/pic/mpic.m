@@ -29,4 +29,14 @@
     [mdirs createdir:[NSURL fileURLWithPath:self.thumbsfolder]];
 }
 
+-(NSURL*)urlforimage:(NSInteger)picid
+{
+    return [NSURL fileURLWithPath:[self.imagesfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", @(picid)]]];
+}
+
+-(NSURL*)urlforthum:(NSInteger)picid
+{
+    return [NSURL fileURLWithPath:[self.thumbsfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", @(picid)]]];
+}
+
 @end
