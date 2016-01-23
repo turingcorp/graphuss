@@ -74,7 +74,7 @@
 
 -(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
 {
-    
+    [(cpiclist*)self.controller detailpic:index.item];
 }
 
 @end
