@@ -1,13 +1,14 @@
-//
-//  vpicdetail.m
-//  graphuss
-//
-//  Created by zero on 1/23/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
-
 #import "vpicdetail.h"
 
 @implementation vpicdetail
+
+-(instancetype)init:(cpicdetail*)controller
+{
+    self = [super init:controller];
+    [self setClipsToBounds:YES];
+    [self setBackgroundColor:[UIColor whiteColor]];
+    
+    return self;
+}
 
 @end

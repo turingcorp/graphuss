@@ -20,7 +20,7 @@
 
 -(void)loadView
 {
-    self.view = [[UIView alloc] init];
+    self.view = [[vpicdetail alloc] init];
 }
 
 @end

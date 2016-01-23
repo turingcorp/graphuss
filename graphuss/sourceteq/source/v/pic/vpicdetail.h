@@ -1,13 +1,6 @@
-//
-//  vpicdetail.h
-//  graphuss
-//
-//  Created by zero on 1/23/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
+#import "viewbase.h"
 
-#import <Foundation/Foundation.h>
-
-@interface vpicdetail : NSObject
+@interface vpicdetail:viewbase
 
 @end

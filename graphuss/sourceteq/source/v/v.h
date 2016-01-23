@@ -3,6 +3,7 @@
 #import "vpiclist.h"
 #import "vpiclistlayout.h"
 #import "vpiclistcel.h"
+#import "vpicdetail.h"
 #import "valert.h"
 #import "vcam.h"
 #import "vcamfinder.h"
