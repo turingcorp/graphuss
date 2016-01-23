@@ -5,6 +5,20 @@
     NSMutableArray *array;
 }
 
++(UIImage*)scaleimage:(UIImage*)image scale:(CGFloat)scale
+{
+    CGFloat newwidth = image.size.width * scale;
+    CGFloat newheight = image.size.height * scale;
+    
+    UIGraphicsBeginImageContextWithOptions( CGSizeMake(newwidth, newheight), NO, 1 );
+    CGRect scaledImageRect = CGRectMake( 0.0, 0.0, newwidth, newheight );
+    [image drawInRect:scaledImageRect];
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return scaledImage;
+}
+
 +(instancetype)singleton
 {
     static mpic *single;
@@ -59,6 +73,32 @@
     NSLog(@"%@", error);
 }
 
+-(BOOL)save:(NSString*)name image:(UIImage*)image
+{
+    BOOL success = YES;
+    NSError *error;
+    
+//    [UIImageJPEGRepresentation(image, 1.0) writeToFile:[self fileforimage:name] options:NSDataWritingAtomic error:&error];
+    
+    if(error)
+    {
+        success = NO;
+        [self error:error.localizedDescription];
+    }
+    else
+    {
+        [UIImageJPEGRepresentation([mpic scaleimage:image scale:0.1], 0.0) writeToFile:[self fileforthumb:name] options:NSDataWritingAtomic error:&error];
+        
+        if(error)
+        {
+            success = NO;
+            [self error:error.localizedDescription];
+        }
+    }
+
+    return success;
+}
+            
 #pragma mark public
 
 -(void)firsttime
@@ -81,32 +121,16 @@
 {
     NSInteger now = [NSDate date].timeIntervalSince1970;
     NSString *name = [NSString stringWithFormat:@"%@", @(now)];
-    NSError *error;
     
-    [UIImageJPEGRepresentation(pic, 1.0) writeToFile:[self fileforimage:name] options:NSDataWritingAtomic error:&error];
-    
-    if(error)
+    if([self save:name image:pic])
     {
-        [self error:error.localizedDescription];
-    }
-    else
-    {
-        [UIImageJPEGRepresentation(pic, 0.0) writeToFile:[self fileforthumb:name] options:NSDataWritingAtomic error:&error];
+        NSString *query = [NSString stringWithFormat:
+                           @"INSERT INTO pic (name) values(%@);",
+                           name];
+        [db query:query];
         
-        if(error)
-        {
-            [self error:error.localizedDescription];
-        }
-        else
-        {
-            NSString *query = [NSString stringWithFormat:
-                               @"INSERT INTO pic (name) values(%@);",
-                               name];
-            [db query:query];
-            
-            [[analytics singleton] trackevent:ga_event_shoot action:ga_action_completed label:nil];
-            [self loadpics];
-        }
+        [[analytics singleton] trackevent:ga_event_shoot action:ga_action_completed label:nil];
+        [self loadpics];
     }
 }
 
@@ -118,6 +142,13 @@
 -(mpicitem*)item:(NSInteger)index
 {
     return array[index];
+}
+
+-(void)update:(NSString*)name image:(UIImage*)image
+{
+    [self save:name image:image];
+    
+    [self loadpics];
 }
 
 @end

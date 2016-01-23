@@ -4,6 +4,7 @@
 
 @interface mpic:NSObject
 
++(UIImage*)scaleimage:(UIImage*)image scale:(CGFloat)scale;
 +(instancetype)singleton;
 -(void)firsttime;
 -(NSString*)fileforimage:(NSString*)picname;
@@ -11,6 +12,7 @@
 -(void)savepic:(UIImage*)pic;
 -(NSInteger)count;
 -(mpicitem*)item:(NSInteger)index;
+-(void)update:(NSString*)name image:(UIImage*)image;
 
 
 @property(copy, nonatomic)NSString *imagesfolder;

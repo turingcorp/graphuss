@@ -160,6 +160,7 @@
     UIImage *oriented = [UIImage imageWithCGImage:original.CGImage scale:1 orientation:orientation];
     
     [self.detail.image setImage:oriented];
+    [self.detail.pic update:oriented];
 }
 
 @end

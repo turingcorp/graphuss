@@ -15,9 +15,9 @@
 {
     self = [super init];
     
-    padding = 0.5;
+    padding = 2;
     padding2 = padding * 2;
-    mincols = 3;
+    mincols = 1;
     maxcols = 6;
     
     return self;
