@@ -13,6 +13,7 @@
     [image setContentMode:UIViewContentModeScaleAspectFill];
     [image setUserInteractionEnabled:NO];
     [image setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [image.layer setCornerRadius:4];
     self.image = image;
     
     [self addSubview:image];
