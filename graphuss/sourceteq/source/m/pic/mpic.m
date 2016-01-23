@@ -44,8 +44,6 @@
                            NSDictionary *rawpic = rawpics[i];
                            NSString *name = rawpic[@"name"];
                            NSNumber *picid = rawpic[@"id"];
-                           NSNumber *created = rawpic[@"created"];
-                           NSNumber *syncstamp = rawpic[@"syncstamp"];
                            
                            mpicitem *item = [[mpicitem alloc] init:picid name:name];
                            [array addObject:item];
