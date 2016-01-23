@@ -17,6 +17,12 @@
     
     [self addSubview:image];
     
+    NSDictionary *views = @{@"image":image};
+    NSDictionary *metrics = @{};
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[image]-20-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[image]-20-|" options:0 metrics:metrics views:views]];
+    
     return self;
 }
 
@@ -24,10 +30,22 @@
 
 -(void)loadpic:(mpicitem*)pic
 {
-    if(!self.image.image)
-    {
-        
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       self.pic = pic;
+                       
+                       if(!self.image.image)
+                       {
+                           UIImage *image = [UIImage imageWithContentsOfFile:[[mpic singleton] fileforimage:pic.name]];
+                           
+                           dispatch_async(dispatch_get_main_queue(),
+                                          ^
+                                          {
+                                              [self.image setImage:image];
+                                          });
+                       }
+                   });
 }
 
 @end

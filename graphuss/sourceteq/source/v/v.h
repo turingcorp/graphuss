@@ -9,3 +9,4 @@
 #import "vcamfinder.h"
 #import "vcammenu.h"
 #import "vcampreview.h"
+#import "vpicdetailmenu.h"
