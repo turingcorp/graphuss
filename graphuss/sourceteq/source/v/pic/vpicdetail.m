@@ -53,4 +53,20 @@
                    });
 }
 
+-(void)showedit
+{
+    [self.overview removeFromSuperview];
+    
+    vpicdetailedit *edit = [[vpicdetailedit alloc] init];
+    self.overview = edit;
+    
+    [self addSubview:edit];
+    
+    NSDictionary *views = @{@"edit":edit, @"menu":self.menu};
+    NSDictionary *metrics = @{};
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[edit]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[image(80)]-0-[menu]" options:0 metrics:metrics views:views]];
+}
+
 @end

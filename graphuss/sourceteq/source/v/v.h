@@ -10,3 +10,4 @@
 #import "vcammenu.h"
 #import "vcampreview.h"
 #import "vpicdetailmenu.h"
+#import "vpicdetailedit.h"
