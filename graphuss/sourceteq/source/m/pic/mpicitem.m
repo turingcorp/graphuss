@@ -12,20 +12,11 @@
     self.picid = picid.integerValue;
     self.created = created.integerValue;
     self.syncstamp = syncstamp.integerValue;
+    self.thumb = [UIImage imageWithContentsOfFile:[[mpic singleton] fileforthumb:self.picid]];
+    self.width = self.thumb.size.width;
+    self.height = self.thumb.size.height;
     
     return self;
-}
-
-#pragma mark public
-
--(UIImage*)thumb
-{
-    if(!thumb)
-    {
-        thumb = [UIImage imageWithContentsOfFile:[[mpic singleton] fileforthumb:self.picid]];
-    }
-    
-    return thumb;
 }
 
 @end

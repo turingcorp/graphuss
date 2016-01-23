@@ -20,6 +20,8 @@
     CGFloat padding = 2;
     CGFloat columnwidth;
     CGFloat columns;
+    CGFloat imagewidth;
+    NSInteger items = [self.collectionView numberOfItemsInSection:0];
     
     if(width < 800)
     {
@@ -31,10 +33,16 @@
     }
     
     columnwidth = width / columns;
+    imagewidth = columnwidth - (padding * 2);
     
     for(NSInteger i = 0; i < columns; i++)
     {
         [xoff addObject:@(i * columnwidth)];
+    }
+    
+    for(NSInteger i = 0; i < items; i++)
+    {
+        NSIndexPath *indexpath = [NSIndexPath indexPathForItem:i inSection:0];
     }
 }
 
