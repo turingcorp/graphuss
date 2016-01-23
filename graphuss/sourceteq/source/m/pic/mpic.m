@@ -74,9 +74,10 @@
 -(void)savepic:(UIImage*)pic
 {
     NSInteger now = [NSDate date].timeIntervalSince1970;
+    NSString *name = [NSString stringWithFormat:@"%@", @(now)];
     NSString *query = [NSString stringWithFormat:
-                       @"INSERT INTO pic (created, syncstamp) values(%@, %@);",
-                       @(now), @(now)];
+                       @"INSERT INTO pic (name) values(%@);",
+                       name];
     NSInteger picid = [db query_identity:query];
     
     NSURL *imageurl = [NSURL fileURLWithPath:[self fileforimage:picid]];
