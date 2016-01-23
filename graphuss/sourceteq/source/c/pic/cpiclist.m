@@ -18,7 +18,7 @@
 
 -(void)detailpic:(NSInteger)index
 {
-    
+    [[cmain singleton] pushViewController:[[cpicdetail alloc] init] animated:YES];
 }
 
 @end

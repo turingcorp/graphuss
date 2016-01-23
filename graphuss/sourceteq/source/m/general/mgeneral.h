@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, app_page)
 typedef NS_ENUM(NSInteger, ga_screen)
 {
     ga_screen_pic_list,
+    ga_screen_pic_detail,
     ga_screen_camera,
     ga_screen_config
 };

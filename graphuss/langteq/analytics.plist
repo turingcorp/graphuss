@@ -4,7 +4,8 @@
 <dict>
 	<key>screens</key>
 	<array>
-		<string>pic_list</string>
+		<string>pic/list</string>
+		<string>pic/detail</string>
 		<string>camera</string>
 		<string>config</string>
 	</array>
