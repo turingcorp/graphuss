@@ -83,7 +83,7 @@
     NSString *name = [NSString stringWithFormat:@"%@", @(now)];
     NSError *error;
     
-    [UIImageJPEGRepresentation(pic, 1) writeToFile:[self fileforimage:name] options:NSDataWritingAtomic error:&error];
+    [UIImageJPEGRepresentation(pic, 1.0) writeToFile:[self fileforimage:name] options:NSDataWritingAtomic error:&error];
     
     if(error)
     {
@@ -91,7 +91,7 @@
     }
     else
     {
-        [UIImageJPEGRepresentation(pic, 0.001) writeToFile:[self fileforthumb:name] options:NSDataWritingAtomic error:&error];
+        [UIImageJPEGRepresentation(pic, 0.0) writeToFile:[self fileforthumb:name] options:NSDataWritingAtomic error:&error];
         
         if(error)
         {
