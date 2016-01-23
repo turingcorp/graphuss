@@ -47,11 +47,21 @@
     for(NSInteger i = 0; i < items; i++)
     {
         currentcol = i % columns;
+        
         NSIndexPath *indexpath = [NSIndexPath indexPathForItem:i inSection:0];
         CGFloat height = [[[mpic singleton] item:i] heightforwidth:width];
         CGFloat heightpadding = height + padding2;
-        CGRect frame = CGRectMake([xoff[currentcol] floatValue], 0, columnwidth, heightpadding);
+        CGFloat x = [xoff[currentcol] floatValue];
+        CGFloat y = [yoff[currentcol] floatValue];
+        CGRect frame = CGRectMake(x, y, columnwidth, heightpadding);
         CGRect inset = CGRectInset(frame, padding, padding);
+        
+        yoff[currentcol] = @(y + heightpadding);
+        
+        UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexpath];
+        [attr setFrame:inset];
+        
+        [attrs addObject:attr];
     }
 }
 
