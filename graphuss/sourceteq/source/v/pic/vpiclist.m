@@ -7,8 +7,10 @@
     self = [super init:controller];
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor whiteColor]];
+
+    vpiclistlayout *layout = [[vpiclistlayout alloc] init];
     
-    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:[[vpiclistlayout alloc] init]];
+    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     [collection setBackgroundColor:[UIColor clearColor]];
     [collection setClipsToBounds:YES];
     [collection setShowsHorizontalScrollIndicator:NO];

@@ -20,9 +20,15 @@
 
 -(CGFloat)heightforwidth:(CGFloat)width
 {
+    CGFloat height = 0;
     CGFloat ratio = self.width / width;
     
-    return self.height / ratio;
+    if(ratio)
+    {
+        height = self.height / ratio;
+    }
+    
+    return height;
 }
 
 @end

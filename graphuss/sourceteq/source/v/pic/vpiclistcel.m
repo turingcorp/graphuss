@@ -30,7 +30,7 @@
 
 -(void)config:(mpicitem*)pic
 {
-    [self.image setImage:[pic thumb]];
+    [self.image setImage:pic.thumb];
 }
 
 @end
