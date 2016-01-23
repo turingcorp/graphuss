@@ -35,18 +35,19 @@
                    {
                        array = [NSMutableArray array];
                        
-                       NSString *query = @"SELECT id, created, syncstamp FROM pic ORDER BY created asc;";
+                       NSString *query = @"SELECT id, name FROM pic ORDER BY id ASC;";
                        NSArray *rawpics = [db rows:query];
                        NSInteger count = rawpics.count;
                        
                        for(NSInteger i = 0; i < count; i++)
                        {
                            NSDictionary *rawpic = rawpics[i];
+                           NSString *name = rawpic[@"name"];
                            NSNumber *picid = rawpic[@"id"];
                            NSNumber *created = rawpic[@"created"];
                            NSNumber *syncstamp = rawpic[@"syncstamp"];
                            
-                           mpicitem *item = [[mpicitem alloc] init:picid created:created syncstamp:syncstamp];
+                           mpicitem *item = [[mpicitem alloc] init:picid name:name];
                            [array addObject:item];
                        }
                        
