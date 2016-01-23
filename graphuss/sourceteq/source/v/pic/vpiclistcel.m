@@ -27,11 +27,38 @@
     return self;
 }
 
+-(void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    [self hover];
+}
+
+-(void)setHighlighted:(BOOL)highlighted
+{
+    [super setHighlighted:highlighted];
+    [self hover];
+}
+
+#pragma mark functionality
+
+-(void)hover
+{
+    if(self.isSelected || self.isHighlighted)
+    {
+        [self.image setAlpha:0.2];
+    }
+    else
+    {
+        [self.image setAlpha:1];
+    }
+}
+
 #pragma mark public
 
 -(void)config:(mpicitem*)pic
 {
     [self.image setImage:pic.thumb];
+    [self hover];
 }
 
 @end
