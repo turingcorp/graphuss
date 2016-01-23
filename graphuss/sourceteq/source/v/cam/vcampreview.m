@@ -9,7 +9,7 @@
     [self setBackgroundColor:[UIColor clearColor]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
-    vblur *blur = [vblur light];
+    vblur *blur = [vblur light:YES];
     
     UIView *border = [[UIView alloc] init];
     [border setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.2]];

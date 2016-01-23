@@ -28,7 +28,7 @@
     }
     else
     {
-        [blur lightbackground];
+        [blur lightbackground:extra];
     }
     
     return blur;
