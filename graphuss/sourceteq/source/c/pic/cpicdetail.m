@@ -2,6 +2,15 @@
 
 @implementation cpicdetail
 
+-(instancetype)init:(mpicitem*)pic
+{
+    self = [super init];
+    
+    self.pic = pic;
+    
+    return self;
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
