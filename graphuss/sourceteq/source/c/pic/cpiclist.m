@@ -14,4 +14,11 @@
     self.view = [[vpiclist alloc] init:self];
 }
 
+#pragma mark public
+
+-(void)detailpic:(NSInteger)index
+{
+    
+}
+
 @end

@@ -13,6 +13,7 @@
 		DA03AF6D1C52E987005DB3C9 /* mpicitem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA03AF6C1C52E987005DB3C9 /* mpicitem.m */; };
 		DA03AF701C52EF19005DB3C9 /* vpiclistcel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA03AF6F1C52EF19005DB3C9 /* vpiclistcel.m */; };
 		DA03AF731C52FB30005DB3C9 /* vpiclistlayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DA03AF721C52FB30005DB3C9 /* vpiclistlayout.m */; };
+		DA0C209C1C5356D900C386EC /* cpicdetail.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C209B1C5356D900C386EC /* cpicdetail.m */; };
 		DA14782D1C5132A30024141B /* analytics.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA14782C1C5132A30024141B /* analytics.plist */; };
 		DA1478381C513A400024141B /* graphuss.db in Resources */ = {isa = PBXBuildFile; fileRef = DA1478371C513A400024141B /* graphuss.db */; };
 		DA14783C1C513BC90024141B /* cpages.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14783B1C513BC90024141B /* cpages.m */; };
@@ -76,6 +77,8 @@
 		DA03AF6F1C52EF19005DB3C9 /* vpiclistcel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpiclistcel.m; sourceTree = "<group>"; };
 		DA03AF711C52FB30005DB3C9 /* vpiclistlayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpiclistlayout.h; sourceTree = "<group>"; };
 		DA03AF721C52FB30005DB3C9 /* vpiclistlayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpiclistlayout.m; sourceTree = "<group>"; };
+		DA0C209A1C5356D900C386EC /* cpicdetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpicdetail.h; sourceTree = "<group>"; };
+		DA0C209B1C5356D900C386EC /* cpicdetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cpicdetail.m; sourceTree = "<group>"; };
 		DA14782C1C5132A30024141B /* analytics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = analytics.plist; sourceTree = "<group>"; };
 		DA1478371C513A400024141B /* graphuss.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphuss.db; sourceTree = "<group>"; };
 		DA14783A1C513BC90024141B /* cpages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpages.h; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 			children = (
 				DA14783E1C51403B0024141B /* cpiclist.h */,
 				DA14783F1C51403B0024141B /* cpiclist.m */,
+				DA0C209A1C5356D900C386EC /* cpicdetail.h */,
+				DA0C209B1C5356D900C386EC /* cpicdetail.m */,
 			);
 			path = pic;
 			sourceTree = "<group>";
@@ -713,6 +718,7 @@
 				DA14785A1C5150930024141B /* mpagesitemconfig.m in Sources */,
 				DA1478511C51500C0024141B /* mpagesitem.m in Sources */,
 				DA3D9A221C5126720072F69B /* mdbcreate.m in Sources */,
+				DA0C209C1C5356D900C386EC /* cpicdetail.m in Sources */,
 				DA1478571C5150860024141B /* mpagesitemlist.m in Sources */,
 				DA3D9A251C5126720072F69B /* vblur.m in Sources */,
 			);
