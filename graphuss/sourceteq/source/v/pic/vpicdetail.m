@@ -59,7 +59,7 @@
 {
     [self.overview removeFromSuperview];
     
-    vpicdetailedit *edit = [[vpicdetailedit alloc] init];
+    vpicdetailedit *edit = [[vpicdetailedit alloc] init:self];
     self.overview = edit;
     
     [self addSubview:edit];
