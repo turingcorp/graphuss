@@ -1,9 +1,6 @@
 #import "mpicitem.h"
 
 @implementation mpicitem
-{
-    UIImage *thumb;
-}
 
 -(instancetype)init:(NSNumber*)picid created:(NSNumber*)created syncstamp:(NSNumber*)syncstamp
 {
@@ -17,6 +14,15 @@
     self.height = self.thumb.size.height;
     
     return self;
+}
+
+#pragma mark public
+
+-(CGFloat)heightforwidth:(CGFloat)width
+{
+    CGFloat ratio = self.width / width;
+    
+    return self.height / ratio;
 }
 
 @end

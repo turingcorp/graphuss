@@ -3,6 +3,7 @@
 @interface mpicitem:NSObject
 
 -(instancetype)init:(NSNumber*)picid created:(NSNumber*)created syncstamp:(NSNumber*)syncstamp;
+-(CGFloat)heightforwidth:(CGFloat)width;
 
 @property(strong, nonatomic)UIImage *thumb;
 @property(nonatomic)CGFloat width;
