@@ -38,12 +38,128 @@
 
 -(void)actionrotateleft
 {
-    [self.detail.image setTransform:CGAffineTransformMakeRotation(-90 * M_PI / 180.0)];
+    UIImageOrientation next;
+    
+    switch(self.detail.image.image.imageOrientation)
+    {
+        case UIImageOrientationDown:
+            
+            next = UIImageOrientationRight;
+            
+            break;
+            
+        case UIImageOrientationUp:
+            
+            next = UIImageOrientationLeft;
+            
+            break;
+            
+        case UIImageOrientationLeft:
+            
+            next = UIImageOrientationDown;
+            
+            break;
+            
+        case UIImageOrientationRight:
+            
+            next = UIImageOrientationUp;
+            
+            break;
+            
+        case UIImageOrientationDownMirrored:
+            
+            next = UIImageOrientationRightMirrored;
+            
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+            
+            next = UIImageOrientationDownMirrored;
+            
+            break;
+            
+        case UIImageOrientationRightMirrored:
+            
+            next = UIImageOrientationUpMirrored;
+            
+            break;
+            
+        case UIImageOrientationUpMirrored:
+            
+            next = UIImageOrientationLeftMirrored;
+            
+            break;
+    }
+    
+    [self rotate:next];
 }
 
 -(void)actionrotateright
 {
-    [self.detail.image setTransform:CGAffineTransformMakeRotation(90 * M_PI / 180.0)];
+    UIImageOrientation next;
+    
+    switch(self.detail.image.image.imageOrientation)
+    {
+        case UIImageOrientationDown:
+            
+            next = UIImageOrientationLeft;
+            
+            break;
+            
+        case UIImageOrientationUp:
+            
+            next = UIImageOrientationRight;
+            
+            break;
+            
+        case UIImageOrientationLeft:
+            
+            next = UIImageOrientationUp;
+            
+            break;
+            
+        case UIImageOrientationRight:
+            
+            next = UIImageOrientationDown;
+            
+            break;
+            
+        case UIImageOrientationDownMirrored:
+            
+            next = UIImageOrientationLeftMirrored;
+            
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+            
+            next = UIImageOrientationUpMirrored;
+            
+            break;
+            
+        case UIImageOrientationRightMirrored:
+            
+            next = UIImageOrientationDownMirrored;
+            
+            break;
+            
+        case UIImageOrientationUpMirrored:
+            
+            next = UIImageOrientationRightMirrored;
+            
+            break;
+    }
+    
+    [self rotate:next];
+}
+
+#pragma mark functionality
+
+-(void)rotate:(UIImageOrientation)orientation
+{
+    UIImage *original = self.detail.image.image;
+    UIImage *oriented = [UIImage imageWithCGImage:original.CGImage scale:1 orientation:orientation];
+    
+    [self.detail.image setImage:oriented];
 }
 
 @end
