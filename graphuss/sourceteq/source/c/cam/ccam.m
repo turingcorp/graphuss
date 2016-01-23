@@ -134,7 +134,7 @@
                  
                  if(image)
                  {
-                     [self imagereceived:image];
+                     [self picreceived:image];
                  }
                  else
                  {
@@ -149,20 +149,16 @@
      }];
 }
 
--(void)imagereceived:(UIImage*)image
+-(void)picreceived:(UIImage*)image
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       [self saveimage:image];
                        [self.cam picturetaken:image];
                        [self restarttimeout];
+                       
+                       [[mpic singleton] savepic:image];
                    });
-}
-
--(void)saveimage:(UIImage*)image
-{
-    
 }
 
 -(void)restarttimeout
