@@ -9,14 +9,15 @@
 {
     CGFloat newwidth = image.size.width * scale;
     CGFloat newheight = image.size.height * scale;
+    CGSize newsize = CGSizeMake(newwidth, newheight);
+    CGRect newrect = CGRectMake(0, 0, newwidth, newheight);
     
-    UIGraphicsBeginImageContextWithOptions( CGSizeMake(newwidth, newheight), NO, 1 );
-    CGRect scaledImageRect = CGRectMake( 0.0, 0.0, newwidth, newheight );
-    [image drawInRect:scaledImageRect];
-    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsBeginImageContextWithOptions(newsize, NO, 1);
+    [image drawInRect:newrect];
+    UIImage* scaledimage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    return scaledImage;
+    return scaledimage;
 }
 
 +(instancetype)singleton
@@ -78,7 +79,7 @@
     BOOL success = YES;
     NSError *error;
     
-//    [UIImageJPEGRepresentation(image, 1.0) writeToFile:[self fileforimage:name] options:NSDataWritingAtomic error:&error];
+    [UIImageJPEGRepresentation(image, 1.0) writeToFile:[self fileforimage:name] options:NSDataWritingAtomic error:&error];
     
     if(error)
     {
