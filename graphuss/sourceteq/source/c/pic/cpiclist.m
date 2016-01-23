@@ -14,6 +14,13 @@
     self.view = [[vpiclist alloc] init:self];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [[(vpiclist*)self.view collection] reloadData];
+}
+
 #pragma mark public
 
 -(void)detailpic:(NSInteger)index
