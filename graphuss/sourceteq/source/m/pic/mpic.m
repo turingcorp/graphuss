@@ -53,6 +53,12 @@
                    });
 }
 
+-(void)error:(NSString*)error
+{
+    [[analytics singleton] trackevent:ga_event_shoot action:ga_action_error label:error];
+    NSLog(@"%@", error);
+}
+
 #pragma mark public
 
 -(void)firsttime
@@ -61,32 +67,47 @@
     [mdirs createdir:[NSURL fileURLWithPath:self.thumbsfolder]];
 }
 
--(NSString*)fileforimage:(NSInteger)picid
+-(NSString*)fileforimage:(NSString*)picname
 {
-    return [self.imagesfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", @(picid)]];
+    return [self.imagesfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.image", picname]];
 }
 
--(NSString*)fileforthumb:(NSInteger)picid
+-(NSString*)fileforthumb:(NSString*)picname
 {
-    return [self.thumbsfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", @(picid)]];
+    return [self.thumbsfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.thumb", picname]];
 }
 
 -(void)savepic:(UIImage*)pic
 {
     NSInteger now = [NSDate date].timeIntervalSince1970;
     NSString *name = [NSString stringWithFormat:@"%@", @(now)];
-    NSString *query = [NSString stringWithFormat:
-                       @"INSERT INTO pic (name) values(%@);",
-                       name];
-    NSInteger picid = [db query_identity:query];
+    NSError *error;
     
-    NSURL *imageurl = [NSURL fileURLWithPath:[self fileforimage:picid]];
-    NSURL *thumburl = [NSURL fileURLWithPath:[self fileforthumb:picid]];
+    [UIImageJPEGRepresentation(pic, 1) writeToFile:[self fileforimage:name] options:NSDataWritingAtomic error:&error];
     
-    [UIImageJPEGRepresentation(pic, 1) writeToURL:imageurl atomically:YES];
-    [UIImageJPEGRepresentation(pic, 0.01) writeToURL:thumburl atomically:YES];
-    
-    [self loadpics];
+    if(error)
+    {
+        [self error:error.localizedDescription];
+    }
+    else
+    {
+        [UIImageJPEGRepresentation(pic, 0.001) writeToFile:[self fileforthumb:name] options:NSDataWritingAtomic error:&error];
+        
+        if(error)
+        {
+            [self error:error.localizedDescription];
+        }
+        else
+        {
+            NSString *query = [NSString stringWithFormat:
+                               @"INSERT INTO pic (name) values(%@);",
+                               name];
+            [db query:query];
+            
+            [[analytics singleton] trackevent:ga_event_shoot action:ga_action_completed label:nil];
+            [self loadpics];
+        }
+    }
 }
 
 -(NSInteger)count

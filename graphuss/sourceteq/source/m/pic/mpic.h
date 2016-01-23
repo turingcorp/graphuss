@@ -6,8 +6,8 @@
 
 +(instancetype)singleton;
 -(void)firsttime;
--(NSString*)fileforimage:(NSInteger)picid;
--(NSString*)fileforthumb:(NSInteger)picid;
+-(NSString*)fileforimage:(NSString*)picname;
+-(NSString*)fileforthumb:(NSString*)picname;
 -(void)savepic:(UIImage*)pic;
 -(NSInteger)count;
 -(mpicitem*)item:(NSInteger)index;
