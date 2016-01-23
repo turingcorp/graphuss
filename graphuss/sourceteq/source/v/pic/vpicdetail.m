@@ -15,13 +15,18 @@
     [image setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.image = image;
     
-    [self addSubview:image];
+    vpicdetailmenu *menu = [[vpicdetailmenu alloc] init];
+    self.menu = menu;
     
-    NSDictionary *views = @{@"image":image};
+    [self addSubview:image];
+    [self addSubview:menu];
+    
+    NSDictionary *views = @{@"image":image, @"menu":menu};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[image]-20-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[image]-20-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[image]-20-[menu(130)]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[menu]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
