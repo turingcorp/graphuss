@@ -1,6 +1,11 @@
 #import "vpicdetaileditscale.h"
 
 @implementation vpicdetaileditscale
+{
+    CGFloat width;
+    CGFloat height;
+    CGFloat ratio;
+}
 
 +(void)askscale:(vpicdetail*)detail
 {
@@ -26,8 +31,12 @@
     
     self.detail = detail;
     
-    vblur *blur = [vblur light:YES];
+    width = detail.pic.imagehd.size.width;
+    height = detail.pic.imagehd.size.height;
+    ratio = 1;
     
+    vblur *blur = [vblur light:YES];
+
     UITextField *fieldwidth = [[UITextField alloc] init];
     [fieldwidth setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     [fieldwidth setAutocorrectionType:UITextAutocorrectionTypeNo];
@@ -43,6 +52,7 @@
     [fieldwidth setTextAlignment:NSTextAlignmentRight];
     [fieldwidth setTextColor:[UIColor blackColor]];
     [fieldwidth setTintColor:[UIColor blackColor]];
+    [fieldwidth setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.fieldwidth = fieldwidth;
     
     UITextField *fieldheight = [[UITextField alloc] init];
@@ -60,17 +70,23 @@
     [fieldheight setTextAlignment:NSTextAlignmentRight];
     [fieldheight setTextColor:[UIColor blackColor]];
     [fieldheight setTintColor:[UIColor blackColor]];
+    [fieldheight setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.fieldheight = fieldheight;
     
     [self addSubview:blur];
     [self addSubview:fieldwidth];
     [self addSubview:fieldheight];
     
-    NSDictionary *views = @{@"blur":blur};
+    NSDictionary *views = @{@"blur":blur, @"fieldwidth":fieldwidth, @"fieldheight":fieldheight};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[fieldwidth]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[fieldheight]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[fieldwidth(70)]-10-[fieldheight(70)]" options:0 metrics:metrics views:views]];
+    
+    [self print];
     
     return self;
 }
@@ -91,6 +107,12 @@
      {
          [self setAlpha:alpha];
      }];
+}
+
+-(void)print
+{
+    [fieldwidth setText:[NSString stringWithFormat:@"%@", @(width)]];
+    [fie];
 }
 
 @end
