@@ -61,6 +61,9 @@
 
 -(void)changeorientation:(UIImageOrientation)neworientation
 {
+    self.image = [UIImage imageWithCGImage:self.image.CGImage scale:1 orientation:neworientation];
+    [self.pic update:self.image];
+    
 }
 
 #pragma mark public
@@ -68,6 +71,61 @@
 -(void)edit_rotateleft
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+    
+    UIImageOrientation next;
+    
+    switch(self.image.imageOrientation)
+    {
+        case UIImageOrientationDown:
+            
+            next = UIImageOrientationRight;
+            
+            break;
+            
+        case UIImageOrientationUp:
+            
+            next = UIImageOrientationLeft;
+            
+            break;
+            
+        case UIImageOrientationLeft:
+            
+            next = UIImageOrientationDown;
+            
+            break;
+            
+        case UIImageOrientationRight:
+            
+            next = UIImageOrientationUp;
+            
+            break;
+            
+        case UIImageOrientationDownMirrored:
+            
+            next = UIImageOrientationRightMirrored;
+            
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+            
+            next = UIImageOrientationDownMirrored;
+            
+            break;
+            
+        case UIImageOrientationRightMirrored:
+            
+            next = UIImageOrientationUpMirrored;
+            
+            break;
+            
+        case UIImageOrientationUpMirrored:
+            
+            next = UIImageOrientationLeftMirrored;
+            
+            break;
+    }
+    
+    [self changeorientation:next];
 }
 
 -(void)edit_rotateright

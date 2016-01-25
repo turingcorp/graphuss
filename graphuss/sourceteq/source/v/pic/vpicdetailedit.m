@@ -39,59 +39,6 @@
 -(void)actionrotateleft
 {
     [self.detail.controllerdetail edit_rotateleft];
-    
-    UIImageOrientation next;
-    
-    switch(self.detail.image.image.imageOrientation)
-    {
-        case UIImageOrientationDown:
-            
-            next = UIImageOrientationRight;
-            
-            break;
-            
-        case UIImageOrientationUp:
-            
-            next = UIImageOrientationLeft;
-            
-            break;
-            
-        case UIImageOrientationLeft:
-            
-            next = UIImageOrientationDown;
-            
-            break;
-            
-        case UIImageOrientationRight:
-            
-            next = UIImageOrientationUp;
-            
-            break;
-            
-        case UIImageOrientationDownMirrored:
-            
-            next = UIImageOrientationRightMirrored;
-            
-            break;
-            
-        case UIImageOrientationLeftMirrored:
-            
-            next = UIImageOrientationDownMirrored;
-            
-            break;
-            
-        case UIImageOrientationRightMirrored:
-            
-            next = UIImageOrientationUpMirrored;
-            
-            break;
-            
-        case UIImageOrientationUpMirrored:
-            
-            next = UIImageOrientationLeftMirrored;
-            
-            break;
-    }
 }
 
 -(void)actionrotateright
@@ -103,11 +50,11 @@
 
 -(void)rotate:(UIImageOrientation)orientation
 {
-//    UIImage *original = self.detail.image.image;
-//    UIImage *oriented = [UIImage imageWithCGImage:original.CGImage scale:1 orientation:orientation];
-//    
-//    [self.detail.image setImage:oriented];
-//    [self.detail.pic update:oriented];
+    UIImage *original = self.detail.image.image;
+    UIImage *oriented = [UIImage imageWithCGImage:original.CGImage scale:1 orientation:orientation];
+    
+    [self.detail.image setImage:oriented];
+    [self.detail.pic update:oriented];
 }
 
 @end
