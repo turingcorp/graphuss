@@ -25,14 +25,24 @@
     
     NSDictionary *views = @{@"image":image, @"menu":menu};
     NSDictionary *metrics = @{};
+
+    self.conimageheight = [NSLayoutConstraint constraintWithItem:image attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:1];
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[image]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[image]-0-[menu(80)]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[menu(80)]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[menu]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraint:self.conimageheight];
     
     [self showedit];
     
     return self;
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.conimageheight.constant = self.bounds.size.width;
 }
 
 #pragma mark public

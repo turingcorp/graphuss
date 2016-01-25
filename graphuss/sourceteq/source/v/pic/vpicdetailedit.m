@@ -42,27 +42,48 @@
 
 -(void)actionrotateleft
 {
-    [self.detail.controllerdetail edit_rotateleft];
-    [self rotate:-90 * M_PI / 180.0];
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+    [self rotate:NO];
 }
 
 -(void)actionrotateright
 {
-    [self.detail.controllerdetail edit_rotateright];
-    [self rotate:90 * M_PI / 180.0];
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+    [self rotate:YES];
 }
 
 #pragma mark functionality
 
--(void)rotate:(CGFloat)addradians
+-(void)rotate:(CGFloat)clockwise
 {
-    rotation += addradians;
+    CGFloat degrees = -90;
+    
+    if(clockwise)
+    {
+        degrees = 90;
+    }
+    
+    rotation += degrees * M_PI / 180.0;
     CGAffineTransform transform = CGAffineTransformMakeRotation(rotation);
     
-    [UIView animateWithDuration:0.5 animations:
+    [UIView animateWithDuration:0.3 animations:
      ^
      {
          [self.detail.image setTransform:transform];
+         [self.detail.image setNeedsDisplay];
+         [self.detail.image layoutIfNeeded];
+
+     } completion:
+     ^(BOOL done)
+     {
+         if(clockwise)
+         {
+             [self.detail.controllerdetail edit_rotateright];
+         }
+         else
+         {
+             [self.detail.controllerdetail edit_rotateleft];
+         }
      }];
 }
 

@@ -75,8 +75,6 @@
 
 -(void)edit_rotateleft
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
-    
     UIImageOrientation next;
     
     switch(self.image.imageOrientation)
@@ -135,8 +133,6 @@
 
 -(void)edit_rotateright
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
-    
     UIImageOrientation next;
     
     switch(self.image.imageOrientation)
