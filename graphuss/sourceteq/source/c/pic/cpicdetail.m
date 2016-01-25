@@ -36,16 +36,26 @@
 -(void)loadView
 {
     self.view = [[vpicdetail alloc] init:self];
+    self.viewdetail = (vpicdetail*)self.view;
 }
 
 #pragma mark functionality
 
 -(void)loadimage
 {
+    __weak cpicdetail *weakself = self;
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-                   ^(void)
+                   ^
                    {
+                       weakself.image = [UIImage imageWithContentsOfFile:[[mpic singleton] fileforimage:weakself.pic.name]];
+                       weakself.pic.imagehd = weakself.image;
                        
+                       dispatch_async(dispatch_get_main_queue(),
+                                      ^
+                                      {
+                                          [self.viewdetail loadpic:weakself.pic];
+                                      });
                    });
 }
 

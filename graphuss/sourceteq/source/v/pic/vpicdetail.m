@@ -37,22 +37,8 @@
 
 -(void)loadpic:(mpicitem*)pic
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-                   ^
-                   {
-                       self.pic = pic;
-                       
-                       if(!self.image.image)
-                       {
-                           UIImage *image = [UIImage imageWithContentsOfFile:[[mpic singleton] fileforimage:pic.name]];
-                           
-                           dispatch_async(dispatch_get_main_queue(),
-                                          ^
-                                          {
-                                              [self.image setImage:image];
-                                          });
-                       }
-                   });
+    self.pic = pic;
+    [self.image setImage:pic.imagehd];
 }
 
 -(void)showedit

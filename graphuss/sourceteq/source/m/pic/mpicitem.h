@@ -7,6 +7,7 @@
 -(void)update:(UIImage*)image;
 
 @property(strong, nonatomic)UIImage *thumb;
+@property(weak, nonatomic)UIImage *imagehd;
 @property(copy, nonatomic)NSString *name;
 @property(nonatomic)CGFloat width;
 @property(nonatomic)CGFloat height;
