@@ -38,6 +38,17 @@
     self.view = [[vpicdetail alloc] init:self];
 }
 
+#pragma mark functionality
+
+-(void)loadimage
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^(void)
+                   {
+                       
+                   });
+}
+
 #pragma mark public
 
 -(void)edit_rotate:(UIImageOrientation)orientation
