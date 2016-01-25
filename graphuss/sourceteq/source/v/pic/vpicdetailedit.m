@@ -21,9 +21,9 @@
     
     UIBarButtonItem *itemrotateright = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionrotateright)];
     
-    UIBarButtonItem *itemscale = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(actionrotateright)];
+    UIBarButtonItem *itemscale = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(actionscale)];
     
-    UIBarButtonItem *itemcrop = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(actionrotateright)];
+    UIBarButtonItem *itemcrop = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(actioncrop)];
     
     UIToolbar *toolbar = [[UIToolbar alloc] init];
     [toolbar setTranslucent:YES];
@@ -54,6 +54,16 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
     [self rotate:YES];
+}
+
+-(void)actionscale
+{
+    [self.detail];
+}
+
+-(void)actioncrop
+{
+    
 }
 
 #pragma mark functionality

@@ -1,13 +1,11 @@
-//
-//  vpicdetaileditscale.h
-//  graphuss
-//
-//  Created by zero on 1/25/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
+@class vpicdetail;
 
-@interface vpicdetaileditscale : NSObject
+@interface vpicdetaileditscale:UIView
+
++(void)askscale:(vpicdetail*)detail;
+
+@property(weak, nonatomic)vpicdetail *detail;
 
 @end
