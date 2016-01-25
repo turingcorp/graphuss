@@ -8,7 +8,8 @@
     
     self.pic = pic;
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingbusy:) name:notwritingbusy object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingfree:) name:notwritingfree object:nil];
     
     return self;
 }
@@ -49,12 +50,12 @@
 
 -(void)notifiedwritingbusy:(NSNotification*)notification
 {
-    
+    [self writingbusy:YES];
 }
 
 -(void)notifiedwritingfree:(NSNotification*)notification
 {
-    
+    [self writingbusy:NO];
 }
 
 #pragma mark functionality
@@ -70,9 +71,9 @@
 
 #pragma mark public
 
--(void)rotate:(UIImageOrientation)orientation
+-(void)edit_rotate:(UIImageOrientation)orientation
 {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
 }
 
 @end

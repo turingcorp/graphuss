@@ -156,11 +156,13 @@
 
 -(void)rotate:(UIImageOrientation)orientation
 {
-    UIImage *original = self.detail.image.image;
-    UIImage *oriented = [UIImage imageWithCGImage:original.CGImage scale:1 orientation:orientation];
+    [(cpicdetail*)self.detail.controller edit_rotate:orientation];
     
-    [self.detail.image setImage:oriented];
-    [self.detail.pic update:oriented];
+//    UIImage *original = self.detail.image.image;
+//    UIImage *oriented = [UIImage imageWithCGImage:original.CGImage scale:1 orientation:orientation];
+//    
+//    [self.detail.image setImage:oriented];
+//    [self.detail.pic update:oriented];
 }
 
 @end
