@@ -38,6 +38,8 @@
 
 -(void)actionrotateleft
 {
+    [self.detail.controllerdetail edit_rotateleft];
+    
     UIImageOrientation next;
     
     switch(self.detail.image.image.imageOrientation)
@@ -90,12 +92,12 @@
             
             break;
     }
-    
-    [self rotate:next];
 }
 
 -(void)actionrotateright
 {
+    [self.detail.controllerdetail edit_rotateright];
+    
     UIImageOrientation next;
     
     switch(self.detail.image.image.imageOrientation)
@@ -148,16 +150,12 @@
             
             break;
     }
-    
-    [self rotate:next];
 }
 
 #pragma mark functionality
 
 -(void)rotate:(UIImageOrientation)orientation
 {
-    [(cpicdetail*)self.detail.controller edit_rotate:orientation];
-    
 //    UIImage *original = self.detail.image.image;
 //    UIImage *oriented = [UIImage imageWithCGImage:original.CGImage scale:1 orientation:orientation];
 //    

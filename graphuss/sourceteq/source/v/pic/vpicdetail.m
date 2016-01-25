@@ -8,6 +8,8 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor whiteColor]];
     
+    self.controllerdetail = controller;
+    
     UIImageView *image = [[UIImageView alloc] init];
     [image setClipsToBounds:YES];
     [image setContentMode:UIViewContentModeScaleAspectFit];
