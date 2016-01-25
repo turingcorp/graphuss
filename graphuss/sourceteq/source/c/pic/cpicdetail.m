@@ -51,11 +51,16 @@
                        weakself.image = [UIImage imageWithContentsOfFile:[[mpic singleton] fileforimage:weakself.pic.name]];
                        weakself.pic.imagehd = weakself.image;
                        
-                       dispatch_async(dispatch_get_main_queue(),
-                                      ^
-                                      {
-                                          [self.viewdetail loadpic:weakself.pic];
-                                      });
+                       [weakself loadviewpic];
+                   });
+}
+
+-(void)loadviewpic
+{
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       [self.viewdetail loadpic:self.pic];
                    });
 }
 
@@ -64,6 +69,7 @@
     self.image = [UIImage imageWithCGImage:self.image.CGImage scale:1 orientation:neworientation];
     [self.pic update:self.image];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
 }
 
 #pragma mark public

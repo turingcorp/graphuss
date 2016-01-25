@@ -32,14 +32,10 @@
 
 -(void)update:(UIImage*)image
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-                   ^(void)
-                   {
-                       self.width = image.size.width;
-                       self.height = image.size.height;
-                       
-                       [[mpic singleton] update:self.name image:image];
-                   });
+    self.width = image.size.width;
+    self.height = image.size.height;
+    
+    [[mpic singleton] update:self.name image:image];
 }
 
 @end

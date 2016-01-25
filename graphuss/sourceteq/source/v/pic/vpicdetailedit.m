@@ -1,6 +1,9 @@
 #import "vpicdetailedit.h"
 
 @implementation vpicdetailedit
+{
+    CGFloat rotation;
+}
 
 -(instancetype)init:(vpicdetail*)detail
 {
@@ -10,6 +13,7 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     self.detail = detail;
+    rotation = 0;
     
     UIBarButtonItem *itemrotateleft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionrotateleft)];
     
@@ -39,22 +43,27 @@
 -(void)actionrotateleft
 {
     [self.detail.controllerdetail edit_rotateleft];
+    [self rotate:-90 * M_PI / 180.0];
 }
 
 -(void)actionrotateright
 {
     [self.detail.controllerdetail edit_rotateright];
+    [self rotate:90 * M_PI / 180.0];
 }
 
 #pragma mark functionality
 
--(void)rotate:(UIImageOrientation)orientation
+-(void)rotate:(CGFloat)addradians
 {
-    UIImage *original = self.detail.image.image;
-    UIImage *oriented = [UIImage imageWithCGImage:original.CGImage scale:1 orientation:orientation];
+    rotation += addradians;
+    CGAffineTransform transform = CGAffineTransformMakeRotation(rotation);
     
-    [self.detail.image setImage:oriented];
-    [self.detail.pic update:oriented];
+    [UIView animateWithDuration:0.5 animations:
+     ^
+     {
+         [self.detail.image setTransform:transform];
+     }];
 }
 
 @end
