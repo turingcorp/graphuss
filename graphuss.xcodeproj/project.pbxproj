@@ -65,7 +65,6 @@
 		DA3D9A271C5126720072F69B /* vspinner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A091C5126720072F69B /* vspinner.m */; };
 		DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DD1C512C1A006EBE52 /* Images.xcassets */; };
 		DAE468E01C512F30006EBE52 /* in in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DF1C512F2F006EBE52 /* in */; };
-		DAFD42131C55C14D0013C4D2 /* mpicitemtemp.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD42121C55C14D0013C4D2 /* mpicitemtemp.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,8 +173,6 @@
 		DA3D9A111C5126720072F69B /* v.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v.h; sourceTree = "<group>"; };
 		DAE468DD1C512C1A006EBE52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAE468DF1C512F2F006EBE52 /* in */ = {isa = PBXFileReference; lastKnownFileType = folder; path = in; sourceTree = "<group>"; };
-		DAFD42111C55C14D0013C4D2 /* mpicitemtemp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicitemtemp.h; sourceTree = "<group>"; };
-		DAFD42121C55C14D0013C4D2 /* mpicitemtemp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicitemtemp.m; sourceTree = "<group>"; };
 		E6A306512CC616BE5A940695 /* Pods-graphuss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphuss.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphuss/Pods-graphuss.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,8 +205,6 @@
 				DA03AF691C52E312005DB3C9 /* mpic.m */,
 				DA03AF6B1C52E987005DB3C9 /* mpicitem.h */,
 				DA03AF6C1C52E987005DB3C9 /* mpicitem.m */,
-				DAFD42111C55C14D0013C4D2 /* mpicitemtemp.h */,
-				DAFD42121C55C14D0013C4D2 /* mpicitemtemp.m */,
 			);
 			path = pic;
 			sourceTree = "<group>";
@@ -739,7 +734,6 @@
 				DA03AF661C52ACE0005DB3C9 /* vcampreview.m in Sources */,
 				DA1478621C51735C0024141B /* vcam.m in Sources */,
 				DA14785A1C5150930024141B /* mpagesitemconfig.m in Sources */,
-				DAFD42131C55C14D0013C4D2 /* mpicitemtemp.m in Sources */,
 				DA1478511C51500C0024141B /* mpagesitem.m in Sources */,
 				DA3D9A221C5126720072F69B /* mdbcreate.m in Sources */,
 				DA0C209C1C5356D900C386EC /* cpicdetail.m in Sources */,

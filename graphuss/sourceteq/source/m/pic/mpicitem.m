@@ -12,8 +12,6 @@
     self.width = self.thumb.size.width;
     self.height = self.thumb.size.height;
     
-    NSLog(@"%@:%@", @(self.width), @(self.height));
-    
     return self;
 }
 
