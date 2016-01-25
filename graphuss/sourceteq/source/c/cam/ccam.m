@@ -174,12 +174,15 @@
 {
     [timer invalidate];
     [self.cam restart];
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
 }
 
 #pragma mark public
 
 -(void)shoot
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+    
     [[analytics singleton] trackevent:ga_event_shoot action:ga_action_shoot label:nil];
     
     dispatch_async(queue,
