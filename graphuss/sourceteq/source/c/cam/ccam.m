@@ -113,6 +113,8 @@
 
 -(void)insideshoot
 {
+#warning need to continue
+    
     [self.output captureStillImageAsynchronouslyFromConnection:[self.output connectionWithMediaType:AVMediaTypeVideo] completionHandler:
      ^(CMSampleBufferRef buffer, NSError *error)
      {
