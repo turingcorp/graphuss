@@ -9,5 +9,6 @@
 +(UIImage*)qrcode:(NSString*)string;
 +(NSString*)typetokey:(NSInteger)type;
 -(NSString*)urlencode:(NSString*)string;
+-(NSString*)numbertostring:(NSNumber*)number;
 
 @end

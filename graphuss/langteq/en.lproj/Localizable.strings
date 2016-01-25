@@ -2,6 +2,9 @@
 
 "pic_detail_title"="Picture";
 
+"pic_detail_scale_btnaccept"="Scale image";
+"pic_detail_scale_btncancel"="Cancel";
+
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";
 "error_wrongbuffer"="Couldn't take picture, try again";

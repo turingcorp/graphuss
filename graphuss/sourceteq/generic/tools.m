@@ -2,6 +2,7 @@
 
 @implementation tools
 {
+    NSNumberFormatter *numformatter;
     CFStringRef stringref;
 }
 
@@ -60,6 +61,8 @@
 {
     self = [super init];
     
+    numformatter = [[NSNumberFormatter alloc] init];
+    [numformatter setNumberStyle:NSNumberFormatterDecimalStyle];
     stringref = (CFStringRef)@"!*'();:@&=+$,/?%#[]";
     
     return self;
@@ -70,6 +73,11 @@
 -(NSString*)urlencode:(NSString*)string
 {
     return (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(nil, (__bridge CFStringRef)string, nil, stringref, kCFStringEncodingUTF8);
+}
+
+-(NSString*)numbertostring:(NSNumber*)number
+{
+    return [numformatter stringFromNumber:number];
 }
 
 @end
