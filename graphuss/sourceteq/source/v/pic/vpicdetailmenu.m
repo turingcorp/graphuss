@@ -15,15 +15,60 @@
     [border setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.2]];
     [border setTranslatesAutoresizingMaskIntoConstraints:NO];
     
-    [self addSubview:border];
+    vspinner *spinner = [[vspinner alloc] init];
+    [spinner stopAnimating];
+    self.spinner = spinner;
     
-    NSDictionary *views = @{@"border":border};
+    [self addSubview:border];
+    [self addSubview:spinner];
+    
+    NSDictionary *views = @{@"border":border, @"spinner":spinner};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[border]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[border(1)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[spinner]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-25-[spinner]-25-|" options:0 metrics:metrics views:views]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingbusy:) name:notwritingbusy object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingfree:) name:notwritingfree object:nil];
     
     return self;
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark notified
+
+-(void)notifiedwritingbusy:(NSNotification*)notification
+{
+    [self showspinner:YES];
+}
+
+-(void)notifiedwritingfree:(NSNotification*)notification
+{
+    [self showspinner:NO];
+}
+
+#pragma mark functionality
+
+-(void)showspinner:(BOOL)show
+{
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       if(show)
+                       {
+                           [self.spinner startAnimating];
+                       }
+                       else
+                       {
+                           [self.spinner stopAnimating];
+                       }
+                   });
 }
 
 @end
