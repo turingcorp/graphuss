@@ -58,7 +58,7 @@
 
 -(void)actionscale
 {
-    [self.detail];
+    [vpicdetaileditscale askscale:self.detail];
 }
 
 -(void)actioncrop
