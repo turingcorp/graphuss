@@ -61,7 +61,12 @@
 
 #pragma mark public
 
--(void)edit_rotate:(UIImageOrientation)orientation
+-(void)edit_rotateleft
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+}
+
+-(void)edit_rotateright
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
 }

@@ -6,7 +6,8 @@
 @interface cpicdetail:UIViewController
 
 -(instancetype)init:(mpicitem*)pic;
--(void)edit_rotate:(UIImageOrientation)orientation;
+-(void)edit_rotateleft;
+-(void)edit_rotateright;
 
 @property(strong, nonatomic)mpicitem *pic;
 @property(weak, nonatomic)vpicdetail *viewdetail;
