@@ -38,6 +38,17 @@
     self.view = [[vpicdetail alloc] init:self];
 }
 
+#pragma mark functionality
+
+-(void)writingbusy:(BOOL)busy
+{
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       [self.navigationController.navigationItem.backBarButtonItem setEnabled:!busy];
+                   });
+}
+
 #pragma mark public
 
 -(void)rotate:(UIImageOrientation)orientation
