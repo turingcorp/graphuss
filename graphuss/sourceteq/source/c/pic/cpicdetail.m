@@ -59,6 +59,10 @@
                    });
 }
 
+-(void)changeorientation:(UIImageOrientation)neworientation
+{
+}
+
 #pragma mark public
 
 -(void)edit_rotateleft
@@ -69,6 +73,61 @@
 -(void)edit_rotateright
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+    
+    UIImageOrientation next;
+    
+    switch(self.image.imageOrientation)
+    {
+        case UIImageOrientationDown:
+            
+            next = UIImageOrientationLeft;
+            
+            break;
+            
+        case UIImageOrientationUp:
+            
+            next = UIImageOrientationRight;
+            
+            break;
+            
+        case UIImageOrientationLeft:
+            
+            next = UIImageOrientationUp;
+            
+            break;
+            
+        case UIImageOrientationRight:
+            
+            next = UIImageOrientationDown;
+            
+            break;
+            
+        case UIImageOrientationDownMirrored:
+            
+            next = UIImageOrientationLeftMirrored;
+            
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+            
+            next = UIImageOrientationUpMirrored;
+            
+            break;
+            
+        case UIImageOrientationRightMirrored:
+            
+            next = UIImageOrientationDownMirrored;
+            
+            break;
+            
+        case UIImageOrientationUpMirrored:
+            
+            next = UIImageOrientationRightMirrored;
+            
+            break;
+    }
+    
+    [self changeorientation:next];
 }
 
 @end
