@@ -8,7 +8,14 @@
     
     self.pic = pic;
     
+    
+    
     return self;
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)viewDidLoad
@@ -36,6 +43,18 @@
 -(void)loadView
 {
     self.view = [[vpicdetail alloc] init:self];
+}
+
+#pragma mark notified
+
+-(void)notifiedwritingbusy:(NSNotification*)notification
+{
+    
+}
+
+-(void)notifiedwritingfree:(NSNotification*)notification
+{
+    
 }
 
 #pragma mark functionality

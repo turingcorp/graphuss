@@ -18,6 +18,7 @@
 #define notloadfinished         @"loadfinished"
 #define notreloadpics           @"reloadpics"
 #define notwritingbusy          @"writingbusy"
+#define notwritingfree          @"writingfree"
 
 // extra
 
