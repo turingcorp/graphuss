@@ -8,15 +8,7 @@
     
     self.pic = pic;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingbusy:) name:notwritingbusy object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingfree:) name:notwritingfree object:nil];
-    
     return self;
-}
-
--(void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)viewDidLoad
@@ -44,29 +36,6 @@
 -(void)loadView
 {
     self.view = [[vpicdetail alloc] init:self];
-}
-
-#pragma mark notified
-
--(void)notifiedwritingbusy:(NSNotification*)notification
-{
-    [self writingbusy:YES];
-}
-
--(void)notifiedwritingfree:(NSNotification*)notification
-{
-    [self writingbusy:NO];
-}
-
-#pragma mark functionality
-
--(void)writingbusy:(BOOL)busy
-{
-    dispatch_async(dispatch_get_main_queue(),
-                   ^
-                   {
-                       [self.navigationItem setHidesBackButton:busy animated:YES];
-                   });
 }
 
 #pragma mark public
