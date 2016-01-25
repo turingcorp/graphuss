@@ -63,6 +63,7 @@
 		DA3D9A251C5126720072F69B /* vblur.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A051C5126720072F69B /* vblur.m */; };
 		DA3D9A261C5126720072F69B /* viewbase.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A071C5126720072F69B /* viewbase.m */; };
 		DA3D9A271C5126720072F69B /* vspinner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A091C5126720072F69B /* vspinner.m */; };
+		DA75C0341C56E12100A2DEEF /* vpicdetaileditscale.m in Sources */ = {isa = PBXBuildFile; fileRef = DA75C0331C56E12100A2DEEF /* vpicdetaileditscale.m */; };
 		DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DD1C512C1A006EBE52 /* Images.xcassets */; };
 		DAE468E01C512F30006EBE52 /* in in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DF1C512F2F006EBE52 /* in */; };
 /* End PBXBuildFile section */
@@ -171,6 +172,8 @@
 		DA3D9A081C5126720072F69B /* vspinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vspinner.h; sourceTree = "<group>"; };
 		DA3D9A091C5126720072F69B /* vspinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vspinner.m; sourceTree = "<group>"; };
 		DA3D9A111C5126720072F69B /* v.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v.h; sourceTree = "<group>"; };
+		DA75C0321C56E12100A2DEEF /* vpicdetaileditscale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpicdetaileditscale.h; sourceTree = "<group>"; };
+		DA75C0331C56E12100A2DEEF /* vpicdetaileditscale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpicdetaileditscale.m; sourceTree = "<group>"; };
 		DAE468DD1C512C1A006EBE52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAE468DF1C512F2F006EBE52 /* in */ = {isa = PBXFileReference; lastKnownFileType = folder; path = in; sourceTree = "<group>"; };
 		E6A306512CC616BE5A940695 /* Pods-graphuss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphuss.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphuss/Pods-graphuss.debug.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				DA0C20A11C535FCB00C386EC /* vpicdetailmenu.m */,
 				DA0C20A31C53683600C386EC /* vpicdetailedit.h */,
 				DA0C20A41C53683600C386EC /* vpicdetailedit.m */,
+				DA75C0321C56E12100A2DEEF /* vpicdetaileditscale.h */,
+				DA75C0331C56E12100A2DEEF /* vpicdetaileditscale.m */,
 			);
 			path = pic;
 			sourceTree = "<group>";
@@ -721,6 +726,7 @@
 				DA0C209F1C5358C500C386EC /* vpicdetail.m in Sources */,
 				DA0C20A51C53683600C386EC /* vpicdetailedit.m in Sources */,
 				DA3D9A191C5126720072F69B /* analytics.m in Sources */,
+				DA75C0341C56E12100A2DEEF /* vpicdetaileditscale.m in Sources */,
 				DA3D9A231C5126720072F69B /* mdirs.m in Sources */,
 				DA14783C1C513BC90024141B /* cpages.m in Sources */,
 				DA1478441C5141780024141B /* vpiclist.m in Sources */,

@@ -11,3 +11,4 @@
 #import "vcampreview.h"
 #import "vpicdetailmenu.h"
 #import "vpicdetailedit.h"
+#import "vpicdetaileditscale.h"

@@ -35,7 +35,15 @@
     
     [self showedit];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingbusy:) name:notwritingbusy object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingfree:) name:notwritingfree object:nil];
+    
     return self;
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)layoutSubviews
@@ -43,6 +51,36 @@
     [super layoutSubviews];
     
     self.conimageheight.constant = self.bounds.size.width;
+}
+
+#pragma mark notified
+
+-(void)notifiedwritingbusy:(NSNotification*)notification
+{
+    [self animateoverview:NO];
+}
+
+-(void)notifiedwritingfree:(NSNotification*)notification
+{
+    [self animateoverview:YES];
+}
+
+#pragma mark functionality
+
+-(void)animateoverview:(BOOL)show
+{
+    CGFloat alpha = 0;
+    
+    if(show)
+    {
+        alpha = 1;
+    }
+    
+    [UIView animateWithDuration:0.3 animations:
+     ^
+     {
+         [self.overview setAlpha:alpha];
+     }];
 }
 
 #pragma mark public

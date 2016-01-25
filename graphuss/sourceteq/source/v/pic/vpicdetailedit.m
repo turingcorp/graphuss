@@ -21,10 +21,14 @@
     
     UIBarButtonItem *itemrotateright = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionrotateright)];
     
+    UIBarButtonItem *itemscale = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(actionrotateright)];
+    
+    UIBarButtonItem *itemcrop = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(actionrotateright)];
+    
     UIToolbar *toolbar = [[UIToolbar alloc] init];
     [toolbar setTranslucent:YES];
     [toolbar setTintColor:colormain];
-    [toolbar setItems:@[itemrotateleft, itemflex, itemrotateright] animated:NO];
+    [toolbar setItems:@[itemrotateleft, itemflex, itemrotateright, itemflex, itemscale, itemflex, itemcrop] animated:NO];
     [toolbar setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     [self addSubview:toolbar];
