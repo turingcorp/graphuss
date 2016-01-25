@@ -22,14 +22,14 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [(vpicdetail*)self.view loadpic:self.pic];
     [self.navigationController.interactivePopGestureRecognizer setEnabled:NO];
+    
+    [self loadimage];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
     [self.navigationController.interactivePopGestureRecognizer setEnabled:YES];
 }
 
@@ -50,7 +50,6 @@
                    {
                        weakself.image = [UIImage imageWithContentsOfFile:[[mpic singleton] fileforimage:weakself.pic.name]];
                        weakself.pic.imagehd = weakself.image;
-                       
                        [weakself loadviewpic];
                    });
 }
