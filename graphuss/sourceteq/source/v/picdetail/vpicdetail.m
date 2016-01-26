@@ -91,20 +91,12 @@
     [self.image setImage:pic.imagehd];
 }
 
--(void)showedit
+-(void)overrideoverview:(UIView*)overview
 {
     [self.overview removeFromSuperview];
+    self.overview = overview;
     
-    vpicdetailedit *edit = [[vpicdetailedit alloc] init:self];
-    self.overview = edit;
-    
-    [self addSubview:edit];
-    
-    NSDictionary *views = @{@"edit":edit, @"menu":self.menu};
-    NSDictionary *metrics = @{};
-    
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[edit]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[edit(60)]-0-[menu]" options:0 metrics:metrics views:views]];
+    [self addSubview:overview];
 }
 
 @end
