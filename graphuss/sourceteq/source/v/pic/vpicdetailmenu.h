@@ -2,7 +2,7 @@
 
 @class vspinner;
 
-@interface vpicdetailmenu:UIView
+@interface vpicdetailmenu:UIView<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property(weak, nonatomic)vspinner *spinner;
 
