@@ -1,6 +1,6 @@
-#import "vpicdetailfile.h"
+#import "vpicdetailfilters.h"
 
-@implementation vpicdetailfile
+@implementation vpicdetailfilters
 
 -(instancetype)init:(vpicdetail*)detail
 {

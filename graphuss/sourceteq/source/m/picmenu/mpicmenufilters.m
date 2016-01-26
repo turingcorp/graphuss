@@ -12,6 +12,14 @@
 
 -(void)selected:(vpicdetail*)detail
 {
+    vpicdetailedit *filters = [[vpicdetailedit alloc] init:detail];
+    [detail overrideoverview:filters];
+    
+    NSDictionary *views = @{@"edit":edit};
+    NSDictionary *metrics = @{};
+    
+    [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[edit]-0-|" options:0 metrics:metrics views:views]];
+    [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[edit(60)]-80-|" options:0 metrics:metrics views:views]];
 }
 
 @end

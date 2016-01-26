@@ -1,6 +1,6 @@
 #import "appdel.h"
 
-@interface vpicdetailfile:UIView
+@interface vpicdetailfilters:UIView
 
 -(instancetype)init:(vpicdetail*)detail;
 

@@ -14,3 +14,4 @@
 #import "vpicdetailedit.h"
 #import "vpicdetaileditscale.h"
 #import "vpicdetailfile.h"
+#import "vpicdetailfilters.h"
