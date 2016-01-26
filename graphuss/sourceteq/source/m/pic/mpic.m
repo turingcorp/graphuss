@@ -50,7 +50,7 @@
                    {
                        array = [NSMutableArray array];
                        
-                       NSString *query = @"SELECT id, name FROM pic ORDER BY id ASC;";
+                       NSString *query = @"SELECT id, name FROM pic ORDER BY id DESC;";
                        NSArray *rawpics = [db rows:query];
                        NSInteger count = rawpics.count;
                        

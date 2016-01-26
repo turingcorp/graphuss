@@ -14,5 +14,7 @@
 #import "vpicdetailedit.h"
 #import "vpicdetaileditscale.h"
 #import "vpicdetailfile.h"
+#import "vpicdetailfilecompress.h"
 #import "vpicdetailfilecel.h"
+#import "vpicdetailfilecompress.h"
 #import "vpicdetailfilters.h"
