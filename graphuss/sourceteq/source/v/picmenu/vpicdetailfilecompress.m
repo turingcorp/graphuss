@@ -83,16 +83,35 @@
 
 -(void)actionslider:(UISlider*)slider
 {
-    [self print:slider.value];
+    [self print:[self slidervalue]];
 }
 
 -(void)actioncompress
 {
+    NSInteger value = [self slidervalue];
+    
+    [self animate:NO];
+    
+    if(value < 100)
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                       ^
+                       {
+                           [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+                           
+                           [self.detail.controllerdetail edit_compress:value / 100.0];
+                       });
+    }
 }
 
 -(void)actioncancel
 {
     [self animate:NO];
+}
+
+-(NSInteger)slidervalue
+{
+    return roundf(self.slider.value);
 }
 
 #pragma mark functionality
@@ -120,11 +139,9 @@
      }];
 }
 
--(void)print:(CGFloat)value
+-(void)print:(NSInteger)value
 {
-    NSInteger intval = roundf(value);
-    
-    [self.labelvalue setText:[NSString stringWithFormat:@"%@%%", [[tools singleton] numbertostring:@(intval)]]];
+    [self.labelvalue setText:[NSString stringWithFormat:@"%@%%", [[tools singleton] numbertostring:@(value)]]];
 }
 
 @end

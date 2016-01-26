@@ -190,4 +190,12 @@
     [self changeorientation:next];
 }
 
+-(void)edit_compress:(CGFloat)quality
+{
+    self.image = [UIImage imageWithData:UIImageJPEGRepresentation(self.image, quality)];
+    [self.pic update:self.image];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
+}
+
 @end

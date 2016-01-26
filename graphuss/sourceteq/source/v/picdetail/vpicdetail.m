@@ -68,11 +68,15 @@
         alpha = 1;
     }
     
-    [UIView animateWithDuration:0.3 animations:
-     ^
-     {
-         [self.overview setAlpha:alpha];
-     }];
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       [UIView animateWithDuration:0.3 animations:
+                        ^
+                        {
+                            [self.overview setAlpha:alpha];
+                        }];
+                   });
 }
 
 #pragma mark public
