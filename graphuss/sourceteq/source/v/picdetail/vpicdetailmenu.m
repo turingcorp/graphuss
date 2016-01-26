@@ -3,9 +3,10 @@
 @implementation vpicdetailmenu
 {
     CGFloat itemwidth;
+    BOOL trackscroll;
 }
 
--(instancetype)init
+-(instancetype)init:(vpicdetail*)detail
 {
     self = [super init];
     [self setClipsToBounds:YES];
@@ -13,6 +14,8 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     itemwidth = 120;
+    trackscroll = NO;
+    self.description = detail;
     self.model = [[mpicmenu alloc] init];
     
     UIView *border = [[UIView alloc] init];
@@ -62,6 +65,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingbusy:) name:notwritingbusy object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingfree:) name:notwritingfree object:nil];
     
+    [collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
+    
     return self;
 }
 
@@ -102,8 +107,40 @@
                    });
 }
 
+-(void)postselect:(NSIndexPath*)index
+{
+    [[self.model item:index.item] selected:self.detail];
+}
+
 #pragma mark -
 #pragma mark col del
+
+-(void)scrollViewWillBeginDragging:(UIScrollView*)drag
+{
+    trackscroll = YES;
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView*)scroll
+{
+    trackscroll = NO;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView*)scroll
+{
+    if(trackscroll)
+    {
+        CGFloat leftoffset = scroll.contentOffset.x;
+        
+        CGPoint point = CGPointMake(leftoffset + (scroll.bounds.size.width / 2), 0);
+        NSIndexPath *index = [self.collection indexPathForItemAtPoint:point];
+        
+        if(index)
+        {
+            [self postselect:index];
+            [self.collection selectItemAtIndexPath:index animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+        }
+    }
+}
 
 -(UIEdgeInsets)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout insetForSectionAtIndex:(NSInteger)section
 {
@@ -131,8 +168,16 @@
 {
     vpicdetailmenucel *cel = [col dequeueReusableCellWithReuseIdentifier:celid forIndexPath:index];
     [cel config:[self.model item:index.item]];
+    trackscroll = NO;
     
     return cel;
+}
+
+-(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
+{
+    [col scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    [self postselect:index];
+    trackscroll = NO;
 }
 
 @end

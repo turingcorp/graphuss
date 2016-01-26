@@ -17,7 +17,7 @@
     [image setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.image = image;
     
-    vpicdetailmenu *menu = [[vpicdetailmenu alloc] init];
+    vpicdetailmenu *menu = [[vpicdetailmenu alloc] init:self];
     self.menu = menu;
     
     [self addSubview:image];
