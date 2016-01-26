@@ -15,11 +15,11 @@
     vpicdetailedit *edit = [[vpicdetailedit alloc] init:detail];
     [detail overrideoverview:edit];
     
-    NSDictionary *views = @{@"edit":edit, @"menu":detail.menu};
+    NSDictionary *views = @{@"edit":edit};
     NSDictionary *metrics = @{};
     
     [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[edit]-0-|" options:0 metrics:metrics views:views]];
-    [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[edit(60)]-0-[menu]" options:0 metrics:metrics views:views]];
+    [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[edit(60)]-80-|" options:0 metrics:metrics views:views]];
 }
 
 @end
