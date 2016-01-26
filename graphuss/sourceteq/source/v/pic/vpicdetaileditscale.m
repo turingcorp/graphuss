@@ -246,9 +246,9 @@
 
 -(void)computeheight
 {
-    CGFloat thisratio = [self ratiofor:self.fieldheight original:height];
+    CGFloat another;
     
-#warning "export first"
+    CGFloat thisratio = [self ratiofor:self.fieldheight original:height];
     
     if(thisratio > 0)
     {
