@@ -11,6 +11,10 @@
 "pic_detail_menu_file_delete"="Delete";
 "pic_detail_menu_file_delete_title"="Delete picture";
 "pic_detail_menu_file_delete_descr"="It will be removed permanently";
+"pic_detail_menu_file_compress_cancel"="Cancel";
+"pic_detail_menu_file_compress_compress"="Compress";
+"pic_detail_menu_file_compress_title"="Compress image";
+"pic_detail_menu_file_compress_descr"="Lowers the quality but make smaller files";
 
 "pic_detail_scale_lblwidth"="Pixels width";
 "pic_detail_scale_lblheight"="Pixels height";
