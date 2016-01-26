@@ -10,3 +10,4 @@
 #import "mpicmenuprotocol.h"
 #import "mpicmenufile.h"
 #import "mpicmenuedit.h"
+#import "mpicmenufilters.h"

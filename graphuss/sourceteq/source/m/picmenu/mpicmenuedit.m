@@ -10,9 +10,9 @@
     return NSLocalizedString(@"pic_detail_menu_edit", nil);
 }
 
--(UIView*)overview
+-(void)selected:(vpicdetail*)detail
 {
-    return [[vpicdetailedit alloc] init];
+    
 }
 
 @end

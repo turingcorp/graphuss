@@ -53,6 +53,7 @@
 		DA390BEB1C57B90D000ABCEA /* vpicdetailedit.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BE51C57B90D000ABCEA /* vpicdetailedit.m */; };
 		DA390BEC1C57B90D000ABCEA /* vpicdetaileditscale.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BE71C57B90D000ABCEA /* vpicdetaileditscale.m */; };
 		DA390BEF1C57B948000ABCEA /* vpicdetailfile.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BEE1C57B948000ABCEA /* vpicdetailfile.m */; };
+		DA390BF21C57C16F000ABCEA /* mpicmenufilters.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BF11C57C16F000ABCEA /* mpicmenufilters.m */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -150,6 +151,8 @@
 		DA390BE71C57B90D000ABCEA /* vpicdetaileditscale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpicdetaileditscale.m; sourceTree = "<group>"; };
 		DA390BED1C57B948000ABCEA /* vpicdetailfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpicdetailfile.h; sourceTree = "<group>"; };
 		DA390BEE1C57B948000ABCEA /* vpicdetailfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpicdetailfile.m; sourceTree = "<group>"; };
+		DA390BF01C57C16F000ABCEA /* mpicmenufilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenufilters.h; sourceTree = "<group>"; };
+		DA390BF11C57C16F000ABCEA /* mpicmenufilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenufilters.m; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -337,6 +340,8 @@
 				DA390BD71C57B60B000ABCEA /* mpicmenufile.m */,
 				DA390BD91C57B622000ABCEA /* mpicmenuedit.h */,
 				DA390BDA1C57B622000ABCEA /* mpicmenuedit.m */,
+				DA390BF01C57C16F000ABCEA /* mpicmenufilters.h */,
+				DA390BF11C57C16F000ABCEA /* mpicmenufilters.m */,
 			);
 			path = picmenu;
 			sourceTree = "<group>";
@@ -775,6 +780,7 @@
 				DA1478541C5150390024141B /* mpagesitemcamera.m in Sources */,
 				DA390BD41C57B5B3000ABCEA /* mpicmenu.m in Sources */,
 				DA390BD81C57B60B000ABCEA /* mpicmenufile.m in Sources */,
+				DA390BF21C57C16F000ABCEA /* mpicmenufilters.m in Sources */,
 				DA390BE91C57B90D000ABCEA /* vpicdetailmenu.m in Sources */,
 				DA3D9A271C5126720072F69B /* vspinner.m in Sources */,
 				DA3D9A201C5126720072F69B /* mdb.m in Sources */,
