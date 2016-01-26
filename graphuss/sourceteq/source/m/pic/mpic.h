@@ -9,8 +9,9 @@
 -(void)firsttime;
 -(NSString*)fileforimage:(NSString*)picname;
 -(NSString*)fileforthumb:(NSString*)picname;
--(void)savepic:(UIImage*)pic;
+-(BOOL)savepic:(UIImage*)pic;
 -(void)deletepic:(mpicitem*)pic;
+-(void)duplicatepic:(mpicitem*)pic;
 -(NSInteger)count;
 -(mpicitem*)item:(NSInteger)index;
 -(void)update:(NSString*)name image:(UIImage*)image;

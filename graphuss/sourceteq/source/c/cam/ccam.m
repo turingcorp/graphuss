@@ -157,7 +157,10 @@
                        [self.cam picturetaken:image];
                        [self restarttimeout];
                        
-                       [[mpic singleton] savepic:image];
+                       if([[mpic singleton] savepic:image])
+                       {
+                           [[analytics singleton] trackevent:ga_event_shoot action:ga_action_completed label:nil];
+                       }
                    });
 }
 

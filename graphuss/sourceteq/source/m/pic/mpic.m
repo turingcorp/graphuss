@@ -118,8 +118,10 @@
     return [self.thumbsfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.thumb", picname]];
 }
 
--(void)savepic:(UIImage*)pic
+-(BOOL)savepic:(UIImage*)pic
 {
+    BOOL done = NO;
+    
     NSInteger now = [NSDate date].timeIntervalSince1970;
     NSString *name = [NSString stringWithFormat:@"%@", @(now)];
     
@@ -129,10 +131,11 @@
                            @"INSERT INTO pic (name) values(%@);",
                            name];
         [db query:query];
-        
-        [[analytics singleton] trackevent:ga_event_shoot action:ga_action_completed label:nil];
         [self loadpics];
+        done = YES;
     }
+    
+    return done;
 }
 
 -(void)deletepic:(mpicitem*)pic
@@ -147,6 +150,11 @@
     [mdirs deletefile:[pic fileforthumb] dir:NO];
     
     [self loadpics];
+}
+
+-(void)duplicatepic:(mpicitem*)pic
+{
+    [self savepic:pic.imagehd];
 }
 
 -(NSInteger)count
