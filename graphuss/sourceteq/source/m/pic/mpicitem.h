@@ -6,6 +6,7 @@
 -(CGFloat)heightforwidth:(CGFloat)width;
 -(void)update:(UIImage*)image;
 -(NSString*)fileforimage;
+-(NSString*)fileforthumb;
 
 @property(strong, nonatomic)UIImage *thumb;
 @property(weak, nonatomic)UIImage *imagehd;

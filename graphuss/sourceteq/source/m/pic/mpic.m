@@ -135,6 +135,18 @@
     }
 }
 
+-(void)deletepic:(mpicitem*)pic
+{
+    NSString *query = [NSString stringWithFormat:
+                       @"DELETE FROM pic where id=%@;",
+                       @(pic.picid)];
+    
+    [db query:query];
+    
+    [mdirs deletefile:[pic fileforimage] dir:NO];
+    [mdirs deletefile:[pic fileforthumb] dir:NO];
+}
+
 -(NSInteger)count
 {
     return array.count;

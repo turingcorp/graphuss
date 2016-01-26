@@ -8,7 +8,7 @@
     
     self.picid = picid.integerValue;
     self.name = name;
-    self.thumb = [UIImage imageWithContentsOfFile:[[mpic singleton] fileforthumb:self.name]];
+    self.thumb = [UIImage imageWithContentsOfFile:[self fileforthumb]];
     self.width = self.thumb.size.width;
     self.height = self.thumb.size.height;
     
@@ -41,6 +41,11 @@
 -(NSString*)fileforimage
 {
     return [[mpic singleton] fileforimage:self.name];
+}
+
+-(NSString*)fileforthumb
+{
+    return [[mpic singleton] fileforthumb:self.name];
 }
 
 @end

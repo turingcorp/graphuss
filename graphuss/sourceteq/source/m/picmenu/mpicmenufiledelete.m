@@ -2,6 +2,31 @@
 
 @implementation mpicmenufiledelete
 
+#pragma mark functionality
+
+-(void)performdelete
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       [[mpic singleton] deletepic:self.detail.pic];
+                       [self deletecomplete];
+                   });
+}
+
+-(void)deletecomplete
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
+    
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       [self.detail.controller.navigationController popViewControllerAnimated:YES];
+                   });
+}
+
 #pragma mark -
 #pragma mark file protocol
 
@@ -23,7 +48,7 @@
 {
     if(index)
     {
-        
+        [self performdelete];
     }
 }
 
