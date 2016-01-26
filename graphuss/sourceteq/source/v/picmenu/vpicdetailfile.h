@@ -2,7 +2,7 @@
 
 @class vpicdetail;
 
-@interface vpicdetailfile:UIView
+@interface vpicdetailfile:UIView<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 -(instancetype)init:(vpicdetail*)detail;
 

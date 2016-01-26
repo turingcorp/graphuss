@@ -11,3 +11,7 @@
 #import "mpicmenufile.h"
 #import "mpicmenuedit.h"
 #import "mpicmenufilters.h"
+#import "mpicmenufileprotocol.h"
+#import "mpicmenufileduplicate.h"
+#import "mpicmenufileshare.h"
+#import "mpicmenufiledelete.h"
