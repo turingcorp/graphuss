@@ -1,13 +1,9 @@
-//
-//  mpicmenu.h
-//  graphuss
-//
-//  Created by zero on 1/26/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
+#import "mpicmenuprotocol.h"
 
-#import <Foundation/Foundation.h>
+@interface mpicmenu:NSObject
 
-@interface mpicmenu : NSObject
+-(NSInteger)count;
+-(id<mpicmenuprotocol>)item:(NSInteger)index;
 
 @end
