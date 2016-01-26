@@ -21,7 +21,12 @@ typedef NS_ENUM(NSInteger, ga_screen)
 
 typedef NS_ENUM(NSInteger, ga_event)
 {
-    ga_event_shoot
+    ga_event_shoot,
+    ga_event_pic_file_duplicate,
+    ga_event_pic_file_share,
+    ga_event_pic_file_compress,
+    ga_event_pic_file_delete,
+    ga_event_pic_edit_rotate
 };
 
 typedef NS_ENUM(NSInteger, ga_action)
