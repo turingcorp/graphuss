@@ -7,3 +7,6 @@
 #import "mpic.h"
 #import "mpicitem.h"
 #import "mpicmenu.h"
+#import "mpicmenuprotocol.h"
+#import "mpicmenufile.h"
+#import "mpicmenuedit.h"
