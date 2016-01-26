@@ -1,13 +1,18 @@
-//
-//  mpicmenufileduplicate.m
-//  graphuss
-//
-//  Created by zero on 1/26/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
-
 #import "mpicmenufileduplicate.h"
 
 @implementation mpicmenufileduplicate
+
+#pragma mark -
+#pragma mark file protocol
+
+-(NSString*)title
+{
+    return NSLocalizedString(@"pic_detail_menu_file_duplicate", nil);
+}
+
+-(void)action:(vpicdetail*)detail
+{
+    
+}
 
 @end

@@ -1,13 +1,6 @@
-//
-//  mpicmenufiledelete.h
-//  graphuss
-//
-//  Created by zero on 1/26/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
+#import "mpicmenufileprotocol.h"
 
-#import <Foundation/Foundation.h>
-
-@interface mpicmenufiledelete : NSObject
+@interface mpicmenufiledelete:NSObject<mpicmenufileprotocol>
 
 @end

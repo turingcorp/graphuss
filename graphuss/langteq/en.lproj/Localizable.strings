@@ -5,6 +5,10 @@
 "pic_detail_menu_file"="File";
 "pic_detail_menu_edit"="Edit";
 "pic_detail_menu_filters"="Filters";
+"pic_detail_menu_file_duplicate"="Duplicate";
+"pic_detail_menu_file_share"="Share";
+"pic_detail_menu_file_compression"="Compression";
+"pic_detail_menu_file_delete"="Delete";
 
 "pic_detail_scale_lblwidth"="Pixels width";
 "pic_detail_scale_lblheight"="Pixels height";
