@@ -100,4 +100,9 @@
     return cel;
 }
 
+-(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
+{
+    [(id<mpicmenufileprotocol>)[self.model item:index.item] action:self.detail];
+}
+
 @end
