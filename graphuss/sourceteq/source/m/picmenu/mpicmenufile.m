@@ -15,7 +15,7 @@
 
 -(void)selected:(vpicdetail*)detail
 {
-    vpicdetailfile *file = [[vpicdetailfile alloc] init:detail];
+    vpicdetailfile *file = [[vpicdetailfile alloc] init:detail model:self];
     [detail overrideoverview:file];
     
     NSDictionary *views = @{@"file":file};
