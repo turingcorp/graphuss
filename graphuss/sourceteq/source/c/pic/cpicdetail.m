@@ -76,6 +76,8 @@
 
 -(void)edit_rotateleft
 {
+    [[analytics singleton] trackevent:ga_event_pic_edit_rotate action:ga_action_left label:nil];
+    
     UIImageOrientation next;
     
     switch(self.image.imageOrientation)
@@ -134,6 +136,8 @@
 
 -(void)edit_rotateright
 {
+    [[analytics singleton] trackevent:ga_event_pic_edit_rotate action:ga_action_right label:nil];
+    
     UIImageOrientation next;
     
     switch(self.image.imageOrientation)

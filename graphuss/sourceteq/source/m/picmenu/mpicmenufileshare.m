@@ -12,6 +12,8 @@
 
 -(void)action:(vpicdetail*)detail
 {
+    [[analytics singleton] trackevent:ga_event_pic_file_share action:ga_action_start label:nil];
+    
     NSURL *url = [NSURL fileURLWithPath:[detail.pic fileforimage]];
     UIActivityViewController *act = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil];
     

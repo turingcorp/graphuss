@@ -12,6 +12,7 @@
 
 -(void)action:(vpicdetail*)detail
 {
+    [[analytics singleton] trackevent:ga_event_pic_file_duplicate action:ga_action_start label:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),

@@ -17,6 +17,7 @@
     self.spinner = spinner;
     
     vcammenu *menu = [[vcammenu alloc] init:self];
+    [menu setUserInteractionEnabled:NO];
     self.menu = menu;
     
     vcamfinder *finder = [[vcamfinder alloc] init];
@@ -115,6 +116,7 @@
                    {
                        [self.spinner removeFromSuperview];
                        [self.finder startsession:session];
+                       [self.menu setUserInteractionEnabled:YES];
                    });
 }
 

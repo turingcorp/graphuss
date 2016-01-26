@@ -12,6 +12,8 @@
 
 -(void)action:(vpicdetail*)detail
 {
+    [[analytics singleton] trackevent:ga_event_pic_file_compress action:ga_action_start label:nil];
+    
     vpicdetailfilecompress *compress = [[vpicdetailfilecompress alloc] init:detail];
     [detail addSubview:compress];
     

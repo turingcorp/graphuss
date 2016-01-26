@@ -20,6 +20,8 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
     
+    [[analytics singleton] trackevent:ga_event_pic_file_delete action:ga_action_completed label:nil];
+    
     dispatch_async(dispatch_get_main_queue(),
                    ^
                    {
@@ -37,6 +39,8 @@
 
 -(void)action:(vpicdetail*)detail
 {
+    [[analytics singleton] trackevent:ga_event_pic_file_delete action:ga_action_start label:nil];
+    
     self.detail = detail;
     [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"pic_detail_menu_file_delete_title", nil) message:NSLocalizedString(@"pic_detail_menu_file_delete_descr", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert_cancel", nil) otherButtonTitles:NSLocalizedString(@"pic_detail_menu_file_delete", nil), nil] show];
 }
@@ -49,6 +53,10 @@
     if(index)
     {
         [self performdelete];
+    }
+    else
+    {
+        [[analytics singleton] trackevent:ga_event_pic_file_delete action:ga_action_cancel label:nil];
     }
 }
 
