@@ -87,6 +87,7 @@
     [buttonaccept setTranslatesAutoresizingMaskIntoConstraints:NO];
     [buttonaccept addTarget:self action:@selector(actionaccept:) forControlEvents:UIControlEventTouchUpInside];
     [buttonaccept.titleLabel setFont:[UIFont fontWithName:fontboldname size:18]];
+    [buttonaccept setHidden:YES];
     
     self.buttonaccept = buttonaccept;
     
