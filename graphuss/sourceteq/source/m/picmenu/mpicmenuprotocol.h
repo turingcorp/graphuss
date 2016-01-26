@@ -1,8 +1,10 @@
 #import <UIKit/UIKit.h>
 
+@class vpicdetail;
+
 @protocol mpicmenuprotocol <NSObject>
 
 -(NSString*)title;
--(UIView*)overview;
+-(void)selected:(vpicdetail*)detail;
 
 @end
