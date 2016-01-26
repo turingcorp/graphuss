@@ -39,18 +39,20 @@
     UISlider *slider = [[UISlider alloc] init];
     [slider setTranslatesAutoresizingMaskIntoConstraints:NO];
     [slider setTintColor:colormain];
-    [slider setMinimumTrackTintColor:colormain];
-    [slider setMaximumTrackTintColor:[UIColor blackColor]];
-    [slider setValue:1 animated:NO];
+    [slider setMaximumTrackTintColor:colormain];
+    [slider setMinimumTrackTintColor:[UIColor blackColor]];
     [slider addTarget:self action:@selector(actionslider:) forControlEvents:UIControlEventValueChanged];
+    [slider setMinimumValue:0];
+    [slider setMaximumValue:100];
+    [slider setValue:100 animated:NO];
     self.slider = slider;
     
     UILabel *labelvalue = [[UILabel alloc] init];
     [labelvalue setBackgroundColor:[UIColor clearColor]];
-    [labelvalue setFont:[UIFont fontWithName:fontboldname size:22]];
+    [labelvalue setFont:[UIFont fontWithName:fontboldname size:25]];
     [labelvalue setTextAlignment:NSTextAlignmentCenter];
     [labelvalue setUserInteractionEnabled:NO];
-    [labelvalue setTextColor:colormain];
+    [labelvalue setTextColor:[UIColor blackColor]];
     [labelvalue setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.labelvalue = labelvalue;
     
@@ -69,10 +71,10 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[btncancel]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[slider]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[value]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-200-[slider]-15-[value]-25-[btncompress(44)]-20-[btncancel(44)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-200-[slider]-2-[value]-45-[btncompress(44)]-20-[btncancel(44)]" options:0 metrics:metrics views:views]];
     
     [self animate:YES];
-    [self print:1];
+    [self print:100];
     
     return self;
 }
@@ -120,7 +122,9 @@
 
 -(void)print:(CGFloat)value
 {
-    [self.labelvalue setText:[NSString stringWithFormat:@"%@ %%", [[tools singleton] numbertostring:@(value * 100)]]];
+    NSInteger intval = roundf(value);
+    
+    [self.labelvalue setText:[NSString stringWithFormat:@"%@%%", [[tools singleton] numbertostring:@(intval)]]];
 }
 
 @end
