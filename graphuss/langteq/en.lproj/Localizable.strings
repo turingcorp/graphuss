@@ -9,6 +9,8 @@
 "pic_detail_menu_file_share"="Share";
 "pic_detail_menu_file_compression"="Compression";
 "pic_detail_menu_file_delete"="Delete";
+"pic_detail_menu_file_delete_title"="Delete picture";
+"pic_detail_menu_file_delete_descr"="It will be removed permanently";
 
 "pic_detail_scale_lblwidth"="Pixels width";
 "pic_detail_scale_lblheight"="Pixels height";
@@ -19,3 +21,5 @@
 "error_empty_input"="Couldn't connect to camera";
 "error_wrongbuffer"="Couldn't take picture, try again";
 "error_emptypicture"="Picture corrupted, try again";
+
+"alert_cancel"="Cancel";

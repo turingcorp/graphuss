@@ -1,6 +1,10 @@
 #import "appdel.h"
 #import "mpicmenufileprotocol.h"
 
-@interface mpicmenufiledelete:NSObject<mpicmenufileprotocol>
+@class vpicdetail;
+
+@interface mpicmenufiledelete:NSObject<mpicmenufileprotocol, UIAlertViewDelegate>
+
+@property(weak, nonatomic)vpicdetail *detail;
 
 @end
