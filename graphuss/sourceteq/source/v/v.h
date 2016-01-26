@@ -13,3 +13,4 @@
 #import "vpicdetailmenucel.h"
 #import "vpicdetailedit.h"
 #import "vpicdetaileditscale.h"
+#import "vpicdetailfile.h"
