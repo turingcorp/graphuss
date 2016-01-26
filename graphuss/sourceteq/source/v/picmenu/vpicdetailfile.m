@@ -2,13 +2,14 @@
 
 @implementation vpicdetailfile
 
--(instancetype)init:(vpicdetail*)detail
+-(instancetype)init:(vpicdetail*)detail model:(mpicmenufile*)model
 {
     self = [super init];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self setClipsToBounds:YES];
     
     self.detail = detail;
+    self.model = model;
     
     vblur *blur = [vblur light:YES];
     
@@ -29,6 +30,18 @@
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)col
 {
     return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView*)col numberOfItemsInSection:(NSInteger)section
+{
+    return [self.model count];
+}
+
+-(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index
+{
+    vpicdetailfile
+    
+    return <#expression#>
 }
 
 @end
