@@ -48,7 +48,7 @@
 		DA1478841C51B5060024141B /* shoot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478811C51B5060024141B /* shoot@2x.png */; };
 		DA1478851C51B5060024141B /* shoot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478821C51B5060024141B /* shoot@3x.png */; };
 		DA390BCA1C57B465000ABCEA /* vpicdetailmenucel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BC91C57B465000ABCEA /* vpicdetailmenucel.m */; };
-		DA390BCD1C57B4ED000ABCEA /* mpicmenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BCC1C57B4ED000ABCEA /* mpicmenu.m */; };
+		DA390BD41C57B5B3000ABCEA /* mpicmenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BD31C57B5B3000ABCEA /* mpicmenu.m */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -136,8 +136,8 @@
 		DA1478821C51B5060024141B /* shoot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shoot@3x.png"; sourceTree = "<group>"; };
 		DA390BC81C57B465000ABCEA /* vpicdetailmenucel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpicdetailmenucel.h; sourceTree = "<group>"; };
 		DA390BC91C57B465000ABCEA /* vpicdetailmenucel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpicdetailmenucel.m; sourceTree = "<group>"; };
-		DA390BCB1C57B4ED000ABCEA /* mpicmenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenu.h; sourceTree = "<group>"; };
-		DA390BCC1C57B4ED000ABCEA /* mpicmenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenu.m; sourceTree = "<group>"; };
+		DA390BD21C57B5B3000ABCEA /* mpicmenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenu.h; sourceTree = "<group>"; };
+		DA390BD31C57B5B3000ABCEA /* mpicmenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenu.m; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -214,8 +214,6 @@
 				DA03AF691C52E312005DB3C9 /* mpic.m */,
 				DA03AF6B1C52E987005DB3C9 /* mpicitem.h */,
 				DA03AF6C1C52E987005DB3C9 /* mpicitem.m */,
-				DA390BCB1C57B4ED000ABCEA /* mpicmenu.h */,
-				DA390BCC1C57B4ED000ABCEA /* mpicmenu.m */,
 			);
 			path = pic;
 			sourceTree = "<group>";
@@ -327,6 +325,15 @@
 				DA1478731C51A04E0024141B /* spinner3@3x.png */,
 			);
 			path = spinner;
+			sourceTree = "<group>";
+		};
+		DA390BD11C57B590000ABCEA /* picmenu */ = {
+			isa = PBXGroup;
+			children = (
+				DA390BD21C57B5B3000ABCEA /* mpicmenu.h */,
+				DA390BD31C57B5B3000ABCEA /* mpicmenu.m */,
+			);
+			path = picmenu;
 			sourceTree = "<group>";
 		};
 		DA3D99A31C51228A0072F69B = {
@@ -510,6 +517,7 @@
 			children = (
 				DA3D9A011C5126720072F69B /* m.h */,
 				DA3D99F31C5126720072F69B /* db */,
+				DA390BD11C57B590000ABCEA /* picmenu */,
 				DA03AF671C52E302005DB3C9 /* pic */,
 				DA3D99FA1C5126720072F69B /* dirs */,
 				DA14784B1C514F0C0024141B /* pages */,
@@ -732,7 +740,7 @@
 				DA3D9A261C5126720072F69B /* viewbase.m in Sources */,
 				DA1478541C5150390024141B /* mpagesitemcamera.m in Sources */,
 				DA0C20A21C535FCB00C386EC /* vpicdetailmenu.m in Sources */,
-				DA390BCD1C57B4ED000ABCEA /* mpicmenu.m in Sources */,
+				DA390BD41C57B5B3000ABCEA /* mpicmenu.m in Sources */,
 				DA3D9A271C5126720072F69B /* vspinner.m in Sources */,
 				DA3D9A201C5126720072F69B /* mdb.m in Sources */,
 				DA0C209F1C5358C500C386EC /* vpicdetail.m in Sources */,
