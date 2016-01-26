@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger, ga_action)
 {
     ga_action_error,
     ga_action_start,
+    ga_action_restart,
     ga_action_shoot,
     ga_action_completed,
     ga_action_cancel,

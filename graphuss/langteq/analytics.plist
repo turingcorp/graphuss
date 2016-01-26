@@ -22,6 +22,7 @@
 	<array>
 		<string>error</string>
 		<string>start</string>
+		<string>restart</string>
 		<string>shoot</string>
 		<string>completed</string>
 		<string>cancel</string>
