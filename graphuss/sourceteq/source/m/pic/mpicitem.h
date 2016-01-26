@@ -5,6 +5,7 @@
 -(instancetype)init:(NSNumber*)picid name:(NSString*)name;
 -(CGFloat)heightforwidth:(CGFloat)width;
 -(void)update:(UIImage*)image;
+-(NSString*)fileforimage;
 
 @property(strong, nonatomic)UIImage *thumb;
 @property(weak, nonatomic)UIImage *imagehd;

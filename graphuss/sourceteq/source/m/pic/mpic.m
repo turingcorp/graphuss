@@ -110,7 +110,7 @@
 
 -(NSString*)fileforimage:(NSString*)picname
 {
-    return [self.imagesfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.image", picname]];
+    return [self.imagesfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpeg", picname]];
 }
 
 -(NSString*)fileforthumb:(NSString*)picname

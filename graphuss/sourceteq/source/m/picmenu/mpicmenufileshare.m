@@ -12,7 +12,8 @@
 
 -(void)action:(vpicdetail*)detail
 {
-    UIActivityViewController *act = [[UIActivityViewController alloc] initWithActivityItems:@[detail.pic.imagehd] applicationActivities:nil];
+    NSURL *url = [NSURL fileURLWithPath:[detail.pic fileforimage]];
+    UIActivityViewController *act = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:nil];
     
     if([UIPopoverPresentationController class])
     {

@@ -38,4 +38,9 @@
     [[mpic singleton] update:self.name image:image];
 }
 
+-(NSString*)fileforimage
+{
+    return [[mpic singleton] fileforimage:self.name];
+}
+
 @end

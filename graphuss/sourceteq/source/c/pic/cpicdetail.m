@@ -48,7 +48,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       weakself.image = [UIImage imageWithContentsOfFile:[[mpic singleton] fileforimage:weakself.pic.name]];
+                       weakself.image = [UIImage imageWithContentsOfFile:[weakself.pic fileforimage]];
                        weakself.pic.imagehd = weakself.image;
                        [weakself loadviewpic];
                    });
