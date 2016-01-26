@@ -33,7 +33,7 @@
     [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:fontboldname size:16], NSForegroundColorAttributeName:colormain}];
     [self.navigationBar setTranslucent:NO];
     
-    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:fontname size:16], NSForegroundColorAttributeName:colormain} forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:fontboldname size:15], NSForegroundColorAttributeName:colormain} forState:UIControlStateNormal];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle

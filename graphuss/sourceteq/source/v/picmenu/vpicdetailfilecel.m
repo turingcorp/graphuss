@@ -6,14 +6,13 @@
 {
     self = [super initWithFrame:frame];
     [self setClipsToBounds:YES];
-    [self setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.2]];
     
     UILabel *label = [[UILabel alloc] init];
     [label setBackgroundColor:[UIColor clearColor]];
-    [label setFont:[UIFont fontWithName:fontname size:18]];
+    [label setFont:[UIFont fontWithName:fontboldname size:16]];
     [label setUserInteractionEnabled:NO];
     [label setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [label setTextColor:[UIColor colorWithWhite:0 alpha:0.7]];
+    [label setTextAlignment:NSTextAlignmentCenter];
     self.label = label;
     
     [self addSubview:label];
@@ -27,9 +26,40 @@
     return self;
 }
 
+-(void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    [self hover];
+}
+
+-(void)setHighlighted:(BOOL)highlighted
+{
+    [super setHighlighted:highlighted];
+    [self hover];
+}
+
+#pragma mark functionality
+
+-(void)hover
+{
+    if(self.isSelected || self.isHighlighted)
+    {
+        [self setBackgroundColor:colormain];
+        [self.label setTextColor:[UIColor whiteColor]];
+    }
+    else
+    {
+        [self setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.1]];
+        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.9]];
+    }
+}
+
+#pragma mark public
+
 -(void)config:(id<mpicmenufileprotocol>)model
 {
     [self.label setText:[model title]];
+    [self hover];
 }
 
 @end
