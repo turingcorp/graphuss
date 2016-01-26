@@ -100,6 +100,8 @@
                            [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
                            
                            [self.detail.controllerdetail edit_compress:value / 100.0];
+                           
+                           [valert alert:NSLocalizedString(@"pic_detail_menu_file_compress_done", nil) inview:self.detail];
                        });
     }
 }

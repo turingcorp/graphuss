@@ -15,6 +15,7 @@
 "pic_detail_menu_file_compress_compress"="Compress";
 "pic_detail_menu_file_compress_title"="Compress image";
 "pic_detail_menu_file_compress_descr"="Lowers the quality but make smaller files";
+"pic_detail_menu_file_compress_done"="Image compressed";
 
 "pic_detail_scale_lblwidth"="Pixels width";
 "pic_detail_scale_lblheight"="Pixels height";

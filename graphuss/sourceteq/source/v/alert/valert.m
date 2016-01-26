@@ -4,16 +4,20 @@
 
 +(void)alert:(NSString*)message inview:(UIView*)view
 {
-    valert *alert = [[valert alloc] init:message];
-    [view addSubview:alert];
-    
-    NSDictionary *views = @{@"alert":alert};
-    NSDictionary *metrics = @{};
-    
-    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[alert]-0-|" options:0 metrics:metrics views:views]];
-    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[alert]" options:0 metrics:metrics views:views]];
-    
-    [alert show];
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       valert *alert = [[valert alloc] init:message];
+                       [view addSubview:alert];
+                       
+                       NSDictionary *views = @{@"alert":alert};
+                       NSDictionary *metrics = @{};
+                       
+                       [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[alert]-0-|" options:0 metrics:metrics views:views]];
+                       [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[alert]" options:0 metrics:metrics views:views]];
+                       
+                       [alert show];
+                   });
 }
 
 -(instancetype)init:(NSString*)message
@@ -31,7 +35,7 @@
     [lbl setNumberOfLines:0];
     [lbl setTextAlignment:NSTextAlignmentCenter];
     [lbl setTextColor:[UIColor whiteColor]];
-    [lbl setFont:[UIFont fontWithName:fontname size:16]];
+    [lbl setFont:[UIFont fontWithName:fontname size:18]];
     [lbl setText:message];
     [lbl setTranslatesAutoresizingMaskIntoConstraints:NO];
     
@@ -43,7 +47,7 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[lbl]-20-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-11-[lbl]-11-|" options:0 metrics:metrics views:views]];
     
-    [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(timeout:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:4.5 target:self selector:@selector(timeout:) userInfo:nil repeats:NO];
     
     return self;
 }
