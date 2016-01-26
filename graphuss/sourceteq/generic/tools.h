@@ -10,5 +10,6 @@
 +(NSString*)typetokey:(NSInteger)type;
 -(NSString*)urlencode:(NSString*)string;
 -(NSString*)numbertostring:(NSNumber*)number;
+-(NSNumber*)stringtonumber:(NSString*)string;
 
 @end

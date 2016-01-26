@@ -80,4 +80,9 @@
     return [numformatter stringFromNumber:number];
 }
 
+-(NSNumber*)stringtonumber:(NSString*)string
+{
+    return [numformatter numberFromString:string];
+}
+
 @end

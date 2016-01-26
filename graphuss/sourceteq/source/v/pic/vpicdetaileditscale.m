@@ -2,8 +2,8 @@
 
 @implementation vpicdetaileditscale
 {
-    CGFloat width;
-    CGFloat height;
+    NSInteger width;
+    NSInteger height;
     CGFloat ratio;
 }
 
@@ -199,17 +199,90 @@
 
 -(void)print
 {
-    [self.fieldwidth setText:[[tools singleton] numbertostring:@(width)]];
-    [self.fieldheight setText:[[tools singleton] numbertostring:@(height)]];
+    NSInteger displaywidth = width * ratio;
+    NSInteger displayheight = height * ratio;
+    
+    [self.fieldwidth setText:[[tools singleton] numbertostring:@(displaywidth)]];
+    [self.fieldheight setText:[[tools singleton] numbertostring:@(displayheight)]];
     [self.labelratio setText:[NSString stringWithFormat:@"x %@", [[tools singleton] numbertostring:@(ratio)]]];
+    [self.buttonaccept setHidden:ratio == 1];
+}
+
+-(CGFloat)ratiofor:(UITextField*)field original:(NSInteger)original
+{
+    CGFloat inratio = 0;
+    NSString *text = field.text;
+    text = [text stringByReplacingOccurrencesOfString:@"," withString:@""];
+    text = [text stringByReplacingOccurrencesOfString:@"." withString:@""];
+    
+    if(text.length)
+    {
+        NSNumber *num = [[tools singleton] stringtonumber:text];
+        NSInteger intvalue = num.integerValue;
+        
+        if(intvalue > 1 && intvalue != original)
+        {
+            inratio = intvalue / (CGFloat)original;
+        }
+    }
+    
+    return inratio;
+}
+
+-(void)computewidth
+{
+    CGFloat thisratio = [self ratiofor:self.fieldwidth original:width];
+    
+    if(thisratio > 0)
+    {
+        NSInteger newheight = height * thisratio;
+        
+        if(newheight > 1)
+        {
+            ratio = thisratio;
+        }
+    }
+}
+
+-(void)computeheight
+{
+    CGFloat thisratio = [self ratiofor:self.fieldheight original:height];
+    
+    if(thisratio > 0)
+    {
+        NSInteger newwidth = width * thisratio;
+        
+        if(newwidth > 1)
+        {
+            ratio = thisratio;
+        }
+    }
 }
 
 #pragma mark -
 #pragma mark field del
 
+-(void)textFieldDidBeginEditing:(UITextField*)field
+{
+    [self.buttonaccept setHidden:YES];
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField*)field
 {
     [field resignFirstResponder];
+    
+    ratio = 1;
+    
+    if(field == self.fieldwidth)
+    {
+        [self computewidth];
+    }
+    else
+    {
+        [self computeheight];
+    }
+    
+    [self print];
     
     return YES;
 }
