@@ -36,29 +36,56 @@
     [buttoncompress setTranslatesAutoresizingMaskIntoConstraints:NO];
     [buttoncompress addTarget:self action:@selector(actioncompress) forControlEvents:UIControlEventTouchUpInside];
     
+    UISlider *slider = [[UISlider alloc] init];
+    [slider setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [slider setTintColor:colormain];
+    [slider setMinimumTrackTintColor:colormain];
+    [slider setMaximumTrackTintColor:[UIColor blackColor]];
+    [slider setValue:1 animated:NO];
+    [slider addTarget:self action:@selector(actionslider:) forControlEvents:UIControlEventValueChanged];
+    self.slider = slider;
+    
+    UILabel *labelvalue = [[UILabel alloc] init];
+    [labelvalue setBackgroundColor:[UIColor clearColor]];
+    [labelvalue setFont:[UIFont fontWithName:fontboldname size:22]];
+    [labelvalue setTextAlignment:NSTextAlignmentCenter];
+    [labelvalue setUserInteractionEnabled:NO];
+    [labelvalue setTextColor:colormain];
+    [labelvalue setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.labelvalue = labelvalue;
+    
     [self addSubview:blur];
     [self addSubview:buttoncancel];
     [self addSubview:buttoncompress];
+    [self addSubview:labelvalue];
+    [self addSubview:slider];
     
-    NSDictionary *views = @{@"blur":blur, @"btncompress":buttoncompress, @"btncancel":buttoncancel};
+    NSDictionary *views = @{@"blur":blur, @"btncompress":buttoncompress, @"btncancel":buttoncancel, @"slider":slider, @"value":labelvalue};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[btncompress]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[btncancel]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-300-[btncompress(44)]-20-[btncancel(44)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[slider]-50-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[value]-50-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-200-[slider]-15-[value]-25-[btncompress(44)]-20-[btncancel(44)]" options:0 metrics:metrics views:views]];
     
     [self animate:YES];
+    [self print:1];
     
     return self;
 }
 
 #pragma mark actions
 
+-(void)actionslider:(UISlider*)slider
+{
+    [self print:slider.value];
+}
+
 -(void)actioncompress
 {
-    
 }
 
 -(void)actioncancel
@@ -89,6 +116,11 @@
              [self removeFromSuperview];
          }
      }];
+}
+
+-(void)print:(CGFloat)value
+{
+    [self.labelvalue setText:[NSString stringWithFormat:@"%@ %%", [[tools singleton] numbertostring:@(value * 100)]]];
 }
 
 @end
