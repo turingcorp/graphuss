@@ -145,6 +145,8 @@
     
     [mdirs deletefile:[pic fileforimage] dir:NO];
     [mdirs deletefile:[pic fileforthumb] dir:NO];
+    
+    [self loadpics];
 }
 
 -(NSInteger)count
