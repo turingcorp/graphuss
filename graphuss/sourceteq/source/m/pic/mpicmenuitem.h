@@ -1,13 +1,5 @@
-//
-//  mpicmenuitem.h
-//  graphuss
-//
-//  Created by zero on 1/26/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
-
-@interface mpicmenuitem : NSObject
+@interface mpicmenuitem:NSObject
 
 @end
