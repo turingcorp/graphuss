@@ -14,4 +14,5 @@
 #import "mpicmenufileprotocol.h"
 #import "mpicmenufileduplicate.h"
 #import "mpicmenufileshare.h"
+#import "mpicmenufilecompression.h"
 #import "mpicmenufiledelete.h"
