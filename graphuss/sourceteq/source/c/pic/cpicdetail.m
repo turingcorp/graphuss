@@ -60,6 +60,7 @@
                    ^
                    {
                        [self.viewdetail loadpic:self.pic];
+                       [self.viewdetail loadmenu];
                    });
 }
 

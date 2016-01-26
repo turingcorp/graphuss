@@ -8,6 +8,7 @@
 @interface vpicdetail:viewbase
 
 -(void)loadpic:(mpicitem*)pic;
+-(void)loadmenu;
 -(void)overrideoverview:(UIView*)overview;
 
 @property(weak, nonatomic)mpicitem *pic;

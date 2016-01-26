@@ -17,20 +17,14 @@
     [image setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.image = image;
     
-    vpicdetailmenu *menu = [[vpicdetailmenu alloc] init:self];
-    self.menu = menu;
-    
     [self addSubview:image];
-    [self addSubview:menu];
     
-    NSDictionary *views = @{@"image":image, @"menu":menu};
+    NSDictionary *views = @{@"image":image};
     NSDictionary *metrics = @{};
 
     self.conimageheight = [NSLayoutConstraint constraintWithItem:image attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:1];
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[image]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[menu(80)]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[menu]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraint:self.conimageheight];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingbusy:) name:notwritingbusy object:nil];
@@ -87,6 +81,23 @@
 {
     self.pic = pic;
     [self.image setImage:pic.imagehd];
+}
+
+-(void)loadmenu
+{
+    if(!self.menu)
+    {
+        vpicdetailmenu *menu = [[vpicdetailmenu alloc] init:self];
+        self.menu = menu;
+        
+        [self addSubview:menu];
+        
+        NSDictionary *views = @{@"menu":menu};
+        NSDictionary *metrics = @{};
+        
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[menu(80)]-0-|" options:0 metrics:metrics views:views]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[menu]-0-|" options:0 metrics:metrics views:views]];
+    }
 }
 
 -(void)overrideoverview:(UIView*)overview
