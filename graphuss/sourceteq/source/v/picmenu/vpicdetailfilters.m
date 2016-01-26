@@ -5,6 +5,7 @@
 -(instancetype)init:(vpicdetail*)detail
 {
     self = [super init];
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     return self;
 }
