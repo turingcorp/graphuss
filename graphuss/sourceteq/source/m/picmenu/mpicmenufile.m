@@ -7,12 +7,12 @@
 
 -(NSString*)title
 {
-    return @"";
+    return NSLocalizedString(@"pic_detail_menu_file", nil);
 }
 
 -(UIView*)overview
 {
-    
+    return [[vpicdetailfile alloc] init];
 }
 
 @end
