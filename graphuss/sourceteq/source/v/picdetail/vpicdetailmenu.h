@@ -7,5 +7,6 @@
 
 @property(weak, nonatomic)vspinner *spinner;
 @property(strong, nonatomic)mpicmenu *model;
+@property(weak, nonatomic)UICollectionView *collection;
 
 @end

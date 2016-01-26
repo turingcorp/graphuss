@@ -40,9 +40,11 @@
     [collection registerClass:[vpicdetailmenucel class] forCellWithReuseIdentifier:celid];
     [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    self.collection = collection;
+    
     [self addSubview:border];
-    [self addSubview:spinner];
     [self addSubview:collection];
+    [self addSubview:spinner];
     
     NSDictionary *views = @{@"border":border, @"spinner":spinner, @"col":collection};
     NSDictionary *metrics = @{};
@@ -84,6 +86,8 @@
     dispatch_async(dispatch_get_main_queue(),
                    ^
                    {
+                       [self.collection setHidden:show];
+                       
                        if(show)
                        {
                            [self.spinner startAnimating];
@@ -100,7 +104,7 @@
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
 {
-    return CGSizeMake(200, col.bounds.size.height);
+    return CGSizeMake(160, col.bounds.size.height);
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)col

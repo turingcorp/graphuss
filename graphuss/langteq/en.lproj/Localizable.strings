@@ -4,6 +4,7 @@
 
 "pic_detail_menu_file"="File";
 "pic_detail_menu_edit"="Edit";
+"pic_detail_menu_filters"="Filters";
 
 "pic_detail_scale_lblwidth"="Pixels width";
 "pic_detail_scale_lblheight"="Pixels height";
