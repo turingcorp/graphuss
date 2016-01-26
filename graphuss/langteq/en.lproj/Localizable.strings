@@ -2,6 +2,8 @@
 
 "pic_detail_title"="Picture";
 
+"pic_detail_scale_lblwidth"="Pixels width";
+"pic_detail_scale_lblheight"="Pixels height";
 "pic_detail_scale_btnaccept"="Scale image";
 "pic_detail_scale_btncancel"="Cancel";
 

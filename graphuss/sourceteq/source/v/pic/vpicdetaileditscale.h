@@ -11,8 +11,6 @@
 @property(weak, nonatomic)UITextField *fieldheight;
 @property(weak, nonatomic)UIButton *buttonaccept;
 @property(weak, nonatomic)UIButton *buttoncancel;
-@property(weak, nonatomic)UILabel *labelwidth;
-@property(weak, nonatomic)UILabel *labelheight;
 @property(weak, nonatomic)UILabel *labelratio;
 
 @end

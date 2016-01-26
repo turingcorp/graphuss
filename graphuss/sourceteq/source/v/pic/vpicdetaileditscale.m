@@ -107,19 +107,23 @@
     [labelwidth setBackgroundColor:[UIColor clearColor]];
     [labelwidth setUserInteractionEnabled:NO];
     [labelwidth setTranslatesAutoresizingMaskIntoConstraints:NO];
-    self.labelwidth = labelwidth;
+    [labelwidth setFont:[UIFont fontWithName:fontname size:17]];
+    [labelwidth setTextColor:[UIColor colorWithWhite:0 alpha:0.8]];
+    [labelwidth setText:NSLocalizedString(@"pic_detail_scale_lblwidth", nil)];
     
     UILabel *labelheight = [[UILabel alloc] init];
     [labelheight setBackgroundColor:[UIColor clearColor]];
     [labelheight setUserInteractionEnabled:NO];
     [labelheight setTranslatesAutoresizingMaskIntoConstraints:NO];
-    self.labelheight = labelheight;
+    [labelheight setFont:[UIFont fontWithName:fontname size:17]];
+    [labelheight setTextColor:[UIColor colorWithWhite:0 alpha:0.8]];
+    [labelheight setText:NSLocalizedString(@"pic_detail_scale_lblheight", nil)];
     
     UILabel *labelratio = [[UILabel alloc] init];
     [labelratio setBackgroundColor:[UIColor clearColor]];
     [labelratio setUserInteractionEnabled:NO];
     [labelratio setTextColor:colormain];
-    [labelratio setFont:[UIFont fontWithName:fontname size:18]];
+    [labelratio setFont:[UIFont fontWithName:fontboldname size:22]];
     [labelratio setTextAlignment:NSTextAlignmentRight];
     [labelratio setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.labelratio = labelratio;
@@ -133,18 +137,22 @@
     [self addSubview:buttonaccept];
     [self addSubview:buttoncancel];
     
-    NSDictionary *views = @{@"blur":blur, @"fieldwidth":fieldwidth, @"fieldheight":fieldheight, @"cancel":buttoncancel, @"accept":buttonaccept, @"lblratio":labelratio};
+    NSDictionary *views = @{@"blur":blur, @"fieldwidth":fieldwidth, @"fieldheight":fieldheight, @"cancel":buttoncancel, @"accept":buttonaccept, @"lblratio":labelratio, @"lblwidth":labelwidth, @"lblheight":labelheight};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[fieldwidth]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[fieldheight]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-50-[fieldwidth(55)]-50-[fieldheight(55)]-30-[accept(46)]-20-[cancel(46)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-80-[fieldwidth(55)]-50-[fieldheight(55)]-30-[accept(46)]-20-[cancel(46)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[accept]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[cancel]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[lblratio]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-105-[lblratio(50)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-135-[lblratio(50)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[lblwidth]-50-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[lblheight]-50-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-55-[lblwidth]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-160-[lblheight]" options:0 metrics:metrics views:views]];
     
     [self print];
     
