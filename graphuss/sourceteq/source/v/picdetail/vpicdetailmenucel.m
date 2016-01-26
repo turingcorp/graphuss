@@ -30,8 +30,8 @@
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[label]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[label]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[base]-8-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[base]-8-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-4-[base]-4-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[base]-20-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -54,14 +54,14 @@
 {
     if(self.isSelected || self.isHighlighted)
     {
-        [self.base setBackgroundColor:[colormain colorWithAlphaComponent:0.5]];
+        [self.base setBackgroundColor:colormain];
         [self.label setTextColor:[UIColor whiteColor]];
-        [self.label setFont:[UIFont fontWithName:fontboldname size:17]];
+        [self.label setFont:[UIFont fontWithName:fontboldname size:16]];
     }
     else
     {
         [self.base setBackgroundColor:[UIColor clearColor]];
-        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.5]];
+        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.6]];
         [self.label setFont:[UIFont fontWithName:fontname size:13]];
     }
 }

@@ -1,6 +1,9 @@
 #import "vpicdetailmenu.h"
 
 @implementation vpicdetailmenu
+{
+    CGFloat itemwidth;
+}
 
 -(instancetype)init
 {
@@ -9,6 +12,7 @@
     [self setBackgroundColor:[UIColor whiteColor]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
 
+    itemwidth = 120;
     self.model = [[mpicmenu alloc] init];
     
     UIView *border = [[UIView alloc] init];
@@ -27,7 +31,6 @@
     [flow setMinimumInteritemSpacing:0];
     [flow setMinimumLineSpacing:0];
     [flow setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    [flow setSectionInset:UIEdgeInsetsZero];
     
     UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flow];
     [collection setClipsToBounds:YES];
@@ -102,9 +105,16 @@
 #pragma mark -
 #pragma mark col del
 
+-(UIEdgeInsets)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout insetForSectionAtIndex:(NSInteger)section
+{
+    CGFloat margin = (col.bounds.size.width - itemwidth) / 2;
+    
+    return UIEdgeInsetsMake(0, margin, 0, margin);
+}
+
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
 {
-    return CGSizeMake(160, col.bounds.size.height);
+    return CGSizeMake(itemwidth, col.bounds.size.height);
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)col
