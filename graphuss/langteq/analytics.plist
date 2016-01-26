@@ -24,6 +24,9 @@
 		<string>start</string>
 		<string>shoot</string>
 		<string>completed</string>
+		<string>cancel</string>
+		<string>left</string>
+		<string>right</string>
 	</array>
 </dict>
 </plist>
