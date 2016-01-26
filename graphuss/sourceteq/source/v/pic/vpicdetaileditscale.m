@@ -78,7 +78,7 @@
     self.fieldheight = fieldheight;
     
     UIButton *buttonaccept = [[UIButton alloc] init];
-    [buttonaccept setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.3]];
+    [buttonaccept setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.8]];
     [buttonaccept.layer setCornerRadius:4];
     [buttonaccept setClipsToBounds:YES];
     [buttonaccept setTitle:NSLocalizedString(@"pic_detail_scale_btnaccept", nil) forState:UIControlStateNormal];
@@ -86,7 +86,7 @@
     [buttonaccept setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
     [buttonaccept setTranslatesAutoresizingMaskIntoConstraints:NO];
     [buttonaccept addTarget:self action:@selector(actionaccept:) forControlEvents:UIControlEventTouchUpInside];
-    [buttonaccept.titleLabel setFont:[UIFont fontWithName:fontboldname size:17]];
+    [buttonaccept.titleLabel setFont:[UIFont fontWithName:fontboldname size:18]];
     
     self.buttonaccept = buttonaccept;
     
@@ -99,26 +99,52 @@
     [buttoncancel setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
     [buttoncancel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [buttoncancel addTarget:self action:@selector(actioncancel:) forControlEvents:UIControlEventTouchUpInside];
-    [buttoncancel.titleLabel setFont:[UIFont fontWithName:fontboldname size:17]];
+    [buttoncancel.titleLabel setFont:[UIFont fontWithName:fontboldname size:18]];
     
     self.buttoncancel = buttoncancel;
+    
+    UILabel *labelwidth = [[UILabel alloc] init];
+    [labelwidth setBackgroundColor:[UIColor clearColor]];
+    [labelwidth setUserInteractionEnabled:NO];
+    [labelwidth setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.labelwidth = labelwidth;
+    
+    UILabel *labelheight = [[UILabel alloc] init];
+    [labelheight setBackgroundColor:[UIColor clearColor]];
+    [labelheight setUserInteractionEnabled:NO];
+    [labelheight setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.labelheight = labelheight;
+    
+    UILabel *labelratio = [[UILabel alloc] init];
+    [labelratio setBackgroundColor:[UIColor clearColor]];
+    [labelratio setUserInteractionEnabled:NO];
+    [labelratio setTextColor:colormain];
+    [labelratio setFont:[UIFont fontWithName:fontname size:18]];
+    [labelratio setTextAlignment:NSTextAlignmentRight];
+    [labelratio setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.labelratio = labelratio;
     
     [self addSubview:blur];
     [self addSubview:fieldwidth];
     [self addSubview:fieldheight];
+    [self addSubview:labelwidth];
+    [self addSubview:labelheight];
+    [self addSubview:labelratio];
     [self addSubview:buttonaccept];
     [self addSubview:buttoncancel];
     
-    NSDictionary *views = @{@"blur":blur, @"fieldwidth":fieldwidth, @"fieldheight":fieldheight, @"cancel":buttoncancel, @"accept":buttonaccept};
+    NSDictionary *views = @{@"blur":blur, @"fieldwidth":fieldwidth, @"fieldheight":fieldheight, @"cancel":buttoncancel, @"accept":buttonaccept, @"lblratio":labelratio};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[fieldwidth]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[fieldheight]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[fieldwidth(55)]-40-[fieldheight(55)]-50-[accept(46)]-20-[cancel(46)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-50-[fieldwidth(55)]-50-[fieldheight(55)]-30-[accept(46)]-20-[cancel(46)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[accept]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[cancel]-50-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[lblratio]-50-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-105-[lblratio(50)]" options:0 metrics:metrics views:views]];
     
     [self print];
     
@@ -166,6 +192,7 @@
 {
     [self.fieldwidth setText:[[tools singleton] numbertostring:@(width)]];
     [self.fieldheight setText:[[tools singleton] numbertostring:@(height)]];
+    [self.labelratio setText:[NSString stringWithFormat:@"x %@", [[tools singleton] numbertostring:@(ratio)]]];
 }
 
 #pragma mark -

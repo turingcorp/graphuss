@@ -13,6 +13,6 @@
 @property(weak, nonatomic)UIButton *buttoncancel;
 @property(weak, nonatomic)UILabel *labelwidth;
 @property(weak, nonatomic)UILabel *labelheight;
-@property(weak, nonatomic)UILabel *labeltimes;
+@property(weak, nonatomic)UILabel *labelratio;
 
 @end
