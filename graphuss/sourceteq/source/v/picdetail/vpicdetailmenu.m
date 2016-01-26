@@ -3,6 +3,7 @@
 @implementation vpicdetailmenu
 {
     CGFloat itemwidth;
+    NSInteger selected;
     BOOL trackscroll;
 }
 
@@ -14,8 +15,9 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     itemwidth = 120;
+    selected = -1;
     trackscroll = NO;
-    self.description = detail;
+    self.detail = detail;
     self.model = [[mpicmenu alloc] init];
     
     UIView *border = [[UIView alloc] init];
@@ -65,7 +67,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingbusy:) name:notwritingbusy object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingfree:) name:notwritingfree object:nil];
     
-    [collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
+    [self postselect:0];
+    [collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:selected inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
     
     return self;
 }
@@ -107,9 +110,13 @@
                    });
 }
 
--(void)postselect:(NSIndexPath*)index
+-(void)postselect:(NSInteger)index
 {
-    [[self.model item:index.item] selected:self.detail];
+    if(index != selected)
+    {
+        selected = index;
+        [[self.model item:selected] selected:self.detail];
+    }
 }
 
 #pragma mark -
@@ -136,7 +143,7 @@
         
         if(index)
         {
-            [self postselect:index];
+            [self postselect:index.item];
             [self.collection selectItemAtIndexPath:index animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         }
     }
@@ -176,7 +183,7 @@
 -(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
 {
     [col scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    [self postselect:index];
+    [self postselect:index.item];
     trackscroll = NO;
 }
 
