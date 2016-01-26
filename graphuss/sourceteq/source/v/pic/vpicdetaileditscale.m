@@ -248,6 +248,8 @@
 {
     CGFloat thisratio = [self ratiofor:self.fieldheight original:height];
     
+#warning "export first"
+    
     if(thisratio > 0)
     {
         NSInteger newwidth = width * thisratio;
