@@ -6,11 +6,16 @@
 {
     self = [super init];
     [self setClipsToBounds:YES];
-    [self setBackgroundColor:[UIColor clearColor]];
+    [self setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.95]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     self.detail = detail;
     self.model = model;
+    
+    UIView *border = [[UIView alloc] init];
+    [border setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.1]];
+    [border setUserInteractionEnabled:NO];
+    [border setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     [flow setFooterReferenceSize:CGSizeZero];
@@ -30,13 +35,16 @@
     [collection setDelegate:self];
     [collection registerClass:[vpicdetaileditcel class] forCellWithReuseIdentifier:celid];
     
+    [self addSubview:border];
     [self addSubview:collection];
     
-    NSDictionary *views = @{@"col":collection};
+    NSDictionary *views = @{@"col":collection, @"border":border};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[border]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[border(1)]" options:0 metrics:metrics views:views]];
     
     return self;
 }
