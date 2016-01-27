@@ -27,6 +27,14 @@
 
 -(NSInteger)count
 {
+    if(!array)
+    {
+        array = [NSArray arrayWithObjects:
+                 [[mpicmenufilterslight alloc] init],
+                 [[mpicmenufilterscolor alloc] init],
+                 nil];
+    }
+    
     return array.count;
 }
 
