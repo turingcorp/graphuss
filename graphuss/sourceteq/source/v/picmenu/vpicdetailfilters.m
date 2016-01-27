@@ -37,7 +37,8 @@
     [collection setBackgroundColor:[UIColor clearColor]];
     [collection setShowsHorizontalScrollIndicator:NO];
     [collection setShowsVerticalScrollIndicator:NO];
-    [collection setAlwaysBounceHorizontal:YES];
+    [collection setScrollEnabled:NO];
+    [collection setBounces:NO];
     [collection setDataSource:self];
     [collection setDelegate:self];
     [collection registerClass:[vpicdetailfilterscel class] forCellWithReuseIdentifier:celid];
