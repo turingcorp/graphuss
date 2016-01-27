@@ -62,7 +62,7 @@
     {
         [self.base setBackgroundColor:[UIColor clearColor]];
         [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.6]];
-        [self.label setFont:[UIFont fontWithName:fontname size:13]];
+        [self.label setFont:[UIFont fontWithName:fontname size:14]];
     }
 }
 
