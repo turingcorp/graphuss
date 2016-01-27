@@ -90,8 +90,8 @@
     {
         UIImage *imagescaled = image;
         
-        CGFloat scale = 1;
-        CGFloat compress = 0.5;
+        CGFloat scale = 0.5;
+        CGFloat compress = 0.3;
         NSInteger maxside = MAX(image.size.width, image.size.height);
         
         if(maxside > 1000)
@@ -101,8 +101,8 @@
         }
         else if(maxside > 400)
         {
-            scale = 0.5;
-            compress = 0.25;
+            scale = 0.25;
+            compress = 0.15;
         }
         
         if(scale < 1)

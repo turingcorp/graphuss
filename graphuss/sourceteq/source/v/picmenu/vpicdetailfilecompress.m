@@ -12,6 +12,12 @@
     
     self.detail = detail;
     
+    NSDictionary *attrtitle = @{NSFontAttributeName:[UIFont fontWithName:fontboldname size:20], NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:0.8]};
+    NSDictionary *attrdescr = @{NSFontAttributeName:[UIFont fontWithName:fontname size:18], NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:0.6]};
+    NSMutableAttributedString *mut = [[NSMutableAttributedString alloc] init];
+    [mut appendAttributedString:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"pic_detail_menu_file_compress_title", nil) attributes:attrtitle]];
+    [mut appendAttributedString:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"pic_detail_menu_file_compress_descr", nil) attributes:attrdescr]];
+    
     vblur *blur = [vblur light:NO];
     
     UIButton *buttoncancel = [[UIButton alloc] init];
@@ -56,13 +62,22 @@
     [labelvalue setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.labelvalue = labelvalue;
     
+    UILabel *labelinfo = [[UILabel alloc] init];
+    [labelinfo setBackgroundColor:[UIColor clearColor]];
+    [labelinfo setUserInteractionEnabled:NO];
+    [labelinfo setNumberOfLines:0];
+    [labelinfo setTextAlignment:NSTextAlignmentCenter];
+    [labelinfo setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [labelinfo setAttributedText:mut];
+    
     [self addSubview:blur];
+    [self addSubview:labelinfo];
     [self addSubview:buttoncancel];
     [self addSubview:buttoncompress];
     [self addSubview:labelvalue];
     [self addSubview:slider];
     
-    NSDictionary *views = @{@"blur":blur, @"btncompress":buttoncompress, @"btncancel":buttoncancel, @"slider":slider, @"value":labelvalue};
+    NSDictionary *views = @{@"blur":blur, @"btncompress":buttoncompress, @"btncancel":buttoncancel, @"slider":slider, @"value":labelvalue, @"info":labelinfo};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
@@ -71,7 +86,8 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[btncancel]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[slider]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[value]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-200-[slider]-2-[value]-45-[btncompress(44)]-20-[btncancel(44)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[info]-20-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-50-[info]-50-[slider]-2-[value]-45-[btncompress(44)]-20-[btncancel(44)]" options:0 metrics:metrics views:views]];
     
     [self animate:YES];
     [self print:100];
