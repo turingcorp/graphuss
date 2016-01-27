@@ -58,7 +58,17 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[col(60)]-0-|" options:0 metrics:metrics views:views]];
     
+    [collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    [self selectfilter:0];
+    
     return self;
+}
+
+#pragma mark functionality
+
+-(void)selectfilter:(NSInteger)index
+{
+    [(id<mpicmenufiltersprotocol>)[self.model item:index] action:self];
 }
 
 #pragma mark -
@@ -85,6 +95,11 @@
     [cel config:[self.model item:index.item]];
     
     return cel;
+}
+
+-(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
+{
+    [self selectfilter:index.item];
 }
 
 @end
