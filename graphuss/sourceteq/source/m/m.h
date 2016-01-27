@@ -16,3 +16,6 @@
 #import "mpicmenufileshare.h"
 #import "mpicmenufilecompression.h"
 #import "mpicmenufiledelete.h"
+#import "mpicmenueditprotocol.h"
+#import "mpicmenueditrotateleft.h"
+#import "mpicmenueditrotateright.h"

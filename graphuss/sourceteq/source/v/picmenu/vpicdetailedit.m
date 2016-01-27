@@ -101,4 +101,12 @@
      }];
 }
 
+#pragma mark -
+#pragma mark col del
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)col
+{
+    
+}
+
 @end

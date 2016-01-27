@@ -12,7 +12,7 @@
 #import "vpicdetailmenu.h"
 #import "vpicdetailmenucel.h"
 #import "vpicdetailedit.h"
-#import "vpicdetailcel.h"
+#import "vpicdetaileditcel.h"
 #import "vpicdetaileditscale.h"
 #import "vpicdetailfile.h"
 #import "vpicdetailfilecompress.h"
