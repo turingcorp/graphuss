@@ -13,7 +13,7 @@
 
 #pragma mark public
 
--(void)config
+-(void)config:(id<mpicmenueditprotocol>)model
 {
     
 }

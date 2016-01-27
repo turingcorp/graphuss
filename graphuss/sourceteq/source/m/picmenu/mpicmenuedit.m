@@ -15,7 +15,7 @@
 
 -(void)selected:(vpicdetail*)detail
 {
-    vpicdetailedit *edit = [[vpicdetailedit alloc] init:detail];
+    vpicdetailedit *edit = [[vpicdetailedit alloc] init:detail model:self];
     [detail overrideoverview:edit];
     
     NSDictionary *views = @{@"edit":edit};

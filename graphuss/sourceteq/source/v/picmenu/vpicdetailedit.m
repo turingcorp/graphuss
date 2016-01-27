@@ -5,7 +5,7 @@
     CGFloat rotation;
 }
 
--(instancetype)init:(vpicdetail*)detail
+-(instancetype)init:(vpicdetail*)detail model:(mpicmenuedit*)model
 {
     self = [super init];
     [self setClipsToBounds:YES];
@@ -13,6 +13,7 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     self.detail = detail;
+    self.model = model;
     rotation = 0;
     
     UIBarButtonItem *itemrotateleft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionrotateleft)];
@@ -107,6 +108,19 @@
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)col
 {
     return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView*)col numberOfItemsInSection:(NSInteger)section
+{
+    return [self.model count];
+}
+
+-(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index
+{
+    vpicdetaileditcel *cel = [col dequeueReusableCellWithReuseIdentifier:celid forIndexPath:index];
+    [cel config:[self.model item:index.item]];
+    
+    return cel;
 }
 
 @end
