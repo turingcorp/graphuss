@@ -2,4 +2,6 @@
 
 @interface vpicdetailfilterslight:UIView
 
+@property(weak, nonatomic)
+
 @end
