@@ -51,11 +51,6 @@
                        
                        [self.collection reloadData];
                        [self.collection scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-                       
-                       if(![[mpic singleton] count])
-                       {
-                           [self showheader];
-                       }
                    });
 }
 
@@ -72,7 +67,7 @@
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[header]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[header]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[header]-0-|" options:0 metrics:metrics views:views]];
 }
 
 #pragma mark -
@@ -85,7 +80,14 @@
 
 -(NSInteger)collectionView:(UICollectionView*)col numberOfItemsInSection:(NSInteger)section
 {
-    return [[mpic singleton] count];
+    NSInteger items = [[mpic singleton] count];
+    
+    if(!items)
+    {
+        [self showheader];
+    }
+    
+    return items;
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index

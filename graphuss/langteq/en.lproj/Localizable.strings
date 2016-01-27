@@ -1,7 +1,7 @@
 "app_title"="Graphuss";
 
 "pic_list_empty"="No pictures in your library";
-"pic_list_emtpy_button"="Start shooting";
+"pic_list_empty_button"="Start shooting";
 
 "pic_detail_title"="Picture";
 "pic_detail_menu_file"="File";
