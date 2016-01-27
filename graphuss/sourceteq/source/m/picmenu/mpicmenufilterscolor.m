@@ -10,6 +10,11 @@
     return @"scale";
 }
 
+-(NSString*)title
+{
+    return NSLocalizedString(@"pic_detail_filters_menu_colors", nil);
+}
+
 -(void)action:(vpicdetailfilters*)filters
 {
     

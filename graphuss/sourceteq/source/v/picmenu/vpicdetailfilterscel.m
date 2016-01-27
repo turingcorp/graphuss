@@ -20,18 +20,27 @@
     [image setContentMode:UIViewContentModeScaleAspectFit];
     [image setUserInteractionEnabled:NO];
     [image setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
     self.image = image;
     
+    UILabel *label = [[UILabel alloc] init];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setUserInteractionEnabled:NO];
+    [label setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [label setFont:[UIFont fontWithName:fontname size:12]];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    self.label = label;
+    
     [self addSubview:image];
+    [self addSubview:label];
     [self addSubview:selector];
     
-    NSDictionary *views = @{@"selector":selector, @"image":image};
+    NSDictionary *views = @{@"selector":selector, @"image":image, @"label":label};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[selector]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[image]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-12-[image]-10-[selector(2)]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[image]-0-[label]-3-[selector(2)]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[label]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -56,11 +65,13 @@
     {
         [self.selector setHidden:NO];
         [self.image setTintColor:colormain];
+        [self.label setTextColor:colormain];
     }
     else
     {
         [self.selector setHidden:YES];
         [self.image setTintColor:[UIColor colorWithWhite:0 alpha:0.4]];
+        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.4]];
     }
 }
 
@@ -69,6 +80,7 @@
 -(void)config:(id<mpicmenufiltersprotocol>)model
 {
     [self.image setImage:[[UIImage imageNamed:[model image]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    [self.label setText:[model title]];
     [self hover];
 }
 

@@ -27,6 +27,9 @@
 "pic_detail_scale_btncancel"="Cancel";
 "pic_detail_scale_done"="Image scaled";
 
+"pic_detail_filters_menu_light"="Light";
+"pic_detail_filters_menu_colors"="Colors";
+
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";
 "error_wrongbuffer"="Couldn't take picture, try again";
