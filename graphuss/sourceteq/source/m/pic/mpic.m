@@ -91,23 +91,26 @@
         UIImage *imagescaled = image;
         
         CGFloat scale = 1;
+        CGFloat compress = 0.5;
         NSInteger maxside = MAX(image.size.width, image.size.height);
         
         if(maxside > 1000)
         {
             scale = 0.1;
+            compress = 0;
         }
         else if(maxside > 400)
         {
             scale = 0.5;
+            compress = 0.25;
         }
         
         if(scale < 1)
         {
-            imagescaled = [mpic scaleimage:image scale:0.1];
+            imagescaled = [mpic scaleimage:image scale:scale];
         }
         
-        [UIImageJPEGRepresentation(imagescaled, 0.0) writeToFile:[self fileforthumb:name] options:NSDataWritingAtomic error:&error];
+        [UIImageJPEGRepresentation(imagescaled, compress) writeToFile:[self fileforthumb:name] options:NSDataWritingAtomic error:&error];
         
         if(error)
         {
