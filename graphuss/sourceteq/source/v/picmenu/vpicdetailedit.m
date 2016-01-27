@@ -106,7 +106,7 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)col
 {
-    
+    return 1;
 }
 
 @end
