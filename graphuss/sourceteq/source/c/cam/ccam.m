@@ -19,6 +19,7 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
     [[analytics singleton] trackscreen:ga_screen_camera];
 }
 
@@ -73,6 +74,7 @@
          }
          else
          {
+             [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
              [valert alert:NSLocalizedString(@"error_notauthorized", nil) inview:self.view];
          }
      }];
@@ -109,6 +111,8 @@
         [self.session addOutput:self.output];
         [self.session startRunning];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
 }
 
 -(void)insideshoot
