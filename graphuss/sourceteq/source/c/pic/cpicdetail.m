@@ -224,4 +224,13 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:notrefrespic object:nil];
 }
 
+-(void)edit_light:(UIColor*)light
+{
+    self.image = [mgraphics merge:self.image with:light];
+    [self.pic update:self.image];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:notrefrespic object:nil];
+}
+
 @end

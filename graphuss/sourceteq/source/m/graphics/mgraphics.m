@@ -17,4 +17,26 @@
     return scaledimage;
 }
 
++(UIImage*)merge:(UIImage*)image with:(UIColor*)color
+{
+    CGSize size = image.size;
+    NSInteger width = size.width;
+    NSInteger height = size.height;
+    CGRect rect = CGRectMake(0, 0, width, height);
+    
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:rect];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextAddRect(context, rect);
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextDrawPath(context, kCGPathFill);
+//    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height) blendMode:kCGBlendModeNormal alpha:0.8];
+    
+    UIImage *newimage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return newimage;
+}
+
 @end

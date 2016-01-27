@@ -145,7 +145,22 @@ typedef NS_ENUM(NSInteger, lighttype)
                    ^
                    {
                        [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+                       
+                       [self.filters.detail.controllerdetail edit_light:[self lightascolor]];
+                       
+                       dispatch_async(dispatch_get_main_queue(),
+                                      ^
+                                      {
+                                          [self.slider setValue:0 animated:NO];
+                                      });
                    });
+}
+
+#pragma mark functionality
+
+-(UIColor*)lightascolor
+{
+    return [self.over.backgroundColor colorWithAlphaComponent:self.over.alpha];
 }
 
 @end
