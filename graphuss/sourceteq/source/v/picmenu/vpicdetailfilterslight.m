@@ -35,8 +35,8 @@ typedef NS_ENUM(NSInteger, lighttype)
     [slider setMaximumTrackTintColor:[UIColor blackColor]];
     [slider setMinimumTrackTintColor:[UIColor colorWithRed:0.3 green:0.6 blue:0.8 alpha:1]];
     [slider addTarget:self action:@selector(actionslider:) forControlEvents:UIControlEventValueChanged];
-    [slider setMinimumValue:-1];
-    [slider setMaximumValue:1];
+    [slider setMinimumValue:-0.8];
+    [slider setMaximumValue:0.8];
     [slider setValue:0 animated:NO];
     self.slider = slider;
     
@@ -53,12 +53,12 @@ typedef NS_ENUM(NSInteger, lighttype)
     [self addSubview:slider];
     
     CGFloat baseside = filters.detail.bounds.size.width;
-    CGFloat imagewidth = filters.detail.pic.width;
-    CGFloat imageheight = filters.detail.pic.height;
+    CGFloat imagewidth = filters.detail.pic.imagehd.size.width;
+    CGFloat imageheight = filters.detail.pic.imagehd.size.height;
     CGFloat max = MAX(imagewidth, imageheight);
     CGFloat ratio = max / baseside;
-    CGFloat overwidth = ratio * imagewidth;
-    CGFloat overheight = ratio * imageheight;
+    CGFloat overwidth = imagewidth / ratio;
+    CGFloat overheight = imageheight / ratio;
     CGFloat overleft = (baseside - overwidth) / 2.0;
     CGFloat overtop = (baseside - overheight) / 2.0;
     
@@ -108,7 +108,7 @@ typedef NS_ENUM(NSInteger, lighttype)
                 
             case lighttypelight:
                 
-                [self.over setBackgroundColor:[UIColor redColor]];
+                [self.over setBackgroundColor:[UIColor whiteColor]];
                 
                 break;
                 
