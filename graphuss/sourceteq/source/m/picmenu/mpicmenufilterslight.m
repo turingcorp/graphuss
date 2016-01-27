@@ -28,7 +28,7 @@
     NSDictionary *metrics = @{};
     
     [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[filter]-0-|" options:0 metrics:metrics views:views]];
-    [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[filter(90)]-60-|" options:0 metrics:metrics views:views]];
+    [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[filter(150)]-60-|" options:0 metrics:metrics views:views]];
 }
 
 @end

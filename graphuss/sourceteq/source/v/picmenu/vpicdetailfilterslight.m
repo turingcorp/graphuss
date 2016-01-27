@@ -35,10 +35,21 @@ typedef NS_ENUM(NSInteger, lighttype)
     [slider setMaximumTrackTintColor:[UIColor blackColor]];
     [slider setMinimumTrackTintColor:[UIColor colorWithRed:0.3 green:0.6 blue:0.8 alpha:1]];
     [slider addTarget:self action:@selector(actionslider:) forControlEvents:UIControlEventValueChanged];
-    [slider setMinimumValue:-0.8];
-    [slider setMaximumValue:0.8];
+    [slider setMinimumValue:-0.7];
+    [slider setMaximumValue:0.7];
     [slider setValue:0 animated:NO];
     self.slider = slider;
+    
+    UIButton *button = [[UIButton alloc] init];
+    [button setClipsToBounds:YES];
+    [button setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [button setBackgroundColor:colormain];
+    [button.layer setCornerRadius:4];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
+    [button setTitle:NSLocalizedString(@"pic_detail_fitlers_light_button", nil) forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:fontboldname size:16]];
+    [button addTarget:self action:@selector(actionapply:) forControlEvents:UIControlEventTouchUpInside];
     
     UIView *over = [[UIView alloc] init];
     [over setClipsToBounds:YES];
@@ -51,6 +62,7 @@ typedef NS_ENUM(NSInteger, lighttype)
     [self addSubview:blur];
     [self addSubview:border];
     [self addSubview:slider];
+    [self addSubview:button];
     
     CGFloat baseside = filters.detail.bounds.size.width;
     CGFloat imagewidth = filters.detail.pic.imagehd.size.width;
@@ -62,7 +74,7 @@ typedef NS_ENUM(NSInteger, lighttype)
     CGFloat overleft = (baseside - overwidth) / 2.0;
     CGFloat overtop = (baseside - overheight) / 2.0;
     
-    NSDictionary *views = @{@"blur":blur, @"border":border, @"slider":slider, @"over":over};
+    NSDictionary *views = @{@"blur":blur, @"border":border, @"slider":slider, @"over":over, @"button":button};
     NSDictionary *metrics = @{@"overwidth":@(overwidth), @"overheight":@(overheight), @"overleft":@(overleft), @"overtop":@(overtop)};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
@@ -70,7 +82,8 @@ typedef NS_ENUM(NSInteger, lighttype)
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[border]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[border(1)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[slider]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[slider]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-100-[button]-100-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-25-[slider]-30-[button(40)]" options:0 metrics:metrics views:views]];
     
     [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(overleft)-[over(overwidth)]" options:0 metrics:metrics views:views]];
     [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(overtop)-[over(overheight)]" options:0 metrics:metrics views:views]];
@@ -121,6 +134,18 @@ typedef NS_ENUM(NSInteger, lighttype)
     }
     
     [self.over setAlpha:fabs(value)];
+}
+
+-(void)actionapply:(UIButton*)button
+{
+    [button setUserInteractionEnabled:NO];
+    [self.slider setUserInteractionEnabled:NO];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+                   });
 }
 
 @end
