@@ -27,10 +27,9 @@
     [self loadpage:app_page_list animated:NO];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    
+    [super viewWillAppear:animated];
     [self timerforbuttons];
 }
 
@@ -49,11 +48,15 @@
 -(void)actionleft
 {
     [self loadpage:[self.modelitem pageleft] animated:YES];
+    
+    [self timerforbuttons];
 }
 
 -(void)actionright
 {
     [self loadpage:[self.modelitem pageright] animated:YES];
+    
+    [self timerforbuttons];
 }
 
 #pragma mark functionality
@@ -80,7 +83,7 @@
 {
     [self blockbuttons];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(unblockbuttons) userInfo:nil repeats:NO];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(unblockbuttons) userInfo:nil repeats:NO];
 }
 
 -(void)loadpage:(app_page)page animated:(BOOL)animated
