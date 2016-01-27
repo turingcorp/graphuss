@@ -15,6 +15,7 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
     [self setTitle:NSLocalizedString(@"pic_detail_title", nil)];
     [[analytics singleton] trackscreen:ga_screen_pic_detail];
 }
@@ -61,6 +62,8 @@
                    {
                        [self.viewdetail loadpic:self.pic];
                        [self.viewdetail loadmenu];
+                       
+                       [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
                    });
 }
 
