@@ -6,6 +6,7 @@
 
 -(instancetype)init:(vpicdetail*)detail model:(mpicmenufilters*)model;
 
+@property(weak, nonatomic)vpicdetail *detail;
 @property(weak, nonatomic)mpicmenufilters *model;
 
 @end

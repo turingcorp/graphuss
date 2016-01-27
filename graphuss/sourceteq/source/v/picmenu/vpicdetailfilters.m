@@ -9,6 +9,7 @@
     [self setBackgroundColor:[UIColor clearColor]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    self.detail = detail;
     self.model = model;
     
     UIView *base = [[UIView alloc] init];
