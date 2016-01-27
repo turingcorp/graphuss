@@ -252,8 +252,6 @@
 
 -(void)validateratio:(CGFloat)thisratio
 {
-#warning "should work on the filters"
-    
     if(thisratio > 0)
     {
         NSInteger newwidth = floorf(width * thisratio);
