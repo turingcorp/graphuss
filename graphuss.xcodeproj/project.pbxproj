@@ -46,6 +46,9 @@
 		DA1478851C51B5060024141B /* shoot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1478821C51B5060024141B /* shoot@3x.png */; };
 		DA2501E41C5953780081E56D /* mpicmenufilterslight.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2501E31C5953780081E56D /* mpicmenufilterslight.m */; };
 		DA2501E71C5954BB0081E56D /* mpicmenufilterscolor.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2501E61C5954BB0081E56D /* mpicmenufilterscolor.m */; };
+		DA2501EB1C595DDD0081E56D /* light.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2501E81C595DDD0081E56D /* light.png */; };
+		DA2501EC1C595DDD0081E56D /* light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2501E91C595DDD0081E56D /* light@2x.png */; };
+		DA2501ED1C595DDD0081E56D /* light@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2501EA1C595DDD0081E56D /* light@3x.png */; };
 		DA390BD41C57B5B3000ABCEA /* mpicmenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BD31C57B5B3000ABCEA /* mpicmenu.m */; };
 		DA390BD81C57B60B000ABCEA /* mpicmenufile.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BD71C57B60B000ABCEA /* mpicmenufile.m */; };
 		DA390BDB1C57B622000ABCEA /* mpicmenuedit.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BDA1C57B622000ABCEA /* mpicmenuedit.m */; };
@@ -161,6 +164,9 @@
 		DA2501E31C5953780081E56D /* mpicmenufilterslight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenufilterslight.m; sourceTree = "<group>"; };
 		DA2501E51C5954BB0081E56D /* mpicmenufilterscolor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenufilterscolor.h; sourceTree = "<group>"; };
 		DA2501E61C5954BB0081E56D /* mpicmenufilterscolor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenufilterscolor.m; sourceTree = "<group>"; };
+		DA2501E81C595DDD0081E56D /* light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light.png; sourceTree = "<group>"; };
+		DA2501E91C595DDD0081E56D /* light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light@2x.png"; sourceTree = "<group>"; };
+		DA2501EA1C595DDD0081E56D /* light@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light@3x.png"; sourceTree = "<group>"; };
 		DA390BD21C57B5B3000ABCEA /* mpicmenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenu.h; sourceTree = "<group>"; };
 		DA390BD31C57B5B3000ABCEA /* mpicmenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenu.m; sourceTree = "<group>"; };
 		DA390BD51C57B5E5000ABCEA /* mpicmenuprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenuprotocol.h; sourceTree = "<group>"; };
@@ -521,6 +527,9 @@
 		DA3D99CA1C5126720072F69B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DA2501E81C595DDD0081E56D /* light.png */,
+				DA2501E91C595DDD0081E56D /* light@2x.png */,
+				DA2501EA1C595DDD0081E56D /* light@3x.png */,
 				DA390C221C58524D000ABCEA /* scale.png */,
 				DA390C231C58524D000ABCEA /* scale@2x.png */,
 				DA390C241C58524D000ABCEA /* scale@3x.png */,
@@ -796,17 +805,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA14787B1C51A04E0024141B /* spinner3@2x.png in Resources */,
+				DA2501EC1C595DDD0081E56D /* light@2x.png in Resources */,
 				DA1478791C51A04E0024141B /* spinner2@3x.png in Resources */,
 				DA390C201C584C64000ABCEA /* rotateright@2x.png in Resources */,
 				DA14787A1C51A04E0024141B /* spinner3.png in Resources */,
 				DA390C211C584C64000ABCEA /* rotateright@3x.png in Resources */,
 				DA1478491C51452F0024141B /* engine@2x.png in Resources */,
+				DA2501EB1C595DDD0081E56D /* light.png in Resources */,
 				DAE468E01C512F30006EBE52 /* in in Resources */,
 				DA390C1C1C584C64000ABCEA /* rotateleft.png in Resources */,
 				DA1478751C51A04E0024141B /* spinner1@2x.png in Resources */,
 				DA1478831C51B5060024141B /* shoot.png in Resources */,
 				DA1478781C51A04E0024141B /* spinner2@2x.png in Resources */,
 				DA390C1E1C584C64000ABCEA /* rotateleft@3x.png in Resources */,
+				DA2501ED1C595DDD0081E56D /* light@3x.png in Resources */,
 				DA390C251C58524D000ABCEA /* scale.png in Resources */,
 				DA3D9A151C5126720072F69B /* Localizable.strings in Resources */,
 				DA390C271C58524D000ABCEA /* scale@3x.png in Resources */,
