@@ -58,6 +58,7 @@
 
 -(void)config:(id<mpicmenufiltersprotocol>)model
 {
+    [self.image setImage:[[UIImage imageNamed:[model image]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     [self hover];
 }
 
