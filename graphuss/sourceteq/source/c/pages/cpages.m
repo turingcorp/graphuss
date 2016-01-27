@@ -1,6 +1,9 @@
 #import "cpages.h"
 
 @implementation cpages
+{
+    NSTimer *timer;
+}
 
 -(instancetype)init
 {
@@ -22,6 +25,13 @@
     self.itemlistright = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(actionright)];
     
     [self loadpage:app_page_list animated:NO];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self timerforbuttons];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle
@@ -47,6 +57,31 @@
 }
 
 #pragma mark functionality
+
+-(void)blockbuttons
+{
+    [timer invalidate];
+    [self.itemcamera setEnabled:NO];
+    [self.itemconfig setEnabled:NO];
+    [self.itemlistleft setEnabled:NO];
+    [self.itemlistright setEnabled:NO];
+}
+
+-(void)unblockbuttons
+{
+    [timer invalidate];
+    [self.itemcamera setEnabled:YES];
+    [self.itemconfig setEnabled:YES];
+    [self.itemlistleft setEnabled:YES];
+    [self.itemlistright setEnabled:YES];
+}
+
+-(void)timerforbuttons
+{
+    [self blockbuttons];
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(unblockbuttons) userInfo:nil repeats:NO];
+}
 
 -(void)loadpage:(app_page)page animated:(BOOL)animated
 {

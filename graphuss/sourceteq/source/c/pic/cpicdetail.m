@@ -25,6 +25,11 @@
     [super viewDidAppear:animated];
     [self.navigationController.interactivePopGestureRecognizer setEnabled:NO];
     
+    if(!self.viewdetail.menu)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+    }
+    
     [self loadimage];
 }
 
@@ -63,7 +68,11 @@
                        [self.viewdetail loadpic:self.pic];
                        [self.viewdetail loadmenu];
                        
-                       [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
+                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(),
+                                      ^
+                                      {
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
+                                      });
                    });
 }
 
