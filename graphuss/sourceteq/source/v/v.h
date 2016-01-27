@@ -20,3 +20,4 @@
 #import "vpicdetailfilecel.h"
 #import "vpicdetailfilecompress.h"
 #import "vpicdetailfilters.h"
+#import "vpicdetailfilterscel.h"

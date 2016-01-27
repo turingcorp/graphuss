@@ -93,6 +93,7 @@
 		DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DD1C512C1A006EBE52 /* Images.xcassets */; };
 		DAE468E01C512F30006EBE52 /* in in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DF1C512F2F006EBE52 /* in */; };
 		DAF27F9F1C5923080044C928 /* vpiclistheader.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF27F9E1C5923080044C928 /* vpiclistheader.m */; };
+		DAF27FA21C593FE80044C928 /* vpicdetailfilterscel.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF27FA11C593FE80044C928 /* vpicdetailfilterscel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -251,6 +252,8 @@
 		DAE468DF1C512F2F006EBE52 /* in */ = {isa = PBXFileReference; lastKnownFileType = folder; path = in; sourceTree = "<group>"; };
 		DAF27F9D1C5923080044C928 /* vpiclistheader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpiclistheader.h; sourceTree = "<group>"; };
 		DAF27F9E1C5923080044C928 /* vpiclistheader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpiclistheader.m; sourceTree = "<group>"; };
+		DAF27FA01C593FE80044C928 /* vpicdetailfilterscel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpicdetailfilterscel.h; sourceTree = "<group>"; };
+		DAF27FA11C593FE80044C928 /* vpicdetailfilterscel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpicdetailfilterscel.m; sourceTree = "<group>"; };
 		E6A306512CC616BE5A940695 /* Pods-graphuss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphuss.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphuss/Pods-graphuss.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -448,6 +451,8 @@
 				DA390C041C57E975000ABCEA /* vpicdetailfilecel.m */,
 				DA390BF31C57D9C5000ABCEA /* vpicdetailfilters.h */,
 				DA390BF41C57D9C5000ABCEA /* vpicdetailfilters.m */,
+				DAF27FA01C593FE80044C928 /* vpicdetailfilterscel.h */,
+				DAF27FA11C593FE80044C928 /* vpicdetailfilterscel.m */,
 				DA390C061C581781000ABCEA /* vpicdetailfilecompress.h */,
 				DA390C071C581781000ABCEA /* vpicdetailfilecompress.m */,
 			);
@@ -907,6 +912,7 @@
 				DA03AF6D1C52E987005DB3C9 /* mpicitem.m in Sources */,
 				DA3D9A1B1C5126720072F69B /* updater.m in Sources */,
 				DA390BF91C57DFDE000ABCEA /* mpicmenufileduplicate.m in Sources */,
+				DAF27FA21C593FE80044C928 /* vpicdetailfilterscel.m in Sources */,
 				DA03AF6A1C52E312005DB3C9 /* mpic.m in Sources */,
 				DA1478691C517C950024141B /* valert.m in Sources */,
 				DA03AF661C52ACE0005DB3C9 /* vcampreview.m in Sources */,
