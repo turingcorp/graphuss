@@ -1,13 +1,6 @@
-//
-//  mpicmenufilterslight.h
-//  graphuss
-//
-//  Created by zero on 1/27/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
+#import "mpicmenufiltersprotocol.h"
 
-#import <Foundation/Foundation.h>
-
-@interface mpicmenufilterslight : NSObject
+@interface mpicmenufilterslight:NSObject<mpicmenufiltersprotocol>
 
 @end
