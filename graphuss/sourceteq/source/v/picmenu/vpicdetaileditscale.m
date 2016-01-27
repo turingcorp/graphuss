@@ -169,6 +169,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
+                       [[analytics singleton] trackevent:ga_event_pic_edit_scale action:ga_action_completed label:self.labelratio.text];
                        [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
                        [self.detail.controllerdetail edit_scale:ratio];
                        
@@ -178,6 +179,7 @@
 
 -(void)actioncancel:(UIButton*)button
 {
+    [[analytics singleton] trackevent:ga_event_pic_edit_scale action:ga_action_cancel label:nil];
     [self animate:NO];
 }
 
