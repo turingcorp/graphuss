@@ -22,7 +22,7 @@
     NSDictionary *metrics = @{};
     
     [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[filters]-0-|" options:0 metrics:metrics views:views]];
-    [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[filters(100)]-80-|" options:0 metrics:metrics views:views]];
+    [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[filters(200)]-80-|" options:0 metrics:metrics views:views]];
 }
 
 -(NSInteger)count
