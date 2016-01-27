@@ -2,6 +2,7 @@
 #import "vspinner.h"
 #import "vpiclist.h"
 #import "vpiclistlayout.h"
+#import "vpiclistheader.h"
 #import "vpiclistcel.h"
 #import "vpicdetail.h"
 #import "valert.h"

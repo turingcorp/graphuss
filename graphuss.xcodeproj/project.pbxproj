@@ -92,6 +92,7 @@
 		DA3D9A271C5126720072F69B /* vspinner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A091C5126720072F69B /* vspinner.m */; };
 		DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DD1C512C1A006EBE52 /* Images.xcassets */; };
 		DAE468E01C512F30006EBE52 /* in in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DF1C512F2F006EBE52 /* in */; };
+		DAF27F9F1C5923080044C928 /* vpiclistheader.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF27F9E1C5923080044C928 /* vpiclistheader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -248,6 +249,8 @@
 		DA3D9A111C5126720072F69B /* v.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v.h; sourceTree = "<group>"; };
 		DAE468DD1C512C1A006EBE52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAE468DF1C512F2F006EBE52 /* in */ = {isa = PBXFileReference; lastKnownFileType = folder; path = in; sourceTree = "<group>"; };
+		DAF27F9D1C5923080044C928 /* vpiclistheader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpiclistheader.h; sourceTree = "<group>"; };
+		DAF27F9E1C5923080044C928 /* vpiclistheader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpiclistheader.m; sourceTree = "<group>"; };
 		E6A306512CC616BE5A940695 /* Pods-graphuss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-graphuss.debug.xcconfig"; path = "Pods/Target Support Files/Pods-graphuss/Pods-graphuss.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -311,6 +314,8 @@
 				DA1478431C5141780024141B /* vpiclist.m */,
 				DA03AF711C52FB30005DB3C9 /* vpiclistlayout.h */,
 				DA03AF721C52FB30005DB3C9 /* vpiclistlayout.m */,
+				DAF27F9D1C5923080044C928 /* vpiclistheader.h */,
+				DAF27F9E1C5923080044C928 /* vpiclistheader.m */,
 				DA03AF6E1C52EF19005DB3C9 /* vpiclistcel.h */,
 				DA03AF6F1C52EF19005DB3C9 /* vpiclistcel.m */,
 			);
@@ -876,6 +881,7 @@
 				DA1478651C51782C0024141B /* vcamfinder.m in Sources */,
 				DA3D9A261C5126720072F69B /* viewbase.m in Sources */,
 				DA1478541C5150390024141B /* mpagesitemcamera.m in Sources */,
+				DAF27F9F1C5923080044C928 /* vpiclistheader.m in Sources */,
 				DA390BD41C57B5B3000ABCEA /* mpicmenu.m in Sources */,
 				DA390BD81C57B60B000ABCEA /* mpicmenufile.m in Sources */,
 				DA390BFF1C57DFFE000ABCEA /* mpicmenufiledelete.m in Sources */,
