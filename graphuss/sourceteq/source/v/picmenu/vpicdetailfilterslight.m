@@ -52,10 +52,15 @@ typedef NS_ENUM(NSInteger, lighttype)
     [self addSubview:border];
     [self addSubview:slider];
     
-    CGFloat overwidth;
-    CGFloat overheight;
-    CGFloat overleft;
-    CGFloat overtop;
+    CGFloat baseside = filters.detail.bounds.size.width;
+    CGFloat imagewidth = filters.detail.pic.width;
+    CGFloat imageheight = filters.detail.pic.height;
+    CGFloat max = MAX(imagewidth, imageheight);
+    CGFloat ratio = max / baseside;
+    CGFloat overwidth = ratio * imagewidth;
+    CGFloat overheight = ratio * imageheight;
+    CGFloat overleft = (baseside - overwidth) / 2.0;
+    CGFloat overtop = (baseside - overheight) / 2.0;
     
     NSDictionary *views = @{@"blur":blur, @"border":border, @"slider":slider, @"over":over};
     NSDictionary *metrics = @{@"overwidth":@(overwidth), @"overheight":@(overheight), @"overleft":@(overleft), @"overtop":@(overtop)};
