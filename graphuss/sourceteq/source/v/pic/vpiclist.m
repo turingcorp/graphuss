@@ -47,9 +47,32 @@
     dispatch_async(dispatch_get_main_queue(),
                    ^
                    {
+                       [self.header removeFromSuperview];
+                       
                        [self.collection reloadData];
                        [self.collection scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+                       
+                       if(![[mpic singleton] count])
+                       {
+                           [self showheader];
+                       }
                    });
+}
+
+#pragma mark functionality
+
+-(void)showheader
+{
+    vpiclistheader *header = [[vpiclistheader alloc] init];
+    self.header = header;
+    
+    [self addSubview:header];
+    
+    NSDictionary *views = @{};
+    NSDictionary *metrics = @{};
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[header]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[header]" options:0 metrics:metrics views:views]];
 }
 
 #pragma mark -
