@@ -7,7 +7,7 @@
 
 -(NSString*)image
 {
-    return @"scale";
+    return @"light";
 }
 
 -(void)action:(vpicdetailfilters*)filters
