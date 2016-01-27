@@ -1,13 +1,18 @@
-//
-//  mpicmenueditscale.m
-//  graphuss
-//
-//  Created by zero on 1/26/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
-
 #import "mpicmenueditscale.h"
 
 @implementation mpicmenueditscale
+
+#pragma mark -
+#pragma mark edit protocol
+
+-(NSString*)image
+{
+    return @"scale";
+}
+
+-(void)action:(vpicdetail*)detail
+{
+    
+}
 
 @end

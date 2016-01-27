@@ -32,6 +32,7 @@
         array = [NSArray arrayWithObjects:
                  [[mpicmenueditrotateleft alloc] init],
                  [[mpicmenueditrotateright alloc] init],
+                 [[mpicmenueditscale alloc] init],
                  nil];
     }
     
