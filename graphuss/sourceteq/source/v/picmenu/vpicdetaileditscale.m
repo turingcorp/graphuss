@@ -241,29 +241,42 @@
 -(void)computewidth
 {
     CGFloat thisratio = [self ratiofor:self.fieldwidth original:width];
-    
-    if(thisratio > 0)
-    {
-        NSInteger newheight = floorf(height * thisratio);
-        
-        if(newheight > 1)
-        {
-            ratio = thisratio;
-        }
-    }
+    [self validateratio:thisratio];
 }
 
 -(void)computeheight
 {
     CGFloat thisratio = [self ratiofor:self.fieldheight original:height];
-    
+    [self validateratio:thisratio];
+}
+
+-(void)validateratio:(CGFloat)thisratio
+{
     if(thisratio > 0)
     {
         NSInteger newwidth = floorf(width * thisratio);
+        NSInteger newheight = floorf(height * thisratio);
+        NSInteger min = MIN(newwidth, newheight);
+        NSInteger max = MAX(newwidth, newheight);
+        NSInteger maxallowed = 5000;
         
-        if(newwidth > 1)
+        if(min > 1)
         {
-            ratio = thisratio;
+            if(max > maxallowed)
+            {
+                if(width > height)
+                {
+                    ratio = maxallowed / (CGFloat)width;
+                }
+                else
+                {
+                    ratio = maxallowed / (CGFloat)height;
+                }
+            }
+            else
+            {
+                ratio = thisratio;
+            }
         }
     }
 }

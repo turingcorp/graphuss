@@ -33,6 +33,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingbusy:) name:notwritingbusy object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingfree:) name:notwritingfree object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedrefrespic:) name:notrefrespic object:nil];
     
     return self;
 }
@@ -59,6 +60,15 @@
 -(void)notifiedwritingfree:(NSNotification*)notification
 {
     [self animateoverview:YES];
+}
+
+-(void)notifiedrefrespic:(NSNotification*)notification
+{
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       [self.image setImage:self.pic.imagehd];
+                   });
 }
 
 #pragma mark functionality

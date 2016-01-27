@@ -200,6 +200,7 @@
     [self.pic update:self.image];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:notrefrespic object:nil];
 }
 
 -(void)edit_scale:(CGFloat)scale
@@ -208,6 +209,7 @@
     [self.pic update:self.image];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:notrefrespic object:nil];
 }
 
 @end

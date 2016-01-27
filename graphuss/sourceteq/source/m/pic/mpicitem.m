@@ -32,6 +32,7 @@
 
 -(void)update:(UIImage*)image
 {
+    self.imagehd = image;
     self.width = image.size.width;
     self.height = image.size.height;
     
