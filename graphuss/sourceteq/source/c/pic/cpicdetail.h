@@ -9,6 +9,7 @@
 -(void)edit_rotateleft;
 -(void)edit_rotateright;
 -(void)edit_compress:(CGFloat)quality;
+-(void)edit_scale:(CGFloat)scale;
 
 @property(strong, nonatomic)mpicitem *pic;
 @property(weak, nonatomic)vpicdetail *viewdetail;

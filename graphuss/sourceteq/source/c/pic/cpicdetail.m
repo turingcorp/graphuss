@@ -202,4 +202,12 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
 }
 
+-(void)edit_scale:(CGFloat)scale
+{
+    self.image = [mpic scaleimage:self.image scale:scale];
+    [self.pic update:self.image];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
+}
+
 @end

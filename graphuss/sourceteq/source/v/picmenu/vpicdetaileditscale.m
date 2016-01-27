@@ -164,7 +164,16 @@
 
 -(void)actionaccept:(UIButton*)button
 {
+    [self animate:NO];
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+                       [self.detail.controllerdetail edit_scale:ratio];
+                       
+                       [valert alert:NSLocalizedString(@"pic_detail_menu_edit_scale_done", nil) inview:self.detail];
+                   });
 }
 
 -(void)actioncancel:(UIButton*)button
