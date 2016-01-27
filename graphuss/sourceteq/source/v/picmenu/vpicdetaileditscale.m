@@ -107,7 +107,7 @@
     UILabel *labeltitle = [[UILabel alloc] init];
     [labeltitle setBackgroundColor:[UIColor clearColor]];
     [labeltitle setUserInteractionEnabled:NO];
-    [labeltitle setFont:[UIFont fontWithName:fontboldname size:17]];
+    [labeltitle setFont:[UIFont fontWithName:fontboldname size:19]];
     [labeltitle setTextColor:[UIColor colorWithWhite:0 alpha:0.8]];
     [labeltitle setTranslatesAutoresizingMaskIntoConstraints:NO];
     [labeltitle setTextAlignment:NSTextAlignmentCenter];
@@ -155,17 +155,17 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[fieldwidth]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[fieldheight]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-80-[fieldwidth(55)]-50-[fieldheight(55)]-30-[accept(46)]-20-[cancel(46)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[fieldwidth(55)]-50-[fieldheight(55)]-30-[accept(46)]-20-[cancel(46)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[accept]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[cancel]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[lblratio]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-135-[lblratio(50)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-155-[lblratio(50)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[lblwidth]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[lblheight]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[lbltitle]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[lbltitle]" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-55-[lblwidth]" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-160-[lblheight]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-25-[lbltitle]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-75-[lblwidth]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-180-[lblheight]" options:0 metrics:metrics views:views]];
     
     [self print];
     
@@ -199,6 +199,8 @@
 
 -(void)animate:(BOOL)show
 {
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
+    
     CGFloat alpha = 0;
     
     if(show)
@@ -303,10 +305,8 @@
     [self.buttonaccept setHidden:YES];
 }
 
--(BOOL)textFieldShouldReturn:(UITextField*)field
+-(void)textFieldDidEndEditing:(UITextField*)field
 {
-    [field resignFirstResponder];
-    
     ratio = 1;
     
     if(field == self.fieldwidth)
@@ -319,6 +319,11 @@
     }
     
     [self print];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField*)field
+{
+    [field resignFirstResponder];
     
     return YES;
 }
