@@ -92,7 +92,7 @@
         
         if(scale < 1)
         {
-            imagescaled = [mpic scaleimage:image scale:scale];
+            imagescaled = [mgraphics scale:image at:scale];
         }
         
         [UIImageJPEGRepresentation(imagescaled, compress) writeToFile:[self fileforthumb:name] options:NSDataWritingAtomic error:&error];

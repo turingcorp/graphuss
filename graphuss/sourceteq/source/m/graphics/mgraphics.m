@@ -2,7 +2,7 @@
 
 @implementation mgraphics
 
-+(UIImage*)scale:(UIImage*)image scale:(CGFloat)scale
++(UIImage*)scale:(UIImage*)image at:(CGFloat)scale
 {
     NSInteger newwidth = floorf(image.size.width * scale);
     NSInteger newheight = floorf(image.size.height * scale);

@@ -2,6 +2,6 @@
 
 @interface mgraphics:NSObject
 
-+(UIImage*)scale:(UIImage*)image scale:(CGFloat)scale;
++(UIImage*)scale:(UIImage*)image at:(CGFloat)scale;
 
 @end
