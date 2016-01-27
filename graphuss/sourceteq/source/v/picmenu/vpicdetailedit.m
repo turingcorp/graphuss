@@ -41,18 +41,6 @@
     return self;
 }
 
-#pragma mark actions
-
--(void)actionscale
-{
-    [vpicdetaileditscale askscale:self.detail];
-}
-
--(void)actioncrop
-{
-    
-}
-
 #pragma mark -
 #pragma mark col del
 

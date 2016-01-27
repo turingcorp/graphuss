@@ -12,7 +12,7 @@
 
 -(void)action:(vpicdetail*)detail
 {
-    
+    [vpicdetaileditscale askscale:detail];
 }
 
 @end
