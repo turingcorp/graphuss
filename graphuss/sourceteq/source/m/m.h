@@ -23,3 +23,4 @@
 #import "mpicmenueditrotateleft.h"
 #import "mpicmenueditrotateright.h"
 #import "mpicmenueditscale.h"
+#import "mgraphics.h"
