@@ -98,13 +98,13 @@
                        ^
                        {
                            [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
-                           
                            [self.detail.controllerdetail edit_compress:value / 100.0];
                            
-                           [[analytics singleton] trackevent:ga_event_pic_file_compress action:ga_action_completed label:self.labelvalue.text];
                            [valert alert:NSLocalizedString(@"pic_detail_menu_file_compress_done", nil) inview:self.detail];
                        });
     }
+    
+    [[analytics singleton] trackevent:ga_event_pic_file_compress action:ga_action_completed label:self.labelvalue.text];
 }
 
 -(void)actioncancel
