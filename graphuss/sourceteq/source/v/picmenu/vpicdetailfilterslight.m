@@ -52,8 +52,13 @@ typedef NS_ENUM(NSInteger, lighttype)
     [self addSubview:border];
     [self addSubview:slider];
     
+    CGFloat overwidth;
+    CGFloat overheight;
+    CGFloat overleft;
+    CGFloat overtop;
+    
     NSDictionary *views = @{@"blur":blur, @"border":border, @"slider":slider, @"over":over};
-    NSDictionary *metrics = @{};
+    NSDictionary *metrics = @{@"overwidth":@(overwidth), @"overheight":@(overheight), @"overleft":@(overleft), @"overtop":@(overtop)};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
@@ -62,8 +67,8 @@ typedef NS_ENUM(NSInteger, lighttype)
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[slider]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[slider]" options:0 metrics:metrics views:views]];
     
-    [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[over]-0-|" options:0 metrics:metrics views:views]];
-    [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[over]-150-|" options:0 metrics:metrics views:views]];
+    [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(overleft)-[over(overwidth)]" options:0 metrics:metrics views:views]];
+    [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(overtop)-[over(overheight)]" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -98,7 +103,7 @@ typedef NS_ENUM(NSInteger, lighttype)
                 
             case lighttypelight:
                 
-                [self.over setBackgroundColor:[UIColor whiteColor]];
+                [self.over setBackgroundColor:[UIColor redColor]];
                 
                 break;
                 
