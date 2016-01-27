@@ -104,6 +104,15 @@
     
     self.buttoncancel = buttoncancel;
     
+    UILabel *labeltitle = [[UILabel alloc] init];
+    [labeltitle setBackgroundColor:[UIColor clearColor]];
+    [labeltitle setUserInteractionEnabled:NO];
+    [labeltitle setFont:[UIFont fontWithName:fontboldname size:17]];
+    [labeltitle setTextColor:[UIColor colorWithWhite:0 alpha:0.8]];
+    [labeltitle setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [labeltitle setTextAlignment:NSTextAlignmentCenter];
+    [labeltitle setText:NSLocalizedString(@"", nil)];
+    
     UILabel *labelwidth = [[UILabel alloc] init];
     [labelwidth setBackgroundColor:[UIColor clearColor]];
     [labelwidth setUserInteractionEnabled:NO];
@@ -138,7 +147,7 @@
     [self addSubview:buttonaccept];
     [self addSubview:buttoncancel];
     
-    NSDictionary *views = @{@"blur":blur, @"fieldwidth":fieldwidth, @"fieldheight":fieldheight, @"cancel":buttoncancel, @"accept":buttonaccept, @"lblratio":labelratio, @"lblwidth":labelwidth, @"lblheight":labelheight};
+    NSDictionary *views = @{@"blur":blur, @"fieldwidth":fieldwidth, @"fieldheight":fieldheight, @"cancel":buttoncancel, @"accept":buttonaccept, @"lblratio":labelratio, @"lblwidth":labelwidth, @"lblheight":labelheight, @"lbltitle":labeltitle};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
@@ -173,7 +182,7 @@
                        [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
                        [self.detail.controllerdetail edit_scale:ratio];
                        
-                       [valert alert:NSLocalizedString(@"pic_detail_menu_edit_scale_done", nil) inview:self.detail];
+                       [valert alert:NSLocalizedString(@"pic_detail_scale_done", nil) inview:self.detail];
                    });
 }
 

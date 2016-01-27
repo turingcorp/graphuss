@@ -7,7 +7,7 @@
 
 -(NSString*)title
 {
-    return NSLocalizedString(@"pic_detail_menu_file_duplicate", nil);
+    return NSLocalizedString(@"pic_detail_file_duplicate", nil);
 }
 
 -(void)action:(vpicdetail*)detail

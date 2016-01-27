@@ -7,7 +7,7 @@
 
 -(NSString*)title
 {
-    return NSLocalizedString(@"pic_detail_menu_file_compression", nil);
+    return NSLocalizedString(@"pic_detail_file_compression", nil);
 }
 
 -(void)action:(vpicdetail*)detail

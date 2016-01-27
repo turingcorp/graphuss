@@ -15,8 +15,8 @@
     NSDictionary *attrtitle = @{NSFontAttributeName:[UIFont fontWithName:fontboldname size:20], NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:0.8]};
     NSDictionary *attrdescr = @{NSFontAttributeName:[UIFont fontWithName:fontname size:18], NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:0.6]};
     NSMutableAttributedString *mut = [[NSMutableAttributedString alloc] init];
-    [mut appendAttributedString:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"pic_detail_menu_file_compress_title", nil) attributes:attrtitle]];
-    [mut appendAttributedString:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"pic_detail_menu_file_compress_descr", nil) attributes:attrdescr]];
+    [mut appendAttributedString:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"pic_detail_file_compress_title", nil) attributes:attrtitle]];
+    [mut appendAttributedString:[[NSAttributedString alloc] initWithString:NSLocalizedString(@"pic_detail_file_compress_descr", nil) attributes:attrdescr]];
     
     vblur *blur = [vblur light:NO];
     
@@ -27,7 +27,7 @@
     [buttoncancel.titleLabel setFont:[UIFont fontWithName:fontboldname size:16]];
     [buttoncancel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [buttoncancel setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
-    [buttoncancel setTitle:NSLocalizedString(@"pic_detail_menu_file_compress_cancel", nil) forState:UIControlStateNormal];
+    [buttoncancel setTitle:NSLocalizedString(@"pic_detail_file_compress_cancel", nil) forState:UIControlStateNormal];
     [buttoncancel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [buttoncancel addTarget:self action:@selector(actioncancel) forControlEvents:UIControlEventTouchUpInside];
     
@@ -38,7 +38,7 @@
     [buttoncompress.titleLabel setFont:[UIFont fontWithName:fontboldname size:16]];
     [buttoncompress setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [buttoncompress setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
-    [buttoncompress setTitle:NSLocalizedString(@"pic_detail_menu_file_compress_compress", nil) forState:UIControlStateNormal];
+    [buttoncompress setTitle:NSLocalizedString(@"pic_detail_file_compress_compress", nil) forState:UIControlStateNormal];
     [buttoncompress setTranslatesAutoresizingMaskIntoConstraints:NO];
     [buttoncompress addTarget:self action:@selector(actioncompress) forControlEvents:UIControlEventTouchUpInside];
     
@@ -116,7 +116,7 @@
                            [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
                            [self.detail.controllerdetail edit_compress:value / 100.0];
                            
-                           [valert alert:NSLocalizedString(@"pic_detail_menu_file_compress_done", nil) inview:self.detail];
+                           [valert alert:NSLocalizedString(@"pic_detail_file_compress_done", nil) inview:self.detail];
                        });
     }
     
