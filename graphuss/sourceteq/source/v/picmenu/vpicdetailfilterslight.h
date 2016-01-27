@@ -2,6 +2,6 @@
 
 @interface vpicdetailfilterslight:UIView
 
-@property(weak, nonatomic)
+@property(weak, nonatomic)UISlider *slider;
 
 @end
