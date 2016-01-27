@@ -17,6 +17,7 @@
 		<string>pic/file/compress</string>
 		<string>pic/file/delete</string>
 		<string>pic/edit/rotate</string>
+		<string>pic/edit/scale</string>
 	</array>
 	<key>actions</key>
 	<array>
