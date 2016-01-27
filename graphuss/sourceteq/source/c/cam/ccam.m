@@ -75,6 +75,7 @@
          else
          {
              [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
+             [[analytics singleton] trackevent:ga_event_shoot action:ga_action_error label:NSLocalizedString(@"error_notauthorized", nil)];
              [valert alert:NSLocalizedString(@"error_notauthorized", nil) inview:self.view];
          }
      }];
