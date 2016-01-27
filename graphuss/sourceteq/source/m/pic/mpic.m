@@ -7,8 +7,8 @@
 
 +(UIImage*)scaleimage:(UIImage*)image scale:(CGFloat)scale
 {
-    CGFloat newwidth = image.size.width * scale;
-    CGFloat newheight = image.size.height * scale;
+    NSInteger newwidth = floorf(image.size.width * scale);
+    NSInteger newheight = floorf(image.size.height * scale);
     CGSize newsize = CGSizeMake(newwidth, newheight);
     CGRect newrect = CGRectMake(0, 0, newwidth, newheight);
     
@@ -88,7 +88,26 @@
     }
     else
     {
-        [UIImageJPEGRepresentation([mpic scaleimage:image scale:0.1], 0.0) writeToFile:[self fileforthumb:name] options:NSDataWritingAtomic error:&error];
+        UIImage *imagescaled = image;
+        
+        CGFloat scale = 1;
+        NSInteger maxside = MAX(image.size.width, image.size.height);
+        
+        if(maxside > 1000)
+        {
+            scale = 0.1;
+        }
+        else if(maxside > 400)
+        {
+            scale = 0.5;
+        }
+        
+        if(scale < 1)
+        {
+            imagescaled = [mpic scaleimage:image scale:0.1];
+        }
+        
+        [UIImageJPEGRepresentation(imagescaled, 0.0) writeToFile:[self fileforthumb:name] options:NSDataWritingAtomic error:&error];
         
         if(error)
         {

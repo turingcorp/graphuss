@@ -208,8 +208,8 @@
 
 -(void)print
 {
-    NSInteger displaywidth = width * ratio;
-    NSInteger displayheight = height * ratio;
+    NSInteger displaywidth = floorf(width * ratio);
+    NSInteger displayheight = floorf(height * ratio);
     
     [self.fieldwidth setText:[[tools singleton] numbertostring:@(displaywidth)]];
     [self.fieldheight setText:[[tools singleton] numbertostring:@(displayheight)]];
@@ -244,7 +244,7 @@
     
     if(thisratio > 0)
     {
-        NSInteger newheight = height * thisratio;
+        NSInteger newheight = floorf(height * thisratio);
         
         if(newheight > 1)
         {
@@ -259,7 +259,7 @@
     
     if(thisratio > 0)
     {
-        NSInteger newwidth = width * thisratio;
+        NSInteger newwidth = floorf(width * thisratio);
         
         if(newwidth > 1)
         {
