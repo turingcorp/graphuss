@@ -19,7 +19,7 @@
 {
     [filters.overview removeFromSuperview];
     
-    vpicdetailfilterslight *filter = [[vpicdetailfilterslight alloc] init];
+    vpicdetailfilterslight *filter = [[vpicdetailfilterslight alloc] init:filters];
     filters.overview = filter;
     
     [filters addSubview:filter];
