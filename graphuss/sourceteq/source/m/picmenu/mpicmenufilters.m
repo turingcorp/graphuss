@@ -1,6 +1,9 @@
 #import "mpicmenufilters.h"
 
 @implementation mpicmenufilters
+{
+    NSArray *array;
+}
 
 #pragma mark -
 #pragma mark menu protocol
@@ -12,7 +15,7 @@
 
 -(void)selected:(vpicdetail*)detail
 {
-    vpicdetailfilters *filters = [[vpicdetailfilters alloc] init:detail];
+    vpicdetailfilters *filters = [[vpicdetailfilters alloc] init:detail model:self];
     [detail overrideoverview:filters];
     
     NSDictionary *views = @{@"filters":filters};
@@ -20,6 +23,16 @@
     
     [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[filters]-0-|" options:0 metrics:metrics views:views]];
     [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[filters(100)]-80-|" options:0 metrics:metrics views:views]];
+}
+
+-(NSInteger)count
+{
+    return array.count;
+}
+
+-(id)item:(NSInteger)index
+{
+    return array[index];
 }
 
 @end
