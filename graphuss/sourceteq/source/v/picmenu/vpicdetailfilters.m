@@ -40,8 +40,10 @@
     [collection setDataSource:self];
     [collection setDelegate:self];
     [collection registerClass:[vpicdetailfilterscel class] forCellWithReuseIdentifier:celid];
+    [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     [self addSubview:base];
+    [self addSubview:collection];
     [self addSubview:border];
     
     NSDictionary *views = @{@"base":base, @"border":border, @"col":collection};
@@ -50,13 +52,19 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[base]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[base(50)]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[border]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[border(1)]-49-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
 
 #pragma mark -
 #pragma mark col del
+
+-(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
+{
+    return CGSizeMake(col.bounds.size.width / [self.model count], col.bounds.size.height);
+}
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)col
 {
