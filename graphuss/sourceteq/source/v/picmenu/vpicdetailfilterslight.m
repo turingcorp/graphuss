@@ -100,14 +100,11 @@ typedef NS_ENUM(NSInteger, lighttype)
 
 -(void)actionapply:(UIButton*)button
 {
-    [button setUserInteractionEnabled:NO];
-    [self.slider setUserInteractionEnabled:NO];
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
-                       
                        [self.filters.detail.controllerdetail edit_light:[self lightascolor]];
                        
                        dispatch_async(dispatch_get_main_queue(),

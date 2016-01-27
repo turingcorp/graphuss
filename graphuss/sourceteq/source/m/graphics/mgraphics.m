@@ -30,10 +30,10 @@
     CGContextAddRect(context, rect);
     CGContextSetFillColorWithColor(context, color.CGColor);
     CGContextDrawPath(context, kCGPathFill);
-//    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height) blendMode:kCGBlendModeNormal alpha:0.8];
     
     UIImage *newimage = UIGraphicsGetImageFromCurrentImageContext();
     
+    CGContextRelease(context);
     UIGraphicsEndImageContext();
     
     return newimage;
