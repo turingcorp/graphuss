@@ -1,13 +1,7 @@
-//
-//  mgraphics.h
-//  graphuss
-//
-//  Created by zero on 1/27/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
+@interface mgraphics:NSObject
 
-@interface mgraphics : NSObject
++(UIImage*)scale:(UIImage*)image scale:(CGFloat)scale;
 
 @end
