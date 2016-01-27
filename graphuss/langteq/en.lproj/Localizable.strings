@@ -20,6 +20,7 @@
 "pic_detail_file_compress_descr"="\nLess quality, smaller file";
 "pic_detail_file_compress_done"="Image compressed";
 
+"pic_detail_scale_title"="Scale image";
 "pic_detail_scale_lblwidth"="Pixels width";
 "pic_detail_scale_lblheight"="Pixels height";
 "pic_detail_scale_btnaccept"="Scale image";

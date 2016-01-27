@@ -111,7 +111,7 @@
     [labeltitle setTextColor:[UIColor colorWithWhite:0 alpha:0.8]];
     [labeltitle setTranslatesAutoresizingMaskIntoConstraints:NO];
     [labeltitle setTextAlignment:NSTextAlignmentCenter];
-    [labeltitle setText:NSLocalizedString(@"", nil)];
+    [labeltitle setText:NSLocalizedString(@"pic_detail_scale_title", nil)];
     
     UILabel *labelwidth = [[UILabel alloc] init];
     [labelwidth setBackgroundColor:[UIColor clearColor]];
@@ -144,6 +144,7 @@
     [self addSubview:labelwidth];
     [self addSubview:labelheight];
     [self addSubview:labelratio];
+    [self addSubview:labeltitle];
     [self addSubview:buttonaccept];
     [self addSubview:buttoncancel];
     
@@ -161,6 +162,8 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-135-[lblratio(50)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[lblwidth]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[lblheight]-50-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[lbltitle]-50-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[lbltitle]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-55-[lblwidth]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-160-[lblheight]" options:0 metrics:metrics views:views]];
     
