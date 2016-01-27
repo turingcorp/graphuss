@@ -19,3 +19,4 @@
 #import "mpicmenueditprotocol.h"
 #import "mpicmenueditrotateleft.h"
 #import "mpicmenueditrotateright.h"
+#import "mpicmenueditscale.h"
