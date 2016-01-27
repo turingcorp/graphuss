@@ -23,10 +23,28 @@
     [border setClipsToBounds:YES];
     [border setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
+    [flow setFooterReferenceSize:CGSizeZero];
+    [flow setHeaderReferenceSize:CGSizeZero];
+    [flow setMinimumInteritemSpacing:0];
+    [flow setMinimumLineSpacing:0];
+    [flow setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [flow setSectionInset:UIEdgeInsetsZero];
+    
+    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flow];
+    [collection setClipsToBounds:YES];
+    [collection setBackgroundColor:[UIColor clearColor]];
+    [collection setShowsHorizontalScrollIndicator:NO];
+    [collection setShowsVerticalScrollIndicator:NO];
+    [collection setAlwaysBounceHorizontal:YES];
+    [collection setDataSource:self];
+    [collection setDelegate:self];
+    [collection registerClass:[vpicdetailfilterscel class] forCellWithReuseIdentifier:celid];
+    
     [self addSubview:base];
     [self addSubview:border];
     
-    NSDictionary *views = @{@"base":base, @"border":border};
+    NSDictionary *views = @{@"base":base, @"border":border, @"col":collection};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[base]-0-|" options:0 metrics:metrics views:views]];
