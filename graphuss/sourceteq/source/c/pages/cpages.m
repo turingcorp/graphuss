@@ -83,7 +83,7 @@
 {
     [self blockbuttons];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(unblockbuttons) userInfo:nil repeats:NO];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.6 target:self selector:@selector(unblockbuttons) userInfo:nil repeats:NO];
 }
 
 -(void)loadpage:(app_page)page animated:(BOOL)animated
