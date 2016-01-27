@@ -7,7 +7,7 @@
 
 -(NSString*)image
 {
-    return @"";
+    return @"rotateright";
 }
 
 -(void)action:(vpicdetail*)detail

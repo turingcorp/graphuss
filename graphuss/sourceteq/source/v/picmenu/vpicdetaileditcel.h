@@ -5,4 +5,6 @@
 
 -(void)config:(id<mpicmenueditprotocol>)model;
 
+@property(weak, nonatomic)UIImageView *icon;
+
 @end
