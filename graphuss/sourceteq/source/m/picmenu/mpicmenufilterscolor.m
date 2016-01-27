@@ -1,13 +1,18 @@
-//
-//  mpicmenufilterscolor.m
-//  graphuss
-//
-//  Created by zero on 1/27/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
-
 #import "mpicmenufilterscolor.h"
 
 @implementation mpicmenufilterscolor
+
+#pragma mark -
+#pragma mark filters protocol
+
+-(NSString*)image
+{
+    return @"";
+}
+
+-(void)action:(vpicdetailfilters*)filters
+{
+    
+}
 
 @end
