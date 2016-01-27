@@ -10,6 +10,7 @@
 -(void)loadpic:(mpicitem*)pic;
 -(void)loadmenu;
 -(void)overrideoverview:(UIView*)overview;
+-(void)rotate:(BOOL)clockwise;
 
 @property(weak, nonatomic)mpicitem *pic;
 @property(weak, nonatomic)vpicdetailmenu *menu;

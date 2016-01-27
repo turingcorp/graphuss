@@ -1,9 +1,6 @@
 #import "vpicdetailedit.h"
 
 @implementation vpicdetailedit
-{
-    CGFloat rotation;
-}
 
 -(instancetype)init:(vpicdetail*)detail model:(mpicmenuedit*)model
 {
@@ -14,23 +11,6 @@
     
     self.detail = detail;
     self.model = model;
-    rotation = 0;
-    
-    UIBarButtonItem *itemrotateleft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionrotateleft)];
-    
-    UIBarButtonItem *itemflex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
-    UIBarButtonItem *itemrotateright = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionrotateright)];
-    
-    UIBarButtonItem *itemscale = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(actionscale)];
-    
-    UIBarButtonItem *itemcrop = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(actioncrop)];
-    
-    UIToolbar *toolbar = [[UIToolbar alloc] init];
-    [toolbar setTranslucent:YES];
-    [toolbar setTintColor:colormain];
-    [toolbar setItems:@[itemrotateleft, itemflex, itemrotateright, itemflex, itemscale, itemflex, itemcrop] animated:NO];
-    [toolbar setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     [flow setFooterReferenceSize:CGSizeZero];
@@ -63,18 +43,6 @@
 
 #pragma mark actions
 
--(void)actionrotateleft
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
-    [self rotate:NO];
-}
-
--(void)actionrotateright
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
-    [self rotate:YES];
-}
-
 -(void)actionscale
 {
     [vpicdetaileditscale askscale:self.detail];
@@ -83,41 +51,6 @@
 -(void)actioncrop
 {
     
-}
-
-#pragma mark functionality
-
--(void)rotate:(CGFloat)clockwise
-{
-    CGFloat degrees = -90;
-    
-    if(clockwise)
-    {
-        degrees = 90;
-    }
-    
-    rotation += degrees * M_PI / 180.0;
-    CGAffineTransform transform = CGAffineTransformMakeRotation(rotation);
-    
-    [UIView animateWithDuration:0.3 animations:
-     ^
-     {
-         [self.detail.image setTransform:transform];
-         [self.detail.image setNeedsDisplay];
-         [self.detail.image layoutIfNeeded];
-
-     } completion:
-     ^(BOOL done)
-     {
-         if(clockwise)
-         {
-             [self.detail.controllerdetail edit_rotateright];
-         }
-         else
-         {
-             [self.detail.controllerdetail edit_rotateleft];
-         }
-     }];
 }
 
 #pragma mark -
@@ -144,6 +77,17 @@
     [cel config:[self.model item:index.item]];
     
     return cel;
+}
+
+-(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
+{
+    [(id<mpicmenueditprotocol>)[self.model item:index.item] action:self.detail];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(),
+                   ^
+                   {
+                       [col reloadData];
+                   });
 }
 
 @end

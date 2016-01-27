@@ -1,6 +1,9 @@
 #import "vpicdetail.h"
 
 @implementation vpicdetail
+{
+    CGFloat rotation;
+}
 
 -(instancetype)init:(cpicdetail*)controller
 {
@@ -8,6 +11,7 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor whiteColor]];
     
+    rotation = 0;
     self.controllerdetail = controller;
     
     UIImageView *image = [[UIImageView alloc] init];
@@ -106,6 +110,39 @@
     self.overview = overview;
     
     [self addSubview:overview];
+}
+
+-(void)rotate:(BOOL)clockwise
+{
+    CGFloat degrees = -90;
+    
+    if(clockwise)
+    {
+        degrees = 90;
+    }
+    
+    rotation += degrees * M_PI / 180.0;
+    CGAffineTransform transform = CGAffineTransformMakeRotation(rotation);
+    
+    [UIView animateWithDuration:0.3 animations:
+     ^
+     {
+         [self.image setTransform:transform];
+         [self.image setNeedsDisplay];
+         [self.image layoutIfNeeded];
+         
+     } completion:
+     ^(BOOL done)
+     {
+         if(clockwise)
+         {
+             [self.controllerdetail edit_rotateright];
+         }
+         else
+         {
+             [self.controllerdetail edit_rotateleft];
+         }
+     }];
 }
 
 @end
