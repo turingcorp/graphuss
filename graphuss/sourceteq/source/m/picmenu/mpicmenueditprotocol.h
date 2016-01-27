@@ -1,13 +1,10 @@
-//
-//  mpicmenueditprotocol.h
-//  graphuss
-//
-//  Created by zero on 1/26/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import <UIKit/UIKit.h>
 
-#import <Foundation/Foundation.h>
+@class vpicdetail;
 
 @protocol mpicmenueditprotocol <NSObject>
+
+-(NSString*)image;
+-(void)action:(vpicdetail*)detail;
 
 @end
