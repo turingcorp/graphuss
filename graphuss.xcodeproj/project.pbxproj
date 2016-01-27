@@ -64,6 +64,12 @@
 		DA390C0B1C584257000ABCEA /* vpicdetaileditcel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390C0A1C584257000ABCEA /* vpicdetaileditcel.m */; };
 		DA390C121C584526000ABCEA /* mpicmenueditrotateleft.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390C111C584526000ABCEA /* mpicmenueditrotateleft.m */; };
 		DA390C151C584533000ABCEA /* mpicmenueditrotateright.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390C141C584533000ABCEA /* mpicmenueditrotateright.m */; };
+		DA390C1C1C584C64000ABCEA /* rotateleft.png in Resources */ = {isa = PBXBuildFile; fileRef = DA390C161C584C64000ABCEA /* rotateleft.png */; };
+		DA390C1D1C584C64000ABCEA /* rotateleft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA390C171C584C64000ABCEA /* rotateleft@2x.png */; };
+		DA390C1E1C584C64000ABCEA /* rotateleft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA390C181C584C64000ABCEA /* rotateleft@3x.png */; };
+		DA390C1F1C584C64000ABCEA /* rotateright.png in Resources */ = {isa = PBXBuildFile; fileRef = DA390C191C584C64000ABCEA /* rotateright.png */; };
+		DA390C201C584C64000ABCEA /* rotateright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA390C1A1C584C64000ABCEA /* rotateright@2x.png */; };
+		DA390C211C584C64000ABCEA /* rotateright@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA390C1B1C584C64000ABCEA /* rotateright@3x.png */; };
 		DA3D9A141C5126720072F69B /* defs.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CD1C5126720072F69B /* defs.plist */; };
 		DA3D9A151C5126720072F69B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3D99CE1C5126720072F69B /* Localizable.strings */; };
 		DA3D9A161C5126720072F69B /* appdel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D99D41C5126720072F69B /* appdel.m */; };
@@ -185,6 +191,12 @@
 		DA390C111C584526000ABCEA /* mpicmenueditrotateleft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenueditrotateleft.m; sourceTree = "<group>"; };
 		DA390C131C584533000ABCEA /* mpicmenueditrotateright.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenueditrotateright.h; sourceTree = "<group>"; };
 		DA390C141C584533000ABCEA /* mpicmenueditrotateright.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenueditrotateright.m; sourceTree = "<group>"; };
+		DA390C161C584C64000ABCEA /* rotateleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotateleft.png; sourceTree = "<group>"; };
+		DA390C171C584C64000ABCEA /* rotateleft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rotateleft@2x.png"; sourceTree = "<group>"; };
+		DA390C181C584C64000ABCEA /* rotateleft@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rotateleft@3x.png"; sourceTree = "<group>"; };
+		DA390C191C584C64000ABCEA /* rotateright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotateright.png; sourceTree = "<group>"; };
+		DA390C1A1C584C64000ABCEA /* rotateright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rotateright@2x.png"; sourceTree = "<group>"; };
+		DA390C1B1C584C64000ABCEA /* rotateright@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rotateright@3x.png"; sourceTree = "<group>"; };
 		DA3D99AC1C51228A0072F69B /* graphuss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = graphuss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3D99CD1C5126720072F69B /* defs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defs.plist; sourceTree = "<group>"; };
 		DA3D99CF1C5126720072F69B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -476,6 +488,12 @@
 		DA3D99CA1C5126720072F69B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DA390C161C584C64000ABCEA /* rotateleft.png */,
+				DA390C171C584C64000ABCEA /* rotateleft@2x.png */,
+				DA390C181C584C64000ABCEA /* rotateleft@3x.png */,
+				DA390C191C584C64000ABCEA /* rotateright.png */,
+				DA390C1A1C584C64000ABCEA /* rotateright@2x.png */,
+				DA390C1B1C584C64000ABCEA /* rotateright@3x.png */,
 				DA1478801C51B5060024141B /* shoot.png */,
 				DA1478811C51B5060024141B /* shoot@2x.png */,
 				DA1478821C51B5060024141B /* shoot@3x.png */,
@@ -743,15 +761,20 @@
 			files = (
 				DA14787B1C51A04E0024141B /* spinner3@2x.png in Resources */,
 				DA1478791C51A04E0024141B /* spinner2@3x.png in Resources */,
+				DA390C201C584C64000ABCEA /* rotateright@2x.png in Resources */,
 				DA14787A1C51A04E0024141B /* spinner3.png in Resources */,
+				DA390C211C584C64000ABCEA /* rotateright@3x.png in Resources */,
 				DA1478491C51452F0024141B /* engine@2x.png in Resources */,
 				DAE468E01C512F30006EBE52 /* in in Resources */,
+				DA390C1C1C584C64000ABCEA /* rotateleft.png in Resources */,
 				DA1478751C51A04E0024141B /* spinner1@2x.png in Resources */,
 				DA1478831C51B5060024141B /* shoot.png in Resources */,
 				DA1478781C51A04E0024141B /* spinner2@2x.png in Resources */,
+				DA390C1E1C584C64000ABCEA /* rotateleft@3x.png in Resources */,
 				DA3D9A151C5126720072F69B /* Localizable.strings in Resources */,
 				DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */,
 				DA1478761C51A04E0024141B /* spinner1@3x.png in Resources */,
+				DA390C1F1C584C64000ABCEA /* rotateright.png in Resources */,
 				DA14784A1C51452F0024141B /* engine@3x.png in Resources */,
 				DA1478481C51452F0024141B /* engine.png in Resources */,
 				DA3D9A141C5126720072F69B /* defs.plist in Resources */,
@@ -760,6 +783,7 @@
 				DA1478381C513A400024141B /* graphuss.db in Resources */,
 				DA1478851C51B5060024141B /* shoot@3x.png in Resources */,
 				DA1478771C51A04E0024141B /* spinner2.png in Resources */,
+				DA390C1D1C584C64000ABCEA /* rotateleft@2x.png in Resources */,
 				DA1478841C51B5060024141B /* shoot@2x.png in Resources */,
 				DA14782D1C5132A30024141B /* analytics.plist in Resources */,
 			);
