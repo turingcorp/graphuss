@@ -68,7 +68,7 @@
     
     [self addSubview:header];
     
-    NSDictionary *views = @{};
+    NSDictionary *views = @{@"header":header};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[header]-0-|" options:0 metrics:metrics views:views]];
