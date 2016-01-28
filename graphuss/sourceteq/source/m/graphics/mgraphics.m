@@ -48,19 +48,19 @@
 +(UIImage*)light:(UIImage*)image add:(CGFloat)light
 {
     UInt32 *pixels;
-    CGImageRef incgimage = image.CGImage;
-    NSUInteger width = CGImageGetWidth(incgimage);
-     NSUInteger height = CGImageGetHeight(incgimage);
-     NSUInteger bitsperpixel = 4;
-     NSUInteger bytesperrow = bitsperpixel * width;
-     NSUInteger bitspercomponent = 8;
-     
-     pixels = (UInt32*)calloc(height * width, sizeof(UInt32));
-     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-     CGContextRef context = CGBitmapContextCreate(pixels, width, height, bitspercomponent, bytesperrow, colorspace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-     CGContextDrawImage(context, CGRectMake(0, 0, width, height), incgimage);
-     //    CGColorSpaceRelease(colorspace);
-     //    CGContextRelease(context);
+    CGContextRef context;
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    CGImageRef cgimage = image.CGImage;
+    NSUInteger width = CGImageGetWidth(cgimage);
+    NSUInteger height = CGImageGetHeight(cgimage);
+    NSUInteger bitsperpixel = 4;
+    NSUInteger bytesperrow = bitsperpixel * width;
+    NSUInteger bitspercomponent = 8;
+    CGRect rect = CGRectMake(0, 0, width, height);
+    
+    pixels = (UInt32*)calloc(width * height, sizeof(UInt32));
+    context = CGBitmapContextCreate(pixels, width, height, bitspercomponent, bytesperrow, colorspace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGContextDrawImage(context, rect, cgimage);
      
      #define Mask8(x) ( (x) & 0xFF )
      #define R(x) ( Mask8(x) )
