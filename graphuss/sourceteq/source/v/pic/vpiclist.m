@@ -89,6 +89,13 @@
         [self.collection reloadData];
         [self.collection scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     }
+    else
+    {
+        if([[mpic singleton] count])
+        {
+            [self.collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:-1 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+        }
+    }
 }
 
 #pragma mark -
