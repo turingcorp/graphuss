@@ -5,10 +5,10 @@
 +(UIImage*)scale:(UIImage*)image at:(CGFloat)scale
 {
     CGImageRef cgimage = image.CGImage;
-    NSInteger width = floorf(CGImageGetWidth(cgimage) * scale);
-    NSInteger height = floorf(CGImageGetHeight(cgimage) * scale);
-    NSInteger bitspercomponent = 8;
-    NSInteger bytesperrow = 4 * width;
+    NSUInteger width = floorf(CGImageGetWidth(cgimage) * scale);
+    NSUInteger height = floorf(CGImageGetHeight(cgimage) * scale);
+    NSUInteger bitspercomponent = 8;
+    NSUInteger bytesperrow = 4 * width;
     CGColorSpaceRef colorspace = CGImageGetColorSpace(cgimage);
     CGBitmapInfo bitmapinfo = CGImageGetBitmapInfo(cgimage);
     CGContextRef context = CGBitmapContextCreate(nil, width, height, bitspercomponent, bytesperrow, colorspace, bitmapinfo);
