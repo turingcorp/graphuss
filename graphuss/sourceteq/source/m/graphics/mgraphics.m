@@ -74,14 +74,12 @@
         thispixel++;
     }
     
-    
-     
-     CGImageRef newCGImage = CGBitmapContextCreateImage(context);
-     UIImage * processedImage = [UIImage imageWithCGImage:newCGImage scale:1 orientation:image.imageOrientation];
+    CGImageRef newcgimage = CGBitmapContextCreateImage(context);
+    UIImage *editedimage = [UIImage imageWithCGImage:newcgimage scale:1 orientation:image.imageOrientation];
      
      //    free(pixels);
      
-     return processedImage;
+     return editedimage;
 }
 
 @end
