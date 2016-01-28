@@ -73,19 +73,12 @@
     {
         for(NSUInteger i = 0; i < width; i++)
         {
+            UInt32 color = *thispixel;
             
+            printf("%3.0f", (R(color) + G(color) + B(color)) / 3.0);
+            thispixel++;
         }
-    }
-    
-    UInt32 * currentPixel = pixels;
-    for (NSUInteger j = 0; j < height; j++) {
-        for (NSUInteger i = 0; i < width; i++) {
-            // 3.
-            UInt32 color = *currentPixel;
-            printf("%3.0f ", (R(color)+G(color)+B(color))/3.0);
-            // 4.
-            currentPixel++;
-        }
+        
         printf("\n");
     }
     
