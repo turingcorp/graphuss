@@ -47,24 +47,17 @@
     UInt32 *pixels;
     CGImageRef incgimage = image.CGImage;
     CGSize size = image.size;
-    NSInteger width = size.width;
-    NSInteger height = size.height;
-    NSInteger bitsperpixel = 4;
-    NSInteger bytesperrow = bitsperpixel * width;
-    NSInteger bitspercomponent = 8;
+    NSUInteger width = size.width;
+    NSUInteger height = size.height;
+    NSUInteger bitsperpixel = 4;
+    NSUInteger bytesperrow = bitsperpixel * width;
+    NSUInteger bitspercomponent = 8;
     
     pixels = (UInt32*)calloc(height * width, sizeof(UInt32));
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     CGContextRef context = CGBitmapContextCreate(pixels, width, height, bitspercomponent, bytesperrow, colorspace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-    
-    
+    CGContextDrawImage(context, CGRectMake(0, 0, width, height), incgimage);
     CGColorSpaceRelease(colorspace);
-    CGContextRelease(context);
-    
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(pixels, width, height, bitsPerComponent, bytesPerRow, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-    CGContextDrawImage(context, CGRectMake(0, 0, width, height), inputCGImage);
-    CGColorSpaceRelease(colorSpace);
     CGContextRelease(context);
     
 #define Mask8(x) ( (x) & 0xFF )
@@ -73,7 +66,17 @@
 #define B(x) ( Mask8(x >> 16) )
     
     NSLog(@"Brightness of image:");
-    // 2.
+
+    UInt32 *thispixel = pixels;
+    
+    for(NSUInteger j = 0; j < height; j++)
+    {
+        for(NSUInteger i = 0; i < width; i++)
+        {
+            
+        }
+    }
+    
     UInt32 * currentPixel = pixels;
     for (NSUInteger j = 0; j < height; j++) {
         for (NSUInteger i = 0; i < width; i++) {
