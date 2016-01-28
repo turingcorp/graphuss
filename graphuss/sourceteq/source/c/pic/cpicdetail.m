@@ -223,9 +223,9 @@
     [self updateimage];
 }
 
--(void)edit_light:(UIColor*)light
+-(void)edit_light:(CGFloat)light
 {
-    self.image = [mgraphics merge:self.image with:light];
+    self.image = [mgraphics light:self.image add:light];
     [self updateimage];
 }
 

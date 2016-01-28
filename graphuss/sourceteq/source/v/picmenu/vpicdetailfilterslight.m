@@ -105,7 +105,7 @@ typedef NS_ENUM(NSInteger, lighttype)
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       [self.filters.detail.controllerdetail edit_light:[self lightascolor]];
+                       [self.filters.detail.controllerdetail edit_light:self.slider.value];
                        
                        dispatch_async(dispatch_get_main_queue(),
                                       ^
@@ -117,11 +117,6 @@ typedef NS_ENUM(NSInteger, lighttype)
 }
 
 #pragma mark functionality
-
--(UIColor*)lightascolor
-{
-    return [self.over.backgroundColor colorWithAlphaComponent:self.over.alpha];
-}
 
 -(void)checkslider
 {

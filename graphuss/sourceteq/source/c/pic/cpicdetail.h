@@ -10,7 +10,7 @@
 -(void)edit_rotateright;
 -(void)edit_compress:(CGFloat)quality;
 -(void)edit_scale:(CGFloat)scale;
--(void)edit_light:(UIColor*)light;
+-(void)edit_light:(CGFloat)light;
 
 @property(strong, nonatomic)mpicitem *pic;
 @property(weak, nonatomic)vpicdetail *viewdetail;
