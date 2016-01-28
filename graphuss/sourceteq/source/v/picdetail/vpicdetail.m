@@ -67,6 +67,7 @@
     dispatch_async(dispatch_get_main_queue(),
                    ^
                    {
+                       [self clearrotation];
                        [self.image setImage:self.pic.imagehd];
                    });
 }
@@ -87,6 +88,12 @@
                    {
                        [self.overview setAlpha:alpha];
                    });
+}
+
+-(void)clearrotation
+{
+    rotation = 0;
+    [self.image setTransform:CGAffineTransformMakeRotation(0)];
 }
 
 #pragma mark public
