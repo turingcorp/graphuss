@@ -47,18 +47,18 @@
 
 +(UIImage*)light:(UIImage*)image add:(CGFloat)light
 {
-    UInt32 *pixels;
+    uint *pixels;
     CGContextRef context;
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     CGImageRef cgimage = image.CGImage;
-    NSUInteger width = CGImageGetWidth(cgimage);
-    NSUInteger height = CGImageGetHeight(cgimage);
-    NSUInteger bitsperpixel = 4;
-    NSUInteger bytesperrow = bitsperpixel * width;
-    NSUInteger bitspercomponent = 8;
+    uint width = (uint)CGImageGetWidth(cgimage);
+    uint height = (uint)CGImageGetHeight(cgimage);
+    uint bitsperpixel = 4;
+    uint bitspercomponent = 8;
+    uint bytesperrow = bitsperpixel * width;
     CGRect rect = CGRectMake(0, 0, width, height);
     
-    pixels = (UInt32*)calloc(width * height, sizeof(UInt32));
+    pixels = calloc(width * height, sizeof(uint));
     context = CGBitmapContextCreate(pixels, width, height, bitspercomponent, bytesperrow, colorspace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
     CGContextDrawImage(context, rect, cgimage);
      
@@ -68,18 +68,21 @@
      #define B(x) ( Mask8(x >> 16) )
      #define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
      
-     UInt32 *thispixel = pixels;
+     uint *thispixel = pixels;
      
-     for(NSUInteger j = 0; j < height; j++)
+     for(uint j = 0; j < height; j++)
      {
-     for(NSUInteger i = 0; i < width; i++)
+     for(uint i = 0; i < width; i++)
      {
-     UInt32 color = *thispixel;
-     NSUInteger red = R(color);
-     NSUInteger green = G(color);
-     NSUInteger blue = B(color);
-     NSUInteger sum = red + green + blue;
-     NSUInteger sumdivided = sum / 3.0;
+     uint color = *thispixel;
+         
+         [[mgraphicspixel alloc] init:color];
+         
+     uint red = R(color);
+     uint green = G(color);
+     uint blue = B(color);
+     uint sum = red + green + blue;
+     uint sumdivided = sum / 3.0;
      
      //**
      

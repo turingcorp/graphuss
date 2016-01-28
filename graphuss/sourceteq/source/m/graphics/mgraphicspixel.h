@@ -1,13 +1,11 @@
-//
-//  mgraphicspixel.h
-//  graphuss
-//
-//  Created by zero on 1/28/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
+@interface mgraphicspixel:NSObject
 
-@interface mgraphicspixel : NSObject
+-(instancetype)init:(uint)color;
+
+@property(nonatomic)uint red255;
+@property(nonatomic)uint green255;
+@property(nonatomic)uint blue255;
 
 @end
