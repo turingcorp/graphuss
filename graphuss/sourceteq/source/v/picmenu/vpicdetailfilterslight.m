@@ -51,42 +51,30 @@ typedef NS_ENUM(NSInteger, lighttype)
     [button.titleLabel setFont:[UIFont fontWithName:fontboldname size:16]];
     [button addTarget:self action:@selector(actionapply:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIView *over = [[UIView alloc] init];
-    [over setClipsToBounds:YES];
-    [over setBackgroundColor:[UIColor clearColor]];
-    [over setUserInteractionEnabled:NO];
-    [over setTranslatesAutoresizingMaskIntoConstraints:NO];
-    self.over = over;
+    UIImageView *preview = [[UIImageView alloc] init];
+    [preview setContentMode:UIViewContentModeScaleAspectFit];
+    [preview setClipsToBounds:YES];
+    [preview setUserInteractionEnabled:NO];
+    [preview setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [preview setImage:filters.detail.pic.thumb];
+    self.preview = preview;
     
-    [filters addSubview:over];
     [self addSubview:blur];
     [self addSubview:border];
+    [self addSubview:preview];
     [self addSubview:slider];
     [self addSubview:button];
     
-    CGFloat baseside = filters.detail.bounds.size.width;
-    CGFloat imagewidth = filters.detail.pic.imagehd.size.width;
-    CGFloat imageheight = filters.detail.pic.imagehd.size.height;
-    CGFloat max = MAX(imagewidth, imageheight);
-    CGFloat ratio = max / baseside;
-    CGFloat overwidth = imagewidth / ratio;
-    CGFloat overheight = imageheight / ratio;
-    CGFloat overleft = (baseside - overwidth) / 2.0;
-    CGFloat overtop = (baseside - overheight) / 2.0;
-    
-    NSDictionary *views = @{@"blur":blur, @"border":border, @"slider":slider, @"over":over, @"button":button};
-    NSDictionary *metrics = @{@"overwidth":@(overwidth), @"overheight":@(overheight), @"overleft":@(overleft), @"overtop":@(overtop)};
+    NSDictionary *views = @{@"blur":blur, @"border":border, @"slider":slider, @"preview":preview, @"button":button};
+    NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[border]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[border(1)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[slider]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-100-[button]-100-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-25-[slider]-30-[button(40)]" options:0 metrics:metrics views:views]];
-    
-    [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(overleft)-[over(overwidth)]" options:0 metrics:metrics views:views]];
-    [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(overtop)-[over(overheight)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[preview]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[border(1)]-[preview]-[slider]-30-[button(40)]" options:0 metrics:metrics views:views]];
     
     return self;
 }

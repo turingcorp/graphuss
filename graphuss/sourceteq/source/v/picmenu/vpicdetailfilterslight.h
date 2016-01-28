@@ -8,6 +8,6 @@
 
 @property(weak, nonatomic)vpicdetailfilters *filters;
 @property(weak, nonatomic)UISlider *slider;
-@property(weak, nonatomic)UIView *over;
+@property(weak, nonatomic)UIImageView *preview;
 
 @end
