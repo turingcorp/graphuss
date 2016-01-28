@@ -97,13 +97,6 @@
     self.modelitem = [self.model item:page];
     __weak cpages *weakself = self;
     
-    UIViewController *old;
-    
-    if(self.viewControllers.count)
-    {
-        old = self.viewControllers[0];
-    }
-    
     NSArray *controllers = @[[self.modelitem controller]];
     [self setViewControllers:controllers direction:direction animated:animated completion:
      ^(BOOL done)

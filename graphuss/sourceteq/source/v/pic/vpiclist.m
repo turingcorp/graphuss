@@ -1,6 +1,9 @@
 #import "vpiclist.h"
 
 @implementation vpiclist
+{
+    BOOL shouldupdate;
+}
 
 -(instancetype)init:(cpiclist*)controller
 {
@@ -8,6 +11,8 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor whiteColor]];
 
+    shouldupdate = NO;
+    self.visible = YES;
     vpiclistlayout *layout = [[vpiclistlayout alloc] init];
     
     UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
@@ -44,14 +49,16 @@
 
 -(void)notifiedupdatepics:(NSNotification*)notification
 {
-    dispatch_async(dispatch_get_main_queue(),
-                   ^
-                   {
-                       [self.header removeFromSuperview];
-                       
-                       [self.collection reloadData];
-                       [self.collection scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-                   });
+    shouldupdate = YES;
+    
+    if(self.visible)
+    {
+        dispatch_async(dispatch_get_main_queue(),
+                       ^
+                       {
+                           [self update];
+                       });
+    }
 }
 
 #pragma mark functionality
@@ -68,6 +75,20 @@
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[header]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[header]-0-|" options:0 metrics:metrics views:views]];
+}
+
+#pragma mark public
+
+-(void)update
+{
+    if(shouldupdate)
+    {
+        shouldupdate = NO;
+        
+        [self.header removeFromSuperview];
+        [self.collection reloadData];
+        [self.collection scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    }
 }
 
 #pragma mark -
