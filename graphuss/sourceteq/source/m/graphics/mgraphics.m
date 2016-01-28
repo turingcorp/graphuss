@@ -57,13 +57,14 @@
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     CGContextRef context = CGBitmapContextCreate(pixels, width, height, bitspercomponent, bytesperrow, colorspace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), incgimage);
-    CGColorSpaceRelease(colorspace);
-    CGContextRelease(context);
+//    CGColorSpaceRelease(colorspace);
+//    CGContextRelease(context);
     
 #define Mask8(x) ( (x) & 0xFF )
 #define R(x) ( Mask8(x) )
 #define G(x) ( Mask8(x >> 8 ) )
 #define B(x) ( Mask8(x >> 16) )
+#define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
     
     NSLog(@"Brightness of image:");
 
@@ -74,15 +75,28 @@
         for(NSUInteger i = 0; i < width; i++)
         {
             UInt32 color = *thispixel;
+            NSUInteger red = R(color);
+            NSUInteger green = G(color);
+            NSUInteger blue = B(color);
+            NSUInteger sum = red + green + blue;
+            NSUInteger sumdivided = sum / 3.0;
             
-            printf("%3.0f", (R(color) + G(color) + B(color)) / 3.0);
+            //**
+            
+            *thispixel = RGBAMake(sumdivided, sumdivided, sumdivided, 255);
+            
+            //**
+            
             thispixel++;
         }
-        
-        printf("\n");
     }
     
-    return image;
+    CGImageRef newCGImage = CGBitmapContextCreateImage(context);
+    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage];
+    
+//    free(pixels);
+    
+    return processedImage;
 }
 
 @end
