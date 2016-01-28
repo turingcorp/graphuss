@@ -108,7 +108,8 @@
                                       ^
                                       {
                                           [self.slider setValue:0 animated:NO];
-                                          [self checkslider];
+                                          [self.button setHidden:YES];
+                                          [self print:0];
                                       });
                    });
 }
