@@ -274,7 +274,7 @@
         NSInteger newheight = floorf(height * thisratio);
         NSInteger min = MIN(newwidth, newheight);
         NSInteger max = MAX(newwidth, newheight);
-        NSInteger maxallowed = 5000;
+        NSInteger maxallowed = 10000;
         
         if(min > 1)
         {
