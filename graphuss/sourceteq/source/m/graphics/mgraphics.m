@@ -4,31 +4,23 @@
 
 +(UIImage*)scale:(UIImage*)image at:(CGFloat)scale
 {
-    NSInteger newwidth = floorf(image.size.width * scale);
-    NSInteger newheight = floorf(image.size.height * scale);
-    CGSize newsize = CGSizeMake(newwidth, newheight);
-    CGRect newrect = CGRectMake(0, 0, newwidth, newheight);
-    
-    UIGraphicsBeginImageContextWithOptions(newsize, NO, 1);
-    [image drawInRect:newrect];
-    UIImage* scaledimage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return scaledimage;/*
-    
-    NSUInteger width = image.size.width * scale;
-    NSUInteger height = image.size.height * scale;
     CGImageRef cgimage = image.CGImage;
-    NSUInteger bitspercomponent = CGImageGetBitsPerComponent(cgimage);
-    NSUInteger bytesperrow = 4 * width;
+    NSInteger width = floorf(CGImageGetWidth(cgimage) * scale);
+    NSInteger height = floorf(CGImageGetHeight(cgimage) * scale);
+    NSInteger bitspercomponent = 8;
+    NSInteger bytesperrow = 4 * width;
     CGColorSpaceRef colorspace = CGImageGetColorSpace(cgimage);
     CGBitmapInfo bitmapinfo = CGImageGetBitmapInfo(cgimage);
     CGContextRef context = CGBitmapContextCreate(nil, width, height, bitspercomponent, bytesperrow, colorspace, bitmapinfo);
+    CGColorSpaceRelease(colorspace);
     CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), cgimage);
-    UIImage *scaledimage = [UIImage imageWithCGImage:CGBitmapContextCreateImage(context)];
+    CGImageRef newcgimage = CGBitmapContextCreateImage(context);
+    CGContextRelease(context);
+    UIImage *scaledimage = [UIImage imageWithCGImage:newcgimage scale:1 orientation:image.imageOrientation];
+    CGImageRelease(newcgimage);
     
-    return scaledimage;*/
+    return scaledimage;
 }
 
 +(UIImage*)merge:(UIImage*)image with:(UIColor*)color
