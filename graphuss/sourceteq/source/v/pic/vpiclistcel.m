@@ -72,14 +72,14 @@
     [self.firsttime setAlpha:1];
     [self.pic loadedfirsttime];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+    timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
 }
 
 -(void)timeout
 {
     [timer invalidate];
     
-    [UIView animateWithDuration:1 animations:
+    [UIView animateWithDuration:0.5 animations:
      ^
      {
          [self.firsttime setAlpha:0];

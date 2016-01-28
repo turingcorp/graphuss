@@ -12,13 +12,28 @@
 -(void)loadView
 {
     self.view = [[vpiclist alloc] init:self];
+    self.viewlist = (vpiclist*)self.view;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.viewlist.visible = YES;
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    self.viewlist.visible = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [[(vpiclist*)self.view collection] reloadData];
+    [self.viewlist update];
 }
 
 #pragma mark public
