@@ -2,7 +2,7 @@
 
 @implementation mpicitem
 
--(instancetype)init:(NSNumber*)picid name:(NSString*)name
+-(instancetype)init:(NSNumber*)picid name:(NSString*)name firsttime:(NSNumber*)firsttime
 {
     self = [super init];
     
@@ -11,6 +11,7 @@
     self.thumb = [UIImage imageWithContentsOfFile:[self fileforthumb]];
     self.width = self.thumb.size.width;
     self.height = self.thumb.size.height;
+    self.firsttime = firsttime.boolValue;
     
     return self;
 }
@@ -47,6 +48,21 @@
 -(NSString*)fileforthumb
 {
     return [[mpic singleton] fileforthumb:self.name];
+}
+
+-(void)loadedfirsttime
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       self.firsttime = NO;
+                       
+                       NSString *query = [NSString stringWithFormat:
+                                          @"UPDATE pic SET firsttime=0 WHERE id=%@;",
+                                          @(self.picid)];
+                       
+                       [db query:query];
+                   });
 }
 
 @end

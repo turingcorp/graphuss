@@ -35,7 +35,7 @@
                    {
                        array = [NSMutableArray array];
                        
-                       NSString *query = @"SELECT id, name FROM pic ORDER BY id DESC;";
+                       NSString *query = @"SELECT id, firsttime, name FROM pic ORDER BY id DESC;";
                        NSArray *rawpics = [db rows:query];
                        NSInteger count = rawpics.count;
                        
@@ -44,6 +44,7 @@
                            NSDictionary *rawpic = rawpics[i];
                            NSString *name = rawpic[@"name"];
                            NSNumber *picid = rawpic[@"id"];
+                           NSNumber *firsttime = rawpic[@"firsttime"];
                            
                            mpicitem *item = [[mpicitem alloc] init:picid name:name];
                            [array addObject:item];
