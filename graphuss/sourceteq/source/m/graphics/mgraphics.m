@@ -62,13 +62,7 @@
     pixels = calloc(size, sizeof(uint));
     context = CGBitmapContextCreate(pixels, width, height, bitspercomponent, bytesperrow, colorspace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
     CGContextDrawImage(context, rect, cgimage);
-     
-     #define Mask8(x) ( (x) & 0xFF )
-     #define R(x) ( Mask8(x) )
-     #define G(x) ( Mask8(x >> 8 ) )
-     #define B(x) ( Mask8(x >> 16) )
-     #define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
-     
+    
     uint *thispixel = pixels;
     
     for(uint i = 0; i < size; i++)
@@ -76,67 +70,11 @@
         uint pixelcolor = *thispixel;
         mgraphicspixel *graphicspixel = [[mgraphicspixel alloc] init:pixelcolor];
         
-        [UIColor colorw];
+        *thispixel = [graphicspixel addlight:light];
+        thispixel++;
     }
     
-     
-     for(uint j = 0; j < height; j++)
-     {
-     for(uint i = 0; i < width; i++)
-     {
-     uint color = *thispixel;
-         
-         [[mgraphicspixel alloc] init:color];
-         
-     uint red = R(color);
-     uint green = G(color);
-     uint blue = B(color);
-     uint sum = red + green + blue;
-     uint sumdivided = sum / 3.0;
-     
-     //**
-     
-     UIColor *pitchcolor = [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:1];
-     
-     CGFloat hue;
-     CGFloat sat;
-     CGFloat bri;
-     CGFloat alp;
-     
-     [pitchcolor getHue:&hue saturation:&sat brightness:&bri alpha:&alp];
-     
-     bri += light;
-     
-     if(bri < 0)
-     {
-     bri = 0;
-     }
-         else if(bri > 1)
-         {
-             bri = 1;
-         }
-     
-     UIColor *anothercolor = [UIColor colorWithHue:hue saturation:sat brightness:bri alpha:alp];
-     
-     CGFloat newred;
-     CGFloat newgren;
-     CGFloat newblue;
-     CGFloat newalpha;
-     
-     [anothercolor getRed:&newred green:&newgren blue:&newblue alpha:&newalpha];
-     
-     NSInteger newredint = newred * 255;
-     NSInteger newgreenint = newgren * 255;
-     NSInteger newblueint = newblue * 255;
-     NSInteger newalphaint = newalpha * 255;
-     
-     *thispixel = RGBAMake(newredint, newgreenint, newblueint, newalphaint);
-     
-     //**
-     
-     thispixel++;
-     }
-     }
+    
      
      CGImageRef newCGImage = CGBitmapContextCreateImage(context);
      UIImage * processedImage = [UIImage imageWithCGImage:newCGImage scale:1 orientation:image.imageOrientation];
