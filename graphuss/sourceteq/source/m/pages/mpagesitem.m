@@ -43,7 +43,9 @@
 
 -(UIViewController*)controller
 {
-    return [[UIViewController alloc] init];
+    UIViewController *controller = [[UIViewController alloc] init];
+    
+    return controller;
 }
 
 @end
