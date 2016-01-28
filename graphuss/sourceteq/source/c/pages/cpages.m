@@ -8,7 +8,6 @@
 -(instancetype)init
 {
     self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-    
     self.model = [[mpages alloc] init];
     
     return self;
@@ -97,8 +96,16 @@
     
     self.modelitem = [self.model item:page];
     __weak cpages *weakself = self;
-
-    [self setViewControllers:@[[self.modelitem controller]] direction:direction animated:animated completion:
+    
+    UIViewController *old;
+    
+    if(self.viewControllers.count)
+    {
+        old = self.viewControllers[0];
+    }
+    
+    NSArray *controllers = @[[self.modelitem controller]];
+    [self setViewControllers:controllers direction:direction animated:animated completion:
      ^(BOOL done)
      {
          [weakself clearitems];

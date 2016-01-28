@@ -1,6 +1,9 @@
 #import "vpiclistcel.h"
 
 @implementation vpiclistcel
+{
+    NSTimer *timer;
+}
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -64,20 +67,41 @@
     }
 }
 
+-(void)isfirsttime
+{
+    [self.firsttime setAlpha:1];
+    [self.pic loadedfirsttime];
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+}
+
+-(void)timeout
+{
+    [timer invalidate];
+    
+    [UIView animateWithDuration:1 animations:
+     ^
+     {
+         [self.firsttime setAlpha:0];
+     }];
+}
+
 #pragma mark public
 
 -(void)config:(mpicitem*)pic
 {
+    [timer invalidate];
+    
     self.pic = pic;
     [self.image setImage:pic.thumb];
     
     if(pic.firsttime)
     {
-        [self.firsttime setHidden:NO];
+        [self isfirsttime];
     }
     else
     {
-        [self.firsttime setHidden:YES];
+        [self.firsttime setAlpha:0];
     }
     
     [self hover];
