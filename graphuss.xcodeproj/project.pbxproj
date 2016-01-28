@@ -51,6 +51,9 @@
 		DA2501ED1C595DDD0081E56D /* light@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2501EA1C595DDD0081E56D /* light@3x.png */; };
 		DA2501F01C5968DF0081E56D /* vpicdetailfilterslight.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2501EF1C5968DF0081E56D /* vpicdetailfilterslight.m */; };
 		DA2501F41C5985640081E56D /* mgraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2501F31C5985640081E56D /* mgraphics.m */; };
+		DA2C654E1C5A7F6D00862C05 /* firsttime.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2C654B1C5A7F6D00862C05 /* firsttime.png */; };
+		DA2C654F1C5A7F6D00862C05 /* firsttime@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2C654C1C5A7F6D00862C05 /* firsttime@2x.png */; };
+		DA2C65501C5A7F6D00862C05 /* firsttime@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2C654D1C5A7F6D00862C05 /* firsttime@3x.png */; };
 		DA390BD41C57B5B3000ABCEA /* mpicmenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BD31C57B5B3000ABCEA /* mpicmenu.m */; };
 		DA390BD81C57B60B000ABCEA /* mpicmenufile.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BD71C57B60B000ABCEA /* mpicmenufile.m */; };
 		DA390BDB1C57B622000ABCEA /* mpicmenuedit.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BDA1C57B622000ABCEA /* mpicmenuedit.m */; };
@@ -173,6 +176,9 @@
 		DA2501EF1C5968DF0081E56D /* vpicdetailfilterslight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpicdetailfilterslight.m; sourceTree = "<group>"; };
 		DA2501F21C5985640081E56D /* mgraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgraphics.h; sourceTree = "<group>"; };
 		DA2501F31C5985640081E56D /* mgraphics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mgraphics.m; sourceTree = "<group>"; };
+		DA2C654B1C5A7F6D00862C05 /* firsttime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firsttime.png; sourceTree = "<group>"; };
+		DA2C654C1C5A7F6D00862C05 /* firsttime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firsttime@2x.png"; sourceTree = "<group>"; };
+		DA2C654D1C5A7F6D00862C05 /* firsttime@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firsttime@3x.png"; sourceTree = "<group>"; };
 		DA390BD21C57B5B3000ABCEA /* mpicmenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenu.h; sourceTree = "<group>"; };
 		DA390BD31C57B5B3000ABCEA /* mpicmenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenu.m; sourceTree = "<group>"; };
 		DA390BD51C57B5E5000ABCEA /* mpicmenuprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenuprotocol.h; sourceTree = "<group>"; };
@@ -544,6 +550,9 @@
 		DA3D99CA1C5126720072F69B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DA2C654B1C5A7F6D00862C05 /* firsttime.png */,
+				DA2C654C1C5A7F6D00862C05 /* firsttime@2x.png */,
+				DA2C654D1C5A7F6D00862C05 /* firsttime@3x.png */,
 				DA2501E81C595DDD0081E56D /* light.png */,
 				DA2501E91C595DDD0081E56D /* light@2x.png */,
 				DA2501EA1C595DDD0081E56D /* light@3x.png */,
@@ -841,6 +850,7 @@
 				DA3D9A151C5126720072F69B /* Localizable.strings in Resources */,
 				DA390C271C58524D000ABCEA /* scale@3x.png in Resources */,
 				DA390C261C58524D000ABCEA /* scale@2x.png in Resources */,
+				DA2C654E1C5A7F6D00862C05 /* firsttime.png in Resources */,
 				DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */,
 				DA1478761C51A04E0024141B /* spinner1@3x.png in Resources */,
 				DA390C1F1C584C64000ABCEA /* rotateright.png in Resources */,
@@ -850,9 +860,11 @@
 				DA14787C1C51A04E0024141B /* spinner3@3x.png in Resources */,
 				DA1478741C51A04E0024141B /* spinner1.png in Resources */,
 				DA1478381C513A400024141B /* graphuss.db in Resources */,
+				DA2C65501C5A7F6D00862C05 /* firsttime@3x.png in Resources */,
 				DA1478851C51B5060024141B /* shoot@3x.png in Resources */,
 				DA1478771C51A04E0024141B /* spinner2.png in Resources */,
 				DA390C1D1C584C64000ABCEA /* rotateleft@2x.png in Resources */,
+				DA2C654F1C5A7F6D00862C05 /* firsttime@2x.png in Resources */,
 				DA1478841C51B5060024141B /* shoot@2x.png in Resources */,
 				DA14782D1C5132A30024141B /* analytics.plist in Resources */,
 			);
