@@ -19,8 +19,8 @@
     [slider setMaximumTrackTintColor:[UIColor blackColor]];
     [slider setMinimumTrackTintColor:colorsecond];
     [slider addTarget:self action:@selector(actionslider:) forControlEvents:UIControlEventValueChanged];
-    [slider setMinimumValue:-0.9];
-    [slider setMaximumValue:0.9];
+    [slider setMinimumValue:-0.95];
+    [slider setMaximumValue:0.95];
     [slider setValue:0 animated:NO];
     [slider setContinuous:NO];
     self.slider = slider;
