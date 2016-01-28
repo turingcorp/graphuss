@@ -69,7 +69,7 @@
     {
         uint pixelcolor = *thispixel;
         mgraphicspixel *graphicspixel = [[mgraphicspixel alloc] init:pixelcolor];
-        
+//
         *thispixel = [graphicspixel addlight:light];
         thispixel++;
     }

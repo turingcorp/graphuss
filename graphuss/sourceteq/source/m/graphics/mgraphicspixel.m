@@ -32,7 +32,9 @@
 
 -(UIColor*)colorrgb
 {
-    return [UIColor colorWithRed:[self redfloat] green:[self greenfloat] blue:[self bluefloat] alpha:1];
+    UIColor *incolor = [UIColor colorWithRed:[self redfloat] green:[self greenfloat] blue:[self bluefloat] alpha:1];
+    
+    return incolor;
 }
 
 -(UIColor*)color:(UIColor*)color addbrightness:(CGFloat)delta
@@ -53,7 +55,6 @@
 -(uint)intfromred:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue
 {
     uint colorint;
-    
     uint redint = red * 255;
     uint greenint = green * 255;
     uint blueint = blue * 255;
@@ -81,7 +82,6 @@
 -(uint)addlight:(CGFloat)light
 {
     uint newcolor;
-    
     UIColor *colorcurrent = [self colorrgb];
     UIColor *coloredited = [self color:colorcurrent addbrightness:light];
     newcolor = [self colortoint:coloredited];
