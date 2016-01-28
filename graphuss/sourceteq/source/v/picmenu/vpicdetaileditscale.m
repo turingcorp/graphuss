@@ -92,7 +92,7 @@
     self.buttonaccept = buttonaccept;
     
     UIButton *buttoncancel = [[UIButton alloc] init];
-    [buttoncancel setBackgroundColor:[UIColor colorWithRed:1 green:0.1 blue:0 alpha:1]];
+    [buttoncancel setBackgroundColor:colormain];
     [buttoncancel.layer setCornerRadius:4];
     [buttoncancel setClipsToBounds:YES];
     [buttoncancel setTitle:NSLocalizedString(@"pic_detail_scale_btncancel", nil) forState:UIControlStateNormal];

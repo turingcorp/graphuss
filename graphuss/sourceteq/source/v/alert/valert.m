@@ -27,7 +27,7 @@
     [self setAlpha:0];
     [self setUserInteractionEnabled:NO];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self setBackgroundColor:[UIColor colorWithRed:0.3 green:0.6 blue:0.8 alpha:1]];
+    [self setBackgroundColor:colorsecond];
     
     UILabel *lbl = [[UILabel alloc] init];
     [lbl setBackgroundColor:[UIColor clearColor]];

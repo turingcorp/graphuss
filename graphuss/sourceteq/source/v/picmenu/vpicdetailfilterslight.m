@@ -23,17 +23,11 @@ typedef NS_ENUM(NSInteger, lighttype)
     type = lighttypenone;
     vblur *blur = [vblur light:NO];
     
-    UIView *border = [[UIView alloc] init];
-    [border setUserInteractionEnabled:NO];
-    [border setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.2]];
-    [border setClipsToBounds:YES];
-    [border setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
     UISlider *slider = [[UISlider alloc] init];
     [slider setTranslatesAutoresizingMaskIntoConstraints:NO];
     [slider setTintColor:colormain];
     [slider setMaximumTrackTintColor:[UIColor blackColor]];
-    [slider setMinimumTrackTintColor:[UIColor colorWithRed:0.3 green:0.6 blue:0.8 alpha:1]];
+    [slider setMinimumTrackTintColor:colorsecond];
     [slider addTarget:self action:@selector(actionslider:) forControlEvents:UIControlEventValueChanged];
     [slider setMinimumValue:-0.7];
     [slider setMaximumValue:0.7];
@@ -43,38 +37,43 @@ typedef NS_ENUM(NSInteger, lighttype)
     UIButton *button = [[UIButton alloc] init];
     [button setClipsToBounds:YES];
     [button setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [button setBackgroundColor:colormain];
-    [button.layer setCornerRadius:4];
+    [button setBackgroundColor:colorsecond];
+    [button.layer setCornerRadius:30];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
     [button setTitle:NSLocalizedString(@"pic_detail_fitlers_light_button", nil) forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont fontWithName:fontboldname size:16]];
+    [button setTitle:@"Apply" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont fontWithName:fontboldname size:12]];
     [button addTarget:self action:@selector(actionapply:) forControlEvents:UIControlEventTouchUpInside];
+    [button.layer setBorderWidth:1];
+    [button.layer setBorderColor:[UIColor blackColor].CGColor];
     
     UIImageView *preview = [[UIImageView alloc] init];
-    [preview setContentMode:UIViewContentModeScaleAspectFit];
+    [preview setContentMode:UIViewContentModeScaleAspectFill];
     [preview setClipsToBounds:YES];
     [preview setUserInteractionEnabled:NO];
     [preview setTranslatesAutoresizingMaskIntoConstraints:NO];
     [preview setImage:filters.detail.pic.thumb];
+    [preview.layer setBorderWidth:1];
+    [preview.layer setCornerRadius:4];
+    [preview.layer setBorderColor:[UIColor blackColor].CGColor];
     self.preview = preview;
     
     [self addSubview:blur];
-    [self addSubview:border];
     [self addSubview:preview];
     [self addSubview:slider];
     [self addSubview:button];
     
-    NSDictionary *views = @{@"blur":blur, @"border":border, @"slider":slider, @"preview":preview, @"button":button};
+    NSDictionary *views = @{@"blur":blur, @"slider":slider, @"preview":preview, @"button":button};
     NSDictionary *metrics = @{};
     
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[preview(120)]-20-[button(60)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[preview(120)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[border]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[slider]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-100-[button]-100-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[preview]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[border(1)]-[preview]-[slider]-30-[button(40)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[slider]-50-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[slider]-45-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-50-[button(60)]" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -119,7 +118,7 @@ typedef NS_ENUM(NSInteger, lighttype)
     {
         newtype = lighttypedark;
     }
-    
+    /*
     if(type != newtype)
     {
         type = newtype;
@@ -146,7 +145,7 @@ typedef NS_ENUM(NSInteger, lighttype)
         }
     }
     
-    [self.over setAlpha:fabs(value)];
+    [self.over setAlpha:fabs(value)];*/
 }
 
 @end
