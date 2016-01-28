@@ -46,9 +46,8 @@
     
     UInt32 *pixels;
     CGImageRef incgimage = image.CGImage;
-    CGSize size = image.size;
-    NSUInteger width = size.width;
-    NSUInteger height = size.height;
+    NSUInteger width = CGImageGetWidth(incgimage);
+    NSUInteger height = CGImageGetHeight(incgimage);
     NSUInteger bitsperpixel = 4;
     NSUInteger bytesperrow = bitsperpixel * width;
     NSUInteger bitspercomponent = 8;
@@ -66,8 +65,6 @@
 #define B(x) ( Mask8(x >> 16) )
 #define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
     
-    NSLog(@"Brightness of image:");
-
     UInt32 *thispixel = pixels;
     
     for(NSUInteger j = 0; j < height; j++)
