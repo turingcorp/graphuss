@@ -42,6 +42,8 @@
     CGContextRelease(context);
     UIGraphicsEndImageContext();
     
+#warning here
+    
     return newimage;
     /*
     CGSize size = image.size;
