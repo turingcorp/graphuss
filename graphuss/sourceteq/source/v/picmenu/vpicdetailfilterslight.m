@@ -1,9 +1,6 @@
 #import "vpicdetailfilterslight.h"
 
 @implementation vpicdetailfilterslight
-{
-    NSTimer *timer;
-}
 
 -(instancetype)init:(vpicdetailfilters*)filters
 {
@@ -13,6 +10,7 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     self.filters = filters;
+    self.baseimage = filters.detail.pic.thumb;
     vblur *blur = [vblur light:NO];
     
     UISlider *slider = [[UISlider alloc] init];
@@ -21,9 +19,10 @@
     [slider setMaximumTrackTintColor:[UIColor blackColor]];
     [slider setMinimumTrackTintColor:colorsecond];
     [slider addTarget:self action:@selector(actionslider:) forControlEvents:UIControlEventValueChanged];
-    [slider setMinimumValue:-0.7];
-    [slider setMaximumValue:0.7];
+    [slider setMinimumValue:-0.9];
+    [slider setMaximumValue:0.9];
     [slider setValue:0 animated:NO];
+    [slider setContinuous:NO];
     self.slider = slider;
     
     UIButton *button = [[UIButton alloc] init];
@@ -40,13 +39,14 @@
     [button.layer setBorderWidth:1];
     [button.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
     [button setHidden:YES];
+    self.button = button;
     
     UIImageView *preview = [[UIImageView alloc] init];
     [preview setContentMode:UIViewContentModeScaleAspectFill];
     [preview setClipsToBounds:YES];
     [preview setUserInteractionEnabled:NO];
     [preview setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [preview setImage:filters.detail.pic.thumb];
+    [preview setImage:self.baseimage];
     [preview.layer setBorderWidth:1];
     [preview.layer setCornerRadius:4];
     [preview.layer setBorderColor:[UIColor blackColor].CGColor];
@@ -98,16 +98,16 @@
 
 #pragma mark functionality
 
--(void)timeout:(NSTimer*)atimer
+-(void)checkslider
 {
-    [timer invalidate];
-    
     __weak vpicdetailfilterslight *weakself = self;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       UIImage *newimage = [mgraphics light:[weakself.preview image] add:[weakself.slider value]];
+                       CGFloat value = [weakself.slider value];
+                       
+                       UIImage *newimage = [mgraphics light:weakself.baseimage add:value];
                        
                        if(newimage)
                        {
@@ -115,26 +115,18 @@
                                           ^
                                           {
                                               [weakself.preview setImage:newimage];
+                                              
+                                              if(value)
+                                              {
+                                                  [weakself.button setHidden:NO];
+                                              }
+                                              else
+                                              {
+                                                  [weakself.button setHidden:YES];
+                                              }
                                           });
                        }
                    });
-}
-
--(void)checkslider
-{
-    [timer invalidate];
-    CGFloat value = self.slider.value;
-    
-    if(value)
-    {
-        [self.slider setHidden:NO];
-    }
-    else
-    {
-        [self.slider setHidden:YES];
-    }
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timeout:) userInfo:nil repeats:NO];
 }
 
 @end
