@@ -53,12 +53,13 @@
     CGImageRef cgimage = image.CGImage;
     uint width = (uint)CGImageGetWidth(cgimage);
     uint height = (uint)CGImageGetHeight(cgimage);
+    uint size = width * height;
     uint bitsperpixel = 4;
     uint bitspercomponent = 8;
     uint bytesperrow = bitsperpixel * width;
     CGRect rect = CGRectMake(0, 0, width, height);
     
-    pixels = calloc(width * height, sizeof(uint));
+    pixels = calloc(size, sizeof(uint));
     context = CGBitmapContextCreate(pixels, width, height, bitspercomponent, bytesperrow, colorspace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
     CGContextDrawImage(context, rect, cgimage);
      
@@ -68,7 +69,16 @@
      #define B(x) ( Mask8(x >> 16) )
      #define RGBAMake(r, g, b, a) ( Mask8(r) | Mask8(g) << 8 | Mask8(b) << 16 | Mask8(a) << 24 )
      
-     uint *thispixel = pixels;
+    uint *thispixel = pixels;
+    
+    for(uint i = 0; i < size; i++)
+    {
+        uint pixelcolor = *thispixel;
+        mgraphicspixel *graphicspixel = [[mgraphicspixel alloc] init:pixelcolor];
+        
+        [UIColor colorw];
+    }
+    
      
      for(uint j = 0; j < height; j++)
      {
