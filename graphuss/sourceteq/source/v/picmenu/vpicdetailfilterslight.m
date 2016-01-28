@@ -52,7 +52,13 @@
     [preview.layer setBorderColor:[UIColor blackColor].CGColor];
     self.preview = preview;
     
+    UILabel *label = [[UILabel alloc] init];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setTextColor:[UIColor colorWithWhite:0 alpha:0.9]];
+    [label setFont:[UIFont fontWithName:fontname size:18]];
+    
     [self addSubview:blur];
+    [self addSubview:label];
     [self addSubview:preview];
     [self addSubview:slider];
     [self addSubview:button];
@@ -106,7 +112,6 @@
                    ^
                    {
                        CGFloat value = [weakself.slider value];
-                       
                        UIImage *newimage = [mgraphics light:weakself.baseimage add:value];
                        
                        if(newimage)

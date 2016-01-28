@@ -11,5 +11,6 @@
 @property(weak, nonatomic)UIButton *button;
 @property(weak, nonatomic)UIImageView *preview;
 @property(weak, nonatomic)UIImage *baseimage;
+@property(weak, nonatomic)UILabel *label;
 
 @end

@@ -1,6 +1,9 @@
 #import "vpicdetailfilecompress.h"
 
 @implementation vpicdetailfilecompress
+{
+    NSString *labelstring;
+}
 
 -(instancetype)init:(vpicdetail*)detail
 {
@@ -11,6 +14,7 @@
     [self setAlpha:0];
     
     self.detail = detail;
+    labelstring = @"";
     
     NSDictionary *attrtitle = @{NSFontAttributeName:[UIFont fontWithName:fontboldname size:20], NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:0.8]};
     NSDictionary *attrdescr = @{NSFontAttributeName:[UIFont fontWithName:fontname size:18], NSForegroundColorAttributeName:[UIColor colorWithWhite:0 alpha:0.6]};
@@ -120,7 +124,7 @@
                        });
     }
     
-    [[analytics singleton] trackevent:ga_event_pic_file_compress action:ga_action_completed label:self.labelvalue.text];
+    [[analytics singleton] trackevent:ga_event_pic_file_compress action:ga_action_completed label:labelstring];
 }
 
 -(void)actioncancel
@@ -162,7 +166,8 @@
 
 -(void)print:(NSInteger)value
 {
-    [self.labelvalue setText:[NSString stringWithFormat:@"%@%%", [[tools singleton] numbertostring:@(value)]]];
+    labelstring = [NSString stringWithFormat:@"%@%%", [[tools singleton] numbertostring:@(value)]];
+    [self.labelvalue setText:labelstring];
 }
 
 @end

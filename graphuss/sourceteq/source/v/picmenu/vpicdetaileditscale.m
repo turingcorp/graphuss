@@ -2,6 +2,7 @@
 
 @implementation vpicdetaileditscale
 {
+    NSString *labelstring;
     NSInteger width;
     NSInteger height;
     CGFloat ratio;
@@ -30,6 +31,7 @@
     [self setAlpha:0];
     
     self.detail = detail;
+    labelstring = @"";
     
     width = detail.pic.imagehd.size.width;
     height = detail.pic.imagehd.size.height;
@@ -181,7 +183,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       [[analytics singleton] trackevent:ga_event_pic_edit_scale action:ga_action_completed label:self.labelratio.text];
+                       [[analytics singleton] trackevent:ga_event_pic_edit_scale action:ga_action_completed label:labelstring];
                        [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
                        [self.detail.controllerdetail edit_scale:ratio];
                        
@@ -227,9 +229,10 @@
     NSInteger displaywidth = floorf(width * ratio);
     NSInteger displayheight = floorf(height * ratio);
     
+    labelstring = [NSString stringWithFormat:@"x %@", [[tools singleton] numbertostring:@(ratio)]];
     [self.fieldwidth setText:[[tools singleton] numbertostring:@(displaywidth)]];
     [self.fieldheight setText:[[tools singleton] numbertostring:@(displayheight)]];
-    [self.labelratio setText:[NSString stringWithFormat:@"x %@", [[tools singleton] numbertostring:@(ratio)]]];
+    [self.labelratio setText:labelstring];
     [self.buttonaccept setHidden:ratio == 1];
 }
 
