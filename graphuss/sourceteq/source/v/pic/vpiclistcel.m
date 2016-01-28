@@ -21,17 +21,19 @@
     [firsttime setContentMode:UIViewContentModeScaleAspectFit];
     [firsttime setUserInteractionEnabled:NO];
     [firsttime setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [firsttime setImage:[UIImage imageNamed:@"firsttime"]];
     self.firsttime = firsttime;
     
     [self addSubview:image];
+    [self addSubview:firsttime];
     
     NSDictionary *views = @{@"image":image, @"firsttime":firsttime};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[image]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[image]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[firsttime(25)]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[firsttime(25)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[firsttime(30)]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[firsttime(30)]" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -66,7 +68,18 @@
 
 -(void)config:(mpicitem*)pic
 {
+    self.pic = pic;
     [self.image setImage:pic.thumb];
+    
+    if(pic.firsttime)
+    {
+        [self.firsttime setHidden:NO];
+    }
+    else
+    {
+        [self.firsttime setHidden:YES];
+    }
+    
     [self hover];
 }
 
