@@ -1,12 +1,5 @@
 #import "vpicdetailfilterslight.h"
 
-typedef NS_ENUM(NSInteger, lighttype)
-{
-    lighttypenone,
-    lighttypelight,
-    lighttypedark
-};
-
 @implementation vpicdetailfilterslight
 {
     lighttype type;
@@ -46,7 +39,8 @@ typedef NS_ENUM(NSInteger, lighttype)
     [button.titleLabel setFont:[UIFont fontWithName:fontboldname size:12]];
     [button addTarget:self action:@selector(actionapply:) forControlEvents:UIControlEventTouchUpInside];
     [button.layer setBorderWidth:1];
-    [button.layer setBorderColor:[UIColor blackColor].CGColor];
+    [button.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
+    [button setHidden:YES];
     
     UIImageView *preview = [[UIImageView alloc] init];
     [preview setContentMode:UIViewContentModeScaleAspectFill];
@@ -107,9 +101,19 @@ typedef NS_ENUM(NSInteger, lighttype)
 
 -(void)checkslider
 {
-    lighttype newtype = lighttypenone;
     CGFloat value = self.slider.value;
     
+    if(value)
+    {
+        [self.slider setHidden:NO];
+    }
+    else
+    {
+        [self.slider setHidden:YES];
+    }
+    
+    lighttype newtype = lighttypenone;
+
     if(value > 0)
     {
         newtype = lighttypelight;
