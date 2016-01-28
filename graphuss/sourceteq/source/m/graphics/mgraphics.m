@@ -24,7 +24,7 @@
 }
 
 +(UIImage*)merge:(UIImage*)image with:(UIColor*)color
-{
+{/*
     CGSize size = image.size;
     NSInteger width = size.width;
     NSInteger height = size.height;
@@ -42,20 +42,25 @@
     CGContextRelease(context);
     UIGraphicsEndImageContext();
     
-#warning here
+    return newimage;*/
     
-    return newimage;
-    /*
+    UInt32 *pixels;
+    CGImageRef incgimage = image.CGImage;
     CGSize size = image.size;
-    NSUInteger width = size.width;
-    NSUInteger height = size.height;
-    CGImageRef inputCGImage = image.CGImage;
-    NSUInteger bytesPerPixel = 4;
-    NSUInteger bytesPerRow = bytesPerPixel * width;
-    NSUInteger bitsPerComponent = 8;
+    NSInteger width = size.width;
+    NSInteger height = size.height;
+    NSInteger bitsperpixel = 4;
+    NSInteger bytesperrow = bitsperpixel * width;
+    NSInteger bitspercomponent = 8;
     
-    UInt32 * pixels;
-    pixels = (UInt32 *) calloc(height * width, sizeof(UInt32));
+    pixels = (UInt32*)calloc(height * width, sizeof(UInt32));
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = CGBitmapContextCreate(pixels, width, height, bitspercomponent, bytesperrow, colorspace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    
+    
+    CGColorSpaceRelease(colorspace);
+    CGContextRelease(context);
+    
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef context = CGBitmapContextCreate(pixels, width, height, bitsPerComponent, bytesPerRow, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), inputCGImage);
@@ -79,7 +84,9 @@
             currentPixel++;
         }
         printf("\n");
-    }*/
+    }
+    
+    return image;
 }
 
 @end
