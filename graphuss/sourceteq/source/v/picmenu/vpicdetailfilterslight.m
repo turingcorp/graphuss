@@ -2,7 +2,7 @@
 
 @implementation vpicdetailfilterslight
 {
-    lighttype type;
+    NSTimer *timer;
 }
 
 -(instancetype)init:(vpicdetailfilters*)filters
@@ -13,7 +13,6 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     self.filters = filters;
-    type = lighttypenone;
     vblur *blur = [vblur light:NO];
     
     UISlider *slider = [[UISlider alloc] init];
@@ -99,8 +98,31 @@
 
 #pragma mark functionality
 
+-(void)timeout:(NSTimer*)atimer
+{
+    [timer invalidate];
+    
+    __weak vpicdetailfilterslight *weakself = self;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       UIImage *newimage = [mgraphics light:[weakself.preview image] add:[weakself.slider value]];
+                       
+                       if(newimage)
+                       {
+                           dispatch_async(dispatch_get_main_queue(),
+                                          ^
+                                          {
+                                              [weakself.preview setImage:newimage];
+                                          });
+                       }
+                   });
+}
+
 -(void)checkslider
 {
+    [timer invalidate];
     CGFloat value = self.slider.value;
     
     if(value)
@@ -112,44 +134,7 @@
         [self.slider setHidden:YES];
     }
     
-    lighttype newtype = lighttypenone;
-
-    if(value > 0)
-    {
-        newtype = lighttypelight;
-    }
-    else if(value < 0)
-    {
-        newtype = lighttypedark;
-    }
-    /*
-    if(type != newtype)
-    {
-        type = newtype;
-        
-        switch(type)
-        {
-            case lighttypenone:
-                
-                [self.over setBackgroundColor:[UIColor clearColor]];
-                
-                break;
-                
-            case lighttypelight:
-                
-                [self.over setBackgroundColor:[UIColor whiteColor]];
-                
-                break;
-                
-            case lighttypedark:
-                
-                [self.over setBackgroundColor:[UIColor blackColor]];
-                
-                break;
-        }
-    }
-    
-    [self.over setAlpha:fabs(value)];*/
+    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timeout:) userInfo:nil repeats:NO];
 }
 
 @end
