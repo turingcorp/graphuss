@@ -79,8 +79,13 @@
 -(void)changeorientation:(UIImageOrientation)neworientation
 {
     self.image = [UIImage imageWithCGImage:self.image.CGImage scale:1 orientation:neworientation];
+    [self updateimage];
+}
+
+-(void)updateimage
+{
     [self.pic update:self.image];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:notrefrespic object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
 }
 
@@ -209,28 +214,19 @@
 -(void)edit_compress:(CGFloat)quality
 {
     self.image = [UIImage imageWithData:UIImageJPEGRepresentation(self.image, quality)];
-    [self.pic update:self.image];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:notrefrespic object:nil];
+    [self updateimage];
 }
 
 -(void)edit_scale:(CGFloat)scale
 {
     self.image = [mgraphics scale:self.image at:scale];
-    [self.pic update:self.image];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:notrefrespic object:nil];
+    [self updateimage];
 }
 
 -(void)edit_light:(UIColor*)light
 {
     self.image = [mgraphics merge:self.image with:light];
-    [self.pic update:self.image];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:notrefrespic object:nil];
+    [self updateimage];
 }
 
 @end

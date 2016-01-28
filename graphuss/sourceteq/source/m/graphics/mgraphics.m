@@ -24,7 +24,7 @@
 }
 
 +(UIImage*)merge:(UIImage*)image with:(UIColor*)incolor
-{/*
+{
     CGSize size = image.size;
     NSInteger width = size.width;
     NSInteger height = size.height;
@@ -34,7 +34,7 @@
     [image drawInRect:rect];
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextAddRect(context, rect);
-    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextSetFillColorWithColor(context, incolor.CGColor);
     CGContextDrawPath(context, kCGPathFill);
     
     UIImage *newimage = UIGraphicsGetImageFromCurrentImageContext();
@@ -42,8 +42,8 @@
     CGContextRelease(context);
     UIGraphicsEndImageContext();
     
-    return newimage;*/
-    
+    return newimage;
+    /*
     UInt32 *pixels;
     CGImageRef incgimage = image.CGImage;
     NSUInteger width = CGImageGetWidth(incgimage);
@@ -123,7 +123,7 @@
     
 //    free(pixels);
     
-    return processedImage;
+    return processedImage;*/
 }
 
 @end

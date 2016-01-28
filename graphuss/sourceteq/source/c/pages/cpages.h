@@ -5,6 +5,8 @@
 
 @interface cpages:UIPageViewController
 
+-(void)startshooting;
+
 @property(strong, nonatomic)mpages *model;
 @property(weak, nonatomic)mpagesitem *modelitem;
 @property(strong, nonatomic)UIBarButtonItem *itemcamera;

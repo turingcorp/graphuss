@@ -46,7 +46,7 @@
 
 -(void)actionshoot
 {
-    
+    [(cpages*)[[cmain singleton] viewControllers][0] startshooting];
 }
 
 @end

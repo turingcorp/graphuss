@@ -151,4 +151,11 @@
     self.navigationItem.leftBarButtonItem = self.itemconfig;
 }
 
+#pragma mark public
+
+-(void)startshooting
+{
+    [self actionright];
+}
+
 @end
