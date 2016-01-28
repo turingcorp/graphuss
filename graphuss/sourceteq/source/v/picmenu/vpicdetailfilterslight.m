@@ -59,7 +59,11 @@
     UILabel *label = [[UILabel alloc] init];
     [label setBackgroundColor:[UIColor clearColor]];
     [label setTextColor:[UIColor colorWithWhite:0 alpha:0.9]];
-    [label setFont:[UIFont fontWithName:fontname size:18]];
+    [label setFont:[UIFont fontWithName:fontname size:20]];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setUserInteractionEnabled:NO];
+    [label setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.label = label;
     
     [self addSubview:blur];
     [self addSubview:label];
@@ -67,7 +71,7 @@
     [self addSubview:slider];
     [self addSubview:button];
     
-    NSDictionary *views = @{@"blur":blur, @"slider":slider, @"preview":preview, @"button":button};
+    NSDictionary *views = @{@"blur":blur, @"slider":slider, @"preview":preview, @"button":button, @"label":label};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[preview(120)]-20-[button(60)]" options:0 metrics:metrics views:views]];
@@ -75,10 +79,11 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[slider]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[slider]-45-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[label]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label]-15-[slider]-45-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-50-[button(60)]" options:0 metrics:metrics views:views]];
     
-    [self print];
+    [self print:0];
     
     return self;
 }
@@ -135,14 +140,29 @@
                                               {
                                                   [weakself.button setHidden:YES];
                                               }
+                                              
+                                              [weakself print:value];
                                           });
                        }
                    });
 }
 
--(void)print
+-(void)print:(CGFloat)value
 {
-    labelstring = [[tools singleton] numbertostring:@(self.slider.value)];
+    NSInteger intvalue = roundf(value * 100);
+    NSMutableString *str = [NSMutableString string];
+    
+    if(intvalue > 0)
+    {
+        [str appendString:@"+ "];
+    }
+    else if(intvalue < 0)
+    {
+        [str appendString:@"- "];
+    }
+    
+    [str appendFormat:@"%@%%", [[tools singleton] numbertostring:@(labs(intvalue))]];
+    labelstring = str;
     [self.label setText:labelstring];
 }
 
