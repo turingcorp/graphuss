@@ -1,6 +1,9 @@
 #import "vpicdetailfilterslight.h"
 
 @implementation vpicdetailfilterslight
+{
+    NSString *labelstring;
+}
 
 -(instancetype)init:(vpicdetailfilters*)filters
 {
@@ -11,6 +14,7 @@
     
     self.filters = filters;
     self.baseimage = filters.detail.pic.thumb;
+    labelstring = @"";
     vblur *blur = [vblur light:NO];
     
     UISlider *slider = [[UISlider alloc] init];
@@ -74,6 +78,8 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[slider]-45-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-50-[button(60)]" options:0 metrics:metrics views:views]];
     
+    [self print];
+    
     return self;
 }
 
@@ -132,6 +138,12 @@
                                           });
                        }
                    });
+}
+
+-(void)print
+{
+    labelstring = [[tools singleton] numbertostring:@(self.slider.value)];
+    [self.label setText:labelstring];
 }
 
 @end
