@@ -46,7 +46,7 @@
                            NSNumber *picid = rawpic[@"id"];
                            NSNumber *firsttime = rawpic[@"firsttime"];
                            
-                           mpicitem *item = [[mpicitem alloc] init:picid name:name];
+                           mpicitem *item = [[mpicitem alloc] init:picid name:name firsttime:firsttime];
                            [array addObject:item];
                        }
                        
@@ -136,7 +136,7 @@
     if([self save:name image:pic])
     {
         NSString *query = [NSString stringWithFormat:
-                           @"INSERT INTO pic (name) values(%@);",
+                           @"INSERT INTO pic (name, firsttime) values(%@, 1);",
                            name];
         [db query:query];
         [self loadpics];
