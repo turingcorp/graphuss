@@ -23,7 +23,7 @@
     return scaledimage;
 }
 
-+(UIImage*)merge:(UIImage*)image with:(UIColor*)color
++(UIImage*)merge:(UIImage*)image with:(UIColor*)incolor
 {/*
     CGSize size = image.size;
     NSInteger width = size.width;
@@ -80,7 +80,37 @@
             
             //**
             
-            *thispixel = RGBAMake(sumdivided, sumdivided, sumdivided, 255);
+            UIColor *pitchcolor = [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:1];
+            
+            CGFloat hue;
+            CGFloat sat;
+            CGFloat bri;
+            CGFloat alp;
+            
+            [pitchcolor getHue:&hue saturation:&sat brightness:&bri alpha:&alp];
+            
+            bri -= 0.3;
+            
+            if(bri < 0)
+            {
+                bri = 0;
+            }
+            
+            UIColor *anothercolor = [UIColor colorWithHue:hue saturation:sat brightness:bri alpha:alp];
+            
+            CGFloat newred;
+            CGFloat newgren;
+            CGFloat newblue;
+            CGFloat newalpha;
+            
+            [anothercolor getRed:&newred green:&newgren blue:&newblue alpha:&newalpha];
+            
+            NSInteger newredint = newred * 255;
+            NSInteger newgreenint = newgren * 255;
+            NSInteger newblueint = newblue * 255;
+            NSInteger newalphaint = newalpha * 255;
+            
+            *thispixel = RGBAMake(newredint, newgreenint, newblueint, newalphaint);
             
             //**
             
@@ -89,7 +119,7 @@
     }
     
     CGImageRef newCGImage = CGBitmapContextCreateImage(context);
-    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage];
+    UIImage * processedImage = [UIImage imageWithCGImage:newCGImage scale:1 orientation:image.imageOrientation];
     
 //    free(pixels);
     
