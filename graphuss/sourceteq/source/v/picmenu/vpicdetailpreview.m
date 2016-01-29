@@ -24,6 +24,8 @@
     [image setClipsToBounds:YES];
     [image setContentMode:UIViewContentModeScaleAspectFit];
     [image setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [image.layer setBorderWidth:1];
+    [image.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.3].CGColor];
     self.image = image;
     
     [scroll addSubview:image];
