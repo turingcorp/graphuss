@@ -13,6 +13,7 @@
     vblur *blur = [vblur light:NO];
     
     UIScrollView *scroll = [[UIScrollView alloc] init];
+    self.scroll = scroll;
     
     [self addSubview:blur];
     [self addSubview:scroll];

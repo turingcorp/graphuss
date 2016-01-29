@@ -8,5 +8,8 @@
 
 @property(weak, nonatomic)vpicdetail *detail;
 @property(weak, nonatomic)UIScrollView *scroll;
+@property(weak, nonatomic)UIImageView *image;
+@property(weak, nonatomic)NSLayoutConstraint *conimagewidth;
+@property(weak, nonatomic)NSLayoutConstraint *conimageheight;
 
 @end
