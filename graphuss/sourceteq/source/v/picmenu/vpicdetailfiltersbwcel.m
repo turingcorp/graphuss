@@ -12,7 +12,6 @@
     [label setBackgroundColor:[UIColor clearColor]];
     [label setUserInteractionEnabled:NO];
     [label setFont:[UIFont fontWithName:fontname size:18]];
-    [label setTextColor:[UIColor colorWithWhite:0 alpha:0.8]];
     [label setTranslatesAutoresizingMaskIntoConstraints:NO];
     [label setNumberOfLines:0];
     self.label = label;
@@ -52,11 +51,28 @@
     return self;
 }
 
+#pragma mark functionality
+
+-(void)hover
+{
+    if(self.isSelected || self.isHighlighted)
+    {
+        [self setBackgroundColor:[UIColor whiteColor]];
+        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:1]];
+    }
+    else
+    {
+        [self setBackgroundColor:[UIColor clearColor]];
+        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.6]];
+    }
+}
+
 #pragma mark public
 
 -(void)config:(id<mpicmenufiltersbwprotocol>)model
 {
     [self.label setText:[model title]];
+    [self hover];
 }
 
 @end
