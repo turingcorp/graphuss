@@ -6,6 +6,9 @@
 
 -(NSString*)title;
 -(void)selected:(vpicdetail*)detail;
+
+@optional
+
 -(NSInteger)count;
 -(id)item:(NSInteger)index;
 
