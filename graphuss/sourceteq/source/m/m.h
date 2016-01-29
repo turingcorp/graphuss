@@ -18,6 +18,8 @@
 #import "mpicmenufiltersbw.h"
 #import "mpicmenufiltersbwprotocol.h"
 #import "mpicmenufiltersbwbasic.h"
+#import "mpicmenufiltersbwcontrast.h"
+#import "mpicmenufiltersbwblue.h"
 #import "mpicmenufileprotocol.h"
 #import "mpicmenufileduplicate.h"
 #import "mpicmenufileshare.h"

@@ -13,6 +13,8 @@
     {
         array = [NSArray arrayWithObjects:
                  [[mpicmenufiltersbwbasic alloc] init],
+                 [[mpicmenufiltersbwcontrast alloc] init],
+                 [[mpicmenufiltersbwblue alloc] init],
                  nil];
     }
     

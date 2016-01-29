@@ -1,6 +1,6 @@
-#import "mpicmenufiltersbwbasic.h"
+#import "mpicmenufiltersbwblue.h"
 
-@implementation mpicmenufiltersbwbasic
+@implementation mpicmenufiltersbwblue
 
 #pragma mark -
 #pragma mark filters protocol
