@@ -223,9 +223,28 @@
     [self updateimage];
 }
 
+extern uint64_t dispatch_benchmark(size_t count, void (^block)(void));
+
 -(void)edit_light:(CGFloat)light
 {
-    self.image = [mgraphics light:self.image add:light];
+    uint64_t t = dispatch_benchmark(1, ^{
+        @autoreleasepool {
+            
+            UIImage *img = [mgraphics light:self.image add:light];
+        }
+    });
+    
+    NSLog(@"Runtime: %llu ns", t);
+    
+    uint64_t t2 = dispatch_benchmark(1, ^{
+        @autoreleasepool {
+            
+            UIImage *img = [mgraphics light2:self.image add:light];
+        }
+    });
+    
+    NSLog(@"Runtime: %llu ns", t2);
+    
     [self updateimage];
 }
 

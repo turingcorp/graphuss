@@ -65,14 +65,30 @@
     
     uint *thispixel = pixels;
     
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
     for(uint i = 0; i < size; i++)
     {
         uint pixelcolor = *thispixel;
-        mgraphicspixel *graphicspixel = [[mgraphicspixel alloc] init:pixelcolor];
-//
-        *thispixel = [graphicspixel addlight:light];
+        NSNumber *asnum = @(pixelcolor);
+        NSNumber *value = dict[asnum];
+        
+        if(value)
+        {
+            *thispixel = value.unsignedIntValue;
+        }
+        else
+        {
+            mgraphicspixel *graphicspixel = [[mgraphicspixel alloc] init:pixelcolor];
+            *thispixel = [graphicspixel addlight:light];
+            value = @(*thispixel);
+            dict[asnum] = value;
+        }
+        
         thispixel++;
     }
+    
+    [dict removeAllObjects];
     
     CGImageRef newcgimage = CGBitmapContextCreateImage(context);
     UIImage *editedimage = [UIImage imageWithCGImage:newcgimage scale:1 orientation:image.imageOrientation];
@@ -80,6 +96,59 @@
      //    free(pixels);
      
      return editedimage;
+}
+
++(UIImage*)light2:(UIImage*)image add:(CGFloat)light
+{
+    UInt32 *pixels;
+    CGContextRef context;
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    CGImageRef cgimage = image.CGImage;
+    UInt32 width = (UInt32)CGImageGetWidth(cgimage);
+    UInt32 height = (UInt32)CGImageGetHeight(cgimage);
+    UInt32 size = width * height;
+    UInt32 bitsperpixel = 4;
+    UInt32 bitspercomponent = 8;
+    UInt32 bytesperrow = bitsperpixel * width;
+    CGRect rect = CGRectMake(0, 0, width, height);
+    
+    pixels = calloc(size, sizeof(UInt32));
+    context = CGBitmapContextCreate(pixels, width, height, bitspercomponent, bytesperrow, colorspace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGContextDrawImage(context, rect, cgimage);
+    
+    UInt32 *thispixel = pixels;
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    for(UInt32 i = 0; i < size; i++)
+    {
+        UInt32 pixelcolor = *thispixel;
+        NSNumber *asnum = @(pixelcolor);
+        NSNumber *value = dict[asnum];
+        
+        if(value)
+        {
+            *thispixel = value.unsignedIntValue;
+        }
+        else
+        {
+            mgraphicspixel *graphicspixel = [[mgraphicspixel alloc] init:pixelcolor];
+            *thispixel = [graphicspixel addlight:light];
+            value = @(*thispixel);
+            dict[asnum] = value;
+        }
+        
+        thispixel++;
+    }
+    
+    [dict removeAllObjects];
+    
+    CGImageRef newcgimage = CGBitmapContextCreateImage(context);
+    UIImage *editedimage = [UIImage imageWithCGImage:newcgimage scale:1 orientation:image.imageOrientation];
+    
+    //    free(pixels);
+    
+    return editedimage;
 }
 
 @end
