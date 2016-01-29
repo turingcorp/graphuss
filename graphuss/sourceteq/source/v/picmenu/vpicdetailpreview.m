@@ -11,8 +11,6 @@
     self.detail = detail;
     
     UIImage *imagedata = self.detail.pic.imagehd;
-    NSUInteger imagewidth = imagedata.size.width;
-    NSUInteger imageheight = imagedata.size.height;
     
     vblur *blur = [vblur light:NO];
     
@@ -21,14 +19,13 @@
     [scroll setAlwaysBounceVertical:YES];
     [scroll setShowsHorizontalScrollIndicator:NO];
     [scroll setShowsVerticalScrollIndicator:NO];
-    [scroll setContentSize:CGSizeMake(imagewidth, imageheight)];
     [scroll setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.scroll = scroll;
     
     UIImageView *image = [[UIImageView alloc] init];
     [image setUserInteractionEnabled:NO];
     [image setClipsToBounds:YES];
-    [image setContentMode:UIViewContentModeCenter];
+    [image setContentMode:UIViewContentModeScaleAspectFit];
     [image setImage:imagedata];
     [image setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.image = image;
@@ -46,6 +43,26 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[scroll]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    UIImage *imagedata = self.detail.pic.imagehd;
+    NSUInteger previewwidth = self.bounds.size.width;
+    NSUInteger previewheight = self.bounds.size.height;
+    NSUInteger imagewidth = imagedata.size.width;
+    NSUInteger imageheight = imagedata.size.height;
+    
+    if(imagewidth < previewwidth && imageheight < previewheight)
+    {
+        
+    }
+    else
+    {
+        
+    }
 }
 
 @end
