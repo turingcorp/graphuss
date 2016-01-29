@@ -10,13 +10,8 @@
 
     self.detail = detail;
     
-    UIImage *imagedata = self.detail.pic.imagehd;
-    
-    vblur *blur = [vblur light:NO];
-    
     UIScrollView *scroll = [[UIScrollView alloc] init];
-    [scroll setAlwaysBounceHorizontal:YES];
-    [scroll setAlwaysBounceVertical:YES];
+    [scroll setBounces:NO];
     [scroll setShowsHorizontalScrollIndicator:NO];
     [scroll setShowsVerticalScrollIndicator:NO];
     [scroll setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -26,21 +21,26 @@
     [image setUserInteractionEnabled:NO];
     [image setClipsToBounds:YES];
     [image setContentMode:UIViewContentModeScaleAspectFit];
-    [image setImage:imagedata];
     [image setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.image = image;
     
     [scroll addSubview:image];
-    [self addSubview:blur];
     [self addSubview:scroll];
     
-    NSDictionary *views = @{@"blur":blur, @"scroll":scroll, @"image":image};
+    self.conimagetop = [NSLayoutConstraint constraintWithItem:image attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:scroll attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+    self.conimageleft = [NSLayoutConstraint constraintWithItem:image attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:scroll attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
+    self.conimagewidth = [NSLayoutConstraint constraintWithItem:image attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:1];
+    self.conimageheight = [NSLayoutConstraint constraintWithItem:image attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:1];
+    
+    NSDictionary *views = @{@"scroll":scroll, @"image":image};
     NSDictionary *metrics = @{};
     
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[scroll]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[scroll]-0-|" options:0 metrics:metrics views:views]];
+    [scroll addConstraint:self.conimagetop];
+    [scroll addConstraint:self.conimageleft];
+    [scroll addConstraint:self.conimagewidth];
+    [scroll addConstraint:self.conimageheight];
     
     return self;
 }
@@ -57,12 +57,41 @@
     
     if(imagewidth < previewwidth && imageheight < previewheight)
     {
+        self.conimagetop.constant = (previewheight - imageheight) / 2.0;
+        self.conimageleft.constant = (previewwidth - imagewidth) / 2.0;
         
+        [self.image setContentMode:UIViewContentModeCenter];
+        self.conimagewidth.constant = imagewidth;
+        self.conimageheight.constant = imageheight;
     }
     else
     {
+        CGFloat scrollwidth;
+        CGFloat scrollheight;
+        CGFloat deltax = imagewidth / (CGFloat)previewwidth;
+        CGFloat deltay = imageheight / (CGFloat)previewheight;
+        CGFloat deltamax = fmax(deltax, deltay);
         
+        CGFloat top = 2;
+        
+        if(deltamax > top)
+        {
+            CGFloat howmuch = deltamax / top;
+            scrollwidth = imagewidth / howmuch;
+            scrollheight = imageheight / howmuch;
+        }
+        else
+        {
+            scrollwidth = imagewidth;
+            scrollheight = imageheight;
+        }
+        
+        self.conimagewidth.constant = scrollwidth;
+        self.conimageheight.constant = scrollheight;
+        [self.scroll setContentSize:CGSizeMake(scrollwidth, scrollheight)];
     }
+    
+    [self.image setImage:imagedata];
 }
 
 @end
