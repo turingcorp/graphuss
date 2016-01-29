@@ -22,3 +22,4 @@
 #import "vpicdetailfilters.h"
 #import "vpicdetailfilterscel.h"
 #import "vpicdetailfilterslight.h"
+#import "vpicdetailpreview.h"

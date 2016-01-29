@@ -14,14 +14,14 @@
 
 -(void)selected:(vpicdetail*)detail
 {
-    vpicdetailfile *file = [[vpicdetailfile alloc] init:detail model:self];
-    [detail overrideoverview:file];
+    vpicdetailpreview *preview = [[vpicdetailpreview alloc] init:detail];
+    [detail overrideoverview:preview];
     
-    NSDictionary *views = @{@"file":file};
+    NSDictionary *views = @{@"preview":preview};
     NSDictionary *metrics = @{};
     
-    [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[file]-0-|" options:0 metrics:metrics views:views]];
-    [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[file]-80-|" options:0 metrics:metrics views:views]];
+    [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[preview]-0-|" options:0 metrics:metrics views:views]];
+    [detail addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[preview]-80-|" options:0 metrics:metrics views:views]];
 }
 
 @end
