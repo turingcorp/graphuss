@@ -22,12 +22,16 @@
 
 -(NSInteger)count
 {
-    return array.count;
+    NSInteger count = array.count;
+    
+    return count;
 }
 
 -(id<mpicmenuprotocol>)item:(NSInteger)index
 {
-    return array[index];
+    id item = array[index];
+    
+    return item;
 }
 
 @end

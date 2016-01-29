@@ -59,7 +59,9 @@
 
 -(mpagesitem*)item:(app_page)page
 {
-    return dict[[tools typetokey:page]];
+    mpagesitem *item = dict[[tools typetokey:page]];
+    
+    return item;
 }
 
 @end

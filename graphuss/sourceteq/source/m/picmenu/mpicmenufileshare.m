@@ -7,7 +7,9 @@
 
 -(NSString*)title
 {
-    return NSLocalizedString(@"pic_detail_file_share", nil);
+    NSString *string = NSLocalizedString(@"pic_detail_file_share", nil);
+    
+    return string;
 }
 
 -(void)action:(vpicdetail*)detail

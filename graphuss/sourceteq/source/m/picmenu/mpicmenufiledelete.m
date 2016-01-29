@@ -34,7 +34,9 @@
 
 -(NSString*)title
 {
-    return NSLocalizedString(@"pic_detail_file_delete", nil);
+    NSString *string = NSLocalizedString(@"pic_detail_file_delete", nil);
+    
+    return string;
 }
 
 -(void)action:(vpicdetail*)detail

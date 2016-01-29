@@ -10,7 +10,9 @@
 
 -(NSString*)title
 {
-    return NSLocalizedString(@"pic_detail_menu_edit", nil);
+    NSString *string = NSLocalizedString(@"pic_detail_menu_edit", nil);
+    
+    return string;
 }
 
 -(void)selected:(vpicdetail*)detail
@@ -36,12 +38,16 @@
                  nil];
     }
     
-    return array.count;
+    NSInteger count = array.count;
+    
+    return count;
 }
 
 -(id)item:(NSInteger)index
 {
-    return array[index];
+    id item = array[index];
+    
+    return item;
 }
 
 @end

@@ -7,7 +7,9 @@
 
 -(NSString*)image
 {
-    return @"rotateright";
+    NSString *string = @"rotateright";
+    
+    return string;
 }
 
 -(void)action:(vpicdetail*)detail

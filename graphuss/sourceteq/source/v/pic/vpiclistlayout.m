@@ -81,7 +81,9 @@
 
 -(CGSize)collectionViewContentSize
 {
-    return CGSizeMake(totalwidth, totalheight);
+    CGSize size = CGSizeMake(totalwidth, totalheight);
+    
+    return size;
 }
 
 -(NSArray<UICollectionViewLayoutAttributes*>*)layoutAttributesForElementsInRect:(CGRect)rect

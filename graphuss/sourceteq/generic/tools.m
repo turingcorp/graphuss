@@ -25,12 +25,16 @@
 
 +(NSDictionary*)defaultdict
 {
-    return [NSDictionary dictionaryWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"defs" withExtension:@"plist"]];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"defs" withExtension:@"plist"]];
+    
+    return dictionary;
 }
 
 +(NSInteger)timestamp
 {
-    return [NSDate date].timeIntervalSince1970;
+    NSInteger now = [NSDate date].timeIntervalSince1970;
+    
+    return now;
 }
 
 +(UIImage*)qrcode:(NSString*)string
@@ -52,7 +56,9 @@
 
 +(NSString*)typetokey:(NSInteger)type
 {
-    return [NSString stringWithFormat:@"%@", @(type)];
+    NSString *key = [NSString stringWithFormat:@"%@", @(type)];
+    
+    return key;
 }
 
 #pragma mark -
@@ -72,17 +78,23 @@
 
 -(NSString*)urlencode:(NSString*)string
 {
-    return (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(nil, (__bridge CFStringRef)string, nil, stringref, kCFStringEncodingUTF8);
+    NSString *newstring = (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(nil, (__bridge CFStringRef)string, nil, stringref, kCFStringEncodingUTF8);
+    
+    return newstring;
 }
 
 -(NSString*)numbertostring:(NSNumber*)number
 {
-    return [numformatter stringFromNumber:number];
+    NSString *string = [numformatter stringFromNumber:number];
+    
+    return string;
 }
 
 -(NSNumber*)stringtonumber:(NSString*)string
 {
-    return [numformatter numberFromString:string];
+    NSNumber *number = [numformatter numberFromString:string];
+    
+    return number;
 }
 
 @end

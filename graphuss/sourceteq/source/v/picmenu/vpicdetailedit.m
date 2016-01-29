@@ -54,7 +54,9 @@
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
 {
-    return CGSizeMake(col.bounds.size.width / [self.model count], col.bounds.size.height);
+    CGSize size = CGSizeMake(col.bounds.size.width / [self.model count], col.bounds.size.height);
+    
+    return size;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)col
@@ -64,7 +66,9 @@
 
 -(NSInteger)collectionView:(UICollectionView*)col numberOfItemsInSection:(NSInteger)section
 {
-    return [self.model count];
+    NSInteger count = [self.model count];
+    
+    return count;
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index

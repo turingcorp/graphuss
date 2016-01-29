@@ -115,12 +115,16 @@
 
 -(NSString*)fileforimage:(NSString*)picname
 {
-    return [self.imagesfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpeg", picname]];
+    NSString *string = [self.imagesfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpeg", picname]];
+    
+    return string;
 }
 
 -(NSString*)fileforthumb:(NSString*)picname
 {
-    return [self.thumbsfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.thumb", picname]];
+    NSString *string = [self.thumbsfolder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.thumb", picname]];
+    
+    return string;
 }
 
 -(BOOL)savepic:(UIImage*)pic
@@ -164,12 +168,16 @@
 
 -(NSInteger)count
 {
-    return array.count;
+    NSInteger count = array.count;
+    
+    return count;
 }
 
 -(mpicitem*)item:(NSInteger)index
 {
-    return array[index];
+    mpicitem *item = array[index];
+    
+    return item;
 }
 
 -(void)update:(NSString*)name image:(UIImage*)image

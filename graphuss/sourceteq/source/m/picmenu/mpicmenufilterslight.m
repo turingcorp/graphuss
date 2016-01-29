@@ -7,12 +7,16 @@
 
 -(NSString*)image
 {
-    return @"light";
+    NSString *string = @"light";
+    
+    return string;
 }
 
 -(NSString*)title
 {
-    return NSLocalizedString(@"pic_detail_filters_menu_light", nil);
+    NSString *string = NSLocalizedString(@"pic_detail_filters_menu_light", nil);
+    
+    return string;
 }
 
 -(void)action:(vpicdetailfilters*)filters

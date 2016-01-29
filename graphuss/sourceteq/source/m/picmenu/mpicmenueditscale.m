@@ -7,7 +7,9 @@
 
 -(NSString*)image
 {
-    return @"scale";
+    NSString *string = @"scale";
+    
+    return string;
 }
 
 -(void)action:(vpicdetail*)detail

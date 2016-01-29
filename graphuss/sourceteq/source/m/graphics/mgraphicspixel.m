@@ -17,17 +17,23 @@
 
 -(CGFloat)redfloat
 {
-    return self.red255 / 255.0;
+    CGFloat value = self.red255 / 255.0;
+    
+    return value;
 }
 
 -(CGFloat)greenfloat
 {
-    return self.green255 / 255.0;
+    CGFloat value = self.green255 / 255.0;
+    
+    return value;
 }
 
 -(CGFloat)bluefloat
 {
-    return self.blue255 / 255.0;
+    CGFloat value = self.blue255 / 255.0;
+    
+    return value;
 }
 
 -(UIColor*)colorrgb

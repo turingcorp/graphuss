@@ -136,7 +136,9 @@
 
 -(NSInteger)slidervalue
 {
-    return roundf(self.slider.value);
+    NSInteger value = roundf(self.slider.value);
+    
+    return value;
 }
 
 #pragma mark functionality

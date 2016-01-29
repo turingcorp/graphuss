@@ -157,13 +157,16 @@
 -(UIEdgeInsets)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout insetForSectionAtIndex:(NSInteger)section
 {
     CGFloat margin = (col.bounds.size.width - itemwidth) / 2;
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, margin, 0, margin);
     
-    return UIEdgeInsetsMake(0, margin, 0, margin);
+    return insets;
 }
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
 {
-    return CGSizeMake(itemwidth, col.bounds.size.height);
+    CGSize size = CGSizeMake(itemwidth, col.bounds.size.height);
+    
+    return size;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)col
@@ -173,7 +176,9 @@
 
 -(NSInteger)collectionView:(UICollectionView*)col numberOfItemsInSection:(NSInteger)section
 {
-    return [self.model count];
+    NSInteger count = [self.model count];
+    
+    return count;
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index

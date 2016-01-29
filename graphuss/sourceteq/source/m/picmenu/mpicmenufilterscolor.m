@@ -7,12 +7,16 @@
 
 -(NSString*)image
 {
-    return @"scale";
+    NSString *string = @"scale";
+    
+    return string;
 }
 
 -(NSString*)title
 {
-    return NSLocalizedString(@"pic_detail_filters_menu_colors", nil);
+    NSString *string = NSLocalizedString(@"pic_detail_filters_menu_colors", nil);
+    
+    return string;
 }
 
 -(void)action:(vpicdetailfilters*)filters

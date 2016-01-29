@@ -42,12 +42,16 @@
 
 -(NSString*)fileforimage
 {
-    return [[mpic singleton] fileforimage:self.name];
+    NSString *string = [[mpic singleton] fileforimage:self.name];
+    
+    return string;
 }
 
 -(NSString*)fileforthumb
 {
-    return [[mpic singleton] fileforthumb:self.name];
+    NSString *string = [[mpic singleton] fileforthumb:self.name];
+    
+    return string;
 }
 
 -(void)loadedfirsttime
