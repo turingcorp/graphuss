@@ -15,10 +15,14 @@
     UIScrollView *scroll = [[UIScrollView alloc] init];
     self.scroll = scroll;
     
+    UIImageView *image = [[UIImageView alloc] init];
+    self.image = image;
+    
+    [scroll addSubview:image];
     [self addSubview:blur];
     [self addSubview:scroll];
     
-    NSDictionary *views = @{@"blur":blur, @"scroll":scroll};
+    NSDictionary *views = @{@"blur":blur, @"scroll":scroll, @"image":image};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
