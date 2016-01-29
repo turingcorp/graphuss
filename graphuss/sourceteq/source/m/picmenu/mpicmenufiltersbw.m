@@ -1,13 +1,28 @@
-//
-//  mpicmenufiltersbw.m
-//  graphuss
-//
-//  Created by zero on 1/29/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
-
 #import "mpicmenufiltersbw.h"
 
 @implementation mpicmenufiltersbw
+
+#pragma mark -
+#pragma mark filters protocol
+
+-(NSString*)image
+{
+    NSString *string = @"light";
+    
+    return string;
+}
+
+-(NSString*)title
+{
+    NSString *string = NSLocalizedString(@"pic_detail_filters_menu_black_white", nil);
+    
+    return string;
+}
+
+-(void)action:(vpicdetailfilters*)filters
+{
+    [filters.overview removeFromSuperview];
+    
+}
 
 @end

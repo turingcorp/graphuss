@@ -29,6 +29,7 @@
 "pic_detail_scale_done"="Image scaled";
 
 "pic_detail_filters_menu_light"="Light";
+"pic_detail_filters_menu_black_white"="B / W";
 "pic_detail_filters_menu_colors"="Colors";
 
 "pic_detail_fitlers_light_button"="Apply";

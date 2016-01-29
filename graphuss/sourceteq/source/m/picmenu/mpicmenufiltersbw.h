@@ -1,13 +1,6 @@
-//
-//  mpicmenufiltersbw.h
-//  graphuss
-//
-//  Created by zero on 1/29/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
+#import "mpicmenufiltersprotocol.h"
 
-#import <Foundation/Foundation.h>
-
-@interface mpicmenufiltersbw : NSObject
+@interface mpicmenufiltersbw:NSObject<mpicmenueditprotocol>
 
 @end
