@@ -2,15 +2,17 @@
 
 @implementation vpicdetailfiltersbw
 
--(instancetype)init:(vpicdetailfilters*)filters
+-(instancetype)init:(vpicdetailfilters*)filters model:(mpicmenufiltersbw*)model
 {
     self = [super init];
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor clearColor]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
-    vblur *blur = [vblur light:NO];
+    self.filters = filters;
+    self.model = model;
     
+    vblur *blur = [vblur light:NO];
     [self addSubview:blur];
     
     NSDictionary *views = @{@"blur":blur};
@@ -32,6 +34,16 @@
 
 -(NSInteger)collectionView:(UICollectionView*)col numberOfItemsInSection:(NSInteger)section
 {
+    NSInteger count = [self.model count];
+    
+    return count;
+}
+
+-(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index
+{
+    vpicdetailfiltersbwcel *cel = [col dequeueReusableCellWithReuseIdentifier:celid forIndexPath:index];
+    
+    return cel;
 }
 
 @end
