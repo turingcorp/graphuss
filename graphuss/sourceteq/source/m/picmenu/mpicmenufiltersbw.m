@@ -9,6 +9,13 @@
 
 -(NSInteger)count
 {
+    if(!array)
+    {
+        array = [NSArray arrayWithObjects:
+                 [[mpicmenufiltersbwbasic alloc] init],
+                 nil];
+    }
+    
     NSInteger count = array.count;
     
     return count;
