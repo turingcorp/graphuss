@@ -10,6 +10,8 @@
 
     self.detail = detail;
     
+    UIImage *image = self.detail.pic.imagehd;
+    
     vblur *blur = [vblur light:NO];
     
     UIScrollView *scroll = [[UIScrollView alloc] init];
@@ -21,6 +23,8 @@
     [scroll addSubview:image];
     [self addSubview:blur];
     [self addSubview:scroll];
+    
+    UIImage *image = self.detail.pic.imagehd;
     
     NSDictionary *views = @{@"blur":blur, @"scroll":scroll, @"image":image};
     NSDictionary *metrics = @{};
@@ -37,11 +41,14 @@
 {
     [super layoutSubviews];
     
-    UIImage *image = self.detail.pic.imagehd;
     
-    NSUInteger
+    
+    NSUInteger previewwidth = self.bounds.size.width;
+    NSUInteger previewheight = self.bounds.size.height;
     NSUInteger imagewidth = image.size.width;
     NSUInteger imageheight = image.size.height;
+    
+    if()
 }
 
 @end
