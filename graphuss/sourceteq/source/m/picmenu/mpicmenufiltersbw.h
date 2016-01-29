@@ -1,6 +1,6 @@
 #import "appdel.h"
 #import "mpicmenufiltersprotocol.h"
 
-@interface mpicmenufiltersbw:NSObject<mpicmenueditprotocol>
+@interface mpicmenufiltersbw:NSObject<mpicmenufiltersprotocol>
 
 @end

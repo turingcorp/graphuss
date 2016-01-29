@@ -23,6 +23,16 @@
 {
     [filters.overview removeFromSuperview];
     
+    vpicdetailfiltersbw *filter = [[vpicdetailfiltersbw alloc] init:filters];
+    filters.overview = filter;
+    
+    [filters addSubview:filter];
+    
+    NSDictionary *views = @{@"filter":filter};
+    NSDictionary *metrics = @{};
+    
+    [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[filter]-0-|" options:0 metrics:metrics views:views]];
+    [filters addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[filter]-60-|" options:0 metrics:metrics views:views]];
 }
 
 @end

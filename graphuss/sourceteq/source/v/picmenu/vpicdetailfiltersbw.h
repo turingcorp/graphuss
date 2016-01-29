@@ -6,4 +6,6 @@
 
 -(instancetype)init:(vpicdetailfilters*)filters;
 
+@property(weak, nonatomic)vpicdetailfilters *filters;
+
 @end
