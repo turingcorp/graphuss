@@ -61,6 +61,8 @@
     
     pixels = calloc(size, sizeof(uint));
     context = CGBitmapContextCreate(pixels, width, height, bitspercomponent, bytesperrow, colorspace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGColorSpaceRelease(colorspace);
+    
     CGContextDrawImage(context, rect, cgimage);
     
     uint *thispixel = pixels;
@@ -91,11 +93,14 @@
     [dict removeAllObjects];
     
     CGImageRef newcgimage = CGBitmapContextCreateImage(context);
+    CGContextRelease(context);
+    
     UIImage *editedimage = [UIImage imageWithCGImage:newcgimage scale:1 orientation:image.imageOrientation];
-     
-     //    free(pixels);
-     
-     return editedimage;
+    CGImageRelease(newcgimage);
+    
+    free(pixels);
+    
+    return editedimage;
 }
 
 @end

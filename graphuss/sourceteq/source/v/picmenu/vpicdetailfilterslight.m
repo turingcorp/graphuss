@@ -107,9 +107,7 @@
                        dispatch_async(dispatch_get_main_queue(),
                                       ^
                                       {
-                                          [self.slider setValue:0 animated:NO];
-                                          [self.button setHidden:YES];
-                                          [self print:0];
+                                          [self.filters.detail.controller.navigationController popViewControllerAnimated:YES];
                                       });
                    });
 }
