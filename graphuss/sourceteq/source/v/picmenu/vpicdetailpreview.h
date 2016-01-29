@@ -7,5 +7,6 @@
 -(instancetype)init:(vpicdetail*)detail;
 
 @property(weak, nonatomic)vpicdetail *detail;
+@property(weak, nonatomic)UIScrollView *scroll;
 
 @end
