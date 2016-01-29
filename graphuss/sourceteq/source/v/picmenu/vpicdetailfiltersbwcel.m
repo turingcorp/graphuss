@@ -81,8 +81,9 @@
 
 #pragma mark public
 
--(void)config:(id<mpicmenufiltersbwprotocol>)model
+-(void)config:(id<mpicmenufiltersbwprotocol>)model filters:(vpicdetailfilters*)filters
 {
+    self.filters = filters;
     [self.label setText:[model title]];
     [self hover];
 }
