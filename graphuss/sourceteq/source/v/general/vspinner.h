@@ -1,5 +1,5 @@
 #import "appdel.h"
 
-@interface vspinner:UIImageView<timerbgdel>
+@interface vspinner:UIImageView
 
 @end

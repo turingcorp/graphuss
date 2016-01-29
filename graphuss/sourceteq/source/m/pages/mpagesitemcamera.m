@@ -26,7 +26,9 @@
 
 -(UIViewController*)controller
 {
-    return [[UIViewController alloc] init];
+    ccam *controller = [[ccam alloc] init];
+    
+    return controller;
 }
 
 

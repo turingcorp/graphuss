@@ -1,11 +1,13 @@
 #import "cpages.h"
 
 @implementation cpages
+{
+    NSTimer *timer;
+}
 
 -(instancetype)init
 {
     self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-    
     self.model = [[mpages alloc] init];
     
     return self;
@@ -20,7 +22,14 @@
     self.itemcamera = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(actionright)];
     self.itemlistleft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(actionleft)];
     self.itemlistright = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(actionright)];
+    
     [self loadpage:app_page_list animated:NO];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self timerforbuttons];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle
@@ -38,14 +47,43 @@
 -(void)actionleft
 {
     [self loadpage:[self.modelitem pageleft] animated:YES];
+    
+    [self timerforbuttons];
 }
 
 -(void)actionright
 {
     [self loadpage:[self.modelitem pageright] animated:YES];
+    
+    [self timerforbuttons];
 }
 
 #pragma mark functionality
+
+-(void)blockbuttons
+{
+    [timer invalidate];
+    [self.itemcamera setEnabled:NO];
+    [self.itemconfig setEnabled:NO];
+    [self.itemlistleft setEnabled:NO];
+    [self.itemlistright setEnabled:NO];
+}
+
+-(void)unblockbuttons
+{
+    [timer invalidate];
+    [self.itemcamera setEnabled:YES];
+    [self.itemconfig setEnabled:YES];
+    [self.itemlistleft setEnabled:YES];
+    [self.itemlistright setEnabled:YES];
+}
+
+-(void)timerforbuttons
+{
+    [self blockbuttons];
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.6 target:self selector:@selector(unblockbuttons) userInfo:nil repeats:NO];
+}
 
 -(void)loadpage:(app_page)page animated:(BOOL)animated
 {
@@ -59,7 +97,8 @@
     self.modelitem = [self.model item:page];
     __weak cpages *weakself = self;
     
-    [self setViewControllers:@[[self.modelitem controller]] direction:direction animated:animated completion:
+    NSArray *controllers = @[[self.modelitem controller]];
+    [self setViewControllers:controllers direction:direction animated:animated completion:
      ^(BOOL done)
      {
          [weakself clearitems];
@@ -110,6 +149,13 @@
 -(void)showitemconfig
 {
     self.navigationItem.leftBarButtonItem = self.itemconfig;
+}
+
+#pragma mark public
+
+-(void)startshooting
+{
+    [self actionright];
 }
 
 @end

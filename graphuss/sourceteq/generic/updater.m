@@ -6,11 +6,12 @@ NSString *documents;
 
 +(void)launch
 {
+    [[analytics singleton] start];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^(void)
                    {
                        [updater update];
-                       [[analytics singleton] start];
                        [[NSNotificationCenter defaultCenter] postNotificationName:notloadfinished object:nil];
                    });
 }
@@ -54,6 +55,8 @@ NSString *documents;
     [userdef setValue:[[NSUUID UUID] UUIDString] forKey:@"uuid"];
     [userdef setValue:dictionary forKey:@"settings"];
     [userdef synchronize];
+    
+    [[mpic singleton] firsttime];
 }
 
 @end

@@ -3,6 +3,6 @@
 @interface vblur:UIView
 
 +(vblur*)dark;
-+(vblur*)light;
++(vblur*)light:(BOOL)extra;
 
 @end

@@ -13,24 +13,32 @@ typedef NS_ENUM(NSInteger, app_page)
 
 typedef NS_ENUM(NSInteger, ga_screen)
 {
-    ga_screen_login
+    ga_screen_pic_list,
+    ga_screen_pic_detail,
+    ga_screen_camera,
+    ga_screen_config
 };
 
 typedef NS_ENUM(NSInteger, ga_event)
 {
-    ga_event_login
+    ga_event_shoot,
+    ga_event_pic_file_duplicate,
+    ga_event_pic_file_share,
+    ga_event_pic_file_compress,
+    ga_event_pic_file_delete,
+    ga_event_pic_edit_rotate,
+    ga_event_pic_edit_scale,
+    ga_event_pic_filter_light
 };
 
 typedef NS_ENUM(NSInteger, ga_action)
 {
-    ga_action_on,
-    ga_action_off,
-    ga_action_optin,
-    ga_action_start,
-    ga_action_cancelled,
     ga_action_error,
-    ga_action_done,
-    ga_action_changed,
-    ga_action_stopped,
-    ga_action_selected
+    ga_action_start,
+    ga_action_restart,
+    ga_action_shoot,
+    ga_action_completed,
+    ga_action_cancel,
+    ga_action_left,
+    ga_action_right
 };

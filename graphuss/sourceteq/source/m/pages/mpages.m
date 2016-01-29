@@ -52,14 +52,16 @@
 
 -(void)add:(app_page)page
 {
-    dict[[tools typetokey:page]] = [mpages item:page];
+    dict[@(page)] = [mpages item:page];
 }
 
 #pragma mark public
 
 -(mpagesitem*)item:(app_page)page
 {
-    return dict[[tools typetokey:page]];
+    mpagesitem *item = dict[@(page)];
+    
+    return item;
 }
 
 @end

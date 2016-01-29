@@ -4,22 +4,32 @@
 <dict>
 	<key>screens</key>
 	<array>
+		<string>pic/list</string>
+		<string>pic/detail</string>
+		<string>camera</string>
+		<string>config</string>
 	</array>
 	<key>events</key>
 	<array>
+		<string>shoot</string>
+		<string>pic/file/duplicate</string>
+		<string>pic/file/share</string>
+		<string>pic/file/compress</string>
+		<string>pic/file/delete</string>
+		<string>pic/edit/rotate</string>
+		<string>pic/edit/scale</string>
+		<string>pic/filter/light</string>
 	</array>
 	<key>actions</key>
 	<array>
-		<string>on</string>
-		<string>off</string>
-		<string>opt-in</string>
-		<string>start</string>
-		<string>cancelled</string>
 		<string>error</string>
-		<string>done</string>
-		<string>changed</string>
-		<string>stopped</string>
-		<string>selected</string>
+		<string>start</string>
+		<string>restart</string>
+		<string>shoot</string>
+		<string>completed</string>
+		<string>cancel</string>
+		<string>left</string>
+		<string>right</string>
 	</array>
 </dict>
 </plist>

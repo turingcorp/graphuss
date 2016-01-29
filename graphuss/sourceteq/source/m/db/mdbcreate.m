@@ -7,11 +7,7 @@
     NSString *query;
     db *dbcon = [db begin];
     
-    query = @"CREATE TABLE profile (id INTEGER PRIMARY KEY, created INTEGER, syncstamp INTEGER, updated INTEGER, name INTEGER, namestr TEXT COLLATE NOCASE, age INTEGER, gender INTEGER);";
-    
-    [dbcon query:query];
-    
-    query = @"CREATE TABLE profilecircle (id INTEGER PRIMARY KEY, circletype INTEGER, amount INTEGER, CONSTRAINT profilelike_unique unique(circletype));";
+    query = @"CREATE TABLE pic (id INTEGER PRIMARY KEY, name TEXT COLLATE NOCASE, firsttime INTEGER);";
     
     [dbcon query:query];
     

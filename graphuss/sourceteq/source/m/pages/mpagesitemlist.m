@@ -36,7 +36,9 @@
 
 -(UIViewController*)controller
 {
-    return [[UIViewController alloc] init];
+    cpiclist *controller = [[cpiclist alloc] init];
+    
+    return controller;
 }
 
 @end

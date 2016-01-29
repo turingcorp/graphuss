@@ -1,1 +1,41 @@
 "app_title"="Graphuss";
+
+"pic_list_empty"="No pictures in your library";
+"pic_list_empty_button"="Start shooting";
+
+"pic_detail_title"="Picture";
+"pic_detail_menu_file"="File";
+"pic_detail_menu_preview"="Preview";
+"pic_detail_menu_edit"="Edit";
+"pic_detail_menu_filters"="Filters";
+
+"pic_detail_file_duplicate"="Duplicate";
+"pic_detail_file_share"="Share";
+"pic_detail_file_compression"="Compression";
+"pic_detail_file_delete"="Delete";
+"pic_detail_file_delete_title"="Delete picture";
+"pic_detail_file_delete_descr"="It will be removed permanently";
+"pic_detail_file_compress_cancel"="Cancel";
+"pic_detail_file_compress_compress"="Compress";
+"pic_detail_file_compress_title"="Compress image";
+"pic_detail_file_compress_descr"="\nLess quality, smaller file";
+"pic_detail_file_compress_done"="Image compressed";
+
+"pic_detail_scale_title"="Scale image";
+"pic_detail_scale_lblwidth"="Pixels width";
+"pic_detail_scale_lblheight"="Pixels height";
+"pic_detail_scale_btnaccept"="Scale image";
+"pic_detail_scale_btncancel"="Cancel";
+"pic_detail_scale_done"="Image scaled";
+
+"pic_detail_filters_menu_light"="Light";
+"pic_detail_filters_menu_colors"="Colors";
+
+"pic_detail_fitlers_light_button"="Apply";
+
+"error_notauthorized"="Not authorized to use the camera";
+"error_empty_input"="Couldn't connect to camera";
+"error_wrongbuffer"="Couldn't take picture, try again";
+"error_emptypicture"="Picture corrupted, try again";
+
+"alert_cancel"="Cancel";

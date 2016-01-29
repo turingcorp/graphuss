@@ -18,17 +18,17 @@
     return blur;
 }
 
-+(vblur*)light;
++(vblur*)light:(BOOL)extra
 {
     vblur *blur = [[vblur alloc] init];
     
     if([UIVisualEffectView class])
     {
-        [blur lighteffect];
+        [blur lighteffect:extra];
     }
     else
     {
-        [blur lightbackground];
+        [blur lightbackground:extra];
     }
     
     return blur;
@@ -49,9 +49,16 @@
     [self geneffect:UIBlurEffectStyleDark];
 }
 
--(void)lighteffect
+-(void)lighteffect:(BOOL)extra
 {
-    [self geneffect:UIBlurEffectStyleExtraLight];
+    UIBlurEffectStyle style = UIBlurEffectStyleLight;
+    
+    if(extra)
+    {
+        style = UIBlurEffectStyleExtraLight;
+    }
+    
+    [self geneffect:style];
 }
 
 -(void)geneffect:(UIBlurEffectStyle)style
@@ -70,9 +77,16 @@
     [self setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.98]];
 }
 
--(void)lightbackground
+-(void)lightbackground:(BOOL)extra
 {
-    [self setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.98]];
+    CGFloat alpha = 0.96;
+    
+    if(extra)
+    {
+        alpha = 0.98;
+    }
+    
+    [self setBackgroundColor:[UIColor colorWithWhite:1 alpha:alpha]];
 }
 
 @end
