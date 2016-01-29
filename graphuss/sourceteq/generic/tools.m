@@ -54,13 +54,6 @@
     return uiimage;
 }
 
-+(NSString*)typetokey:(NSInteger)type
-{
-    NSString *key = [NSString stringWithFormat:@"%@", @(type)];
-    
-    return key;
-}
-
 #pragma mark -
 
 -(instancetype)init
