@@ -1,6 +1,7 @@
 #import "appdel.h"
 
 @class vpicdetailfilters;
+@class mpicmenufiltersbw;
 
 @interface vpicdetailfiltersbw:UIView<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 

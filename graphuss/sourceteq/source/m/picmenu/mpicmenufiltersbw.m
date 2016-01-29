@@ -51,7 +51,7 @@
 {
     [filters.overview removeFromSuperview];
     
-    vpicdetailfiltersbw *filter = [[vpicdetailfiltersbw alloc] init:filters];
+    vpicdetailfiltersbw *filter = [[vpicdetailfiltersbw alloc] init:filters model:self];
     filters.overview = filter;
     
     [filters addSubview:filter];
