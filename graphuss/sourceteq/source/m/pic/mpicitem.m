@@ -8,12 +8,20 @@
     
     self.picid = picid.integerValue;
     self.name = name;
+    self.firsttime = firsttime.boolValue;
+    
+    [self loadthumb];
+    
+    return self;
+}
+
+#pragma mark functionality
+
+-(void)loadthumb
+{
     self.thumb = [UIImage imageWithContentsOfFile:[self fileforthumb]];
     self.width = self.thumb.size.width;
     self.height = self.thumb.size.height;
-    self.firsttime = firsttime.boolValue;
-    
-    return self;
 }
 
 #pragma mark public
@@ -34,10 +42,8 @@
 -(void)update:(UIImage*)image
 {
     self.imagehd = image;
-    self.width = image.size.width;
-    self.height = image.size.height;
-    
     [[mpic singleton] update:self.name image:image];
+    [self loadthumb];
 }
 
 -(NSString*)fileforimage

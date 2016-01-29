@@ -21,7 +21,7 @@
 
 -(void)action:(vpicdetailfilters*)filters
 {
-    
+    [filters.overview removeFromSuperview];
 }
 
 @end
