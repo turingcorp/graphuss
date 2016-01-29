@@ -103,6 +103,7 @@
                    ^
                    {
                        [self.filters.detail.controllerdetail edit_light:self.slider.value];
+                       [[analytics singleton] trackevent:ga_event_pic_filter_light action:ga_action_completed label:labelstring];
                        
                        dispatch_async(dispatch_get_main_queue(),
                                       ^

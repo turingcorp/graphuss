@@ -18,6 +18,7 @@
 		<string>pic/file/delete</string>
 		<string>pic/edit/rotate</string>
 		<string>pic/edit/scale</string>
+		<string>pic/filter/light</string>
 	</array>
 	<key>actions</key>
 	<array>
