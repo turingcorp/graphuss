@@ -31,6 +31,55 @@
     }
     
     [self loadimage];
+    
+    NSInteger iterations = 5;
+    NSInteger items = 10000;
+    
+    uint64_t t = dispatch_benchmark(iterations, ^{
+        @autoreleasepool {
+            
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            
+            for(NSInteger i = 0; i < items; i++)
+            {
+                NSString *key = [NSString stringWithFormat:@"%@", @(i)];
+                dict[key] = @1;
+            }
+            
+            BOOL val;
+            
+            for(NSInteger i = 0; i < items; i++)
+            {
+                NSString *key = [NSString stringWithFormat:@"%@", @(i)];
+                val = [dict[key] boolValue];
+            }
+        }
+    });
+    
+    NSLog(@"Runtime: %llu ns", t);
+    
+    uint64_t t2 = dispatch_benchmark(iterations, ^{
+        @autoreleasepool {
+            
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            
+            for(NSInteger i = 0; i < items; i++)
+            {
+                NSNumber *key = @(i);
+                dict[key] = @1;
+            }
+            
+            BOOL val;
+            
+            for(NSInteger i = 0; i < items; i++)
+            {
+                NSNumber *key = @(i);
+                val = [dict[key] boolValue];
+            }
+        }
+    });
+    
+    NSLog(@"Runtime: %llu ns", t2);
 }
 
 -(void)viewWillDisappear:(BOOL)animated
