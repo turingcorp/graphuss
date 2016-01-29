@@ -5,10 +5,10 @@
 +(UIImage*)scale:(UIImage*)image at:(CGFloat)scale
 {
     CGImageRef cgimage = image.CGImage;
-    NSUInteger width = floorf(CGImageGetWidth(cgimage) * scale);
-    NSUInteger height = floorf(CGImageGetHeight(cgimage) * scale);
-    NSUInteger bitspercomponent = 8;
-    NSUInteger bytesperrow = 4 * width;
+    uint width = floorf(CGImageGetWidth(cgimage) * scale);
+    uint height = floorf(CGImageGetHeight(cgimage) * scale);
+    uint bitspercomponent = 8;
+    uint bytesperrow = 4 * width;
     CGColorSpaceRef colorspace = CGImageGetColorSpace(cgimage);
     CGBitmapInfo bitmapinfo = CGImageGetBitmapInfo(cgimage);
     CGContextRef context = CGBitmapContextCreate(nil, width, height, bitspercomponent, bytesperrow, colorspace, bitmapinfo);
@@ -26,8 +26,8 @@
 +(UIImage*)merge:(UIImage*)image with:(UIColor*)incolor
 {
     CGSize size = image.size;
-    NSInteger width = size.width;
-    NSInteger height = size.height;
+    uint width = size.width;
+    uint height = size.height;
     CGRect rect = CGRectMake(0, 0, width, height);
     
     UIGraphicsBeginImageContext(size);

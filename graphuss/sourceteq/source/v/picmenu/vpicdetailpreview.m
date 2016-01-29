@@ -37,7 +37,11 @@
 {
     [super layoutSubviews];
     
+    UIImage *image = self.detail.pic.imagehd;
     
+    NSUInteger
+    NSUInteger imagewidth = image.size.width;
+    NSUInteger imageheight = image.size.height;
 }
 
 @end
