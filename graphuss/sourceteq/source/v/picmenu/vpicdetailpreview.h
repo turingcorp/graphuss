@@ -6,4 +6,6 @@
 
 -(instancetype)init:(vpicdetail*)detail;
 
+@property(weak, nonatomic)vpicdetail *detail;
+
 @end
