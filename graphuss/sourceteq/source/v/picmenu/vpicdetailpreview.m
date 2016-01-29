@@ -10,6 +10,8 @@
 
     self.detail = detail;
     
+    vblur *blur = [vblur light:NO];
+    
     UIScrollView *scroll = [[UIScrollView alloc] init];
     [scroll setBounces:NO];
     [scroll setShowsHorizontalScrollIndicator:NO];
@@ -25,6 +27,7 @@
     self.image = image;
     
     [scroll addSubview:image];
+    [self addSubview:blur];
     [self addSubview:scroll];
     
     self.conimagetop = [NSLayoutConstraint constraintWithItem:image attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:scroll attribute:NSLayoutAttributeTop multiplier:1 constant:0];
@@ -32,9 +35,11 @@
     self.conimagewidth = [NSLayoutConstraint constraintWithItem:image attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:1];
     self.conimageheight = [NSLayoutConstraint constraintWithItem:image attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:1];
     
-    NSDictionary *views = @{@"scroll":scroll, @"image":image};
+    NSDictionary *views = @{@"blur":blur, @"scroll":scroll, @"image":image};
     NSDictionary *metrics = @{};
     
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[scroll]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[scroll]-0-|" options:0 metrics:metrics views:views]];
     [scroll addConstraint:self.conimagetop];
