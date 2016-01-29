@@ -106,6 +106,7 @@
 		DA3D9A271C5126720072F69B /* vspinner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D9A091C5126720072F69B /* vspinner.m */; };
 		DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DD1C512C1A006EBE52 /* Images.xcassets */; };
 		DAE468E01C512F30006EBE52 /* in in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DF1C512F2F006EBE52 /* in */; };
+		DAF0ECB51C5C0AEB0008D989 /* vpicdetailfiltersbw.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0ECB41C5C0AEB0008D989 /* vpicdetailfiltersbw.m */; };
 		DAF27F9F1C5923080044C928 /* vpiclistheader.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF27F9E1C5923080044C928 /* vpiclistheader.m */; };
 		DAF27FA21C593FE80044C928 /* vpicdetailfilterscel.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF27FA11C593FE80044C928 /* vpicdetailfilterscel.m */; };
 /* End PBXBuildFile section */
@@ -287,6 +288,8 @@
 		DA3D9A111C5126720072F69B /* v.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v.h; sourceTree = "<group>"; };
 		DAE468DD1C512C1A006EBE52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAE468DF1C512F2F006EBE52 /* in */ = {isa = PBXFileReference; lastKnownFileType = folder; path = in; sourceTree = "<group>"; };
+		DAF0ECB31C5C0AEB0008D989 /* vpicdetailfiltersbw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpicdetailfiltersbw.h; sourceTree = "<group>"; };
+		DAF0ECB41C5C0AEB0008D989 /* vpicdetailfiltersbw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpicdetailfiltersbw.m; sourceTree = "<group>"; };
 		DAF27F9D1C5923080044C928 /* vpiclistheader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpiclistheader.h; sourceTree = "<group>"; };
 		DAF27F9E1C5923080044C928 /* vpiclistheader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpiclistheader.m; sourceTree = "<group>"; };
 		DAF27FA01C593FE80044C928 /* vpicdetailfilterscel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpicdetailfilterscel.h; sourceTree = "<group>"; };
@@ -514,6 +517,8 @@
 				DAF27FA11C593FE80044C928 /* vpicdetailfilterscel.m */,
 				DA2501EE1C5968DF0081E56D /* vpicdetailfilterslight.h */,
 				DA2501EF1C5968DF0081E56D /* vpicdetailfilterslight.m */,
+				DAF0ECB31C5C0AEB0008D989 /* vpicdetailfiltersbw.h */,
+				DAF0ECB41C5C0AEB0008D989 /* vpicdetailfiltersbw.m */,
 				DA390C061C581781000ABCEA /* vpicdetailfilecompress.h */,
 				DA390C071C581781000ABCEA /* vpicdetailfilecompress.m */,
 			);
@@ -976,6 +981,7 @@
 				DA3D9A191C5126720072F69B /* analytics.m in Sources */,
 				DA3D9A231C5126720072F69B /* mdirs.m in Sources */,
 				DA390C051C57E975000ABCEA /* vpicdetailfilecel.m in Sources */,
+				DAF0ECB51C5C0AEB0008D989 /* vpicdetailfiltersbw.m in Sources */,
 				DA14783C1C513BC90024141B /* cpages.m in Sources */,
 				DA1478441C5141780024141B /* vpiclist.m in Sources */,
 				DA3D9A1F1C5126720072F69B /* cmain.m in Sources */,
