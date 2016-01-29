@@ -9,6 +9,7 @@
 #import "mpicmenu.h"
 #import "mpicmenuprotocol.h"
 #import "mpicmenufile.h"
+#import "mpicmenupreview.h"
 #import "mpicmenuedit.h"
 #import "mpicmenufilters.h"
 #import "mpicmenufiltersprotocol.h"

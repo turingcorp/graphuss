@@ -11,6 +11,7 @@
 
     array = [NSArray arrayWithObjects:
              [[mpicmenufile alloc] init],
+             [[mpicmenupreview alloc] init],
              [[mpicmenuedit alloc] init],
              [[mpicmenufilters alloc] init],
              nil];
