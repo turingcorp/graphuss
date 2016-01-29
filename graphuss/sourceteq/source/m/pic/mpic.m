@@ -1,9 +1,6 @@
 #import "mpic.h"
 
 @implementation mpic
-{
-    NSMutableArray *array;
-}
 
 +(instancetype)singleton
 {
@@ -33,7 +30,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       array = [NSMutableArray array];
+                       NSMutableArray *array = [NSMutableArray array];
                        
                        NSString *query = @"SELECT id, firsttime, name FROM pic ORDER BY id DESC;";
                        NSArray *rawpics = [db rows:query];
@@ -50,7 +47,13 @@
                            [array addObject:item];
                        }
                        
-                       [[NSNotificationCenter defaultCenter] postNotificationName:notreloadpics object:nil];
+                       dispatch_async(dispatch_get_main_queue(),
+                                      ^
+                                      {
+                                          [[mpic singleton] setArray:array];
+                                          
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:notreloadpics object:nil];
+                                      });
                    });
 }
 
@@ -168,14 +171,14 @@
 
 -(NSInteger)count
 {
-    NSInteger count = array.count;
+    NSInteger count = self.array.count;
     
     return count;
 }
 
 -(mpicitem*)item:(NSInteger)index
 {
-    mpicitem *item = array[index];
+    mpicitem *item = self.array[index];
     
     return item;
 }

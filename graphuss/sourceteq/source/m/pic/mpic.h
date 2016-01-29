@@ -16,6 +16,7 @@
 -(void)update:(NSString*)name image:(UIImage*)image;
 
 
+@property(strong, nonatomic)NSMutableArray *array;
 @property(copy, nonatomic)NSString *imagesfolder;
 @property(copy, nonatomic)NSString *thumbsfolder;
 
