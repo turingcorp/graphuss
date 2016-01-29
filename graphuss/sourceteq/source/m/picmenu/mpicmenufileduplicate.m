@@ -27,7 +27,7 @@
                        dispatch_async(dispatch_get_main_queue(),
                                       ^
                                       {
-                                          [detail.controller.navigationController popViewControllerAnimated:YES];
+                                          [[cmain singleton] popViewControllerAnimated:YES];
                                       });
                    });
 }
