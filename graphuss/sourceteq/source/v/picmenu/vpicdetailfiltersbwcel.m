@@ -84,6 +84,7 @@
 -(void)config:(id<mpicmenufiltersbwprotocol>)model filters:(vpicdetailfilters*)filters
 {
     self.filters = filters;
+    [self.image setImage:filters.detail.pic.thumb];
     [self.label setText:[model title]];
     [self hover];
 }
