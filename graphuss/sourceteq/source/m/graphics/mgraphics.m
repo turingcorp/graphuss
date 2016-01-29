@@ -100,30 +100,30 @@
 
 +(UIImage*)light2:(UIImage*)image add:(CGFloat)light
 {
-    UInt32 *pixels;
+    uint *pixels;
     CGContextRef context;
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     CGImageRef cgimage = image.CGImage;
-    UInt32 width = (UInt32)CGImageGetWidth(cgimage);
-    UInt32 height = (UInt32)CGImageGetHeight(cgimage);
-    UInt32 size = width * height;
-    UInt32 bitsperpixel = 4;
-    UInt32 bitspercomponent = 8;
-    UInt32 bytesperrow = bitsperpixel * width;
+    uint width = (uint)CGImageGetWidth(cgimage);
+    uint height = (uint)CGImageGetHeight(cgimage);
+    uint size = width * height;
+    uint bitsperpixel = 4;
+    uint bitspercomponent = 8;
+    uint bytesperrow = bitsperpixel * width;
     CGRect rect = CGRectMake(0, 0, width, height);
     
-    pixels = calloc(size, sizeof(UInt32));
+    pixels = calloc(size, sizeof(uint));
     context = CGBitmapContextCreate(pixels, width, height, bitspercomponent, bytesperrow, colorspace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
     CGContextDrawImage(context, rect, cgimage);
     
-    UInt32 *thispixel = pixels;
+    uint *thispixel = pixels;
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
-    for(UInt32 i = 0; i < size; i++)
+    for(uint i = 0; i < size; i++)
     {
-        UInt32 pixelcolor = *thispixel;
-        NSNumber *asnum = @(pixelcolor);
+        uint pixelcolor = *thispixel;
+        NSString *asnum = [NSString stringWithFormat:@"%@", @(pixelcolor)];
         NSNumber *value = dict[asnum];
         
         if(value)
