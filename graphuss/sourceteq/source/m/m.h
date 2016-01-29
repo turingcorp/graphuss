@@ -16,6 +16,8 @@
 #import "mpicmenufilterslight.h"
 #import "mpicmenufilterscolor.h"
 #import "mpicmenufiltersbw.h"
+#import "mpicmenufiltersbwprotocol.h"
+#import "mpicmenufiltersbwbasic.h"
 #import "mpicmenufileprotocol.h"
 #import "mpicmenufileduplicate.h"
 #import "mpicmenufileshare.h"

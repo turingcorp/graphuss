@@ -1,6 +1,25 @@
 #import "mpicmenufiltersbw.h"
 
 @implementation mpicmenufiltersbw
+{
+    NSArray *array;
+}
+
+#pragma mark public
+
+-(NSInteger)count
+{
+    NSInteger count = array.count;
+    
+    return count;
+}
+
+-(id<mpicmenufiltersbwprotocol>)item:(NSInteger)index
+{
+    id item = array[index];
+    
+    return item;
+}
 
 #pragma mark -
 #pragma mark filters protocol

@@ -2,7 +2,7 @@
 
 @class vpicdetailfilters;
 
-@interface vpicdetailfiltersbw:UIView
+@interface vpicdetailfiltersbw:UIView<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 -(instancetype)init:(vpicdetailfilters*)filters;
 
