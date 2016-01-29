@@ -10,5 +10,6 @@
 @property(weak, nonatomic)vpicdetailfilters *filters;
 @property(weak, nonatomic)UIImageView *image;
 @property(weak, nonatomic)UILabel *label;
+@property(weak, nonatomic)UIButton *button;
 
 @end

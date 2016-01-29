@@ -31,6 +31,10 @@
 "pic_detail_filters_menu_light"="Light";
 "pic_detail_filters_menu_black_white"="B / W";
 "pic_detail_filters_menu_colors"="Colors";
+"pic_detail_filters_menu_black_white_basic"="Basic";
+"pic_detail_filters_menu_black_white_contrast"="Contrast";
+"pic_detail_filters_menu_black_white_bluish"="Bluish";
+"pic_detail_filters_menu_black_white_header"="Black and White filters";
 
 "pic_detail_fitlers_light_button"="Apply";
 

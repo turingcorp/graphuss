@@ -7,7 +7,7 @@
 
 -(NSString*)title
 {
-    NSString *str = NSLocalizedString(@"", nil);
+    NSString *str = NSLocalizedString(@"pic_detail_filters_menu_black_white_contrast", nil);
     
     return str;
 }

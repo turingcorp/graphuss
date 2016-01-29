@@ -23,5 +23,6 @@
 #import "vpicdetailfilterscel.h"
 #import "vpicdetailfilterslight.h"
 #import "vpicdetailfiltersbw.h"
+#import "vpicdetailfiltersbwheader.h"
 #import "vpicdetailfiltersbwcel.h"
 #import "vpicdetailpreview.h"
