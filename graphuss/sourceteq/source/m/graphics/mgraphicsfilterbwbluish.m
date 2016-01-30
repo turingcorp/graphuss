@@ -28,6 +28,4 @@
     return newcolor;
 }
 
-#warning "color"
-
 @end
