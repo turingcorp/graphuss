@@ -1,13 +1,9 @@
-//
-//  mgraphicsfilter.h
-//  graphuss
-//
-//  Created by zero on 1/29/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import <UIKit/UIKit.h>
 
-#import <Foundation/Foundation.h>
+@class mgraphicspixel;
 
-@interface mgraphicsfilter : NSObject
+@interface mgraphicsfilter:NSObject
+
+-(NSNumber*)applyto:(mgraphicspixel*)pixel;
 
 @end
