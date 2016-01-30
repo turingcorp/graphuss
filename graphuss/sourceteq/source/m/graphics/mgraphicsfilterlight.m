@@ -1,8 +1,13 @@
 #import "mgraphicsfilterlight.h"
 
 @implementation mgraphicsfilterlight
+
+-(instancetype)init:(CGFloat)light
 {
-    CGFloat light;
+    self = [super init];
+    self.light = light;
+    
+    return self;
 }
 
 -(UIColor*)addbrightness:(UIColor*)color
@@ -14,7 +19,7 @@
     CGFloat brightness;
     
     [color getHue:&hue saturation:&saturation brightness:&brightness alpha:nil];
-    brightness += light;
+    brightness += self.light;
     newcolor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
     
     return newcolor;
@@ -28,7 +33,7 @@
     uint newcolor;
     UIColor *colorcurrent = [pixel colorrgb];
     UIColor *coloredited = [self addbrightness:colorcurrent];
-    newcolor = [pixel colortoint:coloredited];
+    newcolor = [mgraphicspixel colortoint:coloredited];
     
     return newcolor;
 }

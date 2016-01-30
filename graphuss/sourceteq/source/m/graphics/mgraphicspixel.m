@@ -22,7 +22,7 @@
     CGFloat blue;
     
     [color getRed:&red green:&green blue:&blue alpha:nil];
-    colorint = [self intfromred:red green:green blue:blue];
+    colorint = [mgraphicspixel intfromred:red green:green blue:blue];
     
     return colorint;
 }

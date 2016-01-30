@@ -82,8 +82,7 @@
         else
         {
             mgraphicspixel *graphicspixel = [[mgraphicspixel alloc] init:pixelcolor];
-            
-            *thispixel = [graphicspixel addlight:light];
+            *thispixel = [filter applyto:graphicspixel];
             value = @(*thispixel);
             dict[asnum] = value;
         }

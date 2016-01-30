@@ -3,4 +3,8 @@
 
 @interface mgraphicsfilterlight:NSObject<mgraphicsfilterprotocol>
 
+-(instancetype)init:(CGFloat)light;
+
+@property(nonatomic)CGFloat light;
+
 @end
