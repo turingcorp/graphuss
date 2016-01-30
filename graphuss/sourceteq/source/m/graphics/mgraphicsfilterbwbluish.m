@@ -18,8 +18,20 @@
     averagered -= delta;
     averageblue += delta;
     
+    if(averagered < 0)
+    {
+        averagered = 0;
+    }
     
-    newcolor = [mgraphicspixel intfromintsred:averagered green:average blue:averageblue];
+    if(averageblue > 255)
+    {
+        averageblue = 255;
+    }
+    
+    ublue = (uint)averageblue;
+    ured = (uint)averagered;
+    
+    newcolor = [mgraphicspixel intfromintsred:ured green:average blue:ublue];
     
     return newcolor;
 }
