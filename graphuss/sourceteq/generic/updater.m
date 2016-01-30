@@ -7,13 +7,7 @@ NSString *documents;
 +(void)launch
 {
     [[analytics singleton] start];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-                   ^(void)
-                   {
-                       [updater update];
-                       [[NSNotificationCenter defaultCenter] postNotificationName:notloadfinished object:nil];
-                   });
+    [updater update];
 }
 
 #pragma mark private

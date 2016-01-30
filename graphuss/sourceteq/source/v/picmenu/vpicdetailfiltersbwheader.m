@@ -12,7 +12,7 @@
     [label setBackgroundColor:[UIColor clearColor]];
     [label setUserInteractionEnabled:NO];
     [label setTextAlignment:NSTextAlignmentCenter];
-    [label setTextColor:[UIColor colorWithWhite:0 alpha:0.9]];
+    [label setTextColor:[UIColor blackColor]];
     [label setFont:[UIFont fontWithName:fontboldname size:20]];
     [label setText:NSLocalizedString(@"pic_detail_filters_menu_black_white_header", nil)];
     [label setTranslatesAutoresizingMaskIntoConstraints:NO];
