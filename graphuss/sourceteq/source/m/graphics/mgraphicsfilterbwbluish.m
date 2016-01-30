@@ -10,18 +10,14 @@
     uint newcolor;
     uint sum = pixel.red255 + pixel.green255 + pixel.blue255;
     uint average = round(sum / 3.0);
+    uint delta = 10;
+    uint ured;
+    uint ublue;
     NSInteger averagered = average;
     NSInteger averageblue = average;
+    averagered -= delta;
+    averageblue += delta;
     
-    if(averagered > 9)
-    {
-        averagered -= 10;
-    }
-    
-    if(averageblue < 246)
-    {
-        averageblue += 10;
-    }
     
     newcolor = [mgraphicspixel intfromintsred:averagered green:average blue:averageblue];
     
