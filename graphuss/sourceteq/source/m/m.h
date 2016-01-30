@@ -31,4 +31,5 @@
 #import "mpicmenueditscale.h"
 #import "mgraphics.h"
 #import "mgraphicspixel.h"
+#import "mgraphicsfilterprotocol.h"
 #import "mgraphicsfilterlight.h"

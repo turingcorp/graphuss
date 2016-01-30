@@ -1,6 +1,6 @@
 #import "appdel.h"
-#import "mgraphicsfilter.h"
+#import "mgraphicsfilterprotocol.h"
 
-@interface mgraphicsfilterlight:mgraphicsfilter
+@interface mgraphicsfilterlight:NSObject<mgraphicsfilterprotocol>
 
 @end
