@@ -31,8 +31,9 @@
     [button.layer setCornerRadius:4];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
-    [button setTitle:NSLocalizedString(@"", nil) forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(@"pic_detail_filters_menu_black_white_button", nil) forState:UIControlStateNormal];
     [button setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [button.titleLabel setFont:[UIFont fontWithName:fontboldname size:16]];
     self.button = button;
     
     [self addSubview:label];
@@ -42,7 +43,7 @@
     NSDictionary *views = @{@"label":label, @"image":image, @"button":button};
     NSDictionary *metrics = @{};
     
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[image(90)]-10-[label]-20-[button(100)]-20-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[image(90)]-10-[label]-0-[button(100)]-20-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[image]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[label]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-24-[button]-24-|" options:0 metrics:metrics views:views]];

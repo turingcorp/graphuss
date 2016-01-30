@@ -16,11 +16,10 @@
     
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     [flow setFooterReferenceSize:CGSizeZero];
-    [flow setHeaderReferenceSize:CGSizeZero];
     [flow setMinimumInteritemSpacing:0];
     [flow setMinimumLineSpacing:2];
     [flow setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flow setSectionInset:UIEdgeInsetsMake(40, 0, 40, 0)];
+    [flow setSectionInset:UIEdgeInsetsMake(0, 0, 40, 0)];
     
     UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flow];
     [collection setBackgroundColor:[UIColor clearColor]];
@@ -50,6 +49,13 @@
 
 #pragma mark -
 #pragma mark col del
+
+-(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    CGSize size = CGSizeMake(col.bounds.size.width, 100);
+    
+    return size;
+}
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
 {

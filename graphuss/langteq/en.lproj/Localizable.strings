@@ -34,7 +34,8 @@
 "pic_detail_filters_menu_black_white_basic"="Basic";
 "pic_detail_filters_menu_black_white_contrast"="Contrast";
 "pic_detail_filters_menu_black_white_bluish"="Bluish";
-"pic_detail_filters_menu_black_white_header"="Black and White filters";
+"pic_detail_filters_menu_black_white_header"="Black and white filters";
+"pic_detail_filters_menu_black_white_button"="Add";
 
 "pic_detail_fitlers_light_button"="Apply";
 
