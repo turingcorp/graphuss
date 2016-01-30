@@ -45,7 +45,7 @@
     return newimage;
 }
 
-+(UIImage*)light:(UIImage*)image add:(CGFloat)light
++(UIImage*)light:(UIImage*)image add:(id<mgraphicsfilterprotocol>)filter
 {
     uint *pixels;
     CGContextRef context;
@@ -82,6 +82,7 @@
         else
         {
             mgraphicspixel *graphicspixel = [[mgraphicspixel alloc] init:pixelcolor];
+            
             *thispixel = [graphicspixel addlight:light];
             value = @(*thispixel);
             dict[asnum] = value;

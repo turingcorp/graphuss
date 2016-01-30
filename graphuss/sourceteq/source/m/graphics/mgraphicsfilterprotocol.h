@@ -4,6 +4,6 @@
 
 @protocol mgraphicsfilterprotocol <NSObject>
 
--(NSNumber*)applyto:(mgraphicspixel*)pixel;
+-(uint)applyto:(mgraphicspixel*)pixel;
 
 @end
