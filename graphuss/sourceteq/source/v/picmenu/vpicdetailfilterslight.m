@@ -102,7 +102,9 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       [self.filters.detail.controllerdetail edit_light:self.slider.value];
+                       mgraphicsfilterlight *filter = [[mgraphicsfilterlight alloc] init:self.slider.value];
+                       
+                       [self.filters.detail.controllerdetail edit_filter:filter];
                        [[analytics singleton] trackevent:ga_event_pic_filter_light action:ga_action_completed label:labelstring];
                        
                        dispatch_async(dispatch_get_main_queue(),

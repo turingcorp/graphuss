@@ -34,6 +34,7 @@
     [button setTitle:NSLocalizedString(@"pic_detail_filters_menu_black_white_button", nil) forState:UIControlStateNormal];
     [button setTranslatesAutoresizingMaskIntoConstraints:NO];
     [button.titleLabel setFont:[UIFont fontWithName:fontboldname size:16]];
+    [button addTarget:self action:@selector(actionapply:) forControlEvents:UIControlEventTouchUpInside];
     self.button = button;
     
     [self addSubview:label];
@@ -63,6 +64,28 @@
     [self hover];
 }
 
+#pragma mark actions
+
+-(void)actionapply:(UIButton*)button
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       id<mgraphicsfilterprotocol> filter = [self.model filter];
+                       
+                       [self.filters.detail.controllerdetail edit_filter:filter];
+//                       [[analytics singleton] trackevent:ga_event_pic_filter_light action:ga_action_completed label:labelstring];
+                       
+                       dispatch_async(dispatch_get_main_queue(),
+                                      ^
+                                      {
+                                          [[cmain singleton] popViewControllerAnimated:YES];
+                                      });
+                   });
+}
+
 #pragma mark functionality
 
 -(void)hover
@@ -86,6 +109,7 @@
 -(void)config:(id<mpicmenufiltersbwprotocol>)model filters:(vpicdetailfilters*)filters
 {
     self.filters = filters;
+    self.model = model;
     [self.image setImage:nil];
     [self.label setText:[model title]];
     [self hover];

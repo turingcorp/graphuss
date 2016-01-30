@@ -223,9 +223,8 @@
     [self updateimage];
 }
 
--(void)edit_light:(CGFloat)light
+-(void)edit_filter:(id<mgraphicsfilterprotocol>)filter
 {
-    mgraphicsfilterlight *filter = [[mgraphicsfilterlight alloc] init:light];
     self.image = [mgraphics image:self.image add:filter];
     
     [self updateimage];
