@@ -33,3 +33,4 @@
 #import "mgraphicspixel.h"
 #import "mgraphicsfilterprotocol.h"
 #import "mgraphicsfilterlight.h"
+#import "mgraphicsfilterbwbasic.h"

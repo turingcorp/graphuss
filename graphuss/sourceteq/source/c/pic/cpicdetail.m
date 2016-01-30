@@ -223,11 +223,10 @@
     [self updateimage];
 }
 
-extern uint64_t dispatch_benchmark(size_t count, void (^block)(void));
-
 -(void)edit_light:(CGFloat)light
 {
-    self.image = [mgraphics light:self.image add:light];
+    mgraphicsfilterlight *filter = [[mgraphicsfilterlight alloc] init:light];
+    self.image = [mgraphics image:self.image add:filter];
     
     [self updateimage];
 }

@@ -5,6 +5,6 @@
 
 +(UIImage*)scale:(UIImage*)image at:(CGFloat)scale;
 +(UIImage*)merge:(UIImage*)image with:(UIColor*)color;
-+(UIImage*)light:(UIImage*)image add:(id<mgraphicsfilterprotocol>)filter;
++(UIImage*)image:(UIImage*)image add:(id<mgraphicsfilterprotocol>)filter;
 
 @end

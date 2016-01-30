@@ -12,4 +12,9 @@
     return str;
 }
 
+-(id<mgraphicsfilterprotocol>)filter
+{
+    return nil;
+}
+
 @end

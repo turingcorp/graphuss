@@ -86,9 +86,22 @@
 -(void)config:(id<mpicmenufiltersbwprotocol>)model filters:(vpicdetailfilters*)filters
 {
     self.filters = filters;
-    [self.image setImage:filters.detail.pic.thumb];
+    [self.image setImage:nil];
     [self.label setText:[model title]];
     [self hover];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       mgraphicsfilterbwbasic *filter = [[mgraphicsfilterbwbasic alloc] init];
+                       UIImage *image = [mgraphics image:filters.detail.pic.thumb add:filter];
+                       
+                       dispatch_async(dispatch_get_main_queue(),
+                                      ^
+                                      {
+                                          [self.image setImage:image];
+                                      });
+                   });
 }
 
 @end

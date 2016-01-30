@@ -123,7 +123,8 @@
                    ^
                    {
                        CGFloat value = [weakself.slider value];
-                       UIImage *newimage = [mgraphics light:weakself.baseimage add:[[mgraphicsfilterlight alloc] init:value]];
+                       mgraphicsfilterlight *filter = [[mgraphicsfilterlight alloc] init:value];
+                       UIImage *newimage = [mgraphics image:weakself.baseimage add:filter];
                        
                        if(newimage)
                        {

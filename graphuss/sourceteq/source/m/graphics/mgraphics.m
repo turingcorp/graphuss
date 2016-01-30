@@ -45,7 +45,7 @@
     return newimage;
 }
 
-+(UIImage*)light:(UIImage*)image add:(id<mgraphicsfilterprotocol>)filter
++(UIImage*)image:(UIImage*)image add:(id<mgraphicsfilterprotocol>)filter
 {
     uint *pixels;
     CGContextRef context;
