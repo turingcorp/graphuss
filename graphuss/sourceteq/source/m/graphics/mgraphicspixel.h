@@ -2,6 +2,7 @@
 
 @interface mgraphicspixel:NSObject
 
++(uint)intfromintsred:(uint)red green:(uint)green blue:(uint)blue;
 +(uint)intfromred:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
 +(uint)colortoint:(UIColor*)color;
 -(instancetype)init:(uint)color;

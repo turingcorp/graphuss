@@ -11,7 +11,7 @@
     UILabel *label = [[UILabel alloc] init];
     [label setBackgroundColor:[UIColor clearColor]];
     [label setUserInteractionEnabled:NO];
-    [label setFont:[UIFont fontWithName:fontboldname size:18]];
+    [label setFont:[UIFont fontWithName:fontboldname size:16]];
     [label setTranslatesAutoresizingMaskIntoConstraints:NO];
     [label setNumberOfLines:0];
     self.label = label;
@@ -69,7 +69,7 @@
 {
     if(self.isSelected || self.isHighlighted)
     {
-        [self setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.7]];
+        [self setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.9]];
         [self.label setTextColor:[UIColor colorWithWhite:0 alpha:1]];
         [self.button setHidden:NO];
     }

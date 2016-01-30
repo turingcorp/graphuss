@@ -2,13 +2,21 @@
 
 @implementation mgraphicspixel
 
++(uint)intfromintsred:(uint)red green:(uint)green blue:(uint)blue
+{
+    uint colorint = (red & 0xFF) | ((green & 0xFF) << 8) | ((blue & 0xFF) << 16) | ((255 & 0xFF) << 24);
+    
+    return colorint;
+}
+
 +(uint)intfromred:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue
 {
     uint colorint;
     uint redint = red * 255;
     uint greenint = green * 255;
     uint blueint = blue * 255;
-    colorint = (redint & 0xFF) | ((greenint & 0xFF) << 8) | ((blueint & 0xFF) << 16) | ((255 & 0xFF) << 24);
+    
+    colorint = [mgraphicspixel intfromintsred:redint green:greenint blue:blueint];
     
     return colorint;
 }
