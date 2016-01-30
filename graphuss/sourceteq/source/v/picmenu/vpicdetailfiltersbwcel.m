@@ -74,9 +74,10 @@
                    ^
                    {
                        id<mgraphicsfilterprotocol> filter = [self.model filter];
+                       NSString *name = [self.model title];
                        
                        [self.filters.detail.controllerdetail edit_filter:filter];
-//                       [[analytics singleton] trackevent:ga_event_pic_filter_light action:ga_action_completed label:labelstring];
+                       [[analytics singleton] trackevent:ga_event_pic_filter_blackandwhite action:ga_action_completed label:name];
                        
                        dispatch_async(dispatch_get_main_queue(),
                                       ^

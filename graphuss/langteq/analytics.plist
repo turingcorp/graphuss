@@ -19,6 +19,7 @@
 		<string>pic/edit/rotate</string>
 		<string>pic/edit/scale</string>
 		<string>pic/filter/light</string>
+		<string>pic/filter/blackandwhite</string>
 	</array>
 	<key>actions</key>
 	<array>
