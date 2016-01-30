@@ -118,7 +118,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       mgraphicsfilterbwbasic *filter = [[mgraphicsfilterbwbasic alloc] init];
+                       mgraphicsfilterbwbasic *filter = [self.model filter];
                        UIImage *image = [mgraphics image:filters.detail.pic.thumb add:filter];
                        
                        dispatch_async(dispatch_get_main_queue(),
