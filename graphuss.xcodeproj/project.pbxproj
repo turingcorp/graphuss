@@ -114,6 +114,8 @@
 		DAF0ECC51C5C30AB0008D989 /* vpicdetailfiltersbwheader.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0ECC41C5C30AB0008D989 /* vpicdetailfiltersbwheader.m */; };
 		DAF0ECCB1C5C36F50008D989 /* mgraphicsfilterlight.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0ECCA1C5C36F50008D989 /* mgraphicsfilterlight.m */; };
 		DAF0ECCF1C5C3D4E0008D989 /* mgraphicsfilterbwbasic.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0ECCE1C5C3D4E0008D989 /* mgraphicsfilterbwbasic.m */; };
+		DAF0ECD21C5C4AF50008D989 /* mgraphicsfilterbwcontrast.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0ECD11C5C4AF50008D989 /* mgraphicsfilterbwcontrast.m */; };
+		DAF0ECD51C5C4B0D0008D989 /* mgraphicsfilterbwbluish.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0ECD41C5C4B0D0008D989 /* mgraphicsfilterbwbluish.m */; };
 		DAF27F9F1C5923080044C928 /* vpiclistheader.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF27F9E1C5923080044C928 /* vpiclistheader.m */; };
 		DAF27FA21C593FE80044C928 /* vpicdetailfilterscel.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF27FA11C593FE80044C928 /* vpicdetailfilterscel.m */; };
 /* End PBXBuildFile section */
@@ -313,6 +315,10 @@
 		DAF0ECCC1C5C38350008D989 /* mgraphicsfilterprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgraphicsfilterprotocol.h; sourceTree = "<group>"; };
 		DAF0ECCD1C5C3D4E0008D989 /* mgraphicsfilterbwbasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgraphicsfilterbwbasic.h; sourceTree = "<group>"; };
 		DAF0ECCE1C5C3D4E0008D989 /* mgraphicsfilterbwbasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mgraphicsfilterbwbasic.m; sourceTree = "<group>"; };
+		DAF0ECD01C5C4AF50008D989 /* mgraphicsfilterbwcontrast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgraphicsfilterbwcontrast.h; sourceTree = "<group>"; };
+		DAF0ECD11C5C4AF50008D989 /* mgraphicsfilterbwcontrast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mgraphicsfilterbwcontrast.m; sourceTree = "<group>"; };
+		DAF0ECD31C5C4B0D0008D989 /* mgraphicsfilterbwbluish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgraphicsfilterbwbluish.h; sourceTree = "<group>"; };
+		DAF0ECD41C5C4B0D0008D989 /* mgraphicsfilterbwbluish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mgraphicsfilterbwbluish.m; sourceTree = "<group>"; };
 		DAF27F9D1C5923080044C928 /* vpiclistheader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpiclistheader.h; sourceTree = "<group>"; };
 		DAF27F9E1C5923080044C928 /* vpiclistheader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpiclistheader.m; sourceTree = "<group>"; };
 		DAF27FA01C593FE80044C928 /* vpicdetailfilterscel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpicdetailfilterscel.h; sourceTree = "<group>"; };
@@ -466,6 +472,10 @@
 				DAF0ECCA1C5C36F50008D989 /* mgraphicsfilterlight.m */,
 				DAF0ECCD1C5C3D4E0008D989 /* mgraphicsfilterbwbasic.h */,
 				DAF0ECCE1C5C3D4E0008D989 /* mgraphicsfilterbwbasic.m */,
+				DAF0ECD01C5C4AF50008D989 /* mgraphicsfilterbwcontrast.h */,
+				DAF0ECD11C5C4AF50008D989 /* mgraphicsfilterbwcontrast.m */,
+				DAF0ECD31C5C4B0D0008D989 /* mgraphicsfilterbwbluish.h */,
+				DAF0ECD41C5C4B0D0008D989 /* mgraphicsfilterbwbluish.m */,
 			);
 			path = graphics;
 			sourceTree = "<group>";
@@ -1021,6 +1031,7 @@
 				DA3D9A191C5126720072F69B /* analytics.m in Sources */,
 				DA3D9A231C5126720072F69B /* mdirs.m in Sources */,
 				DA390C051C57E975000ABCEA /* vpicdetailfilecel.m in Sources */,
+				DAF0ECD51C5C4B0D0008D989 /* mgraphicsfilterbwbluish.m in Sources */,
 				DAF0ECB51C5C0AEB0008D989 /* vpicdetailfiltersbw.m in Sources */,
 				DA14783C1C513BC90024141B /* cpages.m in Sources */,
 				DA1478441C5141780024141B /* vpiclist.m in Sources */,
@@ -1059,6 +1070,7 @@
 				DA3D9A251C5126720072F69B /* vblur.m in Sources */,
 				DA390BFC1C57DFF0000ABCEA /* mpicmenufileshare.m in Sources */,
 				DA2501E71C5954BB0081E56D /* mpicmenufilterscolor.m in Sources */,
+				DAF0ECD21C5C4AF50008D989 /* mgraphicsfilterbwcontrast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
