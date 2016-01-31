@@ -9,7 +9,7 @@
 {
     uint newcolor;
     uint sum = pixel.red255 + pixel.green255 + pixel.blue255;
-    uint delta = 10;
+    uint delta = 12;
     uint uaverage;
     NSInteger average = round(sum / 3.0);
     
