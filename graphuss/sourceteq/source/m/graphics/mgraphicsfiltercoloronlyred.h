@@ -1,13 +1,6 @@
-//
-//  mgraphicsfiltercoloronlyred.h
-//  graphuss
-//
-//  Created by zero on 1/30/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
+#import "mgraphicsfilterprotocol.h"
 
-#import <Foundation/Foundation.h>
-
-@interface mgraphicsfiltercoloronlyred : NSObject
+@interface mgraphicsfiltercoloronlyred:NSObject<mgraphicsfilterprotocol>
 
 @end
