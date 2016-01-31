@@ -11,7 +11,14 @@
 {
     if(!array)
     {
-        
+        array = [NSArray arrayWithObjects:
+                 [[mpicmenufilterscolorred alloc] init],
+                 [[mpicmenufilterscoloronlyred alloc] init],
+                 [[mpicmenufilterscolorblue alloc] init],
+                 [[mpicmenufilterscolorpurple alloc] init],
+                 [[mpicmenufilterscolorblack alloc] init],
+                 [[mpicmenufilterscoloronlyblack alloc] init],
+                 nil];
     }
     
     NSInteger count = array.count;
@@ -19,7 +26,7 @@
     return count;
 }
 
--(id)item:(NSInteger)index
+-(id<mpicmenufilterscolorprotocol>)item:(NSInteger)index
 {
     id item = array[index];
     

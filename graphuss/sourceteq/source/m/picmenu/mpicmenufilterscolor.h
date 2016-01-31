@@ -1,9 +1,10 @@
 #import "appdel.h"
 #import "mpicmenufiltersprotocol.h"
+#import "mpicmenufilterscolorprotocol.h"
 
 @interface mpicmenufilterscolor:NSObject<mpicmenufiltersprotocol>
 
 -(NSInteger)count;
--(id)item:(NSInteger)index;
+-(id<mpicmenufilterscolorprotocol>)item:(NSInteger)index;
 
 @end
