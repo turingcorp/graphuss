@@ -402,6 +402,13 @@
 			path = pic;
 			sourceTree = "<group>";
 		};
+		DA05EC531C5EC1AB006BD6CB /* config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
 		DA1478391C513BB40024141B /* pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,6 +829,7 @@
 				DA3D99EC1C5126720072F69B /* c.h */,
 				DA3D99ED1C5126720072F69B /* main */,
 				DA14785B1C5172D30024141B /* cam */,
+				DA05EC531C5EC1AB006BD6CB /* config */,
 				DA14783D1C51402E0024141B /* pic */,
 				DA1478391C513BB40024141B /* pages */,
 			);
