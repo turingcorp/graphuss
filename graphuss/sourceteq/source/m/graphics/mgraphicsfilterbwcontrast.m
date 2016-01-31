@@ -25,8 +25,6 @@
     
     newcolor = [mgraphicspixel intfromintsred:average green:average blue:average];
     
-#warning "edit averages"
-    
     return newcolor;
 }
 
