@@ -8,16 +8,16 @@
 -(uint)applyto:(mgraphicspixel*)pixel
 {
     uint newcolor;
-    uint red = pixel.red255;
-    uint green = pixel.green255;
-    uint blue = pixel.blue255;
+    NSInteger red = pixel.red255;
+    NSInteger green = pixel.green255;
+    NSInteger blue = pixel.blue255;
 
-    red += 20;
-    blue += 40;
+    green -= 30;
+    blue += 30;
     
-    if(red > 255)
+    if(green < 0)
     {
-        red = 255;
+        green = 0;
     }
     
     if(blue > 255)
@@ -25,7 +25,7 @@
         blue = 255;
     }
 
-    newcolor = [mgraphicspixel intfromintsred:red green:green blue:blue];
+    newcolor = [mgraphicspixel intfromintsred:(uint)red green:(uint)green blue:(uint)blue];
     
     return newcolor;
 }
