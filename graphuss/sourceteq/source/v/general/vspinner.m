@@ -27,7 +27,8 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[lines]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[lines]-0-|" options:0 metrics:metrics views:views]];
     
-    timer = [timerbg millis:50 delegate:self background:NO];
+    timer = [timerbg millis:60 delegate:self background:YES];
+    [timer resume];
     
     return self;
 }
@@ -36,14 +37,18 @@
 
 -(void)timerbgtick
 {
-    rotlines += 0.4;
+    rotlines += 0.2;
     
     if(rotlines > 6.28319)
     {
         rotlines = 0;
     }
     
-    [self.lines setTransform:CGAffineTransformMakeRotation(rotlines)];
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       [self.lines setTransform:CGAffineTransformMakeRotation(rotlines)];
+                   });
 }
 
 @end
