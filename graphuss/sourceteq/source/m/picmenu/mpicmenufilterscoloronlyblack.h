@@ -1,13 +1,6 @@
-//
-//  mpicmenufilterscoloronlyblack.h
-//  graphuss
-//
-//  Created by zero on 1/30/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
+#import "mpicmenufilterscolorprotocol.h"
 
-#import <Foundation/Foundation.h>
-
-@interface mpicmenufilterscoloronlyblack : NSObject
+@interface mpicmenufilterscoloronlyblack:NSObject<mpicmenufilterscolorprotocol>
 
 @end
