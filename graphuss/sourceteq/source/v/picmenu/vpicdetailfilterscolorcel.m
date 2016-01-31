@@ -31,14 +31,25 @@
     [image.layer setCornerRadius:radiusimage];
     self.image = image;
     
+    UILabel *label = [[UILabel alloc] init];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setFont:[UIFont fontWithName:fontname size:14]];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setUserInteractionEnabled:NO];
+    [label setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.label = label;
+    
     [self addSubview:circle];
+    [self addSubview:label];
     [self addSubview:image];
     
-    NSDictionary *views = @{@"circle":circle, @"image":image};
+    NSDictionary *views = @{@"circle":circle, @"image":image, @"label":label};
     NSDictionary *metric = @{@"margin":@(margin), @"marginimage":@(marginimage)};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[label]-0-|" options:0 metrics:metric views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[label]-10-|" options:0 metrics:metric views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(marginimage)-[image]-(marginimage)-|" options:0 metrics:metric views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(marginimage)-[image]-(marginimage)-|" options:0 metrics:metric views:views]];
     
@@ -63,10 +74,12 @@
 {
     if(self.isSelected || self.isHighlighted)
     {
+        [self.label setTextColor:colormain];
         [self.circle setBackgroundColor:colormain];
     }
     else
     {
+        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.3]];
         [self.circle setBackgroundColor:[UIColor whiteColor]];
     }
 }
@@ -75,6 +88,7 @@
 
 -(void)config:(id<mpicmenufilterscolorprotocol>)model
 {
+    [self.label setText:[model title]];
     [self hover];
 }
 

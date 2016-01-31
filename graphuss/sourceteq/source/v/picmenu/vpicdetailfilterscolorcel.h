@@ -6,6 +6,7 @@
 -(void)config:(id<mpicmenufilterscolorprotocol>)model;
 
 @property(weak, nonatomic)UIImageView *image;
+@property(weak, nonatomic)UILabel *label;
 @property(weak, nonatomic)UIView *circle;
 
 @end
