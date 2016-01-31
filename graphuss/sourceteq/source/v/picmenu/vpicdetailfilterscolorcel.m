@@ -8,15 +8,19 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor clearColor]];
     
+    NSUInteger margin = 10;
+    NSUInteger marginimage = margin + 2;
     NSUInteger celside = frame.size.width;
-    NSUInteger circleside = celside - 10;
-    CGFloat radius = circleside / 2.0;
+    NSUInteger circleside = celside - margin;
+    NSUInteger imageside = celside - marginimage;
+    CGFloat radiuscircle = circleside / 2.0;
+    CGFloat radiusimage = imageside / 2.0;
     
     UIView *circle = [[UIView alloc] init];
     [circle setClipsToBounds:YES];
     [circle setUserInteractionEnabled:NO];
     [circle setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [circle.layer setCornerRadius:radius];
+    [circle.layer setCornerRadius:radiuscircle];
     self.circle = circle;
     
     UIImageView *image = [[UIImageView alloc] init];
@@ -27,6 +31,14 @@
     
     [self addSubview:circle];
     [self addSubview:image];
+    
+    NSDictionary *views = @{@"circle":circle, @"image":image};
+    NSDictionary *metric = @{@"margin":@(margin)};
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
     
     return self;
 }
