@@ -28,3 +28,4 @@
 #import "vpicdetailfilterscolor.h"
 #import "vpicdetailfilterscolorcel.h"
 #import "vpicdetailpreview.h"
+#import "vconfig.h"
