@@ -27,18 +27,20 @@
     [image setClipsToBounds:YES];
     [image setUserInteractionEnabled:NO];
     [image setContentMode:UIViewContentModeScaleAspectFill];
+    [image setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [image.layer setCornerRadius:marginimage];
     self.image = image;
     
     [self addSubview:circle];
     [self addSubview:image];
     
     NSDictionary *views = @{@"circle":circle, @"image":image};
-    NSDictionary *metric = @{@"margin":@(margin)};
+    NSDictionary *metric = @{@"margin":@(margin), @"marginimage":@(marginimage)};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(marginimage)-[image]-(marginimage)-|" options:0 metrics:metric views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(marginimage)-[image]-(marginimage)-|" options:0 metrics:metric views:views]];
     
     return self;
 }
