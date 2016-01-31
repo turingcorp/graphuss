@@ -11,16 +11,27 @@
     uint red = pixel.red255;
     uint green = pixel.green255;
     uint blue = pixel.blue255;
+    uint sum = red + green + blue;
     uint newred;
     uint newgreen;
     uint newblue;
     BOOL isred = NO;
     
-    if(red > green)
+    if(sum > 25)
     {
-        if(red > blue)
+        uint sumgreenblue = green + blue;
+        uint sum_2 = sumgreenblue * 0.85;
+        
+        if(red > sum_2)
         {
-            if(green > blue)
+            isred = YES;
+        }
+    }
+    else
+    {
+        if(red > green)
+        {
+            if(red > blue)
             {
                 isred = YES;
             }
@@ -35,7 +46,6 @@
     }
     else
     {
-        uint sum = red + green + blue;
         uint average = round(sum / 3.0);
         newred = average;
         newgreen = average;

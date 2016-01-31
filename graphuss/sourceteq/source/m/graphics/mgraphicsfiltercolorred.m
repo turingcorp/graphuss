@@ -17,7 +17,7 @@
     {
         if(red > blue)
         {
-            if(green > blue)
+            if(green >= blue)
             {
                 red += delta;
                 

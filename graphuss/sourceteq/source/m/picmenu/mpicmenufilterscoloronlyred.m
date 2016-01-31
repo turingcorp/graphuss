@@ -14,7 +14,7 @@
 
 -(id<mgraphicsfilterprotocol>)filter
 {
-    mgraphicsfilterbwbasic *filter = [[mgraphicsfilterbwbasic alloc] init];
+    mgraphicsfiltercoloronlyred *filter = [[mgraphicsfiltercoloronlyred alloc] init];
     
     return filter;
 }
