@@ -21,6 +21,7 @@
 #import "mpicmenufilterscolorblue.h"
 #import "mpicmenufilterscolorpurple.h"
 #import "mpicmenufilterscolorblack.h"
+#import "mpicmenufilterscoloronlyblack.h"
 #import "mpicmenufilterscolor.h"
 #import "mpicmenufiltersbw.h"
 #import "mpicmenufiltersbwprotocol.h"
