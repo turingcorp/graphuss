@@ -66,6 +66,7 @@
 		DA2D74281C5D973700E9A2C5 /* mpicmenufilterscolorblack.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D74271C5D973700E9A2C5 /* mpicmenufilterscolorblack.m */; };
 		DA2D742E1C5D97AA00E9A2C5 /* mpicmenufilterscoloronlyblack.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D742D1C5D97AA00E9A2C5 /* mpicmenufilterscoloronlyblack.m */; };
 		DA2D74341C5D98B800E9A2C5 /* vpicdetailfilterscolorcel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D74331C5D98B800E9A2C5 /* vpicdetailfilterscolorcel.m */; };
+		DA2D74371C5DC2ED00E9A2C5 /* mgraphicsfiltercolorred.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D74361C5DC2ED00E9A2C5 /* mgraphicsfiltercolorred.m */; };
 		DA390BD41C57B5B3000ABCEA /* mpicmenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BD31C57B5B3000ABCEA /* mpicmenu.m */; };
 		DA390BD81C57B60B000ABCEA /* mpicmenufile.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BD71C57B60B000ABCEA /* mpicmenufile.m */; };
 		DA390BDB1C57B622000ABCEA /* mpicmenuedit.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BDA1C57B622000ABCEA /* mpicmenuedit.m */; };
@@ -226,6 +227,8 @@
 		DA2D742D1C5D97AA00E9A2C5 /* mpicmenufilterscoloronlyblack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenufilterscoloronlyblack.m; sourceTree = "<group>"; };
 		DA2D74321C5D98B800E9A2C5 /* vpicdetailfilterscolorcel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpicdetailfilterscolorcel.h; sourceTree = "<group>"; };
 		DA2D74331C5D98B800E9A2C5 /* vpicdetailfilterscolorcel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vpicdetailfilterscolorcel.m; sourceTree = "<group>"; };
+		DA2D74351C5DC2ED00E9A2C5 /* mgraphicsfiltercolorred.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgraphicsfiltercolorred.h; sourceTree = "<group>"; };
+		DA2D74361C5DC2ED00E9A2C5 /* mgraphicsfiltercolorred.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mgraphicsfiltercolorred.m; sourceTree = "<group>"; };
 		DA390BD21C57B5B3000ABCEA /* mpicmenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenu.h; sourceTree = "<group>"; };
 		DA390BD31C57B5B3000ABCEA /* mpicmenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenu.m; sourceTree = "<group>"; };
 		DA390BD51C57B5E5000ABCEA /* mpicmenuprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenuprotocol.h; sourceTree = "<group>"; };
@@ -501,6 +504,8 @@
 				DAF0ECD11C5C4AF50008D989 /* mgraphicsfilterbwcontrast.m */,
 				DAF0ECD31C5C4B0D0008D989 /* mgraphicsfilterbwbluish.h */,
 				DAF0ECD41C5C4B0D0008D989 /* mgraphicsfilterbwbluish.m */,
+				DA2D74351C5DC2ED00E9A2C5 /* mgraphicsfiltercolorred.h */,
+				DA2D74361C5DC2ED00E9A2C5 /* mgraphicsfiltercolorred.m */,
 			);
 			path = graphics;
 			sourceTree = "<group>";
@@ -1105,6 +1110,7 @@
 				DA2C65531C5AC26300862C05 /* mgraphicspixel.m in Sources */,
 				DA1478691C517C950024141B /* valert.m in Sources */,
 				DA03AF661C52ACE0005DB3C9 /* vcampreview.m in Sources */,
+				DA2D74371C5DC2ED00E9A2C5 /* mgraphicsfiltercolorred.m in Sources */,
 				DAF0ECCB1C5C36F50008D989 /* mgraphicsfilterlight.m in Sources */,
 				DA2501E41C5953780081E56D /* mpicmenufilterslight.m in Sources */,
 				DA1478621C51735C0024141B /* vcam.m in Sources */,
