@@ -48,3 +48,4 @@
 #import "mgraphicsfiltercoloronlyred.h"
 #import "mgraphicsfiltercolorblue.h"
 #import "mgraphicsfiltercolorpurple.h"
+#import "mgraphicsfiltercolorblack.h"
