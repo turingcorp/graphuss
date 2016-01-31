@@ -8,11 +8,11 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor clearColor]];
     
-    NSUInteger margin = 10;
+    NSUInteger margin = 20;
     NSUInteger marginimage = margin + 2;
     NSUInteger celside = frame.size.width;
-    NSUInteger circleside = celside - margin;
-    NSUInteger imageside = celside - marginimage;
+    NSUInteger circleside = celside - margin - margin;
+    NSUInteger imageside = celside - marginimage - marginimage;
     CGFloat radiuscircle = circleside / 2.0;
     CGFloat radiusimage = imageside / 2.0;
     

@@ -2,7 +2,7 @@
 
 @implementation vpicdetailfilterscolor
 {
-    NSUInteger itemwidth;
+    NSUInteger itemsize;
 }
 
 -(instancetype)init:(vpicdetailfilters*)filters model:(mpicmenufilterscolor*)model
@@ -17,13 +17,12 @@
     
     vblur *blur = [vblur light:NO];
 
-    NSUInteger itemheight = 100;
-    itemwidth = 100;
+    itemsize = 150;
     
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     [flow setHeaderReferenceSize:CGSizeZero];
     [flow setFooterReferenceSize:CGSizeZero];
-    [flow setItemSize:CGSizeMake(itemwidth, itemheight)];
+    [flow setItemSize:CGSizeMake(itemsize, itemsize)];
     [flow setMinimumInteritemSpacing:0];
     [flow setMinimumLineSpacing:0];
     [flow setScrollDirection:UICollectionViewScrollDirectionHorizontal];
@@ -39,16 +38,24 @@
     [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
     [collection registerClass:[vpicdetailfilterscolorcel class] forCellWithReuseIdentifier:celid];
     
+    UIButton *button = [[UIButton alloc] init];
+    [button setClipsToBounds:YES];
+    [button setBackgroundColor:colorsecond];
+    [button.layer setCornerRadius:4];
+    [button setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
     [self addSubview:blur];
     [self addSubview:collection];
+    [self addSubview:button];
     
-    NSDictionary *views = @{@"blur":blur, @"col":collection};
-    NSDictionary *metrics = @{@"itemheight":@(itemheight)};
+    NSDictionary *views = @{@"blur":blur, @"col":collection, @"button":button};
+    NSDictionary *metrics = @{@"itemheight":@(itemsize)};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[col(itemheight)]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-120-[button]-120-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[col(itemheight)]-50-[button(40)]-50-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
