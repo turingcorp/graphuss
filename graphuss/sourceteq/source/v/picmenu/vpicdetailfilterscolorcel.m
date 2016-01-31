@@ -33,7 +33,7 @@
     
     UILabel *label = [[UILabel alloc] init];
     [label setBackgroundColor:[UIColor clearColor]];
-    [label setFont:[UIFont fontWithName:fontname size:18]];
+    [label setFont:[UIFont fontWithName:fontboldname size:16]];
     [label setTextAlignment:NSTextAlignmentCenter];
     [label setUserInteractionEnabled:NO];
     [label setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -74,15 +74,15 @@
 {
     if(self.isSelected || self.isHighlighted)
     {
-        [self.label setTextColor:colormain];
+        [self.label setTextColor:[UIColor blackColor]];
         [self.circle setBackgroundColor:colormain];
         [self.image setAlpha:1];
     }
     else
     {
-        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.5]];
+        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.3]];
         [self.circle setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.2]];
-        [self.image setAlpha:0.4];
+        [self.image setAlpha:0.3];
     }
 }
 
