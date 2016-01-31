@@ -23,7 +23,7 @@
 {
     [filters.overview removeFromSuperview];
     
-    vpicdetailfiltersbw *filter = [[vpicdetailfiltersbw alloc] init:filters model:self];
+    vpicdetailfilterscolor *filter = [[vpicdetailfilterscolor alloc] init:filters model:self];
     filters.overview = filter;
     
     [filters addSubview:filter];
