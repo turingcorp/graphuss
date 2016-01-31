@@ -49,3 +49,4 @@
 #import "mgraphicsfiltercolorblue.h"
 #import "mgraphicsfiltercolorpurple.h"
 #import "mgraphicsfiltercolorblack.h"
+#import "mgraphicsfiltercoloronlyblack.h"
