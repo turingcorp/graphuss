@@ -46,8 +46,13 @@
     UIButton *button = [[UIButton alloc] init];
     [button setClipsToBounds:YES];
     [button setBackgroundColor:colorsecond];
+    [button setTitle:NSLocalizedString(@"pic_detail_filters_menu_colors_button", nil) forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
+    [button.titleLabel setFont:[UIFont fontWithName:fontboldname size:16]];
     [button.layer setCornerRadius:4];
     [button setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [button addTarget:self action:@selector(actionadd:) forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:blur];
     [self addSubview:collection];
@@ -69,6 +74,30 @@
                    });
     
     return self;
+}
+
+#pragma mark actions
+
+-(void)actionadd:(UIButton*)button
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       id<mpicmenufilterscolorprotocol> model = [self.model item:selected];
+                       id<mgraphicsfilterprotocol> filter = [model filter];
+                       NSString *name = [model title];
+                       
+                       [self.filters.detail.controllerdetail edit_filter:filter];
+                       [[analytics singleton] trackevent:ga_event_pic_filter_blackandwhite action:ga_action_completed label:name];
+                       
+                       dispatch_async(dispatch_get_main_queue(),
+                                      ^
+                                      {
+                                          [[cmain singleton] popViewControllerAnimated:YES];
+                                      });
+                   });
 }
 
 #pragma mark -
