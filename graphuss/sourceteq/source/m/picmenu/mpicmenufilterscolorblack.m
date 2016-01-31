@@ -1,13 +1,22 @@
-//
-//  mpicmenufilterscolorblack.m
-//  graphuss
-//
-//  Created by zero on 1/30/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
-
 #import "mpicmenufilterscolorblack.h"
 
 @implementation mpicmenufilterscolorblack
+
+#pragma mark -
+#pragma mark filters protocol
+
+-(NSString*)title
+{
+    NSString *str = NSLocalizedString(@"pic_detail_filters_menu_black_white_basic", nil);
+    
+    return str;
+}
+
+-(id<mgraphicsfilterprotocol>)filter
+{
+    mgraphicsfilterbwbasic *filter = [[mgraphicsfilterbwbasic alloc] init];
+    
+    return filter;
+}
 
 @end
