@@ -9,7 +9,7 @@
 {
     uint newcolor;
     uint sum = pixel.red255 + pixel.green255 + pixel.blue255;
-    uint average = round(sum / 3.0);
+    NSInteger average = round(sum / 3.0);
     
     if(average < 246)
     {
