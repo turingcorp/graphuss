@@ -26,6 +26,5 @@
 #import "vpicdetailfiltersbwheader.h"
 #import "vpicdetailfiltersbwcel.h"
 #import "vpicdetailfilterscolor.h"
-#import "vpicdetailfilterscolorfooter.h"
 #import "vpicdetailfilterscolorcel.h"
 #import "vpicdetailpreview.h"
