@@ -19,10 +19,10 @@
     CGFloat height = rect.size.height;
     CGFloat width_2 = width / 2.0;
     CGFloat height_2 = height / 2.0;
-    CGFloat lineheight = 5;
+    CGFloat lineheight = 20;
     CGFloat side = fmin(width, height) - lineheight;
     CGFloat side_2 = side / 2.0;
-    NSUInteger lines = 75;
+    NSUInteger lines = 250;
     NSUInteger lines2 = lines * 2;
     CGFloat totalrad = 6.28319;
     CGFloat radline = totalrad / lines2;
