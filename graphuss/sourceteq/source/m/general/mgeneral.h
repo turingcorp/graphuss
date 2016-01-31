@@ -29,7 +29,8 @@ typedef NS_ENUM(NSInteger, ga_event)
     ga_event_pic_edit_rotate,
     ga_event_pic_edit_scale,
     ga_event_pic_filter_light,
-    ga_event_pic_filter_blackandwhite
+    ga_event_pic_filter_blackandwhite,
+    ga_event_pic_filter_color
 };
 
 typedef NS_ENUM(NSInteger, ga_action)
