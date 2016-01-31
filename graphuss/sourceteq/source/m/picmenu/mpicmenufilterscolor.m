@@ -1,6 +1,30 @@
 #import "mpicmenufilterscolor.h"
 
 @implementation mpicmenufilterscolor
+{
+    NSArray *array;
+}
+
+#pragma mark public
+
+-(NSInteger)count
+{
+    if(!array)
+    {
+        
+    }
+    
+    NSInteger count = array.count;
+    
+    return count;
+}
+
+-(id)item:(NSInteger)index
+{
+    id item = array[index];
+    
+    return item;
+}
 
 #pragma mark -
 #pragma mark filters protocol
