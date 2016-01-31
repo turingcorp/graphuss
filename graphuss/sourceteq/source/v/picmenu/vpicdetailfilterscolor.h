@@ -9,5 +9,6 @@
 
 @property(weak, nonatomic)vpicdetailfilters *filters;
 @property(weak, nonatomic)mpicmenufilterscolor *model;
+@property(weak, nonatomic)UICollectionView *collection;
 
 @end

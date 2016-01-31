@@ -9,7 +9,7 @@
     [self setBackgroundColor:[UIColor clearColor]];
     
     NSUInteger margin = 30;
-    NSUInteger marginimage = margin + 2;
+    NSUInteger marginimage = margin + 3;
     NSUInteger celside = frame.size.width;
     NSUInteger circleside = celside - margin - margin;
     NSUInteger imageside = celside - marginimage - marginimage;
@@ -80,9 +80,9 @@
     }
     else
     {
-        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.3]];
+        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.2]];
         [self.circle setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.2]];
-        [self.image setAlpha:0.3];
+        [self.image setAlpha:0.2];
     }
 }
 

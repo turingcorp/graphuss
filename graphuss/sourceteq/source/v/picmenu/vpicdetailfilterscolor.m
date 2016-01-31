@@ -3,6 +3,8 @@
 @implementation vpicdetailfilterscolor
 {
     NSUInteger itemsize;
+    NSInteger selected;
+    BOOL trackscroll;
 }
 
 -(instancetype)init:(vpicdetailfilters*)filters model:(mpicmenufilterscolor*)model
@@ -14,6 +16,8 @@
     
     self.filters = filters;
     self.model = model;
+    selected = 0;
+    trackscroll = NO;
     
     vblur *blur = [vblur light:NO];
 
@@ -37,6 +41,7 @@
     [collection setDelegate:self];
     [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
     [collection registerClass:[vpicdetailfilterscolorcel class] forCellWithReuseIdentifier:celid];
+    self.collection = collection;
     
     UIButton *button = [[UIButton alloc] init];
     [button setClipsToBounds:YES];
@@ -57,11 +62,44 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-120-[button]-120-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[col(itemheight)]-40-[button(40)]-40-|" options:0 metrics:metrics views:views]];
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 100), dispatch_get_main_queue(),
+                   ^
+                   {
+                       [collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:selected inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
+                   });
+    
     return self;
 }
 
 #pragma mark -
 #pragma mark col del
+
+-(void)scrollViewWillBeginDragging:(UIScrollView*)drag
+{
+    trackscroll = YES;
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView*)scroll
+{
+    trackscroll = NO;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView*)scroll
+{
+    if(trackscroll)
+    {
+        CGFloat leftoffset = scroll.contentOffset.x;
+        
+        CGPoint point = CGPointMake(leftoffset + (scroll.bounds.size.width / 2), 0);
+        NSIndexPath *index = [self.collection indexPathForItemAtPoint:point];
+        
+        if(index)
+        {
+            selected = index.item;
+            [self.collection selectItemAtIndexPath:index animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+        }
+    }
+}
 
 -(UIEdgeInsets)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout insetForSectionAtIndex:(NSInteger)section
 {
@@ -89,6 +127,13 @@
     [cel config:[self.model item:index.item] filters:self.filters];
     
     return cel;
+}
+
+-(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
+{
+    [col scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    selected = index.item;
+    trackscroll = NO;
 }
 
 @end
