@@ -1,13 +1,5 @@
-//
-//  vspinnerlines.h
-//  graphuss
-//
-//  Created by zero on 1/31/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
-
-@interface vspinnerlines : NSObject
+@interface vspinnerlines:UIView
 
 @end
