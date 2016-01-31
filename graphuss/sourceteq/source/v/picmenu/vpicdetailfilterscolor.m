@@ -1,6 +1,9 @@
 #import "vpicdetailfilterscolor.h"
 
 @implementation vpicdetailfilterscolor
+{
+    NSUInteger itemwidth;
+}
 
 -(instancetype)init:(vpicdetailfilters*)filters model:(mpicmenufilterscolor*)model
 {
@@ -13,6 +16,8 @@
     self.model = model;
     
     vblur *blur = [vblur light:NO];
+    
+    itemwidth = 100;
     
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     [flow setHeaderReferenceSize:CGSizeZero];
@@ -48,6 +53,13 @@
 
 #pragma mark -
 #pragma mark col del
+
+-(UIEdgeInsets)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout insetForSectionAtIndex:(NSInteger)section
+{
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    return insets;
+}
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout referenceSizeForFooterInSection:(NSInteger)section
 {
