@@ -30,12 +30,18 @@
 
 "pic_detail_filters_menu_light"="Light";
 "pic_detail_filters_menu_black_white"="B / W";
-"pic_detail_filters_menu_colors"="Colors";
 "pic_detail_filters_menu_black_white_basic"="Basic";
 "pic_detail_filters_menu_black_white_contrast"="Contrast";
 "pic_detail_filters_menu_black_white_bluish"="Bluish";
 "pic_detail_filters_menu_black_white_header"="Black and white";
 "pic_detail_filters_menu_black_white_button"="Add";
+"pic_detail_filters_menu_colors"="Colors";
+"pic_detail_filters_menu_colors_red"="Red";
+"pic_detail_filters_menu_colors_onlyred"="Only red";
+"pic_detail_filters_menu_colors_blue"="Only blue";
+"pic_detail_filters_menu_colors_purple"="Purple";
+"pic_detail_filters_menu_colors_black"="Black";
+"pic_detail_filters_menu_colors_onlyblack"="Only black";
 
 "pic_detail_fitlers_light_button"="Apply";
 
