@@ -90,7 +90,7 @@
                        NSString *name = [model title];
                        
                        [self.filters.detail.controllerdetail edit_filter:filter];
-                       [[analytics singleton] trackevent:ga_event_pic_filter_blackandwhite action:ga_action_completed label:name];
+                       [[analytics singleton] trackevent:ga_event_pic_filter_color action:ga_action_completed label:name];
                        
                        dispatch_async(dispatch_get_main_queue(),
                                       ^

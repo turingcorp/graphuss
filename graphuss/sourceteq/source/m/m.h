@@ -45,3 +45,4 @@
 #import "mgraphicsfilterbwcontrast.h"
 #import "mgraphicsfilterbwbluish.h"
 #import "mgraphicsfiltercolorred.h"
+#import "mgraphicsfiltercoloronlyred.h"
