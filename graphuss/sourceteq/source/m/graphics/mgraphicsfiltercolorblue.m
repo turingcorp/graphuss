@@ -11,19 +11,30 @@
     uint red = pixel.red255;
     uint green = pixel.green255;
     uint blue = pixel.blue255;
-    uint delta = 20;
+    uint delta = 40;
+    uint mindelta = 20;
+    BOOL isblue = NO;
     
     if(blue > green)
     {
         if(blue > red)
         {
-            blue += delta;
-            
-            if(blue > 255)
-            {
-                blue = 255;
-            }
+            isblue = YES;
         }
+    }
+    
+    if(isblue)
+    {
+        blue += delta;
+    }
+    else
+    {
+        blue += mindelta;
+    }
+    
+    if(blue > 255)
+    {
+        blue = 255;
     }
     
     newcolor = [mgraphicspixel intfromintsred:red green:green blue:blue];
