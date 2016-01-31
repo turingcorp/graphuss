@@ -15,9 +15,9 @@
     uint delta;
     BOOL isblack = NO;
     
-    if(sum < 150)
+    if(sum < 300)
     {
-        NSInteger maxdelta = 6;
+        NSInteger maxdelta = 7;
         NSInteger drg = labs(red - green);
         NSInteger dgb = labs(green - blue);
         
@@ -36,7 +36,7 @@
     }
     else
     {
-        delta = 30;
+        delta = 35;
     }
     
     red -= delta;

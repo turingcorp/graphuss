@@ -14,9 +14,9 @@
     NSInteger sum = red + green + blue;
     BOOL isblack = NO;
     
-    if(sum < 150)
+    if(sum < 100)
     {
-        NSInteger maxdelta = 6;
+        NSInteger maxdelta = 4;
         NSInteger drg = labs(red - green);
         NSInteger dgb = labs(green - blue);
         
@@ -31,7 +31,7 @@
     
     if(isblack)
     {
-        uint delta = 50;
+        uint delta = 30;
         
         red -= delta;
         green -= delta;
@@ -55,6 +55,13 @@
     else
     {
         uint average = round(sum / 3.0);
+        average += 10;
+        
+        if(average > 255)
+        {
+            average = 255;
+        }
+        
         red = average;
         green = average;
         blue = average;
