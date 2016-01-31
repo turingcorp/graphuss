@@ -1,6 +1,6 @@
-#import "mgraphicsfiltercolorblue.h"
+#import "mgraphicsfiltercolorpurple.h"
 
-@implementation mgraphicsfiltercolorblue
+@implementation mgraphicsfiltercolorpurple
 
 #pragma mark -
 #pragma mark filter protocol
@@ -11,32 +11,20 @@
     uint red = pixel.red255;
     uint green = pixel.green255;
     uint blue = pixel.blue255;
-    uint delta = 50;
-    uint mindelta = 25;
-    BOOL isblue = NO;
+
+    red += 20;
+    blue += 40;
     
-    if(blue > green)
+    if(red > 255)
     {
-        if(blue > red)
-        {
-            isblue = YES;
-        }
-    }
-    
-    if(isblue)
-    {
-        blue += delta;
-    }
-    else
-    {
-        blue += mindelta;
+        red = 255;
     }
     
     if(blue > 255)
     {
         blue = 255;
     }
-    
+
     newcolor = [mgraphicspixel intfromintsred:red green:green blue:blue];
     
     return newcolor;
