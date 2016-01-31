@@ -8,7 +8,7 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor clearColor]];
     
-    NSUInteger margin = 20;
+    NSUInteger margin = 30;
     NSUInteger marginimage = margin + 2;
     NSUInteger celside = frame.size.width;
     NSUInteger circleside = celside - margin - margin;
@@ -28,7 +28,7 @@
     [image setUserInteractionEnabled:NO];
     [image setContentMode:UIViewContentModeScaleAspectFill];
     [image setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [image.layer setCornerRadius:marginimage];
+    [image.layer setCornerRadius:radiusimage];
     self.image = image;
     
     [self addSubview:circle];

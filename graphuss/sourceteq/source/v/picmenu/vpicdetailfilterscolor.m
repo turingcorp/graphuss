@@ -17,7 +17,7 @@
     
     vblur *blur = [vblur light:NO];
 
-    itemsize = 150;
+    itemsize = 170;
     
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     [flow setHeaderReferenceSize:CGSizeZero];
@@ -55,7 +55,7 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-120-[button]-120-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[col(itemheight)]-50-[button(40)]-50-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[col(itemheight)]-40-[button(40)]-40-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -65,7 +65,8 @@
 
 -(UIEdgeInsets)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout insetForSectionAtIndex:(NSInteger)section
 {
-    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
+    CGFloat margin = (col.bounds.size.width - itemsize) / 2.0;
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, margin, 0, margin);
     
     return insets;
 }
