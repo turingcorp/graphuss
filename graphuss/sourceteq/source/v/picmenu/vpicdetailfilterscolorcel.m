@@ -33,7 +33,7 @@
     
     UILabel *label = [[UILabel alloc] init];
     [label setBackgroundColor:[UIColor clearColor]];
-    [label setFont:[UIFont fontWithName:fontname size:14]];
+    [label setFont:[UIFont fontWithName:fontname size:18]];
     [label setTextAlignment:NSTextAlignmentCenter];
     [label setUserInteractionEnabled:NO];
     [label setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -49,7 +49,7 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(margin)-[circle]-(margin)-|" options:0 metrics:metric views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[label]-0-|" options:0 metrics:metric views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[label]-10-|" options:0 metrics:metric views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label]-5-|" options:0 metrics:metric views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(marginimage)-[image]-(marginimage)-|" options:0 metrics:metric views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(marginimage)-[image]-(marginimage)-|" options:0 metrics:metric views:views]];
     
@@ -76,20 +76,36 @@
     {
         [self.label setTextColor:colormain];
         [self.circle setBackgroundColor:colormain];
+        [self.image setAlpha:1];
     }
     else
     {
-        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.3]];
-        [self.circle setBackgroundColor:[UIColor whiteColor]];
+        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.5]];
+        [self.circle setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.2]];
+        [self.image setAlpha:0.4];
     }
 }
 
 #pragma mark public
 
--(void)config:(id<mpicmenufilterscolorprotocol>)model
+-(void)config:(id<mpicmenufilterscolorprotocol>)model filters:(vpicdetailfilters*)filters
 {
     [self.label setText:[model title]];
+    [self.image setImage:nil];
     [self hover];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       mgraphicsfilterbwbasic *filter = [model filter];
+                       UIImage *image = [mgraphics image:filters.detail.pic.thumb add:filter];
+                       
+                       dispatch_async(dispatch_get_main_queue(),
+                                      ^
+                                      {
+                                          [self.image setImage:image];
+                                      });
+                   });
 }
 
 @end

@@ -3,7 +3,7 @@
 
 @interface vpicdetailfilterscolorcel:UICollectionViewCell
 
--(void)config:(id<mpicmenufilterscolorprotocol>)model;
+-(void)config:(id<mpicmenufilterscolorprotocol>)model filters:(vpicdetailfilters*)filters;
 
 @property(weak, nonatomic)UIImageView *image;
 @property(weak, nonatomic)UILabel *label;
