@@ -1,9 +1,5 @@
 #import "appdel.h"
 
-@class vspinnerlines;
-
-@interface vspinner:UIView<timerbgdel>
-
-@property(weak, nonatomic)vspinnerlines *lines;
+@interface vspinner:UIImageView
 
 @end
