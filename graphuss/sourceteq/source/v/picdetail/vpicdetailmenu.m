@@ -27,7 +27,7 @@
     [border setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     vspinner *spinner = [[vspinner alloc] init];
-//    [spinner stopAnimating];
+    [spinner stopAnimating];
     self.spinner = spinner;
     
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
@@ -106,11 +106,11 @@
                        
                        if(show)
                        {
-//                           [self.spinner startAnimating];
+                           [self.spinner startAnimating];
                        }
                        else
                        {
-//                           [self.spinner stopAnimating];
+                           [self.spinner stopAnimating];
                        }
                    });
 }

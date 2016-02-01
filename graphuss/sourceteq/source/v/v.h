@@ -1,6 +1,5 @@
 #import "vblur.h"
 #import "vspinner.h"
-#import "vspinnerlines.h"
 #import "vpiclist.h"
 #import "vpiclistlayout.h"
 #import "vpiclistheader.h"
