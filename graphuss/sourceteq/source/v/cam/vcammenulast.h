@@ -1,13 +1,7 @@
-//
-//  vcammenulast.h
-//  graphuss
-//
-//  Created by zero on 2/2/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
+@interface vcammenulast:UIView
 
-@interface vcammenulast : NSObject
+@property(weak, nonatomic)UIImageView *image;
 
 @end
