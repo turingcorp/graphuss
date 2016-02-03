@@ -12,4 +12,20 @@
     return self;
 }
 
+#pragma mark public
+
+-(NSInteger)count
+{
+    NSInteger count = array.count;
+    
+    return count;
+}
+
+-(mcamitem*)item:(NSInteger)item
+{
+    mcamitem *camitem = array[item];
+    
+    return camitem;
+}
+
 @end
