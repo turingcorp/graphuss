@@ -6,6 +6,8 @@
 {
     self = [super init];
     
+    self.title = @"";
+    
     return self;
 }
 

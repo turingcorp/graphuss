@@ -2,4 +2,6 @@
 
 @interface mcamitem:NSObject
 
+@property(copy, nonatomic)NSString *title;
+
 @end
