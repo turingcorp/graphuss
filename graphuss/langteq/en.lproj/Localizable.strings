@@ -46,6 +46,10 @@
 
 "pic_detail_fitlers_light_button"="Apply";
 
+"cam_menu_item_focus"="Focus";
+"cam_menu_item_exposure"="Exposure";
+"cam_menu_item_iso"="ISO";
+
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";
 "error_wrongbuffer"="Couldn't take picture, try again";
