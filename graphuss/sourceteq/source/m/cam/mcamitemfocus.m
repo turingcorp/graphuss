@@ -13,19 +13,19 @@
 
 #pragma mark public
 
--(void)selected:(vcam*)viewcam
+-(void)selected:(vcammenuoptions*)options
 {
-    [super selected:viewcam];
+    [super selected:options];
     
     vcamfocus *focus = [[vcamfocus alloc] init];
-    viewcam.overview = focus;
-    [viewcam addSubview:focus];
+    options.overview = focus;
+    [options addSubview:focus];
     
     NSDictionary *views = @{@"focus":focus};
     NSDictionary *metrics = @{};
     
-    [viewcam addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[focus]-0-|" options:0 metrics:metrics views:viewcam]];
-    [viewcam addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[focus]-0-|" options:0 metrics:metrics views:viewcam]];
+    [options addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[focus]-0-|" options:0 metrics:metrics views:views]];
+    [options addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[focus]-50-|" options:0 metrics:metrics views:views]];
 }
 
 @end

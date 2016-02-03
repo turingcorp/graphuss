@@ -1,10 +1,10 @@
 #import <UIKit/UIKit.h>
 
-@class vcam;
+@class vcammenuoptions;
 
 @interface mcamitem:NSObject
 
--(void)selected:(vcam*)viewcam;
+-(void)selected:(vcammenuoptions*)options;
 
 @property(copy, nonatomic)NSString *title;
 

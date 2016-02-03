@@ -1,5 +1,5 @@
 #import "mcamitem.h"
-#import "vcam.h"
+#import "vcammenuoptions.h"
 
 @implementation mcamitem
 
@@ -14,9 +14,9 @@
 
 #pragma mark public
 
--(void)selected:(vcam*)viewcam
+-(void)selected:(vcammenuoptions*)options
 {
-    [viewcam.overview removeFromSuperview];
+    [options.overview removeFromSuperview];
 }
 
 @end

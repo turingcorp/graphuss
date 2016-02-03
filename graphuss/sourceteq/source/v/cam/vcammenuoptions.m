@@ -65,6 +65,7 @@
 -(void)selectitem:(NSInteger)item
 {
     selected = item;
+    [[self.model item:selected] selected:self];
 }
 
 #pragma mark -
