@@ -12,7 +12,10 @@
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     [flow setFooterReferenceSize:CGSizeZero];
     [flow setHeaderReferenceSize:CGSizeZero];
-    
+    [flow setMinimumInteritemSpacing:0];
+    [flow setMinimumLineSpacing:0];
+    [flow setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flow setSectionInset:UIEdgeInsetsZero];
     
     UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flow];
     [collection setBackgroundColor:[UIColor clearColor]];
@@ -22,9 +25,15 @@
     [collection setAlwaysBounceVertical:YES];
     [collection setDelegate:self];
     [collection setDataSource:self];
+    [collection registerClass:[vcammenuoptionscel class] forCellWithReuseIdentifier:celid];
     
-    NSDictionary *views = @{};
+    [self addSubview:collection];
+    
+    NSDictionary *views = @{@"col":collection};
     NSDictionary *metrics = @{};
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -42,9 +51,11 @@
     return 0;
 }
 
--(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+-(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index
 {
-    return nil;
+    vcammenuoptionscel *cel = [col dequeueReusableCellWithReuseIdentifier:celid forIndexPath:index];
+    
+    return cel;
 }
 
 @end
