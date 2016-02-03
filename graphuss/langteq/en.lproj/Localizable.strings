@@ -48,6 +48,8 @@
 
 "cam_menu_item_focus"="Focus";
 "cam_menu_item_focus_label"="Auto focus";
+"cam_menu_item_focus_label_min"="Near";
+"cam_menu_item_focus_label_max"="Far";
 "cam_menu_item_exposure"="Exposure";
 "cam_menu_item_iso"="ISO";
 
