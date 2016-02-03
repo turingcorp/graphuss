@@ -54,3 +54,4 @@
 #import "mcamitemfocus.h"
 #import "mcamitemexposure.h"
 #import "mcamitemiso.h"
+#import "mcamsettings.h"

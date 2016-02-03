@@ -11,6 +11,10 @@
     
     [dbcon query:query];
     
+    query = @"CREATE TABLE focus (id INTEGER PRIMARY KEY, automatic INTEGER, value INTEGER);";
+    
+    [dbcon query:query];
+    
     [dbcon commit];
 }
 
