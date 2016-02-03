@@ -8,6 +8,12 @@
 -(instancetype)init
 {
     self = [super init];
+
+    array = [NSArray arrayWithObjects:
+             [[mcamitemfocus alloc] init],
+             [[mcamitemexposure alloc] init],
+             [[mcamitemiso alloc] init],
+             nil];
     
     return self;
 }

@@ -11,4 +11,11 @@
     return self;
 }
 
+#pragma mark public
+
+-(void)config:(mcamitem*)item
+{
+    
+}
+
 @end

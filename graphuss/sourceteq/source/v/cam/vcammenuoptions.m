@@ -26,8 +26,11 @@
     [collection setDelegate:self];
     [collection setDataSource:self];
     [collection registerClass:[vcammenuoptionscel class] forCellWithReuseIdentifier:celid];
+    [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     [self addSubview:collection];
+    
+    self.model = [[mcam alloc] init];
     
     NSDictionary *views = @{@"col":collection};
     NSDictionary *metrics = @{};
@@ -48,7 +51,9 @@
 
 -(NSInteger)collectionView:(UICollectionView*)col numberOfItemsInSection:(NSInteger)section
 {
-    return 0;
+    NSInteger count = [self.model count];
+    
+    return count;
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index
