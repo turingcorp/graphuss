@@ -1,13 +1,5 @@
-//
-//  mcamitem.h
-//  graphuss
-//
-//  Created by zero on 2/3/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
-
-@interface mcamitem : NSObject
+@interface mcamitem:NSObject
 
 @end
