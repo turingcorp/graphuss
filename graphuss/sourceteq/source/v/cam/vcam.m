@@ -136,7 +136,7 @@
 {
     [[analytics singleton] trackevent:ga_event_shoot action:ga_action_restart label:nil];
     [self animatepreviewhide];
-    [self.menu setUserInteractionEnabled:YES];
+    [self.menu refresh];
 }
 
 @end

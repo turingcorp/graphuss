@@ -6,6 +6,7 @@
 @interface vcammenu:UIView
 
 -(instancetype)init:(vcam*)viewcam;
+-(void)refresh;
 
 @property(weak, nonatomic)vcam *viewcam;
 @property(weak, nonatomic)vcammenulast *last;

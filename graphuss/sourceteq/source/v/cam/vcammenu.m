@@ -41,12 +41,14 @@
     
     self.coshootleft = [NSLayoutConstraint constraintWithItem:btnshoot attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeftMargin multiplier:1 constant:1];
     [self addConstraint:self.coshootleft];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[last(40)]" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[last]-10-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[last(60)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[last]-20-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[border]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[border(1)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[shoot]-10-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[shoot(shootwidth)]" options:0 metrics:metrics views:views]];
+    
+    [self refresh];
     
     return self;
 }
@@ -66,6 +68,14 @@
 -(void)actionshoot:(UIButton*)button
 {
     [self.viewcam takepicture];
+}
+
+#pragma mark public
+
+-(void)refresh
+{
+    [self.last refreshlast];
+    [self setUserInteractionEnabled:YES];
 }
 
 @end

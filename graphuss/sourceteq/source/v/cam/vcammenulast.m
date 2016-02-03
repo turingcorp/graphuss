@@ -12,7 +12,30 @@
     [self.layer setCornerRadius:4];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    UIImageView *image = [[UIImageView alloc] init];
+    [image setClipsToBounds:YES];
+    [image setContentMode:UIViewContentModeScaleAspectFill];
+    [image setUserInteractionEnabled:NO];
+    
+    [self addSubview:image];
+    
     return self;
+}
+
+#pragma mark public
+
+-(void)refreshlast
+{
+    UIImage *image;
+    NSInteger count = [mpic singleton].count;
+    
+    if(count)
+    {
+        mpicitem *item = [[mpic singleton] item:0];
+        image = item.thumb;
+    }
+    
+    [self.image setImage:image];
 }
 
 @end
