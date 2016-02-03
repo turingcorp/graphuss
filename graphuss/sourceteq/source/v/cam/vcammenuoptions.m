@@ -56,6 +56,7 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[border(1)]-49-|" options:0 metrics:metrics views:views]];
     
     [self selectitem:0];
+    [collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
     
     return self;
 }
