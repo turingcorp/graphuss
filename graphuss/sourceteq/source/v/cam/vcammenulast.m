@@ -16,10 +16,37 @@
     [image setClipsToBounds:YES];
     [image setContentMode:UIViewContentModeScaleAspectFill];
     [image setUserInteractionEnabled:NO];
-    
+    [image setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.image = image;
     [self addSubview:image];
     
+    NSDictionary *views = @{@"image":image};
+    NSDictionary *metrics = @{};
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[image]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[image]-0-|" options:0 metrics:metrics views:views]];
+    
+    [self refreshlast];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedimagesupdated:) name:notreloadpics object:nil];
+    
     return self;
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark notified
+
+-(void)notifiedreloadpics:(NSNotification*)notification
+{
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       
+                   });
 }
 
 #pragma mark public

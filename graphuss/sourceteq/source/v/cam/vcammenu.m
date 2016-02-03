@@ -48,8 +48,6 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[shoot]-10-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[shoot(shootwidth)]" options:0 metrics:metrics views:views]];
     
-    [self refresh];
-    
     return self;
 }
 
@@ -74,7 +72,6 @@
 
 -(void)refresh
 {
-    [self.last refreshlast];
     [self setUserInteractionEnabled:YES];
 }
 
