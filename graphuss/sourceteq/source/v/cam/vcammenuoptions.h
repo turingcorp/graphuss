@@ -1,5 +1,5 @@
 #import "appdel.h"
 
-@interface vcammenuoptions:UIView
+@interface vcammenuoptions:UIView<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @end
