@@ -52,3 +52,6 @@
 #import "mgraphicsfiltercoloronlyblack.h"
 #import "mcam.h"
 #import "mcamitem.h"
+#import "mcamitemfocus.h"
+#import "mcamitemexposure.h"
+#import "mcamitemiso.h"
