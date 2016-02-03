@@ -74,6 +74,7 @@
 		DA2D74401C5DDDA600E9A2C5 /* mgraphicsfiltercolorpurple.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D743F1C5DDDA600E9A2C5 /* mgraphicsfiltercolorpurple.m */; };
 		DA2D74431C5DDF2100E9A2C5 /* mgraphicsfiltercolorblack.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D74421C5DDF2100E9A2C5 /* mgraphicsfiltercolorblack.m */; };
 		DA2D74491C5DE5DF00E9A2C5 /* mgraphicsfiltercoloronlyblack.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D74481C5DE5DF00E9A2C5 /* mgraphicsfiltercoloronlyblack.m */; };
+		DA3648C31C6242F50047A04E /* vcammenuoptions.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3648C21C6242F50047A04E /* vcammenuoptions.m */; };
 		DA390BD41C57B5B3000ABCEA /* mpicmenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BD31C57B5B3000ABCEA /* mpicmenu.m */; };
 		DA390BD81C57B60B000ABCEA /* mpicmenufile.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BD71C57B60B000ABCEA /* mpicmenufile.m */; };
 		DA390BDB1C57B622000ABCEA /* mpicmenuedit.m in Sources */ = {isa = PBXBuildFile; fileRef = DA390BDA1C57B622000ABCEA /* mpicmenuedit.m */; };
@@ -251,6 +252,8 @@
 		DA2D74421C5DDF2100E9A2C5 /* mgraphicsfiltercolorblack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mgraphicsfiltercolorblack.m; sourceTree = "<group>"; };
 		DA2D74471C5DE5DF00E9A2C5 /* mgraphicsfiltercoloronlyblack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mgraphicsfiltercoloronlyblack.h; sourceTree = "<group>"; };
 		DA2D74481C5DE5DF00E9A2C5 /* mgraphicsfiltercoloronlyblack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mgraphicsfiltercoloronlyblack.m; sourceTree = "<group>"; };
+		DA3648C11C6242F50047A04E /* vcammenuoptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcammenuoptions.h; sourceTree = "<group>"; };
+		DA3648C21C6242F50047A04E /* vcammenuoptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcammenuoptions.m; sourceTree = "<group>"; };
 		DA390BD21C57B5B3000ABCEA /* mpicmenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenu.h; sourceTree = "<group>"; };
 		DA390BD31C57B5B3000ABCEA /* mpicmenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenu.m; sourceTree = "<group>"; };
 		DA390BD51C57B5E5000ABCEA /* mpicmenuprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenuprotocol.h; sourceTree = "<group>"; };
@@ -503,6 +506,8 @@
 				DAD7C9771C6159F900C0A354 /* vcammenulast.m */,
 				DA03AF641C52ACE0005DB3C9 /* vcampreview.h */,
 				DA03AF651C52ACE0005DB3C9 /* vcampreview.m */,
+				DA3648C11C6242F50047A04E /* vcammenuoptions.h */,
+				DA3648C21C6242F50047A04E /* vcammenuoptions.m */,
 			);
 			path = cam;
 			sourceTree = "<group>";
@@ -1104,6 +1109,7 @@
 			files = (
 				DA14784E1C514FC30024141B /* mpages.m in Sources */,
 				DA390C121C584526000ABCEA /* mpicmenueditrotateleft.m in Sources */,
+				DA3648C31C6242F50047A04E /* vcammenuoptions.m in Sources */,
 				DA1F25951C5BA5FF00F9AC75 /* mpicmenufiltersbw.m in Sources */,
 				DA03AF731C52FB30005DB3C9 /* vpiclistlayout.m in Sources */,
 				DA3D9A181C5126720072F69B /* main.m in Sources */,
