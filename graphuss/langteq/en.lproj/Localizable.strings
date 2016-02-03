@@ -47,6 +47,7 @@
 "pic_detail_fitlers_light_button"="Apply";
 
 "cam_menu_item_focus"="Focus";
+"cam_menu_item_focus_label"="Auto focus";
 "cam_menu_item_exposure"="Exposure";
 "cam_menu_item_iso"="ISO";
 

@@ -19,6 +19,7 @@
 @property(weak, nonatomic)vcammenu *menu;
 @property(weak, nonatomic)vcampreview *preview;
 @property(weak, nonatomic)vcammenuoptions *options;
+@property(weak, nonatomic)UIView *overview;
 @property(weak, nonatomic)NSLayoutConstraint *comenuheight;
 @property(weak, nonatomic)NSLayoutConstraint *cofinderheight;
 @property(weak, nonatomic)NSLayoutConstraint *copreviewheight;

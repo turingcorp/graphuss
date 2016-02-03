@@ -13,6 +13,7 @@
 #import "vcammenuoptionscel.h"
 #import "vcammenulast.h"
 #import "vcampreview.h"
+#import "vcamfocus.h"
 #import "vpicdetailmenu.h"
 #import "vpicdetailmenucel.h"
 #import "vpicdetailedit.h"
