@@ -200,4 +200,15 @@
                    });
 }
 
+-(void)detaillastpic
+{
+    NSInteger count = [[mpic singleton] count];
+    
+    if(count)
+    {
+        mpicitem *pic = [[mpic singleton] item:0];
+        [[cmain singleton] pushViewController:[[cpicdetail alloc] init:pic] animated:YES];
+    }
+}
+
 @end

@@ -30,6 +30,7 @@
     shootwidth = 90;
     
     vcammenulast *last = [[vcammenulast alloc] init];
+    [last addTarget:self action:@selector(actionlast) forControlEvents:UIControlEventTouchUpInside];
     self.last = last;
     
     [self addSubview:border];
@@ -66,6 +67,11 @@
 -(void)actionshoot:(UIButton*)button
 {
     [self.viewcam takepicture];
+}
+
+-(void)actionlast
+{
+    [(ccam*)self.viewcam.controller detaillastpic];
 }
 
 #pragma mark public

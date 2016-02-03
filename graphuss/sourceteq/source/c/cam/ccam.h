@@ -5,6 +5,7 @@
 @interface ccam:UIViewController
 
 -(void)shoot;
+-(void)detaillastpic;
 
 @property(weak, nonatomic)vcam *cam;
 @property(strong, nonatomic)AVCaptureSession *session;

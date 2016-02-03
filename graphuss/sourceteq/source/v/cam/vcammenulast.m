@@ -8,7 +8,7 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor whiteColor]];
     [self.layer setBorderWidth:1];
-    [self.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.1].CGColor];
+    [self.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.2].CGColor];
     [self.layer setCornerRadius:4];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
@@ -28,7 +28,7 @@
     
     [self refreshlast];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedimagesupdated:) name:notreloadpics object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedreloadpics:) name:notreloadpics object:nil];
     
     return self;
 }
@@ -45,7 +45,7 @@
     dispatch_async(dispatch_get_main_queue(),
                    ^
                    {
-                       
+                       [self refreshlast];
                    });
 }
 

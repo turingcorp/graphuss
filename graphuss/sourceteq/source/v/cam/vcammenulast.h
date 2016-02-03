@@ -1,6 +1,6 @@
 #import "appdel.h"
 
-@interface vcammenulast:UIView
+@interface vcammenulast:UIButton
 
 -(void)refreshlast;
 
