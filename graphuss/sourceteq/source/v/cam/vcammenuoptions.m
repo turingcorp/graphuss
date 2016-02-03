@@ -9,6 +9,8 @@
     [self setBackgroundColor:[UIColor clearColor]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    vblur *blur = [vblur light:YES];
+    
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     [flow setFooterReferenceSize:CGSizeZero];
     [flow setHeaderReferenceSize:CGSizeZero];
@@ -28,15 +30,26 @@
     [collection registerClass:[vcammenuoptionscel class] forCellWithReuseIdentifier:celid];
     [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    UIView *border = [[UIView alloc] init];
+    [border setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
+    [border setUserInteractionEnabled:NO];
+    [border setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self addSubview:blur];
+    [self addSubview:border];
     [self addSubview:collection];
     
     self.model = [[mcam alloc] init];
     
-    NSDictionary *views = @{@"col":collection};
+    NSDictionary *views = @{@"col":collection, @"blur":blur, @"border":border};
     NSDictionary *metrics = @{};
     
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[blur(70)]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[col(70)]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[border]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[border(1)]-69-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -59,6 +72,7 @@
 -(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index
 {
     vcammenuoptionscel *cel = [col dequeueReusableCellWithReuseIdentifier:celid forIndexPath:index];
+    [cel config:[self.model item:index.item]];
     
     return cel;
 }

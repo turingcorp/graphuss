@@ -5,6 +5,7 @@
 @class vspinner;
 @class vcammenu;
 @class vcampreview;
+@class vcammenuoptions;
 
 @interface vcam:viewbase
 
@@ -17,6 +18,7 @@
 @property(weak, nonatomic)vspinner *spinner;
 @property(weak, nonatomic)vcammenu *menu;
 @property(weak, nonatomic)vcampreview *preview;
+@property(weak, nonatomic)vcammenuoptions *options;
 @property(weak, nonatomic)NSLayoutConstraint *comenuheight;
 @property(weak, nonatomic)NSLayoutConstraint *cofinderheight;
 @property(weak, nonatomic)NSLayoutConstraint *copreviewheight;
