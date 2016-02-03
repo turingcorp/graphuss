@@ -11,9 +11,11 @@
     
     [dbcon query:query];
     
-    query = @"CREATE TABLE focus (id INTEGER PRIMARY KEY, automatic INTEGER, value INTEGER);";
+    query = @"CREATE TABLE focus (id INTEGER PRIMARY KEY, automatic INTEGER, amount INTEGER);";
     
     [dbcon query:query];
+    
+    query = @"INSERT INTO focus (automatic, amount) values(1, 0);";
     
     [dbcon commit];
 }

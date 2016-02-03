@@ -1,13 +1,11 @@
-//
-//  mcamsettings.h
-//  graphuss
-//
-//  Created by zero on 2/3/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
+@interface mcamsettings:NSObject
 
-@interface mcamsettings : NSObject
++(instancetype)singleton;
+-(void)refresh;
+
+@property(nonatomic)NSUInteger focusamount;
+@property(nonatomic)BOOL focusautomatic;
 
 @end
