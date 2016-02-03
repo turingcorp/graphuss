@@ -50,3 +50,5 @@
 #import "mgraphicsfiltercolorpurple.h"
 #import "mgraphicsfiltercolorblack.h"
 #import "mgraphicsfiltercoloronlyblack.h"
+#import "mcam.h"
+#import "mcamitem.h"
