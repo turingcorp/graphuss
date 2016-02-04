@@ -133,6 +133,8 @@
 		DA6E30F81C63A78F00652DF2 /* vcamflash.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E30F71C63A78F00652DF2 /* vcamflash.m */; };
 		DA6E30FB1C63AC6500652DF2 /* vcamexposureiso.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E30FA1C63AC6500652DF2 /* vcamexposureiso.m */; };
 		DA6E30FE1C63AC9700652DF2 /* vcamexposureisocel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E30FD1C63AC9700652DF2 /* vcamexposureisocel.m */; };
+		DA6E31011C63AE6B00652DF2 /* mcamiso.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E31001C63AE6B00652DF2 /* mcamiso.m */; };
+		DA6E31041C63AE7400652DF2 /* mcamisoitem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E31031C63AE7400652DF2 /* mcamisoitem.m */; };
 		DAD7C9781C6159F900C0A354 /* vcammenulast.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD7C9771C6159F900C0A354 /* vcammenulast.m */; };
 		DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DD1C512C1A006EBE52 /* Images.xcassets */; };
 		DAE468E01C512F30006EBE52 /* in in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DF1C512F2F006EBE52 /* in */; };
@@ -384,6 +386,10 @@
 		DA6E30FA1C63AC6500652DF2 /* vcamexposureiso.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcamexposureiso.m; sourceTree = "<group>"; };
 		DA6E30FC1C63AC9700652DF2 /* vcamexposureisocel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcamexposureisocel.h; sourceTree = "<group>"; };
 		DA6E30FD1C63AC9700652DF2 /* vcamexposureisocel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcamexposureisocel.m; sourceTree = "<group>"; };
+		DA6E30FF1C63AE6B00652DF2 /* mcamiso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcamiso.h; sourceTree = "<group>"; };
+		DA6E31001C63AE6B00652DF2 /* mcamiso.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mcamiso.m; sourceTree = "<group>"; };
+		DA6E31021C63AE7400652DF2 /* mcamisoitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcamisoitem.h; sourceTree = "<group>"; };
+		DA6E31031C63AE7400652DF2 /* mcamisoitem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mcamisoitem.m; sourceTree = "<group>"; };
 		DAD7C9761C6159F900C0A354 /* vcammenulast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcammenulast.h; sourceTree = "<group>"; };
 		DAD7C9771C6159F900C0A354 /* vcammenulast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcammenulast.m; sourceTree = "<group>"; };
 		DAE468DD1C512C1A006EBE52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -632,6 +638,10 @@
 				DA6E30F11C63A33700652DF2 /* mcamitemflash.m */,
 				DA3648DA1C62C8750047A04E /* mcamsettings.h */,
 				DA3648DB1C62C8750047A04E /* mcamsettings.m */,
+				DA6E30FF1C63AE6B00652DF2 /* mcamiso.h */,
+				DA6E31001C63AE6B00652DF2 /* mcamiso.m */,
+				DA6E31021C63AE7400652DF2 /* mcamisoitem.h */,
+				DA6E31031C63AE7400652DF2 /* mcamisoitem.m */,
 			);
 			path = cam;
 			sourceTree = "<group>";
@@ -1204,6 +1214,7 @@
 				DA3648D91C62B2D50047A04E /* vcamfocus.m in Sources */,
 				DA2C65591C5B073100862C05 /* vpicdetailpreview.m in Sources */,
 				DA390BF21C57C16F000ABCEA /* mpicmenufilters.m in Sources */,
+				DA6E31011C63AE6B00652DF2 /* mcamiso.m in Sources */,
 				DA2D743A1C5DC5EB00E9A2C5 /* mgraphicsfiltercoloronlyred.m in Sources */,
 				DA390BE91C57B90D000ABCEA /* vpicdetailmenu.m in Sources */,
 				DA3D9A271C5126720072F69B /* vspinner.m in Sources */,
@@ -1270,6 +1281,7 @@
 				DA3D9A221C5126720072F69B /* mdbcreate.m in Sources */,
 				DA6E30F51C63A66000652DF2 /* vcamexposure.m in Sources */,
 				DA0C209C1C5356D900C386EC /* cpicdetail.m in Sources */,
+				DA6E31041C63AE7400652DF2 /* mcamisoitem.m in Sources */,
 				DA1478571C5150860024141B /* mpagesitemlist.m in Sources */,
 				DAF0ECCF1C5C3D4E0008D989 /* mgraphicsfilterbwbasic.m in Sources */,
 				DA3D9A251C5126720072F69B /* vblur.m in Sources */,
