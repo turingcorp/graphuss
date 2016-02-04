@@ -26,7 +26,7 @@
                    ^
                    {
                        NSString *query;
-                       query = @"SELECT automatic, amount FROM focus where id=1;";
+                       query = @"SELECT automatic, amount FROM focus WHERE id=1;";
                        
                        db *dbcon = [db begin];
                        

@@ -15,7 +15,9 @@
     
     [dbcon query:query];
     
-    query = @"INSERT INTO focus (automatic, amount) values(1, 0);";
+    query = @"INSERT INTO focus (automatic, amount) values(1, 1000);";
+    
+    [dbcon query:query];
     
     [dbcon commit];
 }

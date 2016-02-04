@@ -90,10 +90,10 @@
     
     [self.cam addfinder:self.session];
     
-    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    self.device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
     NSError *error;
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:self.device error:&error];
     
     if(error)
     {
@@ -209,6 +209,20 @@
         mpicitem *pic = [[mpic singleton] item:0];
         [[cmain singleton] pushViewController:[[cpicdetail alloc] init:pic] animated:YES];
     }
+}
+
+-(void)changefocus:(CGFloat)amount
+{
+    if(amount < 0)
+    {
+        [self.device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
+    }
+    else
+    {
+        [self.device setFocusModeLockedWithLensPosition:amount completionHandler:nil];
+    }
+    
+    [device setFocusModeLockedWithLensPosition:stats.focusposition completionHandler:nil];
 }
 
 @end

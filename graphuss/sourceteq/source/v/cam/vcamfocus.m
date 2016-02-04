@@ -71,6 +71,16 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[min]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[max]-50-|" options:0 metrics:metrics views:views]];
     
+    [focusswitch setOn:[mcamsettings singleton].focusautomatic animated:NO];
+    [slider setValue:[mcamsettings singleton].focusamount / 100.0 animated:NO];
+    
+    if([mcamsettings singleton].focusautomatic)
+    {
+        [self hideslider];
+    }
+    
+    [self updatefocus];
+    
     return self;
 }
 
@@ -86,22 +96,41 @@
     {
         [self showslider];
     }
+    
+    [self updatefocus];
+}
+
+-(void)actionslider:(UISlider*)slider
+{
+    [self updatefocus];
 }
 
 #pragma mark functionality
 
--(void)showslider
+-(void)updatefocus
 {
-    [self.slider setHidden:YES];
-    [self.labelmin setHidden:YES];
-    [self.labelmax setHidden:YES];
+    if([mcamsettings singleton].focusautomatic)
+    {
+        
+    }
+    else
+    {
+        
+    }
 }
 
--(void)hideslider
+-(void)showslider
 {
     [self.slider setHidden:NO];
     [self.labelmin setHidden:NO];
     [self.labelmax setHidden:NO];
+}
+
+-(void)hideslider
+{
+    [self.slider setHidden:YES];
+    [self.labelmin setHidden:YES];
+    [self.labelmax setHidden:YES];
 }
 
 @end
