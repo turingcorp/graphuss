@@ -64,7 +64,7 @@
                        }
                        
                        NSString *query = [NSString stringWithFormat:
-                                          @"UPDATE focus set automatic=%@ where id=1;",
+                                          @"UPDATE focus SET automatic=%@ WHERE id=1;",
                                           newvalue];
                        
                        [db query:query];
@@ -79,7 +79,7 @@
                    ^
                    {
                        NSString *query = [NSString stringWithFormat:
-                                          @"UPDATE focus set amount=%@ where id=1;",
+                                          @"UPDATE focus SET amount=%@ WHERE id=1;",
                                           @(self.focusamount * 1000)];
                        
                        [db query:query];
@@ -88,17 +88,58 @@
 
 -(void)exposureauto:(BOOL)exposureauto
 {
+    self.exposureautomatic = exposureauto;
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       NSNumber *newvalue;
+                       
+                       if(exposureauto)
+                       {
+                           newvalue = @1;
+                       }
+                       else
+                       {
+                           newvalue = @0;
+                       }
+                       
+                       NSString *query = [NSString stringWithFormat:
+                                          @"UPDATE exposure SET automatic=%@ WHERE id=1;",
+                                          newvalue];
+                       
+                       [db query:query];
+                   });
 }
 
 -(void)exposureduration:(CGFloat)exposureduration
 {
+    self.exposureduration = exposureduration;
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       NSString *query = [NSString stringWithFormat:
+                                          @"UPDATE exposure SET duration=%@ WHERE id=1;",
+                                          @(self.exposureduration * 1000)];
+                       
+                       [db query:query];
+                   });
 }
 
 -(void)exposureaiso:(CGFloat)exposureiso
 {
+    self.exposureiso = exposureiso;
     
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       NSString *query = [NSString stringWithFormat:
+                                          @"UPDATE exposure SET iso=%@ WHERE id=1;",
+                                          @(self.exposureiso * 1000)];
+                       
+                       [db query:query];
+                   });
 }
 
 @end
