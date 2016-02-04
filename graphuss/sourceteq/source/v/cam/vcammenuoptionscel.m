@@ -18,7 +18,7 @@
     UIView *border = [[UIView alloc] init];
     [border setUserInteractionEnabled:NO];
     [border setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [border setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
+    [border setBackgroundColor:colormain];
     self.border = border;
     
     [self addSubview:label];
