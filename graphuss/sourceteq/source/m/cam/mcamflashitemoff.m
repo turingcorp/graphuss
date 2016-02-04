@@ -6,6 +6,8 @@
 {
     self = [super init];
     
+    self.name = NSLocalizedString(@"cam_menu_item_flash_torch", nil);
+    
     return self;
 }
 
