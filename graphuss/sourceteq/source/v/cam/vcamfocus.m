@@ -142,6 +142,7 @@
 {
     [timer invalidate];
     timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timeout:) userInfo:nil repeats:NO];
+    
     [self.controller focus:self.focusswitch.isOn amount:self.slider.value];
 }
 

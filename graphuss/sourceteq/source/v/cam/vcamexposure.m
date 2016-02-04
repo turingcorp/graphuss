@@ -119,10 +119,9 @@
 
 -(void)actionswitch:(UISwitch*)aswitch
 {
-    BOOL autofocus = aswitch.isOn;
-
+    BOOL autoexposure = aswitch.isOn;
     
-    if(autofocus)
+    if(autoexposure)
     {
         [self hidecontrols];
     }
@@ -136,8 +135,6 @@
 
 -(void)actionslider:(UISlider*)slider
 {
-//    [[mcamsettings singleton] focusamount:slider.value];
-    
     [self updateexposure];
 }
 
