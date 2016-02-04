@@ -64,3 +64,4 @@
 #import "mcamflashitemtorch.h"
 #import "mconfig.h"
 #import "mconfigprotocol.h"
+#import "mconfigabout.h"
