@@ -45,27 +45,28 @@
                    });
 }
 
--(void)focusauto:(BOOL)focusautomatic
+-(void)focusauto:(BOOL)automatic amount:(CGFloat)amount
 {
-    self.focusautomatic = focusautomatic;
+    self.focusautomatic = automatic;
+    self.focusamount = amount;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       NSNumber *newvalue;
+                       NSNumber *newauto;
                        
-                       if(focusautomatic)
+                       if(automatic)
                        {
-                           newvalue = @1;
+                           newauto = @1;
                        }
                        else
                        {
-                           newvalue = @0;
+                           newauto = @0;
                        }
                        
                        NSString *query = [NSString stringWithFormat:
-                                          @"UPDATE focus SET automatic=%@ WHERE id=1;",
-                                          newvalue];
+                                          @"UPDATE focus SET automatic=%@, amount=%@ WHERE id=1;",
+                                          newauto, @(self.focusamount * 1000)];
                        
                        [db query:query];
                    });
@@ -80,7 +81,7 @@
                    {
                        NSString *query = [NSString stringWithFormat:
                                           @"UPDATE focus SET amount=%@ WHERE id=1;",
-                                          @(self.focusamount * 1000)];
+                                          ];
                        
                        [db query:query];
                    });

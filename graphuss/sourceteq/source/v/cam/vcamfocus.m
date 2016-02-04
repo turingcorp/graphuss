@@ -27,6 +27,7 @@
     [focusswitch setOnTintColor:colormain];
     [focusswitch setTranslatesAutoresizingMaskIntoConstraints:NO];
     [focusswitch addTarget:self action:@selector(actionswitch:) forControlEvents:UIControlEventValueChanged];
+    self.focusswitch = focusswitch;
     
     UISlider *slider = [[UISlider alloc] init];
     [slider setMinimumTrackTintColor:colormain];
@@ -100,8 +101,7 @@
 -(void)actionswitch:(UISwitch*)aswitch
 {
     BOOL autofocus = aswitch.isOn;
-    [[mcamsettings singleton] focusauto:autofocus];
-    
+
     if(autofocus)
     {
         [self hideslider];
@@ -116,8 +116,6 @@
 
 -(void)actionslider:(UISlider*)slider
 {
-    [[mcamsettings singleton] focusamount:slider.value];
-    
     [self updatefocus];
 }
 
@@ -134,7 +132,7 @@
     }
     else
     {
-        NSString *label = [[tools singleton] numbertostring:@(self.slider.value)];
+        NSString *label = [[tools singleton] numbertostring:@([mcamsettings singleton].focusamount)];
         
         [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_manual label:label];
     }
@@ -144,19 +142,7 @@
 {
     [timer invalidate];
     timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timeout:) userInfo:nil repeats:NO];
-    
-    CGFloat focusamount;
-    
-    if([mcamsettings singleton].focusautomatic)
-    {
-        focusamount = -1;
-    }
-    else
-    {
-        focusamount = self.slider.value;
-    }
-    
-    [self.controller changefocus:focusamount];
+    [self.controller focus:self.focusswitch.isOn amount:self.slider.value];
 }
 
 -(void)showslider

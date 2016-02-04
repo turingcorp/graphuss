@@ -196,13 +196,53 @@
         focus = [mcamsettings singleton].focusamount;
     }
     
-    [self changefocus:focus];
+    [self insidefocus:[mcamsettings singleton].focusautomatic amount:[mcamsettings singleton].focusamount];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
                        self.isos = [[mcamiso alloc] init:self.device];
                        [[NSNotificationCenter defaultCenter] postNotificationName:notreloadisos object:nil];
+                   });
+}
+
+-(void)insidefocus:(BOOL)automatic amount:(CGFloat)amount
+{
+    __weak ccam *weakself = self;
+    
+    dispatch_async(queue,
+                   ^
+                   {
+                       NSError *error;
+                       
+                       if([weakself.device lockForConfiguration:&error])
+                       {
+                           if(automatic)
+                           {
+                               [weakself.device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
+                           }
+                           else
+                           {
+                               if([weakself.device respondsToSelector:@selector(setFocusModeLockedWithLensPosition:completionHandler:)])
+                               {
+                                   [weakself.device setFocusModeLockedWithLensPosition:amount completionHandler:nil];
+                               }
+                               else
+                               {
+                                   [weakself.device setFocusMode:AVCaptureFocusModeAutoFocus];
+                               }
+                           }
+                           
+                           [weakself.device unlockForConfiguration];
+                       }
+                       else
+                       {
+                           if(error)
+                           {
+                               NSLog(@"focus error: %@", error.localizedDescription);
+                               [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_error label:error.localizedDescription];
+                           }
+                       }
                    });
 }
 
@@ -232,6 +272,11 @@
     }
 }
 
+-(void)focus:(BOOL)automatic amount:(CGFloat)amount
+{
+    
+}
+/*
 -(void)changefocus:(CGFloat)amount
 {
     __weak ccam *weakself = self;
@@ -270,7 +315,7 @@
                        
                        [weakself.device unlockForConfiguration];
                    });
-}
+}*/
 
 -(void)changeduration:(CGFloat)duration iso:(CGFloat)iso
 {

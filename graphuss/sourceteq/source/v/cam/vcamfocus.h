@@ -8,6 +8,7 @@
 
 @property(weak, nonatomic)ccam *controller;
 @property(weak, nonatomic)UISlider *slider;
+@property(weak, nonatomic)UISwitch *focusswitch;
 @property(weak, nonatomic)UILabel *labelmin;
 @property(weak, nonatomic)UILabel *labelmax;
 

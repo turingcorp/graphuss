@@ -4,8 +4,7 @@
 
 +(instancetype)singleton;
 -(void)refresh;
--(void)focusauto:(BOOL)focusautomatic;
--(void)focusamount:(CGFloat)focusamount;
+-(void)focusauto:(BOOL)automatic amount:(CGFloat)amount;
 -(void)exposureauto:(BOOL)exposureauto;
 -(void)exposureduration:(CGFloat)exposureduration;
 -(void)exposureaiso:(CGFloat)exposureiso;
