@@ -13,6 +13,7 @@
 	<array>
 		<string>shoot</string>
 		<string>cam/focus</string>
+		<string>cam/exposure</string>
 		<string>pic/file/duplicate</string>
 		<string>pic/file/share</string>
 		<string>pic/file/compress</string>
