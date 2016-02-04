@@ -5,13 +5,14 @@
     NSInteger selected;
 }
 
--(instancetype)init
+-(instancetype)init:(vcam*)viewcam
 {
     self = [super init];
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor clearColor]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
+
+    self.viewcam = viewcam;
     vblur *blur = [vblur light:YES];
     
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];

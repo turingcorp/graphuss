@@ -17,7 +17,7 @@
 {
     [super selected:options];
     
-    vcamfocus *focus = [[vcamfocus alloc] init];
+    vcamfocus *focus = [[vcamfocus alloc] init:(ccam*)options.viewcam.controller];
     options.overview = focus;
     [options addSubview:focus];
     

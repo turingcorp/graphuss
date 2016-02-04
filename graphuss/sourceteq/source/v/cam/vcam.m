@@ -26,7 +26,7 @@
     vcampreview *preview = [[vcampreview alloc] init];
     self.preview = preview;
     
-    vcammenuoptions *options = [[vcammenuoptions alloc] init];
+    vcammenuoptions *options = [[vcammenuoptions alloc] init:self];
     self.options = options;
     
     [self addSubview:finder];

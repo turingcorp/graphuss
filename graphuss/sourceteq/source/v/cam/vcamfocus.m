@@ -1,14 +1,18 @@
 #import "vcamfocus.h"
 
 @implementation vcamfocus
+{
+    NSTimer *timer;
+}
 
--(instancetype)init
+-(instancetype)init:(ccam*)controller
 {
     self = [super init];
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor clearColor]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
+
+    self.controller = controller;
     vblur *blur = [vblur light:NO];
     
     UILabel *label = [[UILabel alloc] init];
@@ -28,6 +32,7 @@
     [slider setMinimumTrackTintColor:colormain];
     [slider setMaximumTrackTintColor:[UIColor colorWithWhite:0 alpha:0.2]];
     [slider setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [slider addTarget:self action:@selector(actionslider:) forControlEvents:UIControlEventValueChanged];
     self.slider = slider;
     
     UILabel *labelmin = [[UILabel alloc] init];
@@ -84,11 +89,22 @@
     return self;
 }
 
+-(void)dealloc
+{
+    if(timer)
+    {
+        [self timeout:timer];
+    }
+}
+
 #pragma mark actions
 
 -(void)actionswitch:(UISwitch*)aswitch
 {
-    if(aswitch.isOn)
+    BOOL autofocus = aswitch.isOn;
+    [[mcamsettings singleton] focusauto:autofocus];
+    
+    if(autofocus)
     {
         [self hideslider];
     }
@@ -102,21 +118,45 @@
 
 -(void)actionslider:(UISlider*)slider
 {
+    [[mcamsettings singleton] focusamount:slider.value];
+    
     [self updatefocus];
 }
 
 #pragma mark functionality
 
--(void)updatefocus
+-(void)timeout:(NSTimer*)atimer
 {
+    [timer invalidate];
+    timer = nil;
+    
     if([mcamsettings singleton].focusautomatic)
     {
-        
+        [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_automatic label:nil];
     }
     else
     {
-        
+        [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_manual label:[[tools singleton] numbertostring:@(self.slider.value)]];
     }
+}
+
+-(void)updatefocus
+{
+    [timer invalidate];
+    timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timeout:) userInfo:nil repeats:NO];
+    
+    CGFloat focusamount;
+    
+    if([mcamsettings singleton].focusautomatic)
+    {
+        focusamount = -1;
+    }
+    else
+    {
+        focusamount = self.slider.value;
+    }
+    
+    [self.controller changefocus:focusamount];
 }
 
 -(void)showslider

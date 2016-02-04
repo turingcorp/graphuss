@@ -111,6 +111,8 @@
         [self.output setOutputSettings:@{AVVideoCodecKey:AVVideoCodecJPEG}];
         [self.session addOutput:self.output];
         [self.session startRunning];
+        
+        [self initialconfiguration];
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
@@ -185,6 +187,18 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
 }
 
+-(void)initialconfiguration
+{
+    CGFloat focus = -1;
+    
+    if(![mcamsettings singleton].focusautomatic)
+    {
+        focus = [mcamsettings singleton].focusamount / 1000;
+    }
+    
+    [self changefocus:focus];
+}
+
 #pragma mark public
 
 -(void)shoot
@@ -213,28 +227,41 @@
 
 -(void)changefocus:(CGFloat)amount
 {
-    NSError *error;
+    __weak ccam *weakself = self;
     
-    if([self.device lockForConfiguration:&error])
-    {
-        if(amount < 0)
-        {
-            [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_automatic label:nil];
-            
-            [self.device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
-        }
-        else
-        {
-            NSString *label = [[tools singleton] numbertostring:@(amount)];
-            
-            [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_manual label:label];
-            [self.device setFocusModeLockedWithLensPosition:amount completionHandler:nil];
-        }
-    }
-    else
-    {
-        [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_error label:error.localizedDescription];
-    }
+    dispatch_async(queue,
+                   ^
+                   {
+                       NSError *error;
+                       
+                       if([weakself.device lockForConfiguration:&error])
+                       {
+                           if(amount < 0)
+                           {
+                               [weakself.device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
+                           }
+                           else
+                           {
+                               NSString *label = [[tools singleton] numbertostring:@(amount)];
+                               
+                               if([weakself.device respondsToSelector:@selector(setFocusModeLockedWithLensPosition:completionHandler:)])
+                               {
+                                   [weakself.device setFocusModeLockedWithLensPosition:amount completionHandler:nil];
+                               }
+                               else
+                               {
+                                   [weakself.device setFocusMode:AVCaptureFocusModeAutoFocus];
+                               }
+                           }
+                       }
+                       else
+                       {
+                           if(error)
+                           {
+                               [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_error label:error.localizedDescription];
+                           }
+                       }
+                   });
 }
 
 @end

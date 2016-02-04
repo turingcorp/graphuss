@@ -38,4 +38,45 @@
                    });
 }
 
+-(void)focusauto:(BOOL)focusautomatic
+{
+    self.focusautomatic = focusautomatic;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       NSNumber *newvalue;
+                       
+                       if(focusautomatic)
+                       {
+                           newvalue = @1;
+                       }
+                       else
+                       {
+                           newvalue = @0;
+                       }
+                       
+                       NSString *query = [NSString stringWithFormat:
+                                          @"UPDATE focus set automatic=%@ where id=1;",
+                                          newvalue];
+                       
+                       [db query:query];
+                   });
+}
+
+-(void)focusamount:(CGFloat)focusamount
+{
+    self.focusamount = focusamount * 1000;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       NSString *query = [NSString stringWithFormat:
+                                          @"UPDATE focus set amount=%@ where id=1;",
+                                          @(self.focusamount)];
+                       
+                       [db query:query];
+                   });
+}
+
 @end
