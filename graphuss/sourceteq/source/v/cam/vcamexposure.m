@@ -185,7 +185,7 @@
     [timer invalidate];
     timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timeout:) userInfo:nil repeats:NO];
     
-    [self.controller exposure:self.exposureswitch.isOn duration:self.slider.value iso:[self.controller.isos item:self.iso.selected].isoamount];
+    [self.controller exposure:self.exposureswitch.isOn duration:self.slider.value iso:[self.controller.isos currentiso]];
 }
 
 @end
