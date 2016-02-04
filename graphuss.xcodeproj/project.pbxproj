@@ -142,6 +142,7 @@
 		DA6E31131C63EA2700652DF2 /* mcamflashitemon.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E31121C63EA2700652DF2 /* mcamflashitemon.m */; };
 		DA6E31161C63EA3700652DF2 /* mcamflashitemtorch.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E31151C63EA3700652DF2 /* mcamflashitemtorch.m */; };
 		DA6E31191C63EECB00652DF2 /* vcamflashcel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E31181C63EECB00652DF2 /* vcamflashcel.m */; };
+		DA6E311C1C6409EC00652DF2 /* vconfigcel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E311B1C6409EC00652DF2 /* vconfigcel.m */; };
 		DAD7C9781C6159F900C0A354 /* vcammenulast.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD7C9771C6159F900C0A354 /* vcammenulast.m */; };
 		DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DD1C512C1A006EBE52 /* Images.xcassets */; };
 		DAE468E01C512F30006EBE52 /* in in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DF1C512F2F006EBE52 /* in */; };
@@ -411,6 +412,8 @@
 		DA6E31151C63EA3700652DF2 /* mcamflashitemtorch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mcamflashitemtorch.m; sourceTree = "<group>"; };
 		DA6E31171C63EECB00652DF2 /* vcamflashcel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcamflashcel.h; sourceTree = "<group>"; };
 		DA6E31181C63EECB00652DF2 /* vcamflashcel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcamflashcel.m; sourceTree = "<group>"; };
+		DA6E311A1C6409EC00652DF2 /* vconfigcel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vconfigcel.h; sourceTree = "<group>"; };
+		DA6E311B1C6409EC00652DF2 /* vconfigcel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vconfigcel.m; sourceTree = "<group>"; };
 		DAD7C9761C6159F900C0A354 /* vcammenulast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcammenulast.h; sourceTree = "<group>"; };
 		DAD7C9771C6159F900C0A354 /* vcammenulast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcammenulast.m; sourceTree = "<group>"; };
 		DAE468DD1C512C1A006EBE52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -491,6 +494,8 @@
 			children = (
 				DA05EC581C5EC241006BD6CB /* vconfig.h */,
 				DA05EC591C5EC241006BD6CB /* vconfig.m */,
+				DA6E311A1C6409EC00652DF2 /* vconfigcel.h */,
+				DA6E311B1C6409EC00652DF2 /* vconfigcel.m */,
 			);
 			path = config;
 			sourceTree = "<group>";
@@ -1243,6 +1248,7 @@
 				DA390BEF1C57B948000ABCEA /* vpicdetailfile.m in Sources */,
 				DA1478651C51782C0024141B /* vcamfinder.m in Sources */,
 				DA3D9A261C5126720072F69B /* viewbase.m in Sources */,
+				DA6E311C1C6409EC00652DF2 /* vconfigcel.m in Sources */,
 				DA1478541C5150390024141B /* mpagesitemcamera.m in Sources */,
 				DAF27F9F1C5923080044C928 /* vpiclistheader.m in Sources */,
 				DA390BD41C57B5B3000ABCEA /* mpicmenu.m in Sources */,
