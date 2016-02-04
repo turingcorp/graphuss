@@ -189,14 +189,8 @@
 
 -(void)initialconfiguration
 {
-    CGFloat focus = -1;
-    
-    if(![mcamsettings singleton].focusautomatic)
-    {
-        focus = [mcamsettings singleton].focusamount;
-    }
-    
     [self insidefocus:[mcamsettings singleton].focusautomatic amount:[mcamsettings singleton].focusamount];
+    [self insideexposure:[mcamsettings singleton].exposureautomatic duration:[mcamsettings singleton].exposureduration iso:[mcamsettings singleton].exposureiso];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
@@ -248,7 +242,54 @@
 
 -(void)insideexposure:(BOOL)automatic duration:(CGFloat)duration iso:(CGFloat)iso
 {
+    __weak ccam *weakself = self;
     
+    dispatch_async(queue,
+                   ^
+                   {
+                       NSError *error;
+                       
+                       if([weakself.device lockForConfiguration:&error])
+                       {
+                           if(automatic)
+                           {
+                               [weakself.device setExposureMode:AVCaptureExposureModeContinuousAutoExposure];
+                           }
+                           else
+                           {
+                               if([weakself.device respondsToSelector:@selector(setExposureModeCustomWithDuration:ISO:completionHandler:)])
+                               {
+                                   [weakself.device setExposureModeCustomWithDuration:[self exposuredurationfor:duration] ISO:iso completionHandler:nil];
+                               }
+                               else
+                               {
+                                   [weakself.device setExposureMode:AVCaptureExposureModeAutoExpose];
+                               }
+                           }
+                           
+                           [weakself.device unlockForConfiguration];
+                       }
+                       else
+                       {
+                           if(error)
+                           {
+                               NSLog(@"exposure error: %@", error.localizedDescription);
+                               [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_error label:error.localizedDescription];
+                           }
+                       }
+                   });
+}
+
+-(CMTime)exposuredurationfor:(CGFloat)duration
+{
+    AVCaptureDeviceFormat *format = self.device.activeFormat;
+    CMTime minduration = format.minExposureDuration;
+    CMTime maxduration = format.maxExposureDuration;
+    CMTime rangeduration = CMTimeSubtract(maxduration, minduration);
+    CMTime relative = CMTimeMultiplyByFloat64(rangeduration, duration);
+    CMTime current = CMTimeAdd(minduration, relative);
+    
+    return current;
 }
 
 #pragma mark public
@@ -285,92 +326,8 @@
 
 -(void)exposure:(BOOL)automatic duration:(CGFloat)duration iso:(CGFloat)iso
 {
+    [[mcamsettings singleton] exposureauto:automatic duration:duration iso:iso];
     [self insideexposure:automatic duration:duration iso:iso];
-}
-/*
--(void)changefocus:(CGFloat)amount
-{
-    __weak ccam *weakself = self;
-    
-    dispatch_async(queue,
-                   ^
-                   {
-                       NSError *error;
-                       
-                       if([weakself.device lockForConfiguration:&error])
-                       {
-                           if(amount < 0)
-                           {
-                               [weakself.device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
-                           }
-                           else
-                           {
-                               if([weakself.device respondsToSelector:@selector(setFocusModeLockedWithLensPosition:completionHandler:)])
-                               {
-                                   [weakself.device setFocusModeLockedWithLensPosition:amount completionHandler:nil];
-                               }
-                               else
-                               {
-                                   [weakself.device setFocusMode:AVCaptureFocusModeAutoFocus];
-                               }
-                           }
-                       }
-                       else
-                       {
-                           if(error)
-                           {
-                               NSLog(@"focus error: %@", error.localizedDescription);
-                               [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_error label:error.localizedDescription];
-                           }
-                       }
-                       
-                       [weakself.device unlockForConfiguration];
-                   });
-}*/
-
--(void)changeduration:(CGFloat)duration iso:(CGFloat)iso
-{
-    /*
-    __weak ccam *weakself = self;
-    
-    dispatch_async(queue,
-                   ^
-                   {
-                       NSError *error;
-                       
-                       if([weakself.device lockForConfiguration:&error])
-                       {
-                           if(amount < 0)
-                           {
-                               [weakself.device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
-                           }
-                           else
-                           {
-                               if([weakself.device respondsToSelector:@selector(setFocusModeLockedWithLensPosition:completionHandler:)])
-                               {
-                                   [weakself.device setFocusModeLockedWithLensPosition:amount completionHandler:nil];
-                               }
-                               else
-                               {
-                                   [weakself.device setFocusMode:AVCaptureFocusModeAutoFocus];
-                               }
-                           }
-                       }
-                       else
-                       {
-                           if(error)
-                           {
-                               NSLog(@"exposure error: %@", error.localizedDescription);
-                               [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_error label:error.localizedDescription];
-                           }
-                       }
-                       
-                       [weakself.device unlockForConfiguration];
-                   });
-    
-    
-    [self.device setExposureMode:avcaptureex]
-    [device setExposureModeCustomWithDuration:[stats exposurefor:active.maxExposureDuration and:active.minExposureDuration] ISO:[stats isofor:active.maxISO and:active.minISO] completionHandler:nil];*/
 }
 
 @end

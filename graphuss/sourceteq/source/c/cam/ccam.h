@@ -8,7 +8,7 @@
 -(void)shoot;
 -(void)detaillastpic;
 -(void)focus:(BOOL)automatic amount:(CGFloat)amount;
--(void)changeduration:(CGFloat)duration iso:(CGFloat)iso;
+-(void)exposure:(BOOL)automatic duration:(CGFloat)duration iso:(CGFloat)iso;
 
 @property(weak, nonatomic)vcam *cam;
 @property(strong, nonatomic)mcamiso *isos;
