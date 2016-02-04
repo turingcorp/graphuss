@@ -45,6 +45,8 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[blur(height)]-0-|" options:0 metrics:metrics views:views]];
     
+    [collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:self.model.selected inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    
     return self;
 }
 

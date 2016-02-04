@@ -14,6 +14,7 @@
 		<string>shoot</string>
 		<string>cam/focus</string>
 		<string>cam/exposure</string>
+		<string>cam/flash</string>
 		<string>pic/file/duplicate</string>
 		<string>pic/file/share</string>
 		<string>pic/file/compress</string>
@@ -36,6 +37,9 @@
 		<string>right</string>
 		<string>automatic</string>
 		<string>manual</string>
+		<string>off</string>
+		<string>on</string>
+		<string>torch</string>
 	</array>
 </dict>
 </plist>
