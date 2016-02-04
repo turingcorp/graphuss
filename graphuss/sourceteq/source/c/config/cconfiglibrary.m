@@ -9,7 +9,7 @@
 
 -(void)loadView
 {
-    self.view = [[vconfiglibrary alloc] init];
+    self.view = [[vconfiglibrary alloc] init:self];
 }
 
 @end

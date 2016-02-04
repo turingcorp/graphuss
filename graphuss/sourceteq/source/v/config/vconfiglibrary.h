@@ -1,5 +1,6 @@
 #import "appdel.h"
+#import "viewbase.h"
 
-@interface vconfiglibrary:UIView<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface vconfiglibrary:viewbase<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @end
