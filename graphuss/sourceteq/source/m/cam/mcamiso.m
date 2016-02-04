@@ -22,7 +22,8 @@
     
     for(NSUInteger i = 0; i < totalisos; i++)
     {
-        
+        mcamisoitem *item = [[mcamisoitem alloc] init:currentiso];
+        [array addObject:item];
         
         currentiso += deltaiso;
     }
