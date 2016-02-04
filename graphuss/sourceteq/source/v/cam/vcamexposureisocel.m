@@ -28,7 +28,7 @@
     [self addSubview:circle];
     [self addSubview:label];
     
-    NSDictionary *views = @{};
+    NSDictionary *views = @{@"circle":circle, @"label":label};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[circle]-10-|" options:0 metrics:metrics views:views]];
