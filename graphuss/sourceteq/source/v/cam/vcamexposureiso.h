@@ -1,5 +1,5 @@
 #import "appdel.h"
 
-@interface vcamexposureiso:UIView
+@interface vcamexposureiso:UIView<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @end

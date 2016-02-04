@@ -15,6 +15,8 @@
 #import "vcampreview.h"
 #import "vcamfocus.h"
 #import "vcamexposure.h"
+#import "vcamexposureiso.h"
+#import "vcamexposureisocel.h"
 #import "vcamflash.h"
 #import "vpicdetailmenu.h"
 #import "vpicdetailmenucel.h"
