@@ -1,6 +1,7 @@
 #import "appdel.h"
 
 @class vcam;
+@class mcamiso;
 
 @interface ccam:UIViewController
 
@@ -10,6 +11,7 @@
 -(void)changeduration:(CGFloat)duration iso:(CGFloat)iso;
 
 @property(weak, nonatomic)vcam *cam;
+@property(strong, nonatomic)mcamiso *isos;
 @property(strong, nonatomic)AVCaptureSession *session;
 @property(strong, nonatomic)AVCaptureDevice *device;
 @property(strong, nonatomic)AVCaptureStillImageOutput *output;

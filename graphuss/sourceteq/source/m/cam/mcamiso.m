@@ -16,9 +16,15 @@
     self.miniso = format.minISO;
     NSUInteger totalisos = 10;
     
+    CGFloat sumisos = self.maxiso - self.miniso;
+    CGFloat deltaiso = sumisos / (CGFloat)totalisos;
+    CGFloat currentiso = self.miniso;
+    
     for(NSUInteger i = 0; i < totalisos; i++)
     {
         
+        
+        currentiso += deltaiso;
     }
     
     return self;

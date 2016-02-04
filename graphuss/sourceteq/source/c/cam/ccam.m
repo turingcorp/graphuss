@@ -197,6 +197,8 @@
     }
     
     [self changefocus:focus];
+    
+    self.isos = [[mcamiso alloc] init:self.device];
 }
 
 #pragma mark public
