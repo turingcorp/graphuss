@@ -6,4 +6,6 @@
 
 -(void)config:(mcamflashitem*)item;
 
+@property(weak, nonatomic)UILabel *label;
+
 @end
