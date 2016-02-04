@@ -28,6 +28,7 @@
     [exposureswitch setOnTintColor:colormain];
     [exposureswitch setTranslatesAutoresizingMaskIntoConstraints:NO];
     [exposureswitch addTarget:self action:@selector(actionswitch:) forControlEvents:UIControlEventValueChanged];
+    self.exposureswitch = exposureswitch;
     
     UISlider *slider = [[UISlider alloc] init];
     [slider setMinimumTrackTintColor:colormain];
