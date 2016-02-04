@@ -72,57 +72,29 @@
                    });
 }
 
--(void)exposureauto:(BOOL)exposureauto
+-(void)exposureauto:(BOOL)automatic duration:(CGFloat)duration iso:(CGFloat)iso
 {
-    self.exposureautomatic = exposureauto;
+    self.exposureautomatic = automatic;
+    self.exposureduration = duration;
+    self.exposureiso = iso;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       NSNumber *newvalue;
+                       NSNumber *newauto;
                        
-                       if(exposureauto)
+                       if(automatic)
                        {
-                           newvalue = @1;
+                           newauto = @1;
                        }
                        else
                        {
-                           newvalue = @0;
+                           newauto = @0;
                        }
                        
                        NSString *query = [NSString stringWithFormat:
-                                          @"UPDATE exposure SET automatic=%@ WHERE id=1;",
-                                          newvalue];
-                       
-                       [db query:query];
-                   });
-}
-
--(void)exposureduration:(CGFloat)exposureduration
-{
-    self.exposureduration = exposureduration;
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-                   ^
-                   {
-                       NSString *query = [NSString stringWithFormat:
-                                          @"UPDATE exposure SET duration=%@ WHERE id=1;",
-                                          @(self.exposureduration * 1000)];
-                       
-                       [db query:query];
-                   });
-}
-
--(void)exposureaiso:(CGFloat)exposureiso
-{
-    self.exposureiso = exposureiso;
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-                   ^
-                   {
-                       NSString *query = [NSString stringWithFormat:
-                                          @"UPDATE exposure SET iso=%@ WHERE id=1;",
-                                          @(self.exposureiso * 1000)];
+                                          @"UPDATE exposure SET automatic=%@, duration=%@, iso=%@ WHERE id=1;",
+                                          newauto, @(self.exposureduration * 1000), @(self.exposureiso * 1000)];
                        
                        [db query:query];
                    });

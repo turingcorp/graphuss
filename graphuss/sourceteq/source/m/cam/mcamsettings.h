@@ -5,9 +5,7 @@
 +(instancetype)singleton;
 -(void)refresh;
 -(void)focusauto:(BOOL)automatic amount:(CGFloat)amount;
--(void)exposureauto:(BOOL)exposureauto;
--(void)exposureduration:(CGFloat)exposureduration;
--(void)exposureaiso:(CGFloat)exposureiso;
+-(void)exposureauto:(BOOL)automatic duration:(CGFloat)duration iso:(CGFloat)iso;
 
 @property(nonatomic)CGFloat focusamount;
 @property(nonatomic)CGFloat exposureduration;
