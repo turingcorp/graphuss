@@ -120,7 +120,7 @@
 -(void)actionswitch:(UISwitch*)aswitch
 {
     BOOL autofocus = aswitch.isOn;
-    [[mcamsettings singleton] focusauto:autofocus];
+
     
     if(autofocus)
     {
@@ -196,7 +196,6 @@
         focusamount = self.slider.value;
     }
     
-    [self.controller changefocus:focusamount];
 }
 
 @end

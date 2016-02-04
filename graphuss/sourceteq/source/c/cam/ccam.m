@@ -246,6 +246,11 @@
                    });
 }
 
+-(void)insideexposure:(BOOL)automatic duration:(CGFloat)duration iso:(CGFloat)iso
+{
+    
+}
+
 #pragma mark public
 
 -(void)shoot
@@ -274,7 +279,13 @@
 
 -(void)focus:(BOOL)automatic amount:(CGFloat)amount
 {
-    
+    [[mcamsettings singleton] focusauto:automatic amount:amount];
+    [self insidefocus:automatic amount:amount];
+}
+
+-(void)exposure:(BOOL)automatic duration:(CGFloat)duration iso:(CGFloat)iso
+{
+    [self insideexposure:automatic duration:duration iso:iso];
 }
 /*
 -(void)changefocus:(CGFloat)amount

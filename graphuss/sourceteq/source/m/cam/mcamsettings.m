@@ -72,21 +72,6 @@
                    });
 }
 
--(void)focusamount:(CGFloat)focusamount
-{
-    self.focusamount = focusamount;
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-                   ^
-                   {
-                       NSString *query = [NSString stringWithFormat:
-                                          @"UPDATE focus SET amount=%@ WHERE id=1;",
-                                          ];
-                       
-                       [db query:query];
-                   });
-}
-
 -(void)exposureauto:(BOOL)exposureauto
 {
     self.exposureautomatic = exposureauto;
