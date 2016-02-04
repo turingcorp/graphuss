@@ -38,4 +38,5 @@
 #import "vpicdetailfilterscolorcel.h"
 #import "vpicdetailpreview.h"
 #import "vconfig.h"
+#import "vconfigheader.h"
 #import "vconfigcel.h"

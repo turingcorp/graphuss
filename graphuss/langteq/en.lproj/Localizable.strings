@@ -70,6 +70,7 @@
 "cam_flash_error_flashoffnotsupported"="Flash off not supported";
 "cam_flash_error_flashautonotsupported"="Flash auto not supported";
 
+"config_title"="Settings";
 "config_item_about"="About";
 "config_item_contact"="Contact";
 "config_item_library"="Library";
