@@ -265,8 +265,9 @@
                    });
 }
 
--(void)changeexposure
+-(void)changeduration:(CGFloat)duration iso:(CGFloat)iso
 {
+    /*
     __weak ccam *weakself = self;
     
     dispatch_async(queue,
@@ -306,7 +307,7 @@
     
     
     [self.device setExposureMode:avcaptureex]
-    [device setExposureModeCustomWithDuration:[stats exposurefor:active.maxExposureDuration and:active.minExposureDuration] ISO:[stats isofor:active.maxISO and:active.minISO] completionHandler:nil];
+    [device setExposureModeCustomWithDuration:[stats exposurefor:active.maxExposureDuration and:active.minExposureDuration] ISO:[stats isofor:active.maxISO and:active.minISO] completionHandler:nil];*/
 }
 
 @end
