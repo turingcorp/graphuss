@@ -40,14 +40,19 @@
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
 {
-    CGSize size = CGSizeMake(0, 0);
+    CGFloat height = col.bounds.size.height;
+    CGSize size = CGSizeMake(height, height);
 
     return size;
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout insetForSectionAtIndex:(NSInteger)section
 {
-    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
+    CGFloat height = col.bounds.size.height;
+    CGFloat totalwidth = col.bounds.size.width;
+    CGFloat margin = (totalwidth - height) / 2.0;
+    
+    UIEdgeInsets insets = UIEdgeInsetsMake(margin, 0, 0, margin);
     
     return insets;
 }
@@ -67,6 +72,7 @@
 -(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index
 {
     vcamexposureisocel *cel = [col dequeueReusableCellWithReuseIdentifier:celid forIndexPath:index];
+    [cel config:[self.isos item:index.item]];
     
     return cel;
 }

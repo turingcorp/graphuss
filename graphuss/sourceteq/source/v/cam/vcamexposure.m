@@ -26,11 +26,15 @@
     [exposureswitch setTranslatesAutoresizingMaskIntoConstraints:NO];
     [exposureswitch addTarget:self action:@selector(actionswitch:) forControlEvents:UIControlEventValueChanged];
     
+    vcamexposureiso *iso = [[vcamexposureiso alloc] init:self];
+    self.iso = iso;
+    
     [self addSubview:blur];
     [self addSubview:label];
     [self addSubview:exposureswitch];
+    [self addSubview:iso];
     
-    NSDictionary *views = @{@"blur":blur, @"switch":exposureswitch, @"label":label};
+    NSDictionary *views = @{@"blur":blur, @"switch":exposureswitch, @"label":label, @"iso":iso};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
@@ -38,6 +42,8 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[label]-12-[switch]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label]-210-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[switch]-205-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[iso]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[iso(80)]-50-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
