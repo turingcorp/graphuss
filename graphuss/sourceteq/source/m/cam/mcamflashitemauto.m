@@ -16,6 +16,7 @@
 
 -(void)selected:(ccam*)controller
 {
+    [[analytics singleton] trackevent:ga_event_cam_flash action:ga_action_automatic label:nil];
     [controller flashtype:cam_flash_auto];
 }
 
