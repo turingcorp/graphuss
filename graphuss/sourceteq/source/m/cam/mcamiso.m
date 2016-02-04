@@ -28,6 +28,8 @@
         currentiso += deltaiso;
     }
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:notreloadisos object:nil];
+    
     return self;
 }
 

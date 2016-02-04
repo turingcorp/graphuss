@@ -20,6 +20,7 @@
 #define notrefrespic            @"refreshpic"
 #define notwritingbusy          @"writingbusy"
 #define notwritingfree          @"writingfree"
+#define notreloadisos           @"reloadisos"
 
 // extra
 
