@@ -198,7 +198,11 @@
     
     [self changefocus:focus];
     
-    self.isos = [[mcamiso alloc] init:self.device];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       self.isos = [[mcamiso alloc] init:self.device];
+                   });
 }
 
 #pragma mark public
