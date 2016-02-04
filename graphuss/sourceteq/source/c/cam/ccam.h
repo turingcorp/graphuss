@@ -6,6 +6,7 @@
 
 -(void)shoot;
 -(void)detaillastpic;
+-(void)changefocus:(CGFloat)amount;
 -(void)changeduration:(CGFloat)duration iso:(CGFloat)iso;
 
 @property(weak, nonatomic)vcam *cam;

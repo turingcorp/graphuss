@@ -12,7 +12,7 @@
     array = [NSArray arrayWithObjects:
              [[mcamitemfocus alloc] init],
              [[mcamitemexposure alloc] init],
-             [[mcamitemiso alloc] init],
+             [[mcamitemflash alloc] init],
              nil];
     
     return self;

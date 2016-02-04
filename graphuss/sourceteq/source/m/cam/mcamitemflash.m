@@ -6,7 +6,7 @@
 {
     self = [super init];
     
-    self.title = NSLocalizedString(@"cam_menu_item_exposure", nil);
+    self.title = NSLocalizedString(@"cam_menu_item_flash", nil);
     
     return self;
 }
