@@ -10,6 +10,9 @@
     self = [super init];
     
     array = [NSMutableArray array];
+    self.selected = 0;
+    
+    CGFloat expectedvalue = [mcamsettings singleton].exposureiso;
     
     AVCaptureDeviceFormat *format = device.activeFormat;
     self.maxiso = format.maxISO;
@@ -22,6 +25,11 @@
     
     for(NSUInteger i = 0; i < totalisos; i++)
     {
+        if(currentiso == expectedvalue)
+        {
+            self.selected = i;
+        }
+        
         mcamisoitem *item = [[mcamisoitem alloc] init:currentiso];
         [array addObject:item];
         
@@ -45,6 +53,14 @@
     mcamisoitem *item = array[index];
     
     return item;
+}
+
+-(CGFloat)currentiso
+{
+    mcamisoitem *item = [self item:self.selected];
+    CGFloat iso = item.isoamount;
+    
+    return iso;
 }
 
 @end
