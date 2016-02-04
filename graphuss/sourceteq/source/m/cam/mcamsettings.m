@@ -32,7 +32,7 @@
                        
                        NSDictionary *rawfocus = [dbcon row:query];
                        self.focusautomatic = [rawfocus[@"automatic"] boolValue];
-                       self.focusamount = [rawfocus[@"amount"] unsignedIntegerValue];
+                       self.focusamount = [rawfocus[@"amount"] unsignedIntegerValue] / 1000;
                        
                        [dbcon commit];
                    });
