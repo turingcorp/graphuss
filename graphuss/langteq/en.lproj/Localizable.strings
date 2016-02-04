@@ -54,6 +54,7 @@
 "cam_menu_item_exposure_label"="Auto exposure";
 "cam_menu_item_exposure_label_min"="Min duration";
 "cam_menu_item_exposure_label_max"="Max duration";
+"cam_menu_item_exposure_label_iso"="ISO sensitivity";
 "cam_menu_item_flash"="Flash";
 
 "error_notauthorized"="Not authorized to use the camera";

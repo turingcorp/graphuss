@@ -55,18 +55,29 @@
     [labelmax setText:NSLocalizedString(@"cam_menu_item_exposure_label_max", nil)];
     self.labelmax = labelmax;
     
+    UILabel *labeliso = [[UILabel alloc] init];
+    [labeliso setBackgroundColor:[UIColor clearColor]];
+    [labeliso setUserInteractionEnabled:NO];
+    [labeliso setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [labeliso setFont:[UIFont fontWithName:fontname size:16]];
+    [labeliso setTextColor:[UIColor blackColor]];
+    [labeliso setTextAlignment:NSTextAlignmentCenter];
+    [labeliso setText:NSLocalizedString(@"cam_menu_item_exposure_label_iso", nil)];
+    self.labeliso = labeliso;
+    
     vcamexposureiso *iso = [[vcamexposureiso alloc] init:self];
     self.iso = iso;
     
     [self addSubview:blur];
     [self addSubview:labelmin];
     [self addSubview:labelmax];
+    [self addSubview:labeliso];
     [self addSubview:label];
     [self addSubview:exposureswitch];
     [self addSubview:slider];
     [self addSubview:iso];
     
-    NSDictionary *views = @{@"blur":blur, @"switch":exposureswitch, @"label":label, @"iso":iso, @"slider":slider, @"min":labelmin, @"max":labelmax};
+    NSDictionary *views = @{@"blur":blur, @"switch":exposureswitch, @"label":label, @"iso":iso, @"slider":slider, @"min":labelmin, @"max":labelmax, @"labeliso":labeliso};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
@@ -75,13 +86,15 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[label]-210-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[switch]-205-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[iso]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[iso(60)]-40-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[iso(60)]-20-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[slider]-20-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[slider]-140-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[min]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[max]-20-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[min]-170-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[max]-170-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[labeliso]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[labeliso]-90-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -141,16 +154,20 @@
 
 -(void)showcontrols
 {
-//    [self.slider setHidden:NO];
-//    [self.labelmin setHidden:NO];
-//    [self.labelmax setHidden:NO];
+    [self.slider setHidden:NO];
+    [self.iso setHidden:NO];
+    [self.labeliso setHidden:NO];
+    [self.labelmax setHidden:NO];
+    [self.labelmin setHidden:NO];
 }
 
 -(void)hidecontrols
 {
-//    [self.slider setHidden:YES];
-//    [self.labelmin setHidden:YES];
-//    [self.labelmax setHidden:YES];
+    [self.slider setHidden:YES];
+    [self.iso setHidden:YES];
+    [self.labeliso setHidden:YES];
+    [self.labelmax setHidden:YES];
+    [self.labelmin setHidden:YES];
 }
 
 #pragma mark public
