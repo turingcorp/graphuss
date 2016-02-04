@@ -4,4 +4,6 @@
 
 -(void)config:(id<mconfigprotocol>)item;
 
+@property(weak, nonatomic)UILabel *label;
+
 @end

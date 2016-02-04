@@ -27,6 +27,7 @@
     [collection setDelegate:self];
     [collection setDataSource:self];
     [collection registerClass:[vconfigcel class] forCellWithReuseIdentifier:celid];
+    [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     [self addSubview:collection];
     
