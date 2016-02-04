@@ -219,16 +219,21 @@
     {
         if(amount < 0)
         {
+            [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_automatic label:nil];
+            
             [self.device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
         }
         else
         {
+            NSString *label = [[tools singleton] numbertostring:@(amount)];
+            
+            [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_manual label:label];
             [self.device setFocusModeLockedWithLensPosition:amount completionHandler:nil];
         }
     }
     else
     {
-        
+        [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_error label:error.localizedDescription];
     }
 }
 

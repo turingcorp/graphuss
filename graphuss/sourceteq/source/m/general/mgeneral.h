@@ -44,5 +44,6 @@ typedef NS_ENUM(NSInteger, ga_action)
     ga_action_cancel,
     ga_action_left,
     ga_action_right,
-    ga_action_change
+    ga_action_automatic,
+    ga_action_manual
 };

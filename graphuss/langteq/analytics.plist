@@ -33,7 +33,8 @@
 		<string>cancel</string>
 		<string>left</string>
 		<string>right</string>
-		<string>change</string>
+		<string>automatic</string>
+		<string>manual</string>
 	</array>
 </dict>
 </plist>
