@@ -1,13 +1,10 @@
-//
-//  mcamiso.h
-//  graphuss
-//
-//  Created by zero on 2/4/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
+@class mcamisoitem;
 
-@interface mcamiso : NSObject
+@interface mcamiso:NSObject
+
+-(NSInteger)count;
+-(mcamisoitem*)item:(NSInteger)index;
 
 @end
