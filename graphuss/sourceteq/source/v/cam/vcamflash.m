@@ -10,6 +10,7 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     self.controller = controller;
+    self.model = [[mcamflash alloc] init];
     
     return self;
 }
