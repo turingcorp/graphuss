@@ -58,4 +58,7 @@
 #import "mcamiso.h"
 #import "mcamisoitem.h"
 #import "mcamflash.h"
-#import "mcamflashitem.h"
+#import "mcamflashitemoff.h"
+#import "mcamflashitemauto.h"
+#import "mcamflashitemon.h"
+#import "mcamflashitemtorch.h"

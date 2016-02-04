@@ -10,7 +10,10 @@
     self = [super init];
     
     array = [NSArray arrayWithObjects:
-             [mcamitemflashof],
+             [[mcamflashitemoff alloc] init],
+             [[mcamflashitemauto alloc] init],
+             [[mcamflashitemon alloc] init],
+             [[mcamflashitemtorch alloc] init],
              nil];
     
     return self;
