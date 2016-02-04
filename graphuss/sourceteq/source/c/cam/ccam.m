@@ -202,6 +202,7 @@
                    ^
                    {
                        self.isos = [[mcamiso alloc] init:self.device];
+                       [[NSNotificationCenter defaultCenter] postNotificationName:notreloadisos object:nil];
                    });
 }
 
