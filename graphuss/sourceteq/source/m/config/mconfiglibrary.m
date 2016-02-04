@@ -14,7 +14,7 @@
 
 -(UIViewController*)controller
 {
-    UIViewController *controller = [[UIViewController alloc] init];
+    cconfiglibrary *controller = [[cconfiglibrary alloc] init];
     
     return controller;
 }

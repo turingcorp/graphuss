@@ -1,5 +1,5 @@
-#import "<#header#>"
+#import "appdel.h"
 
-@interface vconfiglibrary : NSObject
+@interface vconfiglibrary:UIView<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @end
