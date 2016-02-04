@@ -1,6 +1,10 @@
 #import "vcamexposureiso.h"
 
 @implementation vcamexposureiso
+{
+    NSInteger selected;
+    BOOL trackscroll;
+}
 
 -(instancetype)init:(vcamexposure*)exposure
 {
@@ -9,6 +13,8 @@
     [self setBackgroundColor:[UIColor clearColor]];
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    trackscroll = NO;
+    selected = 0;
     self.exposure = exposure;
     self.isos = exposure.controller.isos;
     
@@ -40,6 +46,7 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedreloadisos:) name:notreloadisos object:nil];
+    [self initialselect];
     
     return self;
 }
@@ -58,11 +65,54 @@
                    {
                        self.isos = self.exposure.controller.isos;
                        [self.collection reloadData];
+                       [self initialselect];
                    });
+}
+
+#pragma mark functionality
+
+-(void)initialselect
+{
+    if([self.isos count])
+    {
+        [self.collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
+    }
+}
+
+-(void)selectiso:(NSInteger)item
+{
+    selected = item;
 }
 
 #pragma mark -
 #pragma mark col del
+
+-(void)scrollViewWillBeginDragging:(UIScrollView*)drag
+{
+    trackscroll = YES;
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView*)scroll
+{
+    trackscroll = NO;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView*)scroll
+{
+    if(trackscroll)
+    {
+        CGFloat leftoffset = scroll.contentOffset.x;
+        
+        CGPoint point = CGPointMake(leftoffset + (scroll.bounds.size.width / 2), 0);
+        NSIndexPath *index = [self.collection indexPathForItemAtPoint:point];
+        
+        if(index)
+        {
+            [self selectiso:index.item];
+            [self.collection selectItemAtIndexPath:index animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+        }
+    }
+}
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
 {
@@ -101,6 +151,13 @@
     [cel config:[self.isos item:index.item]];
     
     return cel;
+}
+
+-(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
+{
+    [col scrollToItemAtIndexPath:index atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    [self selectiso:index.item];
+    trackscroll = NO;
 }
 
 @end
