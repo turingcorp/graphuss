@@ -213,16 +213,23 @@
 
 -(void)changefocus:(CGFloat)amount
 {
-    if(amount < 0)
+    NSError *error;
+    
+    if([self.device lockForConfiguration:&error])
     {
-        [self.device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
+        if(amount < 0)
+        {
+            [self.device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
+        }
+        else
+        {
+            [self.device setFocusModeLockedWithLensPosition:amount completionHandler:nil];
+        }
     }
     else
     {
-        [self.device setFocusModeLockedWithLensPosition:amount completionHandler:nil];
+        
     }
-    
-    [device setFocusModeLockedWithLensPosition:stats.focusposition completionHandler:nil];
 }
 
 @end
