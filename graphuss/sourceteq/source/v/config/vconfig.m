@@ -7,6 +7,8 @@
     self = [super init:controller];
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor whiteColor]];
+
+    self.model = [[mconfig alloc] init];
     
     vspinner *spinner = [[vspinner alloc] init];
     
@@ -31,7 +33,9 @@
 
 -(NSInteger)collectionView:(UICollectionView*)col numberOfItemsInSection:(NSInteger)section
 {
-    return 0;
+    NSInteger count = [self.model count];
+    
+    return count;
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index
