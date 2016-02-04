@@ -1,13 +1,6 @@
-//
-//  mcamflashitemon.h
-//  graphuss
-//
-//  Created by zero on 2/4/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
+#import "mcamflashitem.h"
 
-#import <Foundation/Foundation.h>
-
-@interface mcamflashitemon : NSObject
+@interface mcamflashitemon:mcamflashitem
 
 @end
