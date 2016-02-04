@@ -242,8 +242,6 @@
                            }
                            else
                            {
-                               NSString *label = [[tools singleton] numbertostring:@(amount)];
-                               
                                if([weakself.device respondsToSelector:@selector(setFocusModeLockedWithLensPosition:completionHandler:)])
                                {
                                    [weakself.device setFocusModeLockedWithLensPosition:amount completionHandler:nil];
@@ -258,9 +256,12 @@
                        {
                            if(error)
                            {
+                               NSLog(@"%@", error.localizedDescription);
                                [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_error label:error.localizedDescription];
                            }
                        }
+                       
+                       [weakself.device unlockForConfiguration];
                    });
 }
 

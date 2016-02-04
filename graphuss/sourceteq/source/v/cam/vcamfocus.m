@@ -77,14 +77,12 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[max]-50-|" options:0 metrics:metrics views:views]];
     
     [focusswitch setOn:[mcamsettings singleton].focusautomatic animated:NO];
-    [slider setValue:[mcamsettings singleton].focusamount / 100.0 animated:NO];
+    [slider setValue:[mcamsettings singleton].focusamount / 1000.0 animated:NO];
     
     if([mcamsettings singleton].focusautomatic)
     {
         [self hideslider];
     }
-    
-    [self updatefocus];
     
     return self;
 }
@@ -136,7 +134,9 @@
     }
     else
     {
-        [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_manual label:[[tools singleton] numbertostring:@(self.slider.value)]];
+        NSString *label = [[tools singleton] numbertostring:@(self.slider.value)];
+        
+        [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_manual label:label];
     }
 }
 
