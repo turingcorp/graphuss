@@ -1,13 +1,8 @@
-//
-//  mconfigprotocol.h
-//  graphuss
-//
-//  Created by zero on 2/4/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
-
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @protocol mconfigprotocol <NSObject>
+
+-(NSString*)name;
+-(UIViewController*)controller;
 
 @end
