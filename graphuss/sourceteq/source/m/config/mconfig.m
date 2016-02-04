@@ -5,6 +5,19 @@
     NSArray *array;
 }
 
+-(instancetype)init
+{
+    self = [super init];
+    
+    array = [NSArray arrayWithObjects:
+             [[mconfiglibrary alloc] init],
+             [[mconfigabout alloc] init],
+             [[mconfigcontact alloc] init],
+             nil];
+    
+    return self;
+}
+
 #pragma mark public
 
 -(NSUInteger)count
