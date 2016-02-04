@@ -118,7 +118,7 @@
                    ^
                    {
                        NSString *query = [NSString stringWithFormat:
-                                          @"UPDATE flash SET type=%@ id=1;",
+                                          @"UPDATE flash SET type=%@ WHERE id=1;",
                                           @(flashtype)];
                        
                        [db query:query];

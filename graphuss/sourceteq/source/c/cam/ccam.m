@@ -191,6 +191,7 @@
 {
     [self insidefocus:[mcamsettings singleton].focusautomatic amount:[mcamsettings singleton].focusamount];
     [self insideexposure:[mcamsettings singleton].exposureautomatic duration:[mcamsettings singleton].exposureduration iso:[mcamsettings singleton].exposureiso];
+    [self insideflashtype:[mcamsettings singleton].flashtype];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
