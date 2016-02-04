@@ -185,17 +185,7 @@
     [timer invalidate];
     timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timeout:) userInfo:nil repeats:NO];
     
-    CGFloat focusamount;
-    
-    if([mcamsettings singleton].focusautomatic)
-    {
-        focusamount = -1;
-    }
-    else
-    {
-        focusamount = self.slider.value;
-    }
-    
+    [self.controller exposure:self.exposureswitch.isOn duration:self.slider.value iso:[self.controller.isos item:self.iso.selected].isoamount];
 }
 
 @end

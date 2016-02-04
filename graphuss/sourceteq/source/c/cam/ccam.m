@@ -274,7 +274,7 @@
                            if(error)
                            {
                                NSLog(@"exposure error: %@", error.localizedDescription);
-                               [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_error label:error.localizedDescription];
+                               [[analytics singleton] trackevent:ga_event_cam_exposure action:ga_action_error label:error.localizedDescription];
                            }
                        }
                    });
