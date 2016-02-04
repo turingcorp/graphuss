@@ -23,7 +23,7 @@
     
     [dbcon query:query];
     
-    query = @"INSERT INTO exposure (automatic, duration, iso) values(1, 0, 0);";
+    query = @"INSERT INTO exposure (automatic, duration, iso) values(1, 100, 0);";
     
     [dbcon query:query];
     

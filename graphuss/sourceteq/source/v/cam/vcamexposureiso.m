@@ -73,7 +73,11 @@
 {
     if([self.isos count])
     {
-        [self.collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:self.isos.selected inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 100), dispatch_get_main_queue(),
+                       ^
+                       {
+                           [self.collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:self.isos.selected inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
+                       });
     }
 }
 

@@ -12,7 +12,7 @@
     array = [NSMutableArray array];
     self.selected = 0;
     
-    CGFloat expectedvalue = [mcamsettings singleton].exposureiso;
+    NSUInteger expectedvalue = [mcamsettings singleton].exposureiso;
     
     AVCaptureDeviceFormat *format = device.activeFormat;
     self.maxiso = format.maxISO;
@@ -25,7 +25,9 @@
     
     for(NSUInteger i = 0; i < totalisos; i++)
     {
-        if(currentiso == expectedvalue)
+        NSUInteger currentasint = currentiso;
+        
+        if(currentasint == expectedvalue)
         {
             self.selected = i;
         }

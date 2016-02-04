@@ -97,7 +97,6 @@
                        NSUInteger durationint = duration * 1000;
                        NSUInteger isoint = iso * 1000;
                        
-                       
                        NSString *query = [NSString stringWithFormat:
                                           @"UPDATE exposure SET automatic=%@, duration=%@, iso=%@ WHERE id=1;",
                                           newauto, @(durationint), @(isoint)];
