@@ -15,7 +15,15 @@
     
     [dbcon query:query];
     
+    query = @"CREATE TABLE exposure (id INTEGER PRIMARY KEY, automatic INTEGER, duration INTEGER, iso INTEGER);";
+    
+    [dbcon query:query];
+    
     query = @"INSERT INTO focus (automatic, amount) values(1, 1000);";
+    
+    [dbcon query:query];
+    
+    query = @"INSERT INTO exposure (automatic, duration, iso) values(1, 0, 0);";
     
     [dbcon query:query];
     

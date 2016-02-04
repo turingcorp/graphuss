@@ -66,14 +66,14 @@
 
 -(void)focusamount:(CGFloat)focusamount
 {
-    self.focusamount = focusamount * 1000;
+    self.focusamount = focusamount;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
                        NSString *query = [NSString stringWithFormat:
                                           @"UPDATE focus set amount=%@ where id=1;",
-                                          @(self.focusamount)];
+                                          @(self.focusamount * 1000)];
                        
                        [db query:query];
                    });

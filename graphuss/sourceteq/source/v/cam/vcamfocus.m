@@ -77,7 +77,7 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[max]-50-|" options:0 metrics:metrics views:views]];
     
     [focusswitch setOn:[mcamsettings singleton].focusautomatic animated:NO];
-    [slider setValue:[mcamsettings singleton].focusamount / 1000.0 animated:NO];
+    [slider setValue:[mcamsettings singleton].focusamount animated:NO];
     
     if([mcamsettings singleton].focusautomatic)
     {
