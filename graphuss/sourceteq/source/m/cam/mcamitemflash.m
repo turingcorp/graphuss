@@ -24,8 +24,8 @@
     NSDictionary *views = @{@"flash":flash};
     NSDictionary *metrics = @{};
     
-    [options addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[focus]-0-|" options:0 metrics:metrics views:views]];
-    [options addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[focus]-50-|" options:0 metrics:metrics views:views]];
+    [options addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[flash]-0-|" options:0 metrics:metrics views:views]];
+    [options addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[flash]-50-|" options:0 metrics:metrics views:views]];
 }
 
 @end
