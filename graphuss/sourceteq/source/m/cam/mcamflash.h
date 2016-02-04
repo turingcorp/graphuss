@@ -6,5 +6,8 @@
 
 -(NSUInteger)count;
 -(mcamflashitem*)item:(NSUInteger)index;
+-(void)selectflash:(NSUInteger)item;
+
+@property(nonatomic)NSUInteger selected;
 
 @end

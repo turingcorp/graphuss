@@ -19,4 +19,9 @@
     [controller flashtype:cam_flash_on];
 }
 
+-(BOOL)equalstype:(NSInteger)type
+{
+    return (cam_flash)type == cam_flash_on;
+}
+
 @end

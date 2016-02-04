@@ -16,6 +16,21 @@
              [[mcamflashitemtorch alloc] init],
              nil];
     
+    cam_flash type = [mcamsettings singleton].flashtype;
+    self.selected = 0;
+    
+    NSUInteger count = array.count;
+    
+    for(NSUInteger i = 0; i < count; i++)
+    {
+        mcamflashitem *item = [self item:i];
+        
+        if([item equalstype:type])
+        {
+            self.selected = i;
+        }
+    }
+    
     return self;
 }
 
@@ -33,6 +48,11 @@
     mcamflashitem *item = array[index];
     
     return item;
+}
+
+-(void)selectflash:(NSUInteger)item
+{
+    
 }
 
 @end
