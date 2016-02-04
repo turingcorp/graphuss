@@ -13,7 +13,6 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     trackscroll = NO;
-    self.selected = 0;
     self.exposure = exposure;
     self.isos = exposure.controller.isos;
     
@@ -74,13 +73,14 @@
 {
     if([self.isos count])
     {
-        [self.collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
+        [self.collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:self.isos.selected inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
     }
 }
 
 -(void)selectiso:(NSInteger)item
 {
-    self.selected = item;
+    self.isos.selected = item;
+    [self.exposure updateexposure];
 }
 
 #pragma mark -
