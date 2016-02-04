@@ -28,9 +28,9 @@
     return count;
 }
 
--(mcamitem*)item:(NSUInteger)index;
+-(mcamflashitem*)item:(NSUInteger)index
 {
-    mcamitem *item = array[index];
+    mcamflashitem *item = array[index];
     
     return item;
 }

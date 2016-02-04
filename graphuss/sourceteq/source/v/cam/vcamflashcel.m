@@ -13,4 +13,9 @@
 
 #pragma mark public
 
+-(void)config:(mcamflashitem*)item
+{
+    
+}
+
 @end

@@ -1,10 +1,10 @@
 #import "appdel.h"
 
-@class mcamitem;
+@class mcamflashitem;
 
 @interface mcamflash:NSObject
 
 -(NSUInteger)count;
--(mcamitem*)item:(NSUInteger)index;
+-(mcamflashitem*)item:(NSUInteger)index;
 
 @end
