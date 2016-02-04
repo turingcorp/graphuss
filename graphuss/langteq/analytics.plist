@@ -33,6 +33,7 @@
 		<string>cancel</string>
 		<string>left</string>
 		<string>right</string>
+		<string>change</string>
 	</array>
 </dict>
 </plist>
