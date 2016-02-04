@@ -17,7 +17,7 @@
 {
 }
 
--(BOOL)equalstype:(cam_flash)type
+-(BOOL)equalstype:(NSInteger)type
 {
     return NO;
 }

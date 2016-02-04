@@ -5,7 +5,7 @@
 @interface mcamflashitem:NSObject
 
 -(void)selected:(ccam*)controller;
--(BOOL)equalstype:(cam_flash)type;
+-(BOOL)equalstype:(NSInteger)type;
 
 @property(copy, nonatomic)NSString *name;
 
