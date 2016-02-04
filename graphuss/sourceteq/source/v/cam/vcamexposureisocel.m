@@ -71,6 +71,9 @@
 
 -(void)config:(mcamisoitem*)item
 {
+    NSString *label = [[tools singleton] numbertostring:@(item.isoamount)];
+    
+    [self.label setText:label];
     [self hover];
 }
 
