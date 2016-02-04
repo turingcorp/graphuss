@@ -70,6 +70,10 @@
 "cam_flash_error_flashoffnotsupported"="Flash off not supported";
 "cam_flash_error_flashautonotsupported"="Flash auto not supported";
 
+"config_item_about"="About";
+"config_item_contact"="Contact";
+"config_item_library"="Library";
+
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";
 "error_wrongbuffer"="Couldn't take picture, try again";
