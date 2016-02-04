@@ -43,15 +43,15 @@
 {
     if(self.isSelected || self.isHighlighted)
     {
-        [self setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.2]];
-        [self.label setTextColor:[UIColor blackColor]];
-        [self.label setFont:[UIFont fontWithName:fontboldname size:14]];
+        [self setBackgroundColor:[colorsecond colorWithAlphaComponent:0.6]];
+        [self.label setTextColor:[UIColor whiteColor]];
+        [self.label setFont:[UIFont fontWithName:fontboldname size:13]];
     }
     else
     {
         [self setBackgroundColor:[UIColor clearColor]];
-        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.5]];
-        [self.label setFont:[UIFont fontWithName:fontname size:14]];
+        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.7]];
+        [self.label setFont:[UIFont fontWithName:fontname size:12]];
     }
 }
 

@@ -11,6 +11,8 @@
     
     self.controller = controller;
     self.model = [[mcamflash alloc] init];
+    
+    NSUInteger colheight = 50;
  
     vblur *blur = [vblur light:NO];
     
@@ -36,12 +38,12 @@
     [self addSubview:collection];
     
     NSDictionary *views = @{@"col":collection, @"blur":blur};
-    NSDictionary *metrics = @{};
+    NSDictionary *metrics = @{@"height":@(colheight)};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[col(60)]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[col(colheight)]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[blur(60)]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[blur(colheight)]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
