@@ -62,3 +62,5 @@
 #import "mcamflashitemauto.h"
 #import "mcamflashitemon.h"
 #import "mcamflashitemtorch.h"
+#import "mconfig.h"
+#import "mconfigprotocol.h"
