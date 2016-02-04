@@ -1,13 +1,5 @@
-//
-//  vcamexposureisocel.h
-//  graphuss
-//
-//  Created by zero on 2/4/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
-
-@interface vcamexposureisocel : NSObject
+@interface vcamexposureisocel:UICollectionViewCell
 
 @end
