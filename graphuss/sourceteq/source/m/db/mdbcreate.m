@@ -19,11 +19,22 @@
     
     [dbcon query:query];
     
+    query = @"CREATE TABLE flash (id INTEGER PRIMARY KEY, type INTEGER);";
+    
+    [dbcon query:query];
+    
     query = @"INSERT INTO focus (automatic, amount) values(1, 1000);";
     
     [dbcon query:query];
     
     query = @"INSERT INTO exposure (automatic, duration, iso) values(1, 100, 0);";
+    
+    [dbcon query:query];
+    
+    query = [NSString stringWithFormat:
+             @"INSERT INTO flash (type) "
+             "values(%@);",
+             @(cam_flash_off)];
     
     [dbcon query:query];
     

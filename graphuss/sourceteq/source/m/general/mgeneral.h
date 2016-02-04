@@ -9,6 +9,16 @@ typedef NS_ENUM(NSInteger, app_page)
     app_page_camera,
 };
 
+// camera
+
+typedef NS_ENUM(NSInteger, cam_flash)
+{
+    cam_flash_off,
+    cam_flash_auto,
+    cam_flash_on,
+    cam_flash_torch
+};
+
 // analytics
 
 typedef NS_ENUM(NSInteger, ga_screen)
