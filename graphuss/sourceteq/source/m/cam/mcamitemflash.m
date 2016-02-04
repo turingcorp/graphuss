@@ -17,11 +17,11 @@
 {
     [super selected:options];
     
-    vcamfocus *focus = [[vcamfocus alloc] init:(ccam*)options.viewcam.controller];
-    options.overview = focus;
-    [options addSubview:focus];
+    vcamflash *flash = [[vcamflash alloc] init:(ccam*)options.viewcam.controller];
+    options.overview = flash;
+    [options addSubview:flash];
     
-    NSDictionary *views = @{@"focus":focus};
+    NSDictionary *views = @{@"flash":flash};
     NSDictionary *metrics = @{};
     
     [options addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[focus]-0-|" options:0 metrics:metrics views:views]];
