@@ -57,3 +57,5 @@
 #import "mcamsettings.h"
 #import "mcamiso.h"
 #import "mcamisoitem.h"
+#import "mcamflash.h"
+#import "mcamflashitem.h"
