@@ -26,6 +26,7 @@
     [collection setAlwaysBounceVertical:YES];
     [collection setDelegate:self];
     [collection setDataSource:self];
+    [collection registerClass:[vconfigheader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerid];
     [collection registerClass:[vconfigcel class] forCellWithReuseIdentifier:celid];
     [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
     
@@ -42,6 +43,13 @@
 
 #pragma mark -
 #pragma mark col del
+
+-(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    CGSize size = CGSizeMake(col.bounds.size.width, 200);
+    
+    return size;
+}
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
 {
