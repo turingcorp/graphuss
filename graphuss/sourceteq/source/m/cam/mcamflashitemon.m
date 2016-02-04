@@ -16,7 +16,7 @@
 
 -(void)selected:(ccam*)controller
 {
-    
+    [controller flashtype:cam_flash_on];
 }
 
 @end

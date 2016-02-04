@@ -78,4 +78,9 @@
     return cel;
 }
 
+-(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
+{
+    [[self.model item:index.item] selected:self.controller];
+}
+
 @end
