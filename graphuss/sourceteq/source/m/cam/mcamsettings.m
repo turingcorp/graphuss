@@ -41,6 +41,11 @@
                        self.exposureduration = [rawexposure[@"duration"] unsignedIntegerValue] / 1000.0;
                        self.exposureiso = [rawexposure[@"iso"] unsignedIntegerValue] / 1000.0;
                        
+                       query = @"SELECT type FROM flash WHERE id=1;";
+                       
+                       NSNumber *rawflashtype = [dbcon value:query];
+                       self.flashtype = (cam_flash)[rawflashtype integerValue];
+                       
                        [dbcon commit];
                    });
 }
