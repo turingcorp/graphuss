@@ -6,7 +6,7 @@
 {
     self = [super init:controller];
     [self setClipsToBounds:YES];
-    [self setBackgroundColor:[UIColor colorWithWhite:0.95 alpha:1]];
+    [self setBackgroundColor:[UIColor colorWithWhite:0.97 alpha:1]];
 
     self.model = [[mconfig alloc] init];
     
@@ -45,7 +45,7 @@
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
 {
-    CGSize size = CGSizeMake(col.bounds.size.width, 60);
+    CGSize size = CGSizeMake(col.bounds.size.width, 65);
     
     return size;
 }
