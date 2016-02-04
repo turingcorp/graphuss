@@ -148,15 +148,15 @@
     [timer invalidate];
     timer = nil;
     
-    if([mcamsettings singleton].focusautomatic)
+    if([mcamsettings singleton].exposureautomatic)
     {
-        [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_automatic label:nil];
+        [[analytics singleton] trackevent:ga_event_cam_exposure action:ga_action_automatic label:nil];
     }
     else
     {
-        NSString *label = [[tools singleton] numbertostring:@(self.slider.value)];
+        NSString *label = [NSString stringWithFormat:@"duration:%@, iso:%@", [[tools singleton] numbertostring:@([mcamsettings singleton].exposureduration)], [[tools singleton] numbertostring:@([mcamsettings singleton].exposureiso)]];
         
-        [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_manual label:label];
+        [[analytics singleton] trackevent:ga_event_cam_exposure action:ga_action_manual label:label];
     }
 }
 
