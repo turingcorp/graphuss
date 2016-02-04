@@ -61,6 +61,15 @@
 "cam_menu_item_flash_on"="On";
 "cam_menu_item_flash_torch"="Torch";
 
+"cam_flash_error_notorch"="No torch in the device";
+"cam_flash_error_torchnotavailable"="Torch not available";
+"cam_flash_error_torchnotsupported"="Torch not supported";
+"cam_flash_error_noflash"="No flash in the device";
+"cam_flash_error_flashnotavailable"="Flash not available";
+"cam_flash_error_flashonnotsupported"="Flash on not supported";
+"cam_flash_error_flashoffnotsupported"="Flash off not supported";
+"cam_flash_error_flashautonotsupported"="Flash auto not supported";
+
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";
 "error_wrongbuffer"="Couldn't take picture, try again";
