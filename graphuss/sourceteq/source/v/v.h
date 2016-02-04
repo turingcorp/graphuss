@@ -18,6 +18,7 @@
 #import "vcamexposureiso.h"
 #import "vcamexposureisocel.h"
 #import "vcamflash.h"
+#import "vcamflashcel.h"
 #import "vpicdetailmenu.h"
 #import "vpicdetailmenucel.h"
 #import "vpicdetailedit.h"
