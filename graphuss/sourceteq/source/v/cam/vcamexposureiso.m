@@ -58,7 +58,7 @@
     CGFloat totalwidth = col.bounds.size.width;
     CGFloat margin = (totalwidth - height) / 2.0;
     
-    UIEdgeInsets insets = UIEdgeInsetsMake(margin, 0, 0, margin);
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, margin, 0, margin);
     
     return insets;
 }

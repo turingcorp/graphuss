@@ -8,7 +8,9 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor clearColor]];
     
-    CGFloat width = frame.size.width - 20;
+    CGFloat margin = 1;
+    CGFloat margin2 = margin * 2;
+    CGFloat width = frame.size.width - margin2;
     
     UIView *circle = [[UIView alloc] init];
     [circle setClipsToBounds:YES];
@@ -29,10 +31,12 @@
     [self addSubview:label];
     
     NSDictionary *views = @{@"circle":circle, @"label":label};
-    NSDictionary *metrics = @{};
+    NSDictionary *metrics = @{@"margin":@(margin)};
     
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[circle]-10-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[circle]-10-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(margin)-[circle]-(margin)-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(margin)-[circle]-(margin)-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[label]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[label]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -55,14 +59,14 @@
 {
     if(self.isSelected || self.isHighlighted)
     {
-        [self.label setFont:[UIFont fontWithName:fontboldname size:16]];
+        [self.label setFont:[UIFont fontWithName:fontboldname size:12]];
         [self.label setTextColor:[UIColor whiteColor]];
         [self.circle setHidden:NO];
     }
     else
     {
-        [self.label setFont:[UIFont fontWithName:fontname size:14]];
-        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.4]];
+        [self.label setFont:[UIFont fontWithName:fontname size:12]];
+        [self.label setTextColor:[UIColor colorWithWhite:0 alpha:0.6]];
         [self.circle setHidden:YES];
     }
 }
@@ -71,7 +75,8 @@
 
 -(void)config:(mcamisoitem*)item
 {
-    NSString *label = [[tools singleton] numbertostring:@(item.isoamount)];
+    NSUInteger isointeger = floor(item.isoamount);
+    NSString *label = [[tools singleton] numbertostring:@(isointeger)];
     
     [self.label setText:label];
     [self hover];
