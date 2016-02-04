@@ -4,3 +4,4 @@
 #import "cpicdetail.h"
 #import "ccam.h"
 #import "cconfig.h"
+#import "cconfiglibrary.h"
