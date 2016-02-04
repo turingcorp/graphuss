@@ -17,4 +17,9 @@
 {
 }
 
+-(BOOL)equalstype:(cam_flash)type
+{
+    return NO;
+}
+
 @end
