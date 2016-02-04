@@ -105,4 +105,19 @@
                    });
 }
 
+-(void)flashtype:(cam_flash)flashtype
+{
+    self.flashtype = flashtype;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       NSString *query = [NSString stringWithFormat:
+                                          @"UPDATE flash SET type=%@ id=1;",
+                                          @(flashtype)];
+                       
+                       [db query:query];
+                   });
+}
+
 @end
