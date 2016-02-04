@@ -2,7 +2,6 @@
 
 @implementation vcamexposureiso
 {
-    NSInteger selected;
     BOOL trackscroll;
 }
 
@@ -14,7 +13,7 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     trackscroll = NO;
-    selected = 0;
+    self.selected = 0;
     self.exposure = exposure;
     self.isos = exposure.controller.isos;
     
@@ -81,7 +80,7 @@
 
 -(void)selectiso:(NSInteger)item
 {
-    selected = item;
+    self.selected = item;
 }
 
 #pragma mark -
