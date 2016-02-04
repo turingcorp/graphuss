@@ -34,6 +34,13 @@
                        self.focusautomatic = [rawfocus[@"automatic"] boolValue];
                        self.focusamount = [rawfocus[@"amount"] unsignedIntegerValue] / 1000;
                        
+                       query = @"SELECT automatic, duration, iso FROM exposure WHERE id=1;";
+                       
+                       NSDictionary *rawexposure = [dbcon row:query];
+                       self.exposureautomatic = [rawexposure[@"automatic"] boolValue];
+                       self.exposureduration = [rawexposure[@"duration"] unsignedIntegerValue] / 1000;
+                       self.exposureiso = [rawexposure[@"iso"] unsignedIntegerValue] / 1000;
+                       
                        [dbcon commit];
                    });
 }
@@ -77,6 +84,21 @@
                        
                        [db query:query];
                    });
+}
+
+-(void)exposureauto:(BOOL)exposureauto
+{
+    
+}
+
+-(void)exposureduration:(CGFloat)exposureduration
+{
+    
+}
+
+-(void)exposureaiso:(CGFloat)exposureiso
+{
+    
 }
 
 @end

@@ -6,6 +6,9 @@
 -(void)refresh;
 -(void)focusauto:(BOOL)focusautomatic;
 -(void)focusamount:(CGFloat)focusamount;
+-(void)exposureauto:(BOOL)exposureauto;
+-(void)exposureduration:(CGFloat)exposureduration;
+-(void)exposureaiso:(CGFloat)exposureiso;
 
 @property(nonatomic)CGFloat focusamount;
 @property(nonatomic)CGFloat exposureduration;

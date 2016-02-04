@@ -96,6 +96,14 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[labeliso]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[labeliso]-90-|" options:0 metrics:metrics views:views]];
     
+    [exposureswitch setOn:[mcamsettings singleton].exposureautomatic animated:NO];
+    [slider setValue:[mcamsettings singleton].exposureduration animated:NO];
+    
+    if([mcamsettings singleton].exposureautomatic)
+    {
+        [self hidecontrols];
+    }
+    
     return self;
 }
 
