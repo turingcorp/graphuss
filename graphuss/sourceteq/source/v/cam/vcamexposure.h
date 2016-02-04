@@ -1,13 +1,11 @@
-//
-//  vcamexposure.h
-//  graphuss
-//
-//  Created by zero on 2/4/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
+@class ccam;
 
-@interface vcamexposure : NSObject
+@interface vcamexposure:UIView
+
+-(instancetype)init:(ccam*)controller;
+
+@property(weak, nonatomic)ccam *controller;
 
 @end

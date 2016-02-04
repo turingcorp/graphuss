@@ -1,13 +1,17 @@
-//
-//  vcamexposure.m
-//  graphuss
-//
-//  Created by zero on 2/4/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
-
 #import "vcamexposure.h"
 
 @implementation vcamexposure
+
+-(instancetype)init:(ccam*)controller
+{
+    self = [super init];
+    [self setClipsToBounds:YES];
+    [self setBackgroundColor:[UIColor clearColor]];
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    self.controller = controller;
+    
+    return self;
+}
 
 @end

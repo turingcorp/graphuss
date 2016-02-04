@@ -17,15 +17,15 @@
 {
     [super selected:options];
     
-    vcamfocus *focus = [[vcamfocus alloc] init:(ccam*)options.viewcam.controller];
-    options.overview = focus;
-    [options addSubview:focus];
+    vcamexposure *exposure = [[vcamexposure alloc] init:(ccam*)options.viewcam.controller];
+    options.overview = exposure;
+    [options addSubview:exposure];
     
-    NSDictionary *views = @{@"focus":focus};
+    NSDictionary *views = @{@"exposure":exposure};
     NSDictionary *metrics = @{};
     
-    [options addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[focus]-0-|" options:0 metrics:metrics views:views]];
-    [options addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[focus]-50-|" options:0 metrics:metrics views:views]];
+    [options addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[exposure]-0-|" options:0 metrics:metrics views:views]];
+    [options addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[exposure]-50-|" options:0 metrics:metrics views:views]];
 }
 
 @end
