@@ -50,9 +50,4 @@
     return item;
 }
 
--(void)selectflash:(NSUInteger)item
-{
-    
-}
-
 @end
