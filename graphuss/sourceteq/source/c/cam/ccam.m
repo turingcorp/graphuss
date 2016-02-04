@@ -280,6 +280,46 @@
                    });
 }
 
+-(void)insideflashtype:(cam_flash)flashtype
+{
+    __weak ccam *weakself = self;
+    
+    dispatch_async(queue,
+                   ^
+                   {
+                       NSError *error;
+                       /*
+                       if([weakself.device lockForConfiguration:&error])
+                       {
+                           if(automatic)
+                           {
+                               [weakself.device setExposureMode:AVCaptureExposureModeContinuousAutoExposure];
+                           }
+                           else
+                           {
+                               if([weakself.device respondsToSelector:@selector(setExposureModeCustomWithDuration:ISO:completionHandler:)])
+                               {
+                                   [weakself.device setExposureModeCustomWithDuration:[self exposuredurationfor:duration] ISO:iso completionHandler:nil];
+                               }
+                               else
+                               {
+                                   [weakself.device setExposureMode:AVCaptureExposureModeAutoExpose];
+                               }
+                           }
+                           
+                           [weakself.device unlockForConfiguration];
+                       }
+                       else
+                       {
+                           if(error)
+                           {
+                               NSLog(@"exposure error: %@", error.localizedDescription);
+                               [[analytics singleton] trackevent:ga_event_cam_exposure action:ga_action_error label:error.localizedDescription];
+                           }
+                       }*/
+                   });
+}
+
 -(CMTime)exposuredurationfor:(CGFloat)duration
 {
     AVCaptureDeviceFormat *format = self.device.activeFormat;
@@ -328,6 +368,12 @@
 {
     [[mcamsettings singleton] exposureauto:automatic duration:duration iso:iso];
     [self insideexposure:automatic duration:duration iso:iso];
+}
+
+-(void)flashtype:(cam_flash)flashtype
+{
+    [[mcamsettings singleton] flashtype:flashtype];
+    [self insideflashtype:flashtype];
 }
 
 @end
