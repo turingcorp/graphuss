@@ -32,14 +32,14 @@
                        
                        NSDictionary *rawfocus = [dbcon row:query];
                        self.focusautomatic = [rawfocus[@"automatic"] boolValue];
-                       self.focusamount = [rawfocus[@"amount"] unsignedIntegerValue] / 1000;
+                       self.focusamount = [rawfocus[@"amount"] unsignedIntegerValue] / 1000.0;
                        
                        query = @"SELECT automatic, duration, iso FROM exposure WHERE id=1;";
                        
                        NSDictionary *rawexposure = [dbcon row:query];
                        self.exposureautomatic = [rawexposure[@"automatic"] boolValue];
-                       self.exposureduration = [rawexposure[@"duration"] unsignedIntegerValue] / 1000;
-                       self.exposureiso = [rawexposure[@"iso"] unsignedIntegerValue] / 1000;
+                       self.exposureduration = [rawexposure[@"duration"] unsignedIntegerValue] / 1000.0;
+                       self.exposureiso = [rawexposure[@"iso"] unsignedIntegerValue] / 1000.0;
                        
                        [dbcon commit];
                    });
@@ -64,9 +64,11 @@
                            newauto = @0;
                        }
                        
+                       NSUInteger amountint = self.focusamount * 1000;
+                       
                        NSString *query = [NSString stringWithFormat:
-                                          @"UPDATE focus SET automatic=%@, amount=%@ WHERE id=1;",
-                                          newauto, @(self.focusamount * 1000)];
+                                          @"UPDATE focus SET automatic=%@, amount=%@ where id=1;",
+                                          newauto, @(amountint)];
                        
                        [db query:query];
                    });
@@ -92,9 +94,13 @@
                            newauto = @0;
                        }
                        
+                       NSUInteger durationint = duration * 1000;
+                       NSUInteger isoint = iso * 1000;
+                       
+                       
                        NSString *query = [NSString stringWithFormat:
                                           @"UPDATE exposure SET automatic=%@, duration=%@, iso=%@ WHERE id=1;",
-                                          newauto, @(self.exposureduration * 1000), @(self.exposureiso * 1000)];
+                                          newauto, @(durationint), @(isoint)];
                        
                        [db query:query];
                    });
