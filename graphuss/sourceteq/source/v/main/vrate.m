@@ -20,7 +20,7 @@
     [label setTextColor:[UIColor blackColor]];
     [label setNumberOfLines:0];
     
-    vratemenu *menu = [[vratemenu alloc] init];
+    vratemenu *menu = [[vratemenu alloc] init:self];
     self.menu = menu;
     
     [self addSubview:blur];
@@ -37,6 +37,13 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[menu]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
+}
+
+#pragma mark public
+
+-(void)rateselected
+{
+    
 }
 
 @end

@@ -5,6 +5,8 @@
 
 @interface vrate:viewbase
 
+-(void)rateselected;
+
 @property(weak, nonatomic)vratemenu *menu;
 
 @end
