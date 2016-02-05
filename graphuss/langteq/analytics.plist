@@ -12,6 +12,7 @@
 		<string>config/library/delete</string>
 		<string>config/about</string>
 		<string>config/contact</string>
+		<string>rate</string>
 	</array>
 	<key>events</key>
 	<array>

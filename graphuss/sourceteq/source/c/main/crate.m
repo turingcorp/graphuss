@@ -15,6 +15,7 @@
     [super viewDidLoad];
 
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
+    [[analytics singleton] trackscreen:ga_screen_rate];
 }
 
 -(void)loadView
