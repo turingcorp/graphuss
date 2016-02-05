@@ -2,6 +2,11 @@
 
 @implementation cconfiglibrary
 
+-(instancetype)init:(mconfiglibrary*)model
+{
+    return self;
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];

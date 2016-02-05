@@ -8,7 +8,7 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor colorWithWhite:0.97 alpha:1]];
     
-    
+    UICollectionViewFlowLayout *flow = [UICollectionViewFlowLayout];
     
     return self;
 }
@@ -18,7 +18,7 @@
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    CGSize size = CGSizeMake(col.bounds.size.width, 100);
+    CGSize size = CGSizeMake(col.bounds.size.width, 120);
     
     return size;
 }
