@@ -436,6 +436,7 @@
 		DA6E312F1C641C7F00652DF2 /* cconfiglibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cconfiglibrary.m; sourceTree = "<group>"; };
 		DA6E31311C641CBC00652DF2 /* vconfiglibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vconfiglibrary.h; sourceTree = "<group>"; };
 		DA6E31321C641CBC00652DF2 /* vconfiglibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vconfiglibrary.m; sourceTree = "<group>"; };
+		DA6E31341C6421E600652DF2 /* mconfiglibraryprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mconfiglibraryprotocol.h; sourceTree = "<group>"; };
 		DAD7C9761C6159F900C0A354 /* vcammenulast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcammenulast.h; sourceTree = "<group>"; };
 		DAD7C9771C6159F900C0A354 /* vcammenulast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcammenulast.m; sourceTree = "<group>"; };
 		DAE468DD1C512C1A006EBE52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -1102,6 +1103,7 @@
 				DA6E31261C640B2500652DF2 /* mconfigcontact.m */,
 				DA6E31281C640B3100652DF2 /* mconfiglibrary.h */,
 				DA6E31291C640B3100652DF2 /* mconfiglibrary.m */,
+				DA6E31341C6421E600652DF2 /* mconfiglibraryprotocol.h */,
 			);
 			path = config;
 			sourceTree = "<group>";
