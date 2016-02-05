@@ -413,6 +413,8 @@
 
 -(void)flasherror:(NSString*)error
 {
+    [valert alert:error inview:self.view];
+    
     NSLog(@"flash error: %@", error);
     [[analytics singleton] trackevent:ga_event_cam_flash action:ga_action_error label:error];
 }

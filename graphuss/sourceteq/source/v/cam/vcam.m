@@ -70,9 +70,9 @@
     CGFloat previewheight = width * 4.0 / 3.0;
     CGFloat menuheight = height - previewheight;
     
-    if(menuheight < 60)
+    if(menuheight < 80)
     {
-        menuheight = 60;
+        menuheight = 80;
     }
     
     self.comenuheight.constant = menuheight;
