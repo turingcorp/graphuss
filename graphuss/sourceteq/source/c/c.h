@@ -1,4 +1,5 @@
 #import "cmain.h"
+#import "crate.h"
 #import "cpages.h"
 #import "cpiclist.h"
 #import "cpicdetail.h"
