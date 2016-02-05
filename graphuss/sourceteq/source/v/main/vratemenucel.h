@@ -2,6 +2,6 @@
 
 @interface vratemenucel:UICollectionViewCell
 
-@property(weak, nonatomic)UIImage *image;
+@property(weak, nonatomic)UIImageView *image;
 
 @end

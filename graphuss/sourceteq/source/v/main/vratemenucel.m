@@ -29,7 +29,14 @@
 
 -(void)setSelected:(BOOL)selected
 {
-    
+    [super setSelected:selected];
+    [self hover];
+}
+
+-(void)setHighlighted:(BOOL)highlighted
+{
+    [super setHighlighted:highlighted];
+    [self hover];
 }
 
 #pragma mark functionality
@@ -38,11 +45,11 @@
 {
     if(self.isSelected || self.isHighlighted)
     {
-        
+        [self.image setTintColor:colormain];
     }
     else
     {
-        [self set];
+        [self.image setTintColor:[UIColor colorWithWhite:0 alpha:0.1]];
     }
 }
 
