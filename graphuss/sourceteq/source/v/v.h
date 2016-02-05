@@ -48,3 +48,5 @@
 #import "vconfigcontact.h"
 #import "vconfigcontactcel.h"
 #import "vrate.h"
+#import "vratemenu.h"
+#import "vratemenucel.h"

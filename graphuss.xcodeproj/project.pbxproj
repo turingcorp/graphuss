@@ -20,6 +20,7 @@
 		DA117D891C65280000214AE3 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D861C65280000214AE3 /* star.png */; };
 		DA117D8A1C65280000214AE3 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D871C65280000214AE3 /* star@2x.png */; };
 		DA117D8B1C65280000214AE3 /* star@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D881C65280000214AE3 /* star@3x.png */; };
+		DA117D8E1C65291E00214AE3 /* vratemenucel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA117D8D1C65291E00214AE3 /* vratemenucel.m */; };
 		DA14782D1C5132A30024141B /* analytics.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA14782C1C5132A30024141B /* analytics.plist */; };
 		DA1478381C513A400024141B /* graphuss.db in Resources */ = {isa = PBXBuildFile; fileRef = DA1478371C513A400024141B /* graphuss.db */; };
 		DA14783C1C513BC90024141B /* cpages.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14783B1C513BC90024141B /* cpages.m */; };
@@ -210,6 +211,8 @@
 		DA117D861C65280000214AE3 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		DA117D871C65280000214AE3 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		DA117D881C65280000214AE3 /* star@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@3x.png"; sourceTree = "<group>"; };
+		DA117D8C1C65291E00214AE3 /* vratemenucel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vratemenucel.h; sourceTree = "<group>"; };
+		DA117D8D1C65291E00214AE3 /* vratemenucel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vratemenucel.m; sourceTree = "<group>"; };
 		DA14782C1C5132A30024141B /* analytics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = analytics.plist; sourceTree = "<group>"; };
 		DA1478371C513A400024141B /* graphuss.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphuss.db; sourceTree = "<group>"; };
 		DA14783A1C513BC90024141B /* cpages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpages.h; sourceTree = "<group>"; };
@@ -728,6 +731,8 @@
 				DA1B4F641C651F33006EEF40 /* vrate.m */,
 				DA117D831C65275C00214AE3 /* vratemenu.h */,
 				DA117D841C65275C00214AE3 /* vratemenu.m */,
+				DA117D8C1C65291E00214AE3 /* vratemenucel.h */,
+				DA117D8D1C65291E00214AE3 /* vratemenucel.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -1482,6 +1487,7 @@
 				DA1B4F5E1C650205006EEF40 /* vconfigcontactcel.m in Sources */,
 				DA6E31071C63DFF800652DF2 /* mcamflash.m in Sources */,
 				DA1478691C517C950024141B /* valert.m in Sources */,
+				DA117D8E1C65291E00214AE3 /* vratemenucel.m in Sources */,
 				DA03AF661C52ACE0005DB3C9 /* vcampreview.m in Sources */,
 				DA6E31271C640B2500652DF2 /* mconfigcontact.m in Sources */,
 				DA1B4F451C64F55D006EEF40 /* cconfigabout.m in Sources */,
