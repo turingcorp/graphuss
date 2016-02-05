@@ -8,5 +8,6 @@
 -(void)rateselected;
 
 @property(weak, nonatomic)vratemenu *menu;
+@property(weak, nonatomic)UIButton *buttonsend;
 
 @end
