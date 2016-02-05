@@ -7,14 +7,14 @@
 
 -(NSString*)descr
 {
-    NSString *descr = @"";
+    NSString *descr = NSLocalizedString(@"config_library_disk_descr", nil);
     
     return descr;
 }
 
 -(NSString*)actionname
 {
-    NSString *name = @"";
+    NSString *name = NSLocalizedString(@"config_library_disk_actionname", nil);
     
     return name;
 }

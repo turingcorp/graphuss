@@ -75,6 +75,8 @@
 "config_item_contact"="Contact";
 "config_item_library"="Library";
 "config_library_title"="Library";
+"config_library_disk_descr"="%@ used in memory\nIs possible to free memory space by deleting all pictures in the app.";
+"config_library_disk_actionname"="Delete all pictures";
 
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";
