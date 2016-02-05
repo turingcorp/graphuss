@@ -2,11 +2,26 @@
 
 @implementation mconfiglibrarydisk
 
--(instancetype)init
+#pragma mark -
+#pragma mark library protocol
+
+-(NSString*)descr
 {
-    self = [super init];
+    NSString *descr = @"";
     
-    return self;
+    return descr;
+}
+
+-(NSString*)actionname
+{
+    NSString *name = @"";
+    
+    return name;
+}
+
+-(void)selected
+{
+    
 }
 
 @end
