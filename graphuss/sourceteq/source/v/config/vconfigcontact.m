@@ -50,11 +50,13 @@
     [fieldcontainer setClipsToBounds:YES];
     [fieldcontainer setTranslatesAutoresizingMaskIntoConstraints:NO];
     [fieldcontainer setHidden:YES];
+    self.fieldcontainer = fieldcontainer;
     
     UIView *fieldbase = [[UIView alloc] init];
     [fieldbase setClipsToBounds:YES];
     [fieldbase setBackgroundColor:[UIColor clearColor]];
     [fieldbase setTranslatesAutoresizingMaskIntoConstraints:NO];
+    self.fieldbase = fieldbase;
     
     vblur *blur = [vblur light:NO];
     
@@ -101,6 +103,13 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[container]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[fieldbase]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[fieldbase(100)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[field]-20-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[field(100)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[send(40)]-10-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[cancel(40)]-10-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[cancel(100)]-20-[send(100)]-20-|" options:0 metrics:metrics views:views]];
     [self addConstraint:self.consfieldbottom];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedkeyboardchange:) name:UIKeyboardWillChangeFrameNotification object:nil];
