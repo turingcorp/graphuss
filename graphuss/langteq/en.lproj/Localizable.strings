@@ -96,6 +96,8 @@
 "config_contact_email_title"="Email us";
 "config_contact_rate_title"="Rate app in the store";
 
+"rate_descr"="How would you rate this app?";
+
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";
 "error_wrongbuffer"="Couldn't take picture, try again";

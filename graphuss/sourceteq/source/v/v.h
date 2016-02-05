@@ -47,3 +47,4 @@
 #import "vconfigabout.h"
 #import "vconfigcontact.h"
 #import "vconfigcontactcel.h"
+#import "vrate.h"
