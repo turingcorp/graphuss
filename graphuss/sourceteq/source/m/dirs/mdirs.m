@@ -26,7 +26,16 @@
 
 +(void)deletecontents:(NSString*)folder
 {
+    NSFileManager *manager = [NSFileManager defaultManager];
+    BOOL isdirectory;
     
+    if([manager fileExistsAtPath:folder isDirectory:&isdirectory])
+    {
+        if(isdirectory)
+        {
+            
+        }
+    }
 }
 
 +(void)copyfilefrom:(NSString*)origin to:(NSString*)to
