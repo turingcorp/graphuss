@@ -10,8 +10,6 @@
     
     vblur *blur = [vblur light:YES];
     
-    [self addSubview:blur];
-    
     UILabel *label = [[UILabel alloc] init];
     [label setBackgroundColor:[UIColor clearColor]];
     [label setUserInteractionEnabled:NO];
@@ -25,16 +23,18 @@
     vratemenu *menu = [[vratemenu alloc] init];
     self.menu = menu;
     
+    [self addSubview:blur];
     [self addSubview:label];
     [self addSubview:menu];
     
-    NSDictionary *views = @{@"blur":blur, @"label":label};
+    NSDictionary *views = @{@"blur":blur, @"label":label, @"menu":menu};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[label]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-150-[label]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-150-[label]-20-[menu(100)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[menu]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
 }

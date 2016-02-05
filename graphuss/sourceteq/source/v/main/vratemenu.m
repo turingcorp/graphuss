@@ -31,7 +31,7 @@
     self.collection = collection;
     [self addSubview:collection];
     
-    NSDictionary *views = @{};
+    NSDictionary *views = @{@"col":collection};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
