@@ -1,13 +1,14 @@
-//
-//  vconfiglibrarydelete.m
-//  graphuss
-//
-//  Created by zero on 2/4/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
-
 #import "vconfiglibrarydelete.h"
 
 @implementation vconfiglibrarydelete
+
+-(instancetype)init
+{
+    self = [super init];
+    [self setClipsToBounds:YES];
+    [self setBackgroundColor:[UIColor whiteColor]];
+    
+    return self;
+}
 
 @end
