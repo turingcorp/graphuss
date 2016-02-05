@@ -68,4 +68,9 @@
     return cel;
 }
 
+-(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
+{
+    [[self.controllercontact.model item:index.item] selected:self];
+}
+
 @end
