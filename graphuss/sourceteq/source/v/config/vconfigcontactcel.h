@@ -1,13 +1,8 @@
-//
-//  vconfigcontactcel.h
-//  graphuss
-//
-//  Created by zero on 2/5/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
+#import "mconfigcontactprotocol.h"
 
-#import <Foundation/Foundation.h>
+@interface vconfigcontactcel:UICollectionViewCell
 
-@interface vconfigcontactcel : NSObject
+-(void)config:(id<mconfigcontactprotocol>)model;
 
 @end

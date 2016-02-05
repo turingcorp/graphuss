@@ -46,3 +46,4 @@
 #import "vconfiglibrarydelete.h"
 #import "vconfigabout.h"
 #import "vconfigcontact.h"
+#import "vconfigcontactcel.h"
