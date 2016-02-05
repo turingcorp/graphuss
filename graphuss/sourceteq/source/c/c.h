@@ -7,3 +7,4 @@
 #import "cconfiglibrary.h"
 #import "cconfiglibrarydelete.h"
 #import "cconfigabout.h"
+#import "cconfigcontact.h"
