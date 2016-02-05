@@ -22,7 +22,11 @@
     [label setTextColor:[UIColor blackColor]];
     [label setNumberOfLines:0];
     
+    vratemenu *menu = [[vratemenu alloc] init];
+    self.menu = menu;
+    
     [self addSubview:label];
+    [self addSubview:menu];
     
     NSDictionary *views = @{@"blur":blur, @"label":label};
     NSDictionary *metrics = @{};
