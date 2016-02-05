@@ -24,6 +24,11 @@
     }
 }
 
++(void)deletecontents:(NSString*)folder
+{
+    
+}
+
 +(void)copyfilefrom:(NSString*)origin to:(NSString*)to
 {
     NSFileManager *manager = [NSFileManager defaultManager];
