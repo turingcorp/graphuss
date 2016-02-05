@@ -35,8 +35,10 @@
     self.labelfinalize = labelfinalize;
     
     UIButton *button = [[UIButton alloc] init];
+    [button setClipsToBounds:YES];
     [button setTitle:NSLocalizedString(@"config_library_disk_in_continue", nil) forState:UIControlStateNormal];
     [button setHidden:YES];
+    [button setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.button = button;
     
     [self addSubview:spinner];
