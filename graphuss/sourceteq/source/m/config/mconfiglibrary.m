@@ -11,12 +11,14 @@
 {
     if(!array)
     {
-        
+        array = [NSArray arrayWithObjects:
+                 [[mconfiglibrarydisk alloc] init],
+                 nil];
     }
     
     NSUInteger count = array.count;
     
-    return array;
+    return count;
 }
 
 -(id<mconfiglibraryprotocol>)item:(NSUInteger)index;

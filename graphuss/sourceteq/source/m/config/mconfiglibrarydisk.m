@@ -7,7 +7,7 @@
 
 -(NSString*)descr
 {
-    NSString *descr = NSLocalizedString(@"config_library_disk_descr", nil);
+    NSString *descr = [NSString stringWithFormat:NSLocalizedString(@"config_library_disk_descr", nil)];
     
     return descr;
 }
