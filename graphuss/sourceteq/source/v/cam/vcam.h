@@ -13,6 +13,7 @@
 -(void)takepicture;
 -(void)picturetaken:(UIImage*)image;
 -(void)restart;
+-(void)optionsshowed:(BOOL)showed;
 
 @property(weak, nonatomic)vcamfinder *finder;
 @property(weak, nonatomic)vspinner *spinner;

@@ -28,6 +28,7 @@
     
     vcammenuoptions *options = [[vcammenuoptions alloc] init:self];
     self.options = options;
+    [self.options setHidden:YES];
     
     [self addSubview:finder];
     [self addSubview:spinner];
@@ -143,6 +144,11 @@
     [[analytics singleton] trackevent:ga_event_shoot action:ga_action_restart label:nil];
     [self animatepreviewhide];
     [self.menu refresh];
+}
+
+-(void)optionsshowed:(BOOL)showed
+{
+    [self.options setHidden:!showed];
 }
 
 @end
