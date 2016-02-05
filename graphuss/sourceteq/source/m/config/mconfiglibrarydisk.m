@@ -44,7 +44,7 @@
 {
     if(button)
     {
-        
+        [[cmain singleton] pushViewController:[[cconfiglibrarydelete alloc] init] animated:YES];
     }
 }
 
