@@ -11,6 +11,31 @@
     self.controllerlibrary = controller;
     
     UICollectionViewFlowLayout *flow = [UICollectionViewFlowLayout alloc];
+    [flow setFooterReferenceSize:CGSizeZero];
+    [flow setMinimumInteritemSpacing:0];
+    [flow setMinimumLineSpacing:0];
+    [flow setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flow setSectionInset:UIEdgeInsetsMake(20, 0, 20, 0)];
+    
+    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flow];
+    [collection setClipsToBounds:YES];
+    [collection setBackgroundColor:[UIColor clearColor]];
+    [collection setShowsHorizontalScrollIndicator:NO];
+    [collection setShowsVerticalScrollIndicator:NO];
+    [collection setDataSource:self];
+    [collection setDelegate:self];
+    [collection setAlwaysBounceVertical:YES];
+    [collection registerClass:[vconfiglibrarycel class] forCellWithReuseIdentifier:celid];
+    [collection registerClass:[vconfiglibraryheader class] forCellWithReuseIdentifier:headerid];
+    [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self addSubview:collection];
+    
+    NSDictionary *views = @{@"col":collection};
+    NSDictionary *metrics = @{};
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
