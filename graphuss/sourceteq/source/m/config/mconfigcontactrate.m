@@ -15,6 +15,7 @@
 -(void)selected:(vconfigcontact*)view
 {
     [[analytics singleton] trackevent:ga_event_config_contact_rate action:ga_action_start label:nil];
+    [tools rateapp];
 }
 
 @end

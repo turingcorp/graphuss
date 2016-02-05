@@ -15,6 +15,7 @@
 -(void)selected:(vconfigcontact*)view
 {
     [[analytics singleton] trackevent:ga_event_config_contact_email action:ga_action_start label:nil];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto:imateq@iturbi.de"]];
 }
 
 @end
