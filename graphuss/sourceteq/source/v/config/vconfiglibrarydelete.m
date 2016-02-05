@@ -36,9 +36,15 @@
     
     UIButton *button = [[UIButton alloc] init];
     [button setClipsToBounds:YES];
+    [button.layer setCornerRadius:4];
+    [button setBackgroundColor:colorsecond];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
     [button setTitle:NSLocalizedString(@"config_library_disk_in_continue", nil) forState:UIControlStateNormal];
     [button setHidden:YES];
+    [button.titleLabel setFont:[UIFont fontWithName:fontboldname size:15]];
     [button setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [button addTarget:self action:@selector(actioncontinue:) forControlEvents:UIControlEventTouchUpInside];
     self.button = button;
     
     [self addSubview:spinner];
@@ -55,6 +61,8 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[finalize]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[button]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-150-[finalize]-20-[button(36)]" options:0 metrics:metrics views:views]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedupdatepictures:) name:notreloadpics object:nil];
     
     return self;
 }
@@ -77,7 +85,7 @@
 
 #pragma mark actions
 
--(void)actioncontinue
+-(void)actioncontinue:(UIButton*)button
 {
     [[cmain singleton] popToRootViewControllerAnimated:YES];
 }
