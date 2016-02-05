@@ -14,7 +14,7 @@
 "pic_detail_file_compression"="Compresion";
 "pic_detail_file_delete"="Borrar";
 "pic_detail_file_delete_title"="Borar foto";
-"pic_detail_file_delete_descr"="Sera borrada permanentement";
+"pic_detail_file_delete_descr"="Sera borrada permanentemente";
 "pic_detail_file_compress_cancel"="Cancelar";
 "pic_detail_file_compress_compress"="Comprimir";
 "pic_detail_file_compress_title"="Comprimir imagen";
