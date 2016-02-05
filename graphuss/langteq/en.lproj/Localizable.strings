@@ -88,6 +88,7 @@
 "config_about_in_title"="Imateq\n";
 "config_about_in_descr"="Version %@\n";
 "config_about_in_copy"="Copyright 2016 Iturbide";
+"config_contact_title"="Contact";
 
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";

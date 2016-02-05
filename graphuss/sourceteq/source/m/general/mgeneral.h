@@ -29,7 +29,8 @@ typedef NS_ENUM(NSInteger, ga_screen)
     ga_screen_config,
     ga_screen_config_library,
     ga_screen_config_library_delete,
-    ga_screen_config_about
+    ga_screen_config_about,
+    ga_screen_config_contact
 };
 
 typedef NS_ENUM(NSInteger, ga_event)
