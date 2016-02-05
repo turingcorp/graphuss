@@ -1,6 +1,25 @@
 #import "mconfigcontact.h"
 
 @implementation mconfigcontact
+{
+    NSArray *array;
+}
+
+#pragma mark public
+
+-(NSUInteger)count
+{
+    NSUInteger count = array.count;
+    
+    return count;
+}
+
+-(id<mconfigcontactprotocol>)item:(NSUInteger)index;
+{
+    id<mconfigcontactprotocol> item = array[index];
+    
+    return item;
+}
 
 #pragma mark -
 #pragma mark config protocol
