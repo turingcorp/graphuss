@@ -84,6 +84,7 @@
 "config_library_disk_in_descr"="Removing images";
 "config_library_disk_in_finalize"="Images removed";
 "config_library_disk_in_continue"="Continue";
+"config_about_title"="About";
 
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";
