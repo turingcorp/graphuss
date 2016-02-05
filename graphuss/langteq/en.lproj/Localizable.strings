@@ -85,6 +85,9 @@
 "config_library_disk_in_finalize"="Images removed";
 "config_library_disk_in_continue"="Continue";
 "config_about_title"="About";
+"config_about_in_title"="Imateq\n";
+"config_about_in_descr"="Version %@\n";
+"config_about_in_copy"="Copyright 2016 Iturbide";
 
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";
