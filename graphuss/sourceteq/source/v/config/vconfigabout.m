@@ -8,7 +8,7 @@
     [self setBackgroundColor:[UIColor whiteColor]];
     
     NSDictionary *attrtitle = @{NSForegroundColorAttributeName:colormain, NSFontAttributeName:[UIFont fontWithName:fontboldname size:18]};
-    NSDictionary *attrversion = @{NSForegroundColorAttributeName:colormain, NSFontAttributeName:[UIFont fontWithName:fontname size:15]};
+    NSDictionary *attrversion = @{NSForegroundColorAttributeName:colormain, NSFontAttributeName:[UIFont fontWithName:fontname size:12]};
     NSDictionary *attrcopy = @{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont fontWithName:fontname size:12]};
     
     NSAttributedString *strtitle = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"config_about_in_title", nil) attributes:attrtitle];
@@ -20,6 +20,13 @@
     [mut appendAttributedString:strversion];
     [mut appendAttributedString:strcopy];
     
+    UIImageView *logo = [[UIImageView alloc] init];
+    [logo setUserInteractionEnabled:NO];
+    [logo setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [logo setContentMode:UIViewContentModeScaleAspectFit];
+    [logo setClipsToBounds:YES];
+    [logo setImage:[UIImage imageNamed:@"engine"]];
+    
     UILabel *label = [[UILabel alloc] init];
     [label setAttributedText:mut];
     [label setUserInteractionEnabled:NO];
@@ -28,12 +35,14 @@
     [label setNumberOfLines:0];
     
     [self addSubview:label];
+    [self addSubview:logo];
     
-    NSDictionary *views = @{@"label":label};
+    NSDictionary *views = @{@"label":label, @"logo":logo};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[label]-20-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[label]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[logo]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-50-[logo(150)]-20-[label]" options:0 metrics:metrics views:views]];
     
     return self;
 }
