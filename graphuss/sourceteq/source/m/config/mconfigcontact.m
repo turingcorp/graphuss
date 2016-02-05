@@ -11,7 +11,11 @@
 {
     if(!array)
     {
-        array = [NSArray arrayWithObjects:nil, nil];
+        array = [NSArray arrayWithObjects:
+                 [[mconfigcontactmessage alloc] init],
+                 [[mconfigcontactemail alloc] init],
+                 [[mconfigcontactrate alloc] init],
+                 nil];
     }
     
     NSUInteger count = array.count;
