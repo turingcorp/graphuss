@@ -26,7 +26,7 @@
     {
         NSUInteger ttlint = ttl.unsignedIntegerValue;
         
-        if(ttlint > 5)
+        if(ttlint > 6)
         {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(),
                            ^

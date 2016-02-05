@@ -24,6 +24,9 @@
 		DA117D921C6533CA00214AE3 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D8F1C6533CA00214AE3 /* logo.png */; };
 		DA117D931C6533CA00214AE3 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D901C6533CA00214AE3 /* logo@2x.png */; };
 		DA117D941C6533CA00214AE3 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D911C6533CA00214AE3 /* logo@3x.png */; };
+		DA117D981C6552DF00214AE3 /* filters.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D951C6552DF00214AE3 /* filters.png */; };
+		DA117D991C6552DF00214AE3 /* filters@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D961C6552DF00214AE3 /* filters@2x.png */; };
+		DA117D9A1C6552DF00214AE3 /* filters@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D971C6552DF00214AE3 /* filters@3x.png */; };
 		DA14782D1C5132A30024141B /* analytics.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA14782C1C5132A30024141B /* analytics.plist */; };
 		DA1478381C513A400024141B /* graphuss.db in Resources */ = {isa = PBXBuildFile; fileRef = DA1478371C513A400024141B /* graphuss.db */; };
 		DA14783C1C513BC90024141B /* cpages.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14783B1C513BC90024141B /* cpages.m */; };
@@ -219,6 +222,9 @@
 		DA117D8F1C6533CA00214AE3 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		DA117D901C6533CA00214AE3 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		DA117D911C6533CA00214AE3 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
+		DA117D951C6552DF00214AE3 /* filters.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filters.png; sourceTree = "<group>"; };
+		DA117D961C6552DF00214AE3 /* filters@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filters@2x.png"; sourceTree = "<group>"; };
+		DA117D971C6552DF00214AE3 /* filters@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filters@3x.png"; sourceTree = "<group>"; };
 		DA14782C1C5132A30024141B /* analytics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = analytics.plist; sourceTree = "<group>"; };
 		DA1478371C513A400024141B /* graphuss.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphuss.db; sourceTree = "<group>"; };
 		DA14783A1C513BC90024141B /* cpages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpages.h; sourceTree = "<group>"; };
@@ -971,6 +977,9 @@
 		DA3D99CA1C5126720072F69B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DA117D951C6552DF00214AE3 /* filters.png */,
+				DA117D961C6552DF00214AE3 /* filters@2x.png */,
+				DA117D971C6552DF00214AE3 /* filters@3x.png */,
 				DA117D8F1C6533CA00214AE3 /* logo.png */,
 				DA117D901C6533CA00214AE3 /* logo@2x.png */,
 				DA117D911C6533CA00214AE3 /* logo@3x.png */,
@@ -1308,6 +1317,7 @@
 				DA390C1E1C584C64000ABCEA /* rotateleft@3x.png in Resources */,
 				DA2501ED1C595DDD0081E56D /* light@3x.png in Resources */,
 				DA117D931C6533CA00214AE3 /* logo@2x.png in Resources */,
+				DA117D981C6552DF00214AE3 /* filters.png in Resources */,
 				DA390C251C58524D000ABCEA /* scale.png in Resources */,
 				DA3D9A151C5126720072F69B /* Localizable.strings in Resources */,
 				DA390C271C58524D000ABCEA /* scale@3x.png in Resources */,
@@ -1320,6 +1330,7 @@
 				DA14784A1C51452F0024141B /* engine@3x.png in Resources */,
 				DA1478481C51452F0024141B /* engine.png in Resources */,
 				DA117D8B1C65280000214AE3 /* star@3x.png in Resources */,
+				DA117D9A1C6552DF00214AE3 /* filters@3x.png in Resources */,
 				DA3D9A141C5126720072F69B /* defs.plist in Resources */,
 				DA14787C1C51A04E0024141B /* spinner3@3x.png in Resources */,
 				DA1478741C51A04E0024141B /* spinner1.png in Resources */,
@@ -1330,6 +1341,7 @@
 				DA390C1D1C584C64000ABCEA /* rotateleft@2x.png in Resources */,
 				DA117D921C6533CA00214AE3 /* logo.png in Resources */,
 				DA2C654F1C5A7F6D00862C05 /* firsttime@2x.png in Resources */,
+				DA117D991C6552DF00214AE3 /* filters@2x.png in Resources */,
 				DA1478841C51B5060024141B /* shoot@2x.png in Resources */,
 				DA117D941C6533CA00214AE3 /* logo@3x.png in Resources */,
 				DA14782D1C5132A30024141B /* analytics.plist in Resources */,
