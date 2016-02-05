@@ -81,9 +81,9 @@
 "config_library_disk_alert_message"="This will remove all the pictures in the app";
 "config_library_disk_alert_button"="Delete all";
 "config_library_disk_title"="Cleaning";
-"config_library_disk_descr"="Removing images";
-"config_library_disk_finalize"="Images removed";
-"config_library_disk_continue"="Continue";
+"config_library_disk_in_descr"="Removing images";
+"config_library_disk_in_finalize"="Images removed";
+"config_library_disk_in_continue"="Continue";
 
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";

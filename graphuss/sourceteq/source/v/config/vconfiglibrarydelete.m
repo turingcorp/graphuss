@@ -19,15 +19,23 @@
     [labeldescr setNumberOfLines:0];
     [labeldescr setFont:[UIFont fontWithName:fontname size:15]];
     [labeldescr setTextColor:colormain];
-    [labeldescr setText:NSLocalizedString(@"config_library_disk_descr", nil)];
+    [labeldescr setText:NSLocalizedString(@"config_library_disk_in_descr", nil)];
     self.labeldescr = labeldescr;
     
     UILabel *labelfinalize = [[UILabel alloc] init];
-    [labelfinalize setText:NSLocalizedString(@"config_library_disk_finalize", nil)];
+    [labelfinalize setBackgroundColor:[UIColor clearColor]];
+    [labelfinalize setTextAlignment:NSTextAlignmentCenter];
+    [labelfinalize setUserInteractionEnabled:NO];
+    [labelfinalize setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [labelfinalize setFont:[UIFont fontWithName:fontname size:20]];
+    [labelfinalize setTextColor:[UIColor colorWithWhite:0 alpha:0.8]];
+    [labelfinalize setNumberOfLines:0];
+    [labelfinalize setText:NSLocalizedString(@"config_library_disk_in_finalize", nil)];
     [labelfinalize setHidden:YES];
     self.labelfinalize = labelfinalize;
     
     UIButton *button = [[UIButton alloc] init];
+    [button setTitle:NSLocalizedString(@"config_library_disk_in_continue", nil) forState:UIControlStateNormal];
     [button setHidden:YES];
     self.button = button;
     
