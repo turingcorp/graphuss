@@ -3,7 +3,7 @@
 
 @class cconfigcontact;
 
-@interface vconfigcontact:viewbase<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface vconfigcontact:viewbase<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate>
 
 @property(weak, nonatomic)cconfigcontact *controllercontact;
 @property(weak, nonatomic)UIView *fieldbase;

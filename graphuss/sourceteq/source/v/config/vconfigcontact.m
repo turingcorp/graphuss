@@ -43,6 +43,7 @@
     [field setTextColor:[UIColor blackColor]];
     [field setTintColor:[UIColor blackColor]];
     [field setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [field setDelegate:self];
     self.field = field;
     
     UIView *fieldbase = [[UIView alloc] init];
@@ -98,12 +99,12 @@
 
 -(void)actioncancel:(UIButton*)button
 {
-    
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
 }
 
 -(void)actionsend:(UIButton*)button
 {
-    
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
 }
 
 #pragma mark -
@@ -143,6 +144,16 @@
                    {
                        [col reloadData];
                    });
+}
+
+#pragma mark field del
+
+
+-(BOOL)textFieldShouldReturn:(UITextField*)field
+{
+    [field resignFirstResponder];
+    
+    return YES;
 }
 
 @end
