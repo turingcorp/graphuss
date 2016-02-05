@@ -43,7 +43,6 @@
     [field setTextColor:[UIColor blackColor]];
     [field setTintColor:[UIColor blackColor]];
     [field setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [field setHidden:YES];
     self.field = field;
     
     UIView *fieldbase = [[UIView alloc] init];
@@ -57,12 +56,24 @@
     [buttonsend setBackgroundColor:colorsecond];
     [buttonsend setClipsToBounds:YES];
     [buttonsend setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [buttonsend.layer setCornerRadius:4];
+    [buttonsend setTitle:NSLocalizedString(@"config_contact_message_send", nil) forState:UIControlStateNormal];
+    [buttonsend setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [buttonsend setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
+    [buttonsend.titleLabel setFont:[UIFont fontWithName:fontboldname size:16]];
+    [buttonsend addTarget:self action:@selector(actionsend:) forControlEvents:UIControlEventTouchUpInside];
     self.buttonsend = buttonsend;
     
     UIButton *buttoncancel = [[UIButton alloc] init];
     [buttoncancel setBackgroundColor:colormain];
     [buttoncancel setClipsToBounds:YES];
     [buttoncancel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [buttoncancel.layer setCornerRadius:4];
+    [buttoncancel setTitle:NSLocalizedString(@"config_contact_message_cancel", nil) forState:UIControlStateNormal];
+    [buttoncancel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [buttoncancel setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
+    [buttoncancel.titleLabel setFont:[UIFont fontWithName:fontboldname size:16]];
+    [buttoncancel addTarget:self action:@selector(actioncancel:) forControlEvents:UIControlEventTouchUpInside];
     self.buttoncancel = buttoncancel;
     
     [fieldbase addSubview:blur];
@@ -73,7 +84,7 @@
     [self addSubview:collection];
     [self addSubview:fieldbase];
     
-    NSDictionary *views = @{@"col":collection, @"field":field, @"fieldbase":fieldbase, @"blur":blur};
+    NSDictionary *views = @{@"col":collection, @"field":field, @"fieldbase":fieldbase, @"blur":blur, @"send":buttonsend, @"cancel":buttoncancel};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
@@ -81,6 +92,18 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[field]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
+}
+
+#pragma mark actions
+
+-(void)actioncancel:(UIButton*)button
+{
+    
+}
+
+-(void)actionsend:(UIButton*)button
+{
+    
 }
 
 #pragma mark -
