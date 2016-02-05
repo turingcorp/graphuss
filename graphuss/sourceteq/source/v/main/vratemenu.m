@@ -15,7 +15,7 @@
     [flow setMinimumInteritemSpacing:0];
     [flow setMinimumLineSpacing:0];
     [flow setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    [flow setSectionInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+    [flow setSectionInset:UIEdgeInsetsMake(0, 25, 0, 25)];
     
     UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flow];
     [collection setBackgroundColor:[UIColor clearColor]];
@@ -28,6 +28,7 @@
     [collection setBounces:NO];
     [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
     [collection registerClass:[vratemenucel class] forCellWithReuseIdentifier:celid];
+    [collection setAllowsMultipleSelection:YES];
     self.collection = collection;
     [self addSubview:collection];
     
@@ -45,7 +46,7 @@
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
 {
-    CGSize size = CGSizeMake((col.bounds.size.width - 20)/ 5.0, col.bounds.size.height);
+    CGSize size = CGSizeMake((col.bounds.size.width - 50)/ 5.0, col.bounds.size.height);
     
     return size;
 }
@@ -65,6 +66,19 @@
     vratemenucel *cel = [col dequeueReusableCellWithReuseIdentifier:celid forIndexPath:index];
     
     return cel;
+}
+
+-(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
+{
+    NSUInteger item = index.item;
+    
+    for(NSUInteger i = 0; i < 5; i++)
+    {
+        BOOL selected = i <= item;
+        vratemenucel *cel = (vratemenucel*)[col cellForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+        [cel setHighlighted:selected];
+        [cel setSelected:NO];
+    }
 }
 
 @end

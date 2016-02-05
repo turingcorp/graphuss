@@ -15,6 +15,7 @@
     [image setImage:[[UIImage imageNamed:@"star"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     [image setContentMode:UIViewContentModeScaleAspectFit];
 
+    self.choosen = NO;
     self.image = image;
     [self addSubview:image];
     
@@ -44,7 +45,7 @@
 
 -(void)hover
 {
-    if(self.isSelected || self.isHighlighted)
+    if(self.choosen)
     {
         [self.image setTintColor:colormain];
     }
