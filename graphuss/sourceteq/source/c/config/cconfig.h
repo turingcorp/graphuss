@@ -1,5 +1,7 @@
 #import "appdel.h"
 
+@class vconfig;
+
 @interface cconfig:UIViewController
 
 -(void)selected:(id<mconfigprotocol>)item;
