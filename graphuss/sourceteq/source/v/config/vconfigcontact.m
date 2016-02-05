@@ -50,6 +50,7 @@
     [fieldbase setClipsToBounds:YES];
     [fieldbase setBackgroundColor:[UIColor clearColor]];
     [fieldbase setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [fieldbase setHidden:YES];
     
     vblur *blur = [vblur light:NO];
     
@@ -85,12 +86,15 @@
     [self addSubview:collection];
     [self addSubview:fieldbase];
     
+    self.consfieldbottom = [NSLayoutConstraint constraintWithItem:fieldbase attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:1];
     NSDictionary *views = @{@"col":collection, @"field":field, @"fieldbase":fieldbase, @"blur":blur, @"send":buttonsend, @"cancel":buttoncancel};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[field]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[fieldbase]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[fieldbase(100)]" options:0 metrics:metrics views:views]];
+    [self addConstraint:self.consfieldbottom];
     
     return self;
 }
