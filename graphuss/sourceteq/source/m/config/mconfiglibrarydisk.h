@@ -1,6 +1,6 @@
 #import "appdel.h"
 #import "mconfiglibraryprotocol.h"
 
-@interface mconfiglibrarydisk:NSObject<mconfiglibraryprotocol>
+@interface mconfiglibrarydisk:NSObject<mconfiglibraryprotocol, UIAlertViewDelegate>
 
 @end

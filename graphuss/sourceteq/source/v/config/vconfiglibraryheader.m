@@ -12,7 +12,7 @@
     UILabel *label = [[UILabel alloc] init];
     [label setBackgroundColor:[UIColor clearColor]];
     [label setNumberOfLines:0];
-    [label setFont:[UIFont fontWithName:fontname size:17]];
+    [label setFont:[UIFont fontWithName:fontname size:18]];
     [label setUserInteractionEnabled:NO];
     [label setTextColor:[UIColor colorWithWhite:0 alpha:0.4]];
     [label setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -33,7 +33,7 @@
 
 -(void)config:(id<mconfiglibraryprotocol>)item;
 {
-    [self.label setText:[item descr]];
+    [item descr:self.label];
 }
 
 @end

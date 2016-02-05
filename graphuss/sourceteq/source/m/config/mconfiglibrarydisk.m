@@ -13,7 +13,7 @@
                        NSUInteger size = 0;
                        size += [mdirs bytesinfolder:[mpic singleton].imagesfolder];
                        size += [mdirs bytesinfolder:[mpic singleton].thumbsfolder];
-                       double floatsize = size / 1000000;
+                       double floatsize = size / 1000000.0;
                        
                        NSString *sizestring = [[tools singleton] numbertostring:@(floatsize)];
                        NSString *string = [NSString stringWithFormat:NSLocalizedString(@"config_library_disk_descr", nil), sizestring];
@@ -35,7 +35,17 @@
 
 -(void)selected
 {
-    
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"config_library_disk_alert_title", nil) message:NSLocalizedString(@"config_library_disk_alert_message", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"alert_cancel", nil) otherButtonTitles:NSLocalizedString(@"config_library_disk_alert_button", nil), nil] show];
+}
+
+#pragma mark alert del
+
+-(void)alertView:(UIAlertView*)alert clickedButtonAtIndex:(NSInteger)button
+{
+    if(button)
+    {
+        
+    }
 }
 
 @end
