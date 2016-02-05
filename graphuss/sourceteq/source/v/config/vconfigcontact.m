@@ -8,6 +8,8 @@
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor colorWithWhite:0.97 alpha:1]];
     
+    self.controllercontact = controller;
+    
     return self;
 }
 
