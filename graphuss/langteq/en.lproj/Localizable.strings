@@ -74,6 +74,7 @@
 "config_item_about"="About";
 "config_item_contact"="Contact";
 "config_item_library"="Library";
+"config_library_title"="Library";
 
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";

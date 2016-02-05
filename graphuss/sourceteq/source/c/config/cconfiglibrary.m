@@ -5,6 +5,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setTitle:NSLocalizedString(@"config_library_title", nil)];
 }
 
 -(void)loadView
