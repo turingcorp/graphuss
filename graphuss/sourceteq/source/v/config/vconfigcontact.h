@@ -1,13 +1,6 @@
-//
-//  vconfigcontact.h
-//  graphuss
-//
-//  Created by zero on 2/5/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
+#import "viewbase.h"
 
-#import <Foundation/Foundation.h>
-
-@interface vconfigcontact : NSObject
+@interface vconfigcontact:viewbase
 
 @end
