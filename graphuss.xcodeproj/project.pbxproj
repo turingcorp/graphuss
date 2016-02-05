@@ -534,10 +534,10 @@
 				DA6E311B1C6409EC00652DF2 /* vconfigcel.m */,
 				DA6E31311C641CBC00652DF2 /* vconfiglibrary.h */,
 				DA6E31321C641CBC00652DF2 /* vconfiglibrary.m */,
-				DA6E31381C64256700652DF2 /* vconfiglibrarycel.h */,
-				DA6E31391C64256700652DF2 /* vconfiglibrarycel.m */,
 				DA6E313B1C64257200652DF2 /* vconfiglibraryheader.h */,
 				DA6E313C1C64257200652DF2 /* vconfiglibraryheader.m */,
+				DA6E31381C64256700652DF2 /* vconfiglibrarycel.h */,
+				DA6E31391C64256700652DF2 /* vconfiglibrarycel.m */,
 			);
 			path = config;
 			sourceTree = "<group>";

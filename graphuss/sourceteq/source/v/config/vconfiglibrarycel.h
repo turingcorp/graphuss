@@ -1,13 +1,9 @@
-//
-//  vconfiglibrarycel.h
-//  graphuss
-//
-//  Created by zero on 2/4/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
+#import "appdel.h"
 
-#import <Foundation/Foundation.h>
+@interface vconfiglibrarycel:UICollectionViewCell
 
-@interface vconfiglibrarycel : NSObject
+-(void)config:(id<mconfiglibraryprotocol>)item;
+
+@property(weak, nonatomic)UILabel *label;
 
 @end
