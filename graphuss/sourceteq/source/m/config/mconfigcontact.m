@@ -9,6 +9,11 @@
 
 -(NSUInteger)count
 {
+    if(!array)
+    {
+        array = [NSArray arrayWithObjects:nil, nil];
+    }
+    
     NSUInteger count = array.count;
     
     return count;
