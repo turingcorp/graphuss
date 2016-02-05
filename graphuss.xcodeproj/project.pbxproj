@@ -30,6 +30,9 @@
 		DA117D9E1C6557CE00214AE3 /* bw.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D9B1C6557CE00214AE3 /* bw.png */; };
 		DA117D9F1C6557CE00214AE3 /* bw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D9C1C6557CE00214AE3 /* bw@2x.png */; };
 		DA117DA01C6557CE00214AE3 /* bw@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D9D1C6557CE00214AE3 /* bw@3x.png */; };
+		DA117DA41C6558FE00214AE3 /* colors.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117DA11C6558FE00214AE3 /* colors.png */; };
+		DA117DA51C6558FE00214AE3 /* colors@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117DA21C6558FE00214AE3 /* colors@2x.png */; };
+		DA117DA61C6558FE00214AE3 /* colors@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117DA31C6558FE00214AE3 /* colors@3x.png */; };
 		DA14782D1C5132A30024141B /* analytics.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA14782C1C5132A30024141B /* analytics.plist */; };
 		DA1478381C513A400024141B /* graphuss.db in Resources */ = {isa = PBXBuildFile; fileRef = DA1478371C513A400024141B /* graphuss.db */; };
 		DA14783C1C513BC90024141B /* cpages.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14783B1C513BC90024141B /* cpages.m */; };
@@ -231,6 +234,9 @@
 		DA117D9B1C6557CE00214AE3 /* bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bw.png; sourceTree = "<group>"; };
 		DA117D9C1C6557CE00214AE3 /* bw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bw@2x.png"; sourceTree = "<group>"; };
 		DA117D9D1C6557CE00214AE3 /* bw@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bw@3x.png"; sourceTree = "<group>"; };
+		DA117DA11C6558FE00214AE3 /* colors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colors.png; sourceTree = "<group>"; };
+		DA117DA21C6558FE00214AE3 /* colors@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colors@2x.png"; sourceTree = "<group>"; };
+		DA117DA31C6558FE00214AE3 /* colors@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colors@3x.png"; sourceTree = "<group>"; };
 		DA14782C1C5132A30024141B /* analytics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = analytics.plist; sourceTree = "<group>"; };
 		DA1478371C513A400024141B /* graphuss.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphuss.db; sourceTree = "<group>"; };
 		DA14783A1C513BC90024141B /* cpages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpages.h; sourceTree = "<group>"; };
@@ -983,6 +989,9 @@
 		DA3D99CA1C5126720072F69B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DA117DA11C6558FE00214AE3 /* colors.png */,
+				DA117DA21C6558FE00214AE3 /* colors@2x.png */,
+				DA117DA31C6558FE00214AE3 /* colors@3x.png */,
 				DA117D9B1C6557CE00214AE3 /* bw.png */,
 				DA117D9C1C6557CE00214AE3 /* bw@2x.png */,
 				DA117D9D1C6557CE00214AE3 /* bw@3x.png */,
@@ -1309,15 +1318,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA117DA41C6558FE00214AE3 /* colors.png in Resources */,
 				DA14787B1C51A04E0024141B /* spinner3@2x.png in Resources */,
 				DA2501EC1C595DDD0081E56D /* light@2x.png in Resources */,
 				DA117D9F1C6557CE00214AE3 /* bw@2x.png in Resources */,
+				DA117DA61C6558FE00214AE3 /* colors@3x.png in Resources */,
 				DA1478791C51A04E0024141B /* spinner2@3x.png in Resources */,
 				DA117D891C65280000214AE3 /* star.png in Resources */,
 				DA390C201C584C64000ABCEA /* rotateright@2x.png in Resources */,
 				DA14787A1C51A04E0024141B /* spinner3.png in Resources */,
 				DA390C211C584C64000ABCEA /* rotateright@3x.png in Resources */,
 				DA1478491C51452F0024141B /* engine@2x.png in Resources */,
+				DA117DA51C6558FE00214AE3 /* colors@2x.png in Resources */,
 				DA2501EB1C595DDD0081E56D /* light.png in Resources */,
 				DAE468E01C512F30006EBE52 /* in in Resources */,
 				DA390C1C1C584C64000ABCEA /* rotateleft.png in Resources */,

@@ -35,7 +35,7 @@
 
 -(NSString*)image
 {
-    NSString *string = @"light";
+    NSString *string = @"bw";
     
     return string;
 }

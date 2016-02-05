@@ -38,7 +38,7 @@
 
 -(NSString*)image
 {
-    NSString *string = @"scale";
+    NSString *string = @"colors";
     
     return string;
 }
