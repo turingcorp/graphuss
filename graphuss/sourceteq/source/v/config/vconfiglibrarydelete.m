@@ -24,9 +24,11 @@
     
     UILabel *labelfinalize = [[UILabel alloc] init];
     [labelfinalize setText:NSLocalizedString(@"config_library_disk_finalize", nil)];
+    [labelfinalize setHidden:YES];
     self.labelfinalize = labelfinalize;
     
     UIButton *button = [[UIButton alloc] init];
+    [button setHidden:YES];
     self.button = button;
     
     [self addSubview:spinner];
