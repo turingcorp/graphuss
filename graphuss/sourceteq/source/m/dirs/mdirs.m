@@ -38,4 +38,22 @@
     [manager copyItemAtURL:originurl toURL:destinationurl error:nil];
 }
 
++(NSUInteger)bytesinfolder:(NSString*)folderpath
+{
+    NSUInteger size = 0;
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSArray *files = [manager contentsOfDirectoryAtPath:folderpath error:nil];
+    NSUInteger count = files.count;
+    
+    for(NSUInteger i = 0; i < count; i++)
+    {
+        NSString *file = files[i];
+        NSString *filepath = [folderpath stringByAppendingPathComponent:file];
+        NSDictionary *attributes = [manager attributesOfItemAtPath:filepath error:nil];
+        size += [attributes fileSize];
+    }
+    
+    return size;
+}
+
 @end

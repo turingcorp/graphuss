@@ -75,7 +75,7 @@
 "config_item_contact"="Contact";
 "config_item_library"="Library";
 "config_library_title"="Library";
-"config_library_disk_descr"="%@ used in disk. Free memory by deleting all pictures in the app.";
+"config_library_disk_descr"="%@ MB used in disk. Free memory by deleting all pictures in the app.";
 "config_library_disk_actionname"="Delete all pictures";
 
 "error_notauthorized"="Not authorized to use the camera";

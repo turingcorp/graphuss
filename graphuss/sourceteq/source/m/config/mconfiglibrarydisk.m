@@ -7,18 +7,23 @@
 
 -(void)descr:(UILabel*)label
 {
-    NSFileManager *manager = [NSFileManager defaultManager];
-    NSArray *pictures = [manager contentsOfDirectoryAtPath:[mpic singleton].imagesfolder error:nil];
-    NSLog(@"%@", pictures);
-    NSUInteger count = pictures.count;
-    NSUInteger size = 0;
-    
-    for(NSUInteger i = 0; i < count; i++)
-    {
-        NSString *picture = pictures[i];
-        NSDictionary *attributes = [manager attributesOfItemAtPath:[[mpic singleton].imagesfolder stringByAppendingPathComponent:picture] error:nil];
-        size += [attributes fileSize];
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       NSUInteger size = 0;
+                       size += [mdirs bytesinfolder:[mpic singleton].imagesfolder];
+                       size += [mdirs bytesinfolder:[mpic singleton].thumbsfolder];
+                       double floatsize = size / 1000000;
+                       
+                       NSString *sizestring = [[tools singleton] numbertostring:@(floatsize)];
+                       NSString *string = [NSString stringWithFormat:NSLocalizedString(@"config_library_disk_descr", nil), sizestring];
+                       
+                       dispatch_async(dispatch_get_main_queue(),
+                                      ^
+                                      {
+                                          [label setText:string];
+                                      });
+                   });
 }
 
 -(NSString*)actionname

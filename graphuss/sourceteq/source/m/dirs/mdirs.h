@@ -5,5 +5,6 @@
 +(void)createdir:(NSURL*)dirname;
 +(void)deletefile:(NSString*)filename dir:(BOOL)dir;
 +(void)copyfilefrom:(NSString*)origin to:(NSString*)to;
++(NSUInteger)bytesinfolder:(NSString*)folderpath;
 
 @end
