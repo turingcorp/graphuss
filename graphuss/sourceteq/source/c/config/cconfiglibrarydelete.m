@@ -10,6 +10,8 @@
     [super viewDidLoad];
     [self.navigationItem setHidesBackButton:YES animated:NO];
     [self setTitle:NSLocalizedString(@"config_library_disk_title", nil)];
+    [[analytics singleton] trackscreen:ga_screen_config_library_delete];
+    
     firstime = NO;
 }
 

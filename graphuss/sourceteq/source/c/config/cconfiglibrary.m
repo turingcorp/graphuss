@@ -15,6 +15,7 @@
 {
     [super viewDidLoad];
     [self setTitle:NSLocalizedString(@"config_library_title", nil)];
+    [[analytics singleton] trackscreen:ga_screen_config_library];
 }
 
 -(void)loadView
