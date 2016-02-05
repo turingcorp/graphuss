@@ -2,6 +2,15 @@
 
 @implementation cconfigcontact
 
+-(instancetype)init:(mconfigcontact*)model
+{
+    self = [super init];
+    
+    self.model = model;
+    
+    return self;
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
