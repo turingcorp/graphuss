@@ -25,7 +25,7 @@
     [logo setTranslatesAutoresizingMaskIntoConstraints:NO];
     [logo setContentMode:UIViewContentModeScaleAspectFit];
     [logo setClipsToBounds:YES];
-    [logo setImage:[UIImage imageNamed:@"engine"]];
+    [logo setImage:[UIImage imageNamed:@"logo"]];
     
     UILabel *label = [[UILabel alloc] init];
     [label setAttributedText:mut];
@@ -42,7 +42,7 @@
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[label]-20-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[logo]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-50-[logo(150)]-20-[label]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-70-[logo(80)]-30-[label]" options:0 metrics:metrics views:views]];
     
     return self;
 }
