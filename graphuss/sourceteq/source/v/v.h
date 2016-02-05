@@ -41,3 +41,5 @@
 #import "vconfigheader.h"
 #import "vconfigcel.h"
 #import "vconfiglibrary.h"
+#import "vconfiglibraryheader.h"
+#import "vconfiglibrarycel.h"

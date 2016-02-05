@@ -26,4 +26,11 @@
     return 0;
 }
 
+-(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index
+{
+    vconfiglibrary *cel = [col dequeueReusableCellWithReuseIdentifier:celid forIndexPath:index];
+    
+    return cel;
+}
+
 @end
