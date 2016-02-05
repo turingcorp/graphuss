@@ -8,7 +8,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    [self setTitle:NSLocalizedString(@"config_library_disk_title", nil)];
     firstime = NO;
 }
 
@@ -20,15 +21,6 @@
     {
         firstime = YES;
     }
-    
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 -(void)loadView

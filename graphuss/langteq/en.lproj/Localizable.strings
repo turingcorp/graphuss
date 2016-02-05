@@ -80,6 +80,7 @@
 "config_library_disk_alert_title"="Delete pictures?";
 "config_library_disk_alert_message"="This will remove all the pictures in the app";
 "config_library_disk_alert_button"="Delete all";
+"config_library_disk_title"="Cleaning";
 
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";

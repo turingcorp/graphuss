@@ -8,6 +8,7 @@
 		<string>pic/detail</string>
 		<string>camera</string>
 		<string>config</string>
+		<string>config/delete</string>
 	</array>
 	<key>events</key>
 	<array>
