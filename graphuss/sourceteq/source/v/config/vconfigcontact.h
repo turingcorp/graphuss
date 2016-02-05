@@ -5,6 +5,8 @@
 
 @interface vconfigcontact:viewbase<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate>
 
+-(void)showfield;
+
 @property(weak, nonatomic)cconfigcontact *controllercontact;
 @property(weak, nonatomic)NSLayoutConstraint *consfieldbottom;
 @property(weak, nonatomic)UIView *fieldcontainer;

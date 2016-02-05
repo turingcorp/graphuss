@@ -92,6 +92,7 @@
 "config_contact_message_title"="Send a short message";
 "config_contact_message_send"="Send";
 "config_contact_message_cancel"="Cancel";
+"config_contact_message_sent"="Thank you for your message!";
 "config_contact_email_title"="Email us";
 "config_contact_rate_title"="Rate app in the store";
 

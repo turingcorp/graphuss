@@ -49,16 +49,16 @@
     UIView *fieldcontainer = [[UIView alloc] init];
     [fieldcontainer setClipsToBounds:YES];
     [fieldcontainer setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [fieldcontainer setHidden:YES];
+    [fieldcontainer setAlpha:0];
     self.fieldcontainer = fieldcontainer;
     
     UIView *fieldbase = [[UIView alloc] init];
     [fieldbase setClipsToBounds:YES];
-    [fieldbase setBackgroundColor:[UIColor clearColor]];
+    [fieldbase setBackgroundColor:[UIColor colorWithWhite:1 alpha:0.5]];
     [fieldbase setTranslatesAutoresizingMaskIntoConstraints:NO];
     self.fieldbase = fieldbase;
     
-    vblur *blur = [vblur light:NO];
+    vblur *blur = [vblur dark];
     
     UIButton *buttonsend = [[UIButton alloc] init];
     [buttonsend setBackgroundColor:colorsecond];
@@ -93,7 +93,7 @@
     [self addSubview:collection];
     [self addSubview:fieldcontainer];
     
-    self.consfieldbottom = [NSLayoutConstraint constraintWithItem:fieldbase attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:fieldcontainer attribute:NSLayoutAttributeBottom multiplier:1 constant:1];
+    self.consfieldbottom = [NSLayoutConstraint constraintWithItem:fieldbase attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
     NSDictionary *views = @{@"col":collection, @"field":field, @"fieldbase":fieldbase, @"blur":blur, @"send":buttonsend, @"cancel":buttoncancel, @"container":fieldcontainer};
     NSDictionary *metrics = @{};
     
@@ -102,11 +102,11 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[container]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[container]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[fieldbase]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[fieldbase(100)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[fieldbase(110)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[field]-20-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[field(100)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[field]-10-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[field(60)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[send(40)]-10-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[cancel(40)]-10-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[cancel(100)]-20-[send(100)]-20-|" options:0 metrics:metrics views:views]];
@@ -127,19 +127,66 @@
 -(void)notifiedkeyboardchange:(NSNotification*)notification
 {
     CGRect keyrect = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    self.consfieldbottom.constant = keyrect.size.height;
+    CGFloat origin = keyrect.origin.y;
+    self.consfieldbottom.constant = - ([UIScreen mainScreen].bounds.size.height - origin);
+    
+    [UIView animateWithDuration:1.5 animations:
+     ^
+     {
+         [self.fieldcontainer layoutIfNeeded];
+     }];
 }
 
 #pragma mark actions
 
 -(void)actioncancel:(UIButton*)button
 {
-    [[UIApplication sharedApplication].keyWindow endEditing:YES];
+    [[analytics singleton] trackevent:ga_event_config_contact_message action:ga_action_cancel label:nil];
+    
+    [self hidefield];
 }
 
 -(void)actionsend:(UIButton*)button
 {
+    [self hidefield];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       NSString *message = self.field.text;
+                       
+                       if(message.length > 1)
+                       {
+                           [[analytics singleton] trackevent:ga_event_config_contact_message action:ga_action_content label:message];
+                           
+                           [valert alert:NSLocalizedString(@"config_contact_message_sent", nil) inview:self];
+                       }
+                   });
+}
+
+#pragma mark functionality
+
+-(void)hidefield
+{
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
+    
+    [UIView animateWithDuration:0.4 animations:
+     ^
+     {
+         [self.fieldcontainer setAlpha:0];
+     } completion:
+     ^(BOOL done)
+     {
+         [self.field setText:@""];
+     }];
+}
+
+#pragma mark public
+
+-(void)showfield
+{
+    [self.fieldcontainer setAlpha:1];
+    [self.field becomeFirstResponder];
 }
 
 #pragma mark -
@@ -182,7 +229,6 @@
 }
 
 #pragma mark field del
-
 
 -(BOOL)textFieldShouldReturn:(UITextField*)field
 {
