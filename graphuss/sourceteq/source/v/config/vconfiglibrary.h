@@ -1,8 +1,10 @@
 #import "appdel.h"
 #import "viewbase.h"
 
+@class cconfiglibrary;
+
 @interface vconfiglibrary:viewbase<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
-@property(weak, nonatomic)mconfiglibrary *model;
+@property(weak, nonatomic)cconfiglibrary *controllerlibrary;
 
 @end

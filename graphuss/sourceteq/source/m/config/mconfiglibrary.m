@@ -40,7 +40,7 @@
 
 -(UIViewController*)controller
 {
-    cconfiglibrary *controller = [[cconfiglibrary alloc] init];
+    cconfiglibrary *controller = [[cconfiglibrary alloc] init:self];
     
     return controller;
 }

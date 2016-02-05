@@ -4,6 +4,10 @@
 
 -(instancetype)init:(mconfiglibrary*)model
 {
+    self = [super init];
+    
+    self.model = model;
+    
     return self;
 }
 

@@ -6,4 +6,6 @@
 
 -(instancetype)init:(mconfiglibrary*)model;
 
+@property(weak, nonatomic)mconfiglibrary *model;
+
 @end

@@ -7,8 +7,10 @@
     self = [super init:controller];
     [self setClipsToBounds:YES];
     [self setBackgroundColor:[UIColor colorWithWhite:0.97 alpha:1]];
+
+    self.controllerlibrary = controller;
     
-    UICollectionViewFlowLayout *flow = [UICollectionViewFlowLayout];
+    UICollectionViewFlowLayout *flow = [UICollectionViewFlowLayout alloc];
     
     return self;
 }
@@ -32,7 +34,7 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)col
 {
-    return [self.model count];
+    return [self.controllerlibrary.model count];
 }
 
 -(NSInteger)collectionView:(UICollectionView*)col numberOfItemsInSection:(NSInteger)section
@@ -43,7 +45,7 @@
 -(UICollectionReusableView*)collectionView:(UICollectionView*)col viewForSupplementaryElementOfKind:(NSString*)kind atIndexPath:(NSIndexPath*)index
 {
     vconfiglibraryheader *header = [col dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerid forIndexPath:index];
-    [header config:[self.model item:index.item]];
+    [header config:[self.controllerlibrary.model item:index.item]];
     
     return header;
 }
@@ -51,6 +53,7 @@
 -(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index
 {
     vconfiglibrarycel *cel = [col dequeueReusableCellWithReuseIdentifier:celid forIndexPath:index];
+    [cel config:[self.controllerlibrary.model item:index.item]];
     
     return cel;
 }
