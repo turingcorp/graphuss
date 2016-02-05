@@ -1,13 +1,14 @@
-//
-//  vconfiglibraryheader.m
-//  graphuss
-//
-//  Created by zero on 2/4/16.
-//  Copyright © 2016 Iturbide. All rights reserved.
-//
-
 #import "vconfiglibraryheader.h"
 
 @implementation vconfiglibraryheader
+
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    [self setClipsToBounds:YES];
+    [self setBackgroundColor:[UIColor clearColor]];
+    
+    return self;
+}
 
 @end
