@@ -6,6 +6,6 @@
 
 -(instancetype)init:(mconfigcontact*)model;
 
-@property(weak, nonatomic)mconfigcontact *model
+@property(weak, nonatomic)mconfigcontact *model;
 
 @end
