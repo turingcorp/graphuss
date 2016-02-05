@@ -66,6 +66,7 @@
 #import "mconfigprotocol.h"
 #import "mconfigabout.h"
 #import "mconfigcontact.h"
+#import "mconfigcontactprotocol.h"
 #import "mconfiglibrary.h"
 #import "mconfiglibraryprotocol.h"
 #import "mconfiglibrarydisk.h"

@@ -246,6 +246,7 @@
 		DA1B4F4A1C64FB3B006EEF40 /* cconfigcontact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cconfigcontact.m; sourceTree = "<group>"; };
 		DA1B4F4C1C64FD22006EEF40 /* vconfigcontact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vconfigcontact.h; sourceTree = "<group>"; };
 		DA1B4F4D1C64FD22006EEF40 /* vconfigcontact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vconfigcontact.m; sourceTree = "<group>"; };
+		DA1B4F521C64FDFD006EEF40 /* mconfigcontactprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mconfigcontactprotocol.h; sourceTree = "<group>"; };
 		DA1F25931C5BA5FF00F9AC75 /* mpicmenufiltersbw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenufiltersbw.h; sourceTree = "<group>"; };
 		DA1F25941C5BA5FF00F9AC75 /* mpicmenufiltersbw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mpicmenufiltersbw.m; sourceTree = "<group>"; };
 		DA2501E11C594FA50081E56D /* mpicmenufiltersprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpicmenufiltersprotocol.h; sourceTree = "<group>"; };
@@ -1144,6 +1145,7 @@
 				DA6E31231C640B1400652DF2 /* mconfigabout.m */,
 				DA6E31251C640B2500652DF2 /* mconfigcontact.h */,
 				DA6E31261C640B2500652DF2 /* mconfigcontact.m */,
+				DA1B4F521C64FDFD006EEF40 /* mconfigcontactprotocol.h */,
 				DA6E31281C640B3100652DF2 /* mconfiglibrary.h */,
 				DA6E31291C640B3100652DF2 /* mconfiglibrary.m */,
 				DA6E31341C6421E600652DF2 /* mconfiglibraryprotocol.h */,
