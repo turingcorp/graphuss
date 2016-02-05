@@ -150,6 +150,7 @@
 		DA6E312D1C6417C500652DF2 /* vconfigheader.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E312C1C6417C500652DF2 /* vconfigheader.m */; };
 		DA6E31301C641C7F00652DF2 /* cconfiglibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E312F1C641C7F00652DF2 /* cconfiglibrary.m */; };
 		DA6E31331C641CBC00652DF2 /* vconfiglibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E31321C641CBC00652DF2 /* vconfiglibrary.m */; };
+		DA6E31371C6422F000652DF2 /* mconfiglibrarydisk.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E31361C6422F000652DF2 /* mconfiglibrarydisk.m */; };
 		DAD7C9781C6159F900C0A354 /* vcammenulast.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD7C9771C6159F900C0A354 /* vcammenulast.m */; };
 		DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DD1C512C1A006EBE52 /* Images.xcassets */; };
 		DAE468E01C512F30006EBE52 /* in in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DF1C512F2F006EBE52 /* in */; };
@@ -437,6 +438,8 @@
 		DA6E31311C641CBC00652DF2 /* vconfiglibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vconfiglibrary.h; sourceTree = "<group>"; };
 		DA6E31321C641CBC00652DF2 /* vconfiglibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vconfiglibrary.m; sourceTree = "<group>"; };
 		DA6E31341C6421E600652DF2 /* mconfiglibraryprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mconfiglibraryprotocol.h; sourceTree = "<group>"; };
+		DA6E31351C6422F000652DF2 /* mconfiglibrarydisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mconfiglibrarydisk.h; sourceTree = "<group>"; };
+		DA6E31361C6422F000652DF2 /* mconfiglibrarydisk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mconfiglibrarydisk.m; sourceTree = "<group>"; };
 		DAD7C9761C6159F900C0A354 /* vcammenulast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcammenulast.h; sourceTree = "<group>"; };
 		DAD7C9771C6159F900C0A354 /* vcammenulast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcammenulast.m; sourceTree = "<group>"; };
 		DAE468DD1C512C1A006EBE52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -1104,6 +1107,8 @@
 				DA6E31281C640B3100652DF2 /* mconfiglibrary.h */,
 				DA6E31291C640B3100652DF2 /* mconfiglibrary.m */,
 				DA6E31341C6421E600652DF2 /* mconfiglibraryprotocol.h */,
+				DA6E31351C6422F000652DF2 /* mconfiglibrarydisk.h */,
+				DA6E31361C6422F000652DF2 /* mconfiglibrarydisk.m */,
 			);
 			path = config;
 			sourceTree = "<group>";
@@ -1314,6 +1319,7 @@
 				DA390BE91C57B90D000ABCEA /* vpicdetailmenu.m in Sources */,
 				DA3D9A271C5126720072F69B /* vspinner.m in Sources */,
 				DA3D9A201C5126720072F69B /* mdb.m in Sources */,
+				DA6E31371C6422F000652DF2 /* mconfiglibrarydisk.m in Sources */,
 				DA390C2A1C585273000ABCEA /* mpicmenueditscale.m in Sources */,
 				DA390C081C581781000ABCEA /* vpicdetailfilecompress.m in Sources */,
 				DA3D9A191C5126720072F69B /* analytics.m in Sources */,

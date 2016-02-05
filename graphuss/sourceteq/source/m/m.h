@@ -68,3 +68,4 @@
 #import "mconfigcontact.h"
 #import "mconfiglibrary.h"
 #import "mconfiglibraryprotocol.h"
+#import "mconfiglibrarydisk.h"
