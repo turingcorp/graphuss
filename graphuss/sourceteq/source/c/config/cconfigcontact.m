@@ -11,7 +11,7 @@
 
 -(void)loadView
 {
-    self.view = [[vconfigabout alloc] init:self];
+    self.view = [[vconfigcontact alloc] init:self];
 }
 
 @end
