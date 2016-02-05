@@ -21,6 +21,9 @@
 		DA117D8A1C65280000214AE3 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D871C65280000214AE3 /* star@2x.png */; };
 		DA117D8B1C65280000214AE3 /* star@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D881C65280000214AE3 /* star@3x.png */; };
 		DA117D8E1C65291E00214AE3 /* vratemenucel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA117D8D1C65291E00214AE3 /* vratemenucel.m */; };
+		DA117D921C6533CA00214AE3 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D8F1C6533CA00214AE3 /* logo.png */; };
+		DA117D931C6533CA00214AE3 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D901C6533CA00214AE3 /* logo@2x.png */; };
+		DA117D941C6533CA00214AE3 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D911C6533CA00214AE3 /* logo@3x.png */; };
 		DA14782D1C5132A30024141B /* analytics.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA14782C1C5132A30024141B /* analytics.plist */; };
 		DA1478381C513A400024141B /* graphuss.db in Resources */ = {isa = PBXBuildFile; fileRef = DA1478371C513A400024141B /* graphuss.db */; };
 		DA14783C1C513BC90024141B /* cpages.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14783B1C513BC90024141B /* cpages.m */; };
@@ -213,6 +216,9 @@
 		DA117D881C65280000214AE3 /* star@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@3x.png"; sourceTree = "<group>"; };
 		DA117D8C1C65291E00214AE3 /* vratemenucel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vratemenucel.h; sourceTree = "<group>"; };
 		DA117D8D1C65291E00214AE3 /* vratemenucel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vratemenucel.m; sourceTree = "<group>"; };
+		DA117D8F1C6533CA00214AE3 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		DA117D901C6533CA00214AE3 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		DA117D911C6533CA00214AE3 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		DA14782C1C5132A30024141B /* analytics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = analytics.plist; sourceTree = "<group>"; };
 		DA1478371C513A400024141B /* graphuss.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphuss.db; sourceTree = "<group>"; };
 		DA14783A1C513BC90024141B /* cpages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpages.h; sourceTree = "<group>"; };
@@ -965,6 +971,9 @@
 		DA3D99CA1C5126720072F69B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DA117D8F1C6533CA00214AE3 /* logo.png */,
+				DA117D901C6533CA00214AE3 /* logo@2x.png */,
+				DA117D911C6533CA00214AE3 /* logo@3x.png */,
 				DA117D861C65280000214AE3 /* star.png */,
 				DA117D871C65280000214AE3 /* star@2x.png */,
 				DA117D881C65280000214AE3 /* star@3x.png */,
@@ -1298,6 +1307,7 @@
 				DA1478781C51A04E0024141B /* spinner2@2x.png in Resources */,
 				DA390C1E1C584C64000ABCEA /* rotateleft@3x.png in Resources */,
 				DA2501ED1C595DDD0081E56D /* light@3x.png in Resources */,
+				DA117D931C6533CA00214AE3 /* logo@2x.png in Resources */,
 				DA390C251C58524D000ABCEA /* scale.png in Resources */,
 				DA3D9A151C5126720072F69B /* Localizable.strings in Resources */,
 				DA390C271C58524D000ABCEA /* scale@3x.png in Resources */,
@@ -1318,8 +1328,10 @@
 				DA1478851C51B5060024141B /* shoot@3x.png in Resources */,
 				DA1478771C51A04E0024141B /* spinner2.png in Resources */,
 				DA390C1D1C584C64000ABCEA /* rotateleft@2x.png in Resources */,
+				DA117D921C6533CA00214AE3 /* logo.png in Resources */,
 				DA2C654F1C5A7F6D00862C05 /* firsttime@2x.png in Resources */,
 				DA1478841C51B5060024141B /* shoot@2x.png in Resources */,
+				DA117D941C6533CA00214AE3 /* logo@3x.png in Resources */,
 				DA14782D1C5132A30024141B /* analytics.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
