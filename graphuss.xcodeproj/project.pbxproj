@@ -153,6 +153,7 @@
 		DA6E31371C6422F000652DF2 /* mconfiglibrarydisk.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E31361C6422F000652DF2 /* mconfiglibrarydisk.m */; };
 		DA6E313A1C64256700652DF2 /* vconfiglibrarycel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E31391C64256700652DF2 /* vconfiglibrarycel.m */; };
 		DA6E313D1C64257200652DF2 /* vconfiglibraryheader.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E313C1C64257200652DF2 /* vconfiglibraryheader.m */; };
+		DA6E31401C643F0E00652DF2 /* cconfiglibrarydelete.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6E313F1C643F0E00652DF2 /* cconfiglibrarydelete.m */; };
 		DAD7C9781C6159F900C0A354 /* vcammenulast.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD7C9771C6159F900C0A354 /* vcammenulast.m */; };
 		DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DD1C512C1A006EBE52 /* Images.xcassets */; };
 		DAE468E01C512F30006EBE52 /* in in Resources */ = {isa = PBXBuildFile; fileRef = DAE468DF1C512F2F006EBE52 /* in */; };
@@ -446,6 +447,8 @@
 		DA6E31391C64256700652DF2 /* vconfiglibrarycel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vconfiglibrarycel.m; sourceTree = "<group>"; };
 		DA6E313B1C64257200652DF2 /* vconfiglibraryheader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vconfiglibraryheader.h; sourceTree = "<group>"; };
 		DA6E313C1C64257200652DF2 /* vconfiglibraryheader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vconfiglibraryheader.m; sourceTree = "<group>"; };
+		DA6E313E1C643F0E00652DF2 /* cconfiglibrarydelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cconfiglibrarydelete.h; sourceTree = "<group>"; };
+		DA6E313F1C643F0E00652DF2 /* cconfiglibrarydelete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cconfiglibrarydelete.m; sourceTree = "<group>"; };
 		DAD7C9761C6159F900C0A354 /* vcammenulast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcammenulast.h; sourceTree = "<group>"; };
 		DAD7C9771C6159F900C0A354 /* vcammenulast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vcammenulast.m; sourceTree = "<group>"; };
 		DAE468DD1C512C1A006EBE52 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -519,6 +522,8 @@
 				DA05EC551C5EC1C6006BD6CB /* cconfig.m */,
 				DA6E312E1C641C7F00652DF2 /* cconfiglibrary.h */,
 				DA6E312F1C641C7F00652DF2 /* cconfiglibrary.m */,
+				DA6E313E1C643F0E00652DF2 /* cconfiglibrarydelete.h */,
+				DA6E313F1C643F0E00652DF2 /* cconfiglibrarydelete.m */,
 			);
 			path = config;
 			sourceTree = "<group>";
@@ -1389,6 +1394,7 @@
 				DA6E31271C640B2500652DF2 /* mconfigcontact.m in Sources */,
 				DA2D74371C5DC2ED00E9A2C5 /* mgraphicsfiltercolorred.m in Sources */,
 				DAF0ECCB1C5C36F50008D989 /* mgraphicsfilterlight.m in Sources */,
+				DA6E31401C643F0E00652DF2 /* cconfiglibrarydelete.m in Sources */,
 				DA2501E41C5953780081E56D /* mpicmenufilterslight.m in Sources */,
 				DA6E313A1C64256700652DF2 /* vconfiglibrarycel.m in Sources */,
 				DA1478621C51735C0024141B /* vcam.m in Sources */,
