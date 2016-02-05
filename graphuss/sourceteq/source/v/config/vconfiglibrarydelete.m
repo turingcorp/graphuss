@@ -27,8 +27,8 @@
     [labelfinalize setTextAlignment:NSTextAlignmentCenter];
     [labelfinalize setUserInteractionEnabled:NO];
     [labelfinalize setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [labelfinalize setFont:[UIFont fontWithName:fontname size:20]];
-    [labelfinalize setTextColor:[UIColor colorWithWhite:0 alpha:0.8]];
+    [labelfinalize setFont:[UIFont fontWithName:fontname size:22]];
+    [labelfinalize setTextColor:[UIColor colorWithWhite:0 alpha:0.5]];
     [labelfinalize setNumberOfLines:0];
     [labelfinalize setText:NSLocalizedString(@"config_library_disk_in_finalize", nil)];
     [labelfinalize setHidden:YES];
@@ -42,7 +42,7 @@
     [button setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
     [button setTitle:NSLocalizedString(@"config_library_disk_in_continue", nil) forState:UIControlStateNormal];
     [button setHidden:YES];
-    [button.titleLabel setFont:[UIFont fontWithName:fontboldname size:15]];
+    [button.titleLabel setFont:[UIFont fontWithName:fontboldname size:18]];
     [button setTranslatesAutoresizingMaskIntoConstraints:NO];
     [button addTarget:self action:@selector(actioncontinue:) forControlEvents:UIControlEventTouchUpInside];
     self.button = button;
@@ -60,7 +60,7 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[descr]-20-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[finalize]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[button]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-150-[finalize]-20-[button(36)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-150-[finalize]-10-[button(44)]" options:0 metrics:metrics views:views]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedupdatepictures:) name:notreloadpics object:nil];
     
