@@ -59,4 +59,37 @@
     return self;
 }
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark notified
+
+-(void)notifiedupdatepictures:(NSNotification*)notification
+{
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       [self cleanedfinalized];
+                   });
+}
+
+#pragma mark actions
+
+-(void)actioncontinue
+{
+    [[cmain singleton] popToRootViewControllerAnimated:YES];
+}
+
+#pragma mark functionality
+
+-(void)cleanedfinalized
+{
+    [self.spinner removeFromSuperview];
+    [self.labeldescr removeFromSuperview];
+    [self.labelfinalize setHidden:NO];
+    [self.button setHidden:NO];
+}
+
 @end

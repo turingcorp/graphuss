@@ -22,6 +22,7 @@
                                       ^
                                       {
                                           [label setText:string];
+                                          [label setNeedsUpdateConstraints];
                                       });
                    });
 }

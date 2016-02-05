@@ -34,7 +34,6 @@
 -(void)config:(id<mconfiglibraryprotocol>)item;
 {
     [item descr:self.label];
-    [self.label setNeedsLayout];
 }
 
 @end
