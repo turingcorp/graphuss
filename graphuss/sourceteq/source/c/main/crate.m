@@ -2,10 +2,18 @@
 
 @implementation crate
 
+-(instancetype)init
+{
+    self = [super init];
+    [self setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+    
+    return self;
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
 }
 

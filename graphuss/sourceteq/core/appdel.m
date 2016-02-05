@@ -26,17 +26,21 @@
     {
         NSUInteger ttlint = ttl.unsignedIntegerValue;
         
-        if(ttlint > 2)
+        if(ttlint > 0)
         {
-            [[cmain singleton] presentViewController:[[crate alloc] init] animated:YES completion:
-             ^
-             {
-                 [defaults removeObjectForKey:@"ttl"];
-             }];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(),
+                           ^
+                           {
+                               [[cmain singleton] presentViewController:[[crate alloc] init] animated:YES completion:
+                                ^
+                                {
+//                                    [defaults removeObjectForKey:@"ttl"];
+                                }];
+                           });
         }
         else
         {
-            [defaults setValue:@(ttlint + 1) forKey:@"tll"];
+            [defaults setValue:@(ttlint + 1) forKey:@"ttl"];
         }
     }
 }
