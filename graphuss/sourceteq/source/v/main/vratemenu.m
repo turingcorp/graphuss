@@ -75,8 +75,7 @@
     {
         BOOL selected = i <= item;
         vratemenucel *cel = (vratemenucel*)[col cellForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
-        cel.choosen = selected;
-        [cel];
+        [cel choose:selected];
     }
 }
 
