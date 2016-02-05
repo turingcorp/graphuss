@@ -34,9 +34,6 @@
         if(isdirectory)
         {
             NSArray *files = [manager contentsOfDirectoryAtPath:folder error:nil];
-            
-            NSLog(@"files before %@", files);
-            
             NSUInteger count = files.count;
             
             for(NSUInteger i = 0; i < count; i++)
@@ -46,10 +43,6 @@
                 NSURL *fileurl = [NSURL fileURLWithPath:filepath isDirectory:NO];
                 [manager removeItemAtURL:fileurl error:nil];
             }
-            
-            files = [manager contentsOfDirectoryAtPath:folder error:nil];
-            
-            NSLog(@"files after %@", files);
         }
     }
 }

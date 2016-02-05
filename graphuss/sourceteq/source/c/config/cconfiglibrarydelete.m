@@ -22,12 +22,27 @@
     if(!firstime)
     {
         firstime = YES;
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                       ^
+                       {
+                           [self performdelete];
+                       });
     }
 }
 
 -(void)loadView
 {
     self.view = [[vconfiglibrarydelete alloc] init];
+}
+
+#pragma mark functionality
+
+-(void)performdelete
+{
+    [mdirs deletecontents:[mpic singleton].imagesfolder];
+    [mdirs deletecontents:[mpic singleton].thumbsfolder];
+    [[mpic singleton] deleteall];
 }
 
 @end
