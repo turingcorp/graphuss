@@ -42,7 +42,7 @@
 
 -(UIViewController*)controller
 {
-    UIViewController *controller = [[UIViewController alloc] init];
+    cconfigcontact *controller = [[cconfigcontact alloc] init:self];
     
     return controller;
 }
