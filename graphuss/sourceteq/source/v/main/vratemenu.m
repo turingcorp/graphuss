@@ -10,6 +10,7 @@
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     self.view = view;
+    self.stars = 0;
     
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     [flow setHeaderReferenceSize:CGSizeZero];
@@ -79,6 +80,9 @@
         vratemenucel *cel = (vratemenucel*)[col cellForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
         [cel choose:selected];
     }
+    
+    self.stars = item + 1;
+    [self.view rateselected];
 }
 
 @end

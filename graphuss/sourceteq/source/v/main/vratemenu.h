@@ -8,5 +8,6 @@
 
 @property(weak, nonatomic)vrate *view;
 @property(weak, nonatomic)UICollectionView *collection;
+@property(nonatomic)NSUInteger stars;
 
 @end

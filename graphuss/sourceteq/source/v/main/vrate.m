@@ -57,7 +57,9 @@
 
 -(void)actionsend
 {
+    NSString *label = [tools];
     
+    [[analytics singleton] trackevent:ga_event_rate action:ga_action_completed label:label];
 }
 
 #pragma mark public
