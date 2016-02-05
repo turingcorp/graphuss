@@ -55,4 +55,12 @@
     }
 }
 
+#pragma mark public
+
+-(void)choose:(BOOL)choosen
+{
+    self.choosen = choosen;
+    [self hover];
+}
+
 @end

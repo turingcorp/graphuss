@@ -28,7 +28,6 @@
     [collection setBounces:NO];
     [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
     [collection registerClass:[vratemenucel class] forCellWithReuseIdentifier:celid];
-    [collection setAllowsMultipleSelection:YES];
     self.collection = collection;
     [self addSubview:collection];
     
@@ -76,8 +75,8 @@
     {
         BOOL selected = i <= item;
         vratemenucel *cel = (vratemenucel*)[col cellForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
-        [cel setHighlighted:selected];
-        [cel setSelected:NO];
+        cel.choosen = selected;
+        [cel];
     }
 }
 
