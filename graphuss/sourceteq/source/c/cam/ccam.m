@@ -112,6 +112,50 @@
         [self.session addOutput:self.output];
         [self.session startRunning];
         
+        if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+        {
+            AVCaptureConnection *con = [self.output connectionWithMediaType:AVMediaTypeVideo];
+            
+            if(con.supportsVideoOrientation)
+            {
+                AVCaptureVideoOrientation orientation;
+                
+                switch([cmain singleton].interfaceOrientation)
+                {
+                    case UIInterfaceOrientationPortrait:
+                    case UIInterfaceOrientationUnknown:
+                        
+                        orientation = AVCaptureVideoOrientationPortrait;
+                        
+                        break;
+                        
+                    case UIInterfaceOrientationPortraitUpsideDown:
+                        
+                        orientation = AVCaptureVideoOrientationPortraitUpsideDown;
+                        
+                        break;
+                        
+                    case UIInterfaceOrientationLandscapeLeft:
+                        
+                        orientation = AVCaptureVideoOrientationLandscapeLeft;
+                        
+                        break;
+                        
+                    case UIInterfaceOrientationLandscapeRight:
+                        
+                        orientation = AVCaptureVideoOrientationLandscapeRight;
+                        
+                        break;
+                }
+                
+                dispatch_async(dispatch_get_main_queue(),
+                               ^(void)
+                               {
+                                   [con setVideoOrientation:orientation];
+                               });
+            }
+        }
+        
         [self initialconfiguration];
     }
     

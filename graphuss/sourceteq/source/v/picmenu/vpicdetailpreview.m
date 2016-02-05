@@ -66,7 +66,6 @@
     {
         self.conimagetop.constant = (previewheight - imageheight) / 2.0;
         self.conimageleft.constant = (previewwidth - imagewidth) / 2.0;
-        
         [self.image setContentMode:UIViewContentModeCenter];
         self.conimagewidth.constant = imagewidth;
         self.conimageheight.constant = imageheight;
