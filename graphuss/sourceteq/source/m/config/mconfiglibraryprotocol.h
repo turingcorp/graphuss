@@ -2,7 +2,8 @@
 
 @protocol mconfiglibraryprotocol <NSObject>
 
--(NSString*)name;
+-(NSString*)descr;
+-(NSString*)actionname;
 -(void)selected;
 
 @end
