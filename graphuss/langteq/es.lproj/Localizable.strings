@@ -1,48 +1,48 @@
 "app_title"="Imateq";
 
-"pic_list_empty"="No imagenes en tu libreriaNo pictures in your library";
-"pic_list_empty_button"="Start shooting";
+"pic_list_empty"="No hay fotos en tu libreria";
+"pic_list_empty_button"="Empieza a fotografiar";
 
-"pic_detail_title"="Picture";
-"pic_detail_menu_file"="File";
-"pic_detail_menu_preview"="Preview";
-"pic_detail_menu_edit"="Edit";
-"pic_detail_menu_filters"="Filters";
+"pic_detail_title"="Foto";
+"pic_detail_menu_file"="Archivo";
+"pic_detail_menu_preview"="Ver";
+"pic_detail_menu_edit"="Editar";
+"pic_detail_menu_filters"="Filtros";
 
-"pic_detail_file_duplicate"="Duplicate";
-"pic_detail_file_share"="Share";
-"pic_detail_file_compression"="Compression";
-"pic_detail_file_delete"="Delete";
-"pic_detail_file_delete_title"="Delete picture";
-"pic_detail_file_delete_descr"="It will be removed permanently";
-"pic_detail_file_compress_cancel"="Cancel";
-"pic_detail_file_compress_compress"="Compress";
-"pic_detail_file_compress_title"="Compress image";
-"pic_detail_file_compress_descr"="\nLess quality, smaller file";
-"pic_detail_file_compress_done"="Image compressed";
+"pic_detail_file_duplicate"="Duplicar";
+"pic_detail_file_share"="Compartir";
+"pic_detail_file_compression"="Compresion";
+"pic_detail_file_delete"="Borrar";
+"pic_detail_file_delete_title"="Borar foto";
+"pic_detail_file_delete_descr"="Sera borrada permanentement";
+"pic_detail_file_compress_cancel"="Cancelar";
+"pic_detail_file_compress_compress"="Comprimir";
+"pic_detail_file_compress_title"="Comprimir imagen";
+"pic_detail_file_compress_descr"="\nMenos calidad, archivo mas pequeño";
+"pic_detail_file_compress_done"="Imagen compresa";
 
-"pic_detail_scale_title"="Scale image";
-"pic_detail_scale_lblwidth"="Pixels width";
-"pic_detail_scale_lblheight"="Pixels height";
-"pic_detail_scale_btnaccept"="Scale image";
-"pic_detail_scale_btncancel"="Cancel";
-"pic_detail_scale_done"="Image scaled";
+"pic_detail_scale_title"="Escalar foto";
+"pic_detail_scale_lblwidth"="Pixeles de ancho";
+"pic_detail_scale_lblheight"="Pixeles de alto";
+"pic_detail_scale_btnaccept"="Escalar foto";
+"pic_detail_scale_btncancel"="Cancelar";
+"pic_detail_scale_done"="Foto escalada";
 
-"pic_detail_filters_menu_light"="Light";
-"pic_detail_filters_menu_black_white"="B / W";
-"pic_detail_filters_menu_black_white_basic"="Basic";
-"pic_detail_filters_menu_black_white_contrast"="Contrast";
-"pic_detail_filters_menu_black_white_bluish"="Bluish";
-"pic_detail_filters_menu_black_white_header"="Black and white";
-"pic_detail_filters_menu_black_white_button"="Add";
-"pic_detail_filters_menu_colors"="Colors";
-"pic_detail_filters_menu_colors_red"="Red";
-"pic_detail_filters_menu_colors_onlyred"="Only red";
-"pic_detail_filters_menu_colors_blue"="Blue";
-"pic_detail_filters_menu_colors_purple"="Purple";
-"pic_detail_filters_menu_colors_black"="Black";
-"pic_detail_filters_menu_colors_onlyblack"="Only black";
-"pic_detail_filters_menu_colors_button"="Add";
+"pic_detail_filters_menu_light"="Luz";
+"pic_detail_filters_menu_black_white"="B / N";
+"pic_detail_filters_menu_black_white_basic"="Basico";
+"pic_detail_filters_menu_black_white_contrast"="Contraste";
+"pic_detail_filters_menu_black_white_bluish"="Azulado";
+"pic_detail_filters_menu_black_white_header"="Blanco y negro";
+"pic_detail_filters_menu_black_white_button"="Agregar";
+"pic_detail_filters_menu_colors"="Colores";
+"pic_detail_filters_menu_colors_red"="Rojo";
+"pic_detail_filters_menu_colors_onlyred"="Solo rojo";
+"pic_detail_filters_menu_colors_blue"="Azult";
+"pic_detail_filters_menu_colors_purple"="Morado";
+"pic_detail_filters_menu_colors_black"="Negro";
+"pic_detail_filters_menu_colors_onlyblack"="Solo negro";
+"pic_detail_filters_menu_colors_button"="Agregar";
 
 "pic_detail_fitlers_light_button"="Apply";
 
