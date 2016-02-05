@@ -47,7 +47,10 @@ typedef NS_ENUM(NSInteger, ga_event)
     ga_event_pic_edit_scale,
     ga_event_pic_filter_light,
     ga_event_pic_filter_blackandwhite,
-    ga_event_pic_filter_color
+    ga_event_pic_filter_color,
+    ga_event_config_contact_message,
+    ga_event_config_contact_email,
+    ga_event_config_contact_rate
 };
 
 typedef NS_ENUM(NSInteger, ga_action)
@@ -64,5 +67,6 @@ typedef NS_ENUM(NSInteger, ga_action)
     ga_action_manual,
     ga_action_off,
     ga_action_on,
-    ga_action_torch
+    ga_action_torch,
+    ga_action_content
 };

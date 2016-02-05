@@ -28,6 +28,9 @@
 		<string>pic/filter/light</string>
 		<string>pic/filter/blackandwhite</string>
 		<string>pic/filter/color</string>
+		<string>config/contact/message</string>
+		<string>config/contact/email</string>
+		<string>config/contact/rate</string>
 	</array>
 	<key>actions</key>
 	<array>
@@ -44,6 +47,7 @@
 		<string>off</string>
 		<string>on</string>
 		<string>torch</string>
+		<string>content</string>
 	</array>
 </dict>
 </plist>

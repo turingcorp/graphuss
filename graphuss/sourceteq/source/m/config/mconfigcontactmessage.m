@@ -14,7 +14,7 @@
 
 -(void)selected:(vconfigcontact*)view
 {
-    
+    [[analytics singleton] trackevent:<#(ga_event)#> action:<#(ga_action)#> label:<#(NSString *)#>];
 }
 
 @end
