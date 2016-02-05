@@ -91,13 +91,13 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[send]-50-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[label]-50-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-150-[label]-30-[menu(80)]-30-[send(40)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-150-[label]-30-[menu(80)]-30-[send(44)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[menu]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[done(130)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[review(130)]-20-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-250-[done(40)]" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-250-[review(40)]" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-250-[accept(40)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-310-[done(44)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-310-[review(44)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-310-[accept(44)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[accept]-50-|" options:0 metrics:metrics views:views]];
     
     return self;
@@ -114,7 +114,7 @@
     [self.buttonsend setHidden:YES];
     [self.buttondone setHidden:NO];
     [self.buttonreview setHidden:NO];
-    [self.label setText:NSLocalizedString(@"rate_done", nil)];
+    [self.label setText:NSLocalizedString(@"rate_donereview", nil)];
 }
 
 -(void)actiondone:(UIButton*)button
@@ -126,6 +126,8 @@
 -(void)actionreview:(UIButton*)button
 {
     [[analytics singleton] trackevent:ga_event_rate_review action:ga_action_start label:nil];
+ 
+    [tools rateapp];
     
     [self.buttonreview setHidden:YES];
     [self.buttondone setHidden:YES];

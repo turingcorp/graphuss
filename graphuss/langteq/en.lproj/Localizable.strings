@@ -97,7 +97,7 @@
 "config_contact_rate_title"="Rate app in the store";
 
 "rate_descr"="How would you rate this app?";
-"rate_done"="Rate sent. Would you write a review in the app store?";
+"rate_donereview"="Rate sent. Would you write a review in the app store?";
 "rate_send"="Send";
 "rate_done"="Not now";
 "rate_review"="Review";

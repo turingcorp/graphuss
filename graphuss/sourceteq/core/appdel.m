@@ -26,7 +26,7 @@
     {
         NSUInteger ttlint = ttl.unsignedIntegerValue;
         
-        if(ttlint > 0)
+        if(ttlint > 5)
         {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(),
                            ^
@@ -34,7 +34,7 @@
                                [[cmain singleton] presentViewController:[[crate alloc] init] animated:YES completion:
                                 ^
                                 {
-//                                    [defaults removeObjectForKey:@"ttl"];
+                                    [defaults removeObjectForKey:@"ttl"];
                                 }];
                            });
         }
