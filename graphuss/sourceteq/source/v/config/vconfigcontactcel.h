@@ -5,4 +5,6 @@
 
 -(void)config:(id<mconfigcontactprotocol>)model;
 
+@property(weak, nonatomic)UILabel *label;
+
 @end
