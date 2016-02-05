@@ -46,11 +46,15 @@
     [field setDelegate:self];
     self.field = field;
     
+    UIView *fieldcontainer = [[UIView alloc] init];
+    [fieldcontainer setClipsToBounds:YES];
+    [fieldcontainer setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [fieldcontainer setHidden:YES];
+    
     UIView *fieldbase = [[UIView alloc] init];
     [fieldbase setClipsToBounds:YES];
     [fieldbase setBackgroundColor:[UIColor clearColor]];
     [fieldbase setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [fieldbase setHidden:YES];
     
     vblur *blur = [vblur light:NO];
     
@@ -78,25 +82,43 @@
     [buttoncancel addTarget:self action:@selector(actioncancel:) forControlEvents:UIControlEventTouchUpInside];
     self.buttoncancel = buttoncancel;
     
-    [fieldbase addSubview:blur];
     [fieldbase addSubview:buttoncancel];
     [fieldbase addSubview:buttonsend];
     [fieldbase addSubview:field];
+    [fieldcontainer addSubview:blur];
+    [fieldcontainer addSubview:fieldbase];
     
     [self addSubview:collection];
-    [self addSubview:fieldbase];
+    [self addSubview:fieldcontainer];
     
-    self.consfieldbottom = [NSLayoutConstraint constraintWithItem:fieldbase attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:1];
-    NSDictionary *views = @{@"col":collection, @"field":field, @"fieldbase":fieldbase, @"blur":blur, @"send":buttonsend, @"cancel":buttoncancel};
+    self.consfieldbottom = [NSLayoutConstraint constraintWithItem:fieldbase attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:fieldcontainer attribute:NSLayoutAttributeBottom multiplier:1 constant:1];
+    NSDictionary *views = @{@"col":collection, @"field":field, @"fieldbase":fieldbase, @"blur":blur, @"send":buttonsend, @"cancel":buttoncancel, @"container":fieldcontainer};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[container]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[container]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[fieldbase]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[fieldbase(100)]" options:0 metrics:metrics views:views]];
     [self addConstraint:self.consfieldbottom];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedkeyboardchange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
     return self;
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark notified
+
+-(void)notifiedkeyboardchange:(NSNotification*)notification
+{
+    CGRect keyrect = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    self.consfieldbottom.constant = keyrect.size.height;
 }
 
 #pragma mark actions

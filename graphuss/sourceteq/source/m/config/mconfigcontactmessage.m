@@ -15,7 +15,7 @@
 -(void)selected:(vconfigcontact*)view
 {
     [[analytics singleton] trackevent:ga_event_config_contact_message action:ga_action_start label:nil];
-    [view.fieldbase setHidden:NO];
+    [view.fieldcontainer setHidden:NO];
     [view.field becomeFirstResponder];
 }
 
