@@ -89,6 +89,9 @@
 "config_about_in_descr"="Version %@\n";
 "config_about_in_copy"="Copyright 2016 Iturbide";
 "config_contact_title"="Contact";
+"config_contact_message_title"="Send a short message";
+"config_contact_email_title"="Email us";
+"config_contact_rate_title"="Rate app in the store";
 
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";
