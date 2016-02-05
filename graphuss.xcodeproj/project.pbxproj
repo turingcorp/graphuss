@@ -16,6 +16,10 @@
 		DA05EC561C5EC1C6006BD6CB /* cconfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DA05EC551C5EC1C6006BD6CB /* cconfig.m */; };
 		DA05EC5A1C5EC241006BD6CB /* vconfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DA05EC591C5EC241006BD6CB /* vconfig.m */; };
 		DA0C209C1C5356D900C386EC /* cpicdetail.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C209B1C5356D900C386EC /* cpicdetail.m */; };
+		DA117D851C65275C00214AE3 /* vratemenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA117D841C65275C00214AE3 /* vratemenu.m */; };
+		DA117D891C65280000214AE3 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D861C65280000214AE3 /* star.png */; };
+		DA117D8A1C65280000214AE3 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D871C65280000214AE3 /* star@2x.png */; };
+		DA117D8B1C65280000214AE3 /* star@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA117D881C65280000214AE3 /* star@3x.png */; };
 		DA14782D1C5132A30024141B /* analytics.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA14782C1C5132A30024141B /* analytics.plist */; };
 		DA1478381C513A400024141B /* graphuss.db in Resources */ = {isa = PBXBuildFile; fileRef = DA1478371C513A400024141B /* graphuss.db */; };
 		DA14783C1C513BC90024141B /* cpages.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14783B1C513BC90024141B /* cpages.m */; };
@@ -201,6 +205,11 @@
 		DA05EC591C5EC241006BD6CB /* vconfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vconfig.m; sourceTree = "<group>"; };
 		DA0C209A1C5356D900C386EC /* cpicdetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpicdetail.h; sourceTree = "<group>"; };
 		DA0C209B1C5356D900C386EC /* cpicdetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cpicdetail.m; sourceTree = "<group>"; };
+		DA117D831C65275C00214AE3 /* vratemenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vratemenu.h; sourceTree = "<group>"; };
+		DA117D841C65275C00214AE3 /* vratemenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vratemenu.m; sourceTree = "<group>"; };
+		DA117D861C65280000214AE3 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		DA117D871C65280000214AE3 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
+		DA117D881C65280000214AE3 /* star@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@3x.png"; sourceTree = "<group>"; };
 		DA14782C1C5132A30024141B /* analytics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = analytics.plist; sourceTree = "<group>"; };
 		DA1478371C513A400024141B /* graphuss.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graphuss.db; sourceTree = "<group>"; };
 		DA14783A1C513BC90024141B /* cpages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpages.h; sourceTree = "<group>"; };
@@ -717,6 +726,8 @@
 			children = (
 				DA1B4F631C651F33006EEF40 /* vrate.h */,
 				DA1B4F641C651F33006EEF40 /* vrate.m */,
+				DA117D831C65275C00214AE3 /* vratemenu.h */,
+				DA117D841C65275C00214AE3 /* vratemenu.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -949,6 +960,9 @@
 		DA3D99CA1C5126720072F69B /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DA117D861C65280000214AE3 /* star.png */,
+				DA117D871C65280000214AE3 /* star@2x.png */,
+				DA117D881C65280000214AE3 /* star@3x.png */,
 				DA2C654B1C5A7F6D00862C05 /* firsttime.png */,
 				DA2C654C1C5A7F6D00862C05 /* firsttime@2x.png */,
 				DA2C654D1C5A7F6D00862C05 /* firsttime@3x.png */,
@@ -1266,6 +1280,7 @@
 				DA14787B1C51A04E0024141B /* spinner3@2x.png in Resources */,
 				DA2501EC1C595DDD0081E56D /* light@2x.png in Resources */,
 				DA1478791C51A04E0024141B /* spinner2@3x.png in Resources */,
+				DA117D891C65280000214AE3 /* star.png in Resources */,
 				DA390C201C584C64000ABCEA /* rotateright@2x.png in Resources */,
 				DA14787A1C51A04E0024141B /* spinner3.png in Resources */,
 				DA390C211C584C64000ABCEA /* rotateright@3x.png in Resources */,
@@ -1282,12 +1297,14 @@
 				DA3D9A151C5126720072F69B /* Localizable.strings in Resources */,
 				DA390C271C58524D000ABCEA /* scale@3x.png in Resources */,
 				DA390C261C58524D000ABCEA /* scale@2x.png in Resources */,
+				DA117D8A1C65280000214AE3 /* star@2x.png in Resources */,
 				DA2C654E1C5A7F6D00862C05 /* firsttime.png in Resources */,
 				DAE468DE1C512C1A006EBE52 /* Images.xcassets in Resources */,
 				DA1478761C51A04E0024141B /* spinner1@3x.png in Resources */,
 				DA390C1F1C584C64000ABCEA /* rotateright.png in Resources */,
 				DA14784A1C51452F0024141B /* engine@3x.png in Resources */,
 				DA1478481C51452F0024141B /* engine.png in Resources */,
+				DA117D8B1C65280000214AE3 /* star@3x.png in Resources */,
 				DA3D9A141C5126720072F69B /* defs.plist in Resources */,
 				DA14787C1C51A04E0024141B /* spinner3@3x.png in Resources */,
 				DA1478741C51A04E0024141B /* spinner1.png in Resources */,
@@ -1460,6 +1477,7 @@
 				DA03AF6A1C52E312005DB3C9 /* mpic.m in Sources */,
 				DA2C65561C5B06C200862C05 /* mpicmenupreview.m in Sources */,
 				DA05EC561C5EC1C6006BD6CB /* cconfig.m in Sources */,
+				DA117D851C65275C00214AE3 /* vratemenu.m in Sources */,
 				DA2C65531C5AC26300862C05 /* mgraphicspixel.m in Sources */,
 				DA1B4F5E1C650205006EEF40 /* vconfigcontactcel.m in Sources */,
 				DA6E31071C63DFF800652DF2 /* mcamflash.m in Sources */,
