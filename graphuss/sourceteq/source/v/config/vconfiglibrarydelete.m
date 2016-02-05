@@ -11,6 +11,7 @@
     vspinner *spinner = [[vspinner alloc] init];
     self.spinner = spinner;
     
+    [self addSubview:spinner];
     NSDictionary *views = @{@"spinner":spinner};
     NSDictionary *metrics = @{};
  
