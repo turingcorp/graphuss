@@ -29,7 +29,7 @@
     [collection registerClass:[vconfigheader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerid];
     [collection registerClass:[vconfigcel class] forCellWithReuseIdentifier:celid];
     [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
+    self.collection = collection;
     [self addSubview:collection];
     
     NSDictionary *views = @{@"col":collection};
@@ -39,6 +39,13 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
+}
+
+#pragma mark public
+
+-(void)refresh
+{
+    [self.collection reloadData];
 }
 
 #pragma mark -
