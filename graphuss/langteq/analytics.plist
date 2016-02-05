@@ -33,6 +33,7 @@
 		<string>config/contact/email</string>
 		<string>config/contact/rate</string>
 		<string>rate</string>
+		<string>rate/review</string>
 	</array>
 	<key>actions</key>
 	<array>

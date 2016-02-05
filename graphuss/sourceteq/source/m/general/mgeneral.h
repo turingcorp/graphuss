@@ -52,7 +52,8 @@ typedef NS_ENUM(NSInteger, ga_event)
     ga_event_config_contact_message,
     ga_event_config_contact_email,
     ga_event_config_contact_rate,
-    ga_event_rate
+    ga_event_rate,
+    ga_event_rate_review
 };
 
 typedef NS_ENUM(NSInteger, ga_action)

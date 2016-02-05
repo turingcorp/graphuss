@@ -63,14 +63,28 @@
     [buttonreview addTarget:self action:@selector(actionreview:) forControlEvents:UIControlEventTouchUpInside];
     self.buttonreview = buttonreview;
     
+    UIButton *buttonaccept = [[UIButton alloc] init];
+    [buttonaccept setBackgroundColor:colormain];
+    [buttonaccept setClipsToBounds:YES];
+    [buttonaccept.layer setCornerRadius:4];
+    [buttonaccept setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [buttonaccept setTitleColor:[UIColor colorWithWhite:1 alpha:0.1] forState:UIControlStateHighlighted];
+    [buttonaccept setTitle:NSLocalizedString(@"rate_accept", nil) forState:UIControlStateNormal];
+    [buttonaccept.titleLabel setFont:[UIFont fontWithName:fontboldname size:16]];
+    [buttonaccept setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [buttonaccept setHidden:YES];
+    [buttonaccept addTarget:self action:@selector(actionaccept:) forControlEvents:UIControlEventTouchUpInside];
+    self.buttonaccept = buttonaccept;
+    
     [self addSubview:blur];
     [self addSubview:label];
     [self addSubview:menu];
     [self addSubview:buttonsend];
     [self addSubview:buttondone];
     [self addSubview:buttonreview];
+    [self addSubview:buttonaccept];
     
-    NSDictionary *views = @{@"blur":blur, @"label":label, @"menu":menu, @"send":buttonsend, @"done":buttondone, @"review":buttonreview};
+    NSDictionary *views = @{@"blur":blur, @"label":label, @"menu":menu, @"send":buttonsend, @"done":buttondone, @"review":buttonreview, @"accept":buttonaccept};
     NSDictionary *metrics = @{};
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
@@ -83,6 +97,8 @@
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[review(130)]-20-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-250-[done(40)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-250-[review(40)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-250-[accept(40)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-50-[accept]-50-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
@@ -103,12 +119,23 @@
 
 -(void)actiondone:(UIButton*)button
 {
-    
+    [[analytics singleton] trackevent:ga_event_rate_review action:ga_action_cancel label:nil];
+    [self actionaccept:button];
 }
 
 -(void)actionreview:(UIButton*)button
 {
+    [[analytics singleton] trackevent:ga_event_rate_review action:ga_action_start label:nil];
     
+    [self.buttonreview setHidden:YES];
+    [self.buttondone setHidden:YES];
+    [self.buttonaccept setHidden:NO];
+    [self.label setText:NSLocalizedString(@"rate_thankyou", nil)];
+}
+
+-(void)actionaccept:(UIButton*)button
+{
+    [[cmain singleton] dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark public

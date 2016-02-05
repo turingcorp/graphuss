@@ -101,6 +101,8 @@
 "rate_send"="Send";
 "rate_done"="Not now";
 "rate_review"="Review";
+"rate_accept"="Done";
+"rate_thankyou"="Thank you for your support";
 
 "error_notauthorized"="Not authorized to use the camera";
 "error_empty_input"="Couldn't connect to camera";
