@@ -5,11 +5,20 @@
 #pragma mark -
 #pragma mark library protocol
 
--(NSString*)descr
+-(void)descr:(UILabel*)label
 {
-    NSString *descr = [NSString stringWithFormat:NSLocalizedString(@"config_library_disk_descr", nil)];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSArray *pictures = [manager contentsOfDirectoryAtPath:[mpic singleton].imagesfolder error:nil];
+    NSLog(@"%@", pictures);
+    NSUInteger count = pictures.count;
+    NSUInteger size = 0;
     
-    return descr;
+    for(NSUInteger i = 0; i < count; i++)
+    {
+        NSString *picture = pictures[i];
+        NSDictionary *attributes = [manager attributesOfItemAtPath:[[mpic singleton].imagesfolder stringByAppendingPathComponent:picture] error:nil];
+        size += [attributes fileSize];
+    }
 }
 
 -(NSString*)actionname

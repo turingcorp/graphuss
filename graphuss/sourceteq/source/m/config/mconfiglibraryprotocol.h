@@ -2,7 +2,7 @@
 
 @protocol mconfiglibraryprotocol <NSObject>
 
--(NSString*)descr;
+-(void)descr:(UILabel*)label;
 -(NSString*)actionname;
 -(void)selected;
 

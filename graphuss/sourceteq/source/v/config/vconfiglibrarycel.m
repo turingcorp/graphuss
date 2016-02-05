@@ -42,7 +42,7 @@
 
 -(void)config:(id<mconfiglibraryprotocol>)item
 {
-    
+    [self hover];
 }
 
 @end

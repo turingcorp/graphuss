@@ -26,7 +26,7 @@
     [collection setDelegate:self];
     [collection setAlwaysBounceVertical:YES];
     [collection registerClass:[vconfiglibrarycel class] forCellWithReuseIdentifier:celid];
-    [collection registerClass:[vconfiglibraryheader class] forCellWithReuseIdentifier:headerid];
+    [collection registerClass:[vconfiglibraryheader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerid];
     [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     [self addSubview:collection];
@@ -45,7 +45,7 @@
 
 -(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    CGSize size = CGSizeMake(col.bounds.size.width, 120);
+    CGSize size = CGSizeMake(col.bounds.size.width, 160);
     
     return size;
 }
