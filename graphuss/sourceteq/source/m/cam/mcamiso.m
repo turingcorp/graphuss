@@ -15,8 +15,18 @@
     NSUInteger expectedvalue = [mcamsettings singleton].exposureiso;
     
     AVCaptureDeviceFormat *format = device.activeFormat;
-    self.maxiso = format.maxISO;
-    self.miniso = format.minISO;
+    
+    if([format respondsToSelector:@selector(maxISO)])
+    {
+        self.maxiso = format.maxISO;
+        self.miniso = format.minISO;
+    }
+    else
+    {
+        self.maxiso = 200;
+        self.miniso = 100;
+    }
+    
     NSUInteger totalisos = 10;
     
     CGFloat sumisos = self.maxiso - self.miniso;

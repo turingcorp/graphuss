@@ -14,8 +14,8 @@
 
 -(void)layoutSubviews
 {
-    [super layoutSubviews];
     [self.preview setFrame:self.bounds];
+    [super layoutSubviews];
 }
 
 #pragma mark public

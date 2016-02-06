@@ -63,8 +63,6 @@
 
 -(void)layoutSubviews
 {
-    [super layoutSubviews];
-    
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height;
     CGFloat previewheight;
@@ -94,6 +92,8 @@
         self.copreviewmargin.constant = previewheight;
         marginfirsttime = NO;
     }
+    
+    [super layoutSubviews];
 }
 
 #pragma mark functionality
