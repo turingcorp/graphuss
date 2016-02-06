@@ -297,7 +297,7 @@
                                }
                                else
                                {
-                                   [self exposureerror:NSLocalizedString(@"cam_flash_error_exposure", nil)];
+                                   [self exposureerror:NSLocalizedString(@"cam_flash_error_exposure", nil) sendanalytics:NO];
                                }
                            }
                            else
@@ -314,7 +314,7 @@
                                    }
                                    else
                                    {
-                                       [self exposureerror:NSLocalizedString(@"cam_flash_error_exposure", nil)];
+                                       [self exposureerror:NSLocalizedString(@"cam_flash_error_exposure", nil) sendanalytics:NO];
                                    }
                                }
                            }
@@ -325,7 +325,7 @@
                        {
                            if(error)
                            {
-                               [self exposureerror:error.localizedDescription];
+                               [self exposureerror:error.localizedDescription sendanalytics:YES];
                            }
                        }
                    });
@@ -461,12 +461,16 @@
                    });
 }
 
--(void)exposureerror:(NSString*)error
+-(void)exposureerror:(NSString*)error sendanalytics:(BOOL)sendanalytics
 {
     [valert alert:error inview:self.view];
     
     NSLog(@"exposure error: %@", error);
-    [[analytics singleton] trackevent:ga_event_cam_exposure action:ga_action_error label:error];
+    
+    if(sendanalytics)
+    {
+        [[analytics singleton] trackevent:ga_event_cam_exposure action:ga_action_error label:error];
+    }
 }
 
 -(void)flasherror:(NSString*)error
