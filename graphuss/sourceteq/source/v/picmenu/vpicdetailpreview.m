@@ -53,11 +53,6 @@
     return self;
 }
 
--(void)upda
-{
-    
-}
-
 -(void)layoutSubviews
 {
     UIImage *imagedata = self.detail.pic.imagehd;
