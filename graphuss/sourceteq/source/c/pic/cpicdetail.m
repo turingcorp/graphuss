@@ -18,11 +18,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
     [self setTitle:NSLocalizedString(@"pic_detail_title", nil)];
     
-    if([self respondsToSelector:@selector(edgesForExtendedLayout)])
-    {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
-    
     [[analytics singleton] trackscreen:ga_screen_pic_detail];
 }
 
