@@ -120,14 +120,14 @@
                 case UIInterfaceOrientationLandscapeRight:
                     
                     self.orientation = AVCaptureVideoOrientationLandscapeRight;
-                    self.imageorientation = UIImageOrientationRight;
+                    self.imageorientation = UIImageOrientationUp;
                     
                     break;
                     
                 default:
                     
                     self.orientation = AVCaptureVideoOrientationLandscapeLeft;
-                    self.imageorientation = UIImageOrientationLeft;
+                    self.imageorientation = UIImageOrientationDown;
             }
             
             AVCaptureConnection *connection = [self.output connectionWithMediaType:AVMediaTypeVideo];
