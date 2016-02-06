@@ -29,7 +29,6 @@
 {
     [self.preview removeFromSuperlayer];
     AVCaptureVideoPreviewLayer *preview = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
-    [preview.connection setVideoOrientation:AVCaptureVideoOrientationLandscapeLeft];
     [preview setVideoGravity:AVLayerVideoGravityResizeAspect];
     self.preview = preview;
     [self.layer addSublayer:preview];
