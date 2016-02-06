@@ -115,19 +115,19 @@
         
         if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
         {
-            AVCaptureVideoOrientation orientation;
-            
             switch([cmain singleton].interfaceOrientation)
             {
                 case UIInterfaceOrientationLandscapeRight:
                     
-                    orientation = AVCaptureVideoOrientationLandscapeRight;
+                    self.orientation = AVCaptureVideoOrientationLandscapeRight;
+                    self.imageorientation = UIImageOrientationRight;
                     
                     break;
                     
                 default:
                     
-                    orientation = AVCaptureVideoOrientationLandscapeLeft;
+                    self.orientation = AVCaptureVideoOrientationLandscapeLeft;
+                    self.imageorientation = UIImageOrientationLeft;
             }
             
             AVCaptureConnection *connection = [self.output connectionWithMediaType:AVMediaTypeVideo];
@@ -137,7 +137,9 @@
                 dispatch_async(dispatch_get_main_queue(),
                                ^
                                {
-                                   [self.cam.finder.preview.connection setVideoOrientation:orientation];
+                                   [self.cam.finder.preview.connection setVideoOrientation:self.orientation];
+                                   [self.cam setNeedsLayout];
+                                   [self.cam setNeedsUpdateConstraints];
                                });
             }
         }
@@ -171,6 +173,11 @@
                  
                  if(image)
                  {
+                     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+                     {
+                         image = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:self.imageorientation];
+                     }
+                     
                      [self picreceived:image];
                  }
                  else

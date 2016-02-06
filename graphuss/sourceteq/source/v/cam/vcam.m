@@ -67,7 +67,17 @@
     
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height;
-    CGFloat previewheight = width * 4.0 / 3.0;
+    CGFloat previewheight;
+    
+    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+    {
+        previewheight = width * 3.0 / 4.0;
+    }
+    else
+    {
+         previewheight = width * 4.0 / 3.0;
+    }
+    
     CGFloat menuheight = height - previewheight;
     
     if(menuheight < 80)

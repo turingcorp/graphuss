@@ -16,5 +16,7 @@
 @property(strong, nonatomic)AVCaptureSession *session;
 @property(strong, nonatomic)AVCaptureDevice *device;
 @property(strong, nonatomic)AVCaptureStillImageOutput *output;
+@property(nonatomic)AVCaptureVideoOrientation orientation;
+@property(nonatomic)UIImageOrientation imageorientation;
 
 @end
