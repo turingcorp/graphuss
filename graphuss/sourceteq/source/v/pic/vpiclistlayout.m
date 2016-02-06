@@ -18,7 +18,7 @@
     padding = 2;
     padding2 = padding * 2;
     mincols = 3;
-    maxcols = 6;
+    maxcols = 4;
     
     return self;
 }
