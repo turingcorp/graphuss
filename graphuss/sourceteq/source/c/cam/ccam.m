@@ -291,7 +291,14 @@
                        {
                            if(automatic)
                            {
-                               [weakself.device setExposureMode:AVCaptureExposureModeContinuousAutoExposure];
+                               if([weakself.device isExposureModeSupported:AVCaptureExposureModeContinuousAutoExposure])
+                               {
+                                   [weakself.device setExposureMode:AVCaptureExposureModeContinuousAutoExposure];
+                               }
+                               else
+                               {
+                                   [self exposureerror:NSLocalizedString(@"cam_flash_error_exposure", nil)];
+                               }
                            }
                            else
                            {
@@ -301,7 +308,14 @@
                                }
                                else
                                {
-                                   [weakself.device setExposureMode:AVCaptureExposureModeAutoExpose];
+                                   if([weakself.device isExposureModeSupported:AVCaptureExposureModeAutoExpose])
+                                   {
+                                       [weakself.device setExposureMode:AVCaptureExposureModeAutoExpose];
+                                   }
+                                   else
+                                   {
+                                       [self exposureerror:NSLocalizedString(@"cam_flash_error_exposure", nil)];
+                                   }
                                }
                            }
                            
@@ -311,8 +325,7 @@
                        {
                            if(error)
                            {
-                               NSLog(@"exposure error: %@", error.localizedDescription);
-                               [[analytics singleton] trackevent:ga_event_cam_exposure action:ga_action_error label:error.localizedDescription];
+                               [self exposureerror:error.localizedDescription];
                            }
                        }
                    });
@@ -446,6 +459,14 @@
                            }
                        }
                    });
+}
+
+-(void)exposureerror:(NSString*)error
+{
+    [valert alert:error inview:self.view];
+    
+    NSLog(@"exposure error: %@", error);
+    [[analytics singleton] trackevent:ga_event_cam_exposure action:ga_action_error label:error];
 }
 
 -(void)flasherror:(NSString*)error

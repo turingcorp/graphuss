@@ -15,6 +15,7 @@
 -(void)layoutSubviews
 {
     [self.preview setFrame:self.bounds];
+    
     [super layoutSubviews];
 }
 

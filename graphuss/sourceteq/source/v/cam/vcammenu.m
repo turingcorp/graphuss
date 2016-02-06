@@ -72,6 +72,7 @@
     CGFloat margin = (width - shootwidth) / 2;
     
     self.coshootleft.constant = margin;
+    
     [super layoutSubviews];
 }
 

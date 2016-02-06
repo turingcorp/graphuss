@@ -69,6 +69,7 @@
 "cam_flash_error_flashonnotsupported"="Flash no soporta on";
 "cam_flash_error_flashoffnotsupported"="Flash no soporta off";
 "cam_flash_error_flashautonotsupported"="Flash no soporta auto";
+"cam_flash_error_exposure"="Dispositivo no soporta editar la exposicion";
 
 "config_title"="Configuracion";
 "config_item_about"="Acerca";

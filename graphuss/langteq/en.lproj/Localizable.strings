@@ -69,6 +69,7 @@
 "cam_flash_error_flashonnotsupported"="Flash on not supported";
 "cam_flash_error_flashoffnotsupported"="Flash off not supported";
 "cam_flash_error_flashautonotsupported"="Flash auto not supported";
+"cam_flash_error_exposure"="Device can't customize exposure";
 
 "config_title"="Settings";
 "config_item_about"="About";

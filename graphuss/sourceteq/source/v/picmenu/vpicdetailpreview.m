@@ -54,8 +54,6 @@
 
 -(void)layoutSubviews
 {
-    [super layoutSubviews];
-    
     UIImage *imagedata = self.detail.pic.imagehd;
     NSUInteger previewwidth = self.bounds.size.width;
     NSUInteger previewheight = self.bounds.size.height;
@@ -98,6 +96,8 @@
     }
     
     [self.image setImage:imagedata];
+    
+    [super layoutSubviews];
 }
 
 @end

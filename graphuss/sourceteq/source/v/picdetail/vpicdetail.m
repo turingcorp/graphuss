@@ -45,9 +45,9 @@
 
 -(void)layoutSubviews
 {
-    [super layoutSubviews];
-    
     self.conimageheight.constant = self.bounds.size.width;
+    
+    [super layoutSubviews];
 }
 
 #pragma mark notified
