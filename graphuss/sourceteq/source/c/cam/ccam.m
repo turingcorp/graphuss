@@ -109,49 +109,35 @@
         
         self.output = [[AVCaptureStillImageOutput alloc] init];
         [self.output setOutputSettings:@{AVVideoCodecKey:AVVideoCodecJPEG}];
+        
         [self.session addOutput:self.output];
         [self.session startRunning];
         
         if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
         {
-            AVCaptureConnection *con = [self.output connectionWithMediaType:AVMediaTypeVideo];
+            AVCaptureVideoOrientation orientation;
             
-            if(con.supportsVideoOrientation)
+            switch([cmain singleton].interfaceOrientation)
             {
-                AVCaptureVideoOrientation orientation;
-                
-                switch([cmain singleton].interfaceOrientation)
-                {
-                    case UIInterfaceOrientationPortrait:
-                    case UIInterfaceOrientationUnknown:
-                        
-                        orientation = AVCaptureVideoOrientationPortrait;
-                        
-                        break;
-                        
-                    case UIInterfaceOrientationPortraitUpsideDown:
-                        
-                        orientation = AVCaptureVideoOrientationPortraitUpsideDown;
-                        
-                        break;
-                        
-                    case UIInterfaceOrientationLandscapeLeft:
-                        
-                        orientation = AVCaptureVideoOrientationLandscapeLeft;
-                        
-                        break;
-                        
-                    case UIInterfaceOrientationLandscapeRight:
-                        
-                        orientation = AVCaptureVideoOrientationLandscapeRight;
-                        
-                        break;
-                }
-                
+                case UIInterfaceOrientationLandscapeRight:
+                    
+                    orientation = AVCaptureVideoOrientationLandscapeRight;
+                    
+                    break;
+                    
+                default:
+                    
+                    orientation = AVCaptureVideoOrientationLandscapeLeft;
+            }
+            
+            AVCaptureConnection *connection = [self.output connectionWithMediaType:AVMediaTypeVideo];
+            
+            if(connection.supportsVideoOrientation)
+            {
                 dispatch_async(dispatch_get_main_queue(),
-                               ^(void)
+                               ^
                                {
-                                   [con setVideoOrientation:orientation];
+                                   [self.cam.finder.preview.connection setVideoOrientation:orientation];
                                });
             }
         }
