@@ -32,6 +32,8 @@
     [preview setVideoGravity:AVLayerVideoGravityResizeAspect];
     self.preview = preview;
     [self.layer addSublayer:preview];
+    
+#warning "here"
 }
 
 @end
