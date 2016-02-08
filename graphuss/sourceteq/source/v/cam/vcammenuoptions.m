@@ -1,0 +1,113 @@
+#import "vcammenuoptions.h"
+
+@implementation vcammenuoptions
+{
+    NSInteger selected;
+}
+
+-(instancetype)init:(vcam*)viewcam
+{
+    self = [super init];
+    [self setClipsToBounds:YES];
+    [self setBackgroundColor:[UIColor clearColor]];
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+
+    self.viewcam = viewcam;
+    vblur *blur = [vblur light:YES];
+    
+    UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
+    [flow setFooterReferenceSize:CGSizeZero];
+    [flow setHeaderReferenceSize:CGSizeZero];
+    [flow setMinimumInteritemSpacing:0];
+    [flow setMinimumLineSpacing:0];
+    [flow setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [flow setSectionInset:UIEdgeInsetsZero];
+    
+    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flow];
+    [collection setBackgroundColor:[UIColor clearColor]];
+    [collection setClipsToBounds:YES];
+    [collection setShowsHorizontalScrollIndicator:NO];
+    [collection setShowsVerticalScrollIndicator:NO];
+    [collection setScrollEnabled:NO];
+    [collection setBounces:NO];
+    [collection setDelegate:self];
+    [collection setDataSource:self];
+    [collection registerClass:[vcammenuoptionscel class] forCellWithReuseIdentifier:celid];
+    [collection setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    UIView *border = [[UIView alloc] init];
+    [border setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];
+    [border setUserInteractionEnabled:NO];
+    [border setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self addSubview:blur];
+    [self addSubview:collection];
+    [self addSubview:border];
+    
+    self.model = [[mcam alloc] init];
+    
+    NSDictionary *views = @{@"col":collection, @"blur":blur, @"border":border};
+    NSDictionary *metrics = @{};
+    
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[blur]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[blur(50)]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[col]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[col(50)]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[border]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[border(1)]-49-|" options:0 metrics:metrics views:views]];
+    
+    [self selectitem:0];
+    [collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    
+    return self;
+}
+
+#pragma mark functionality
+
+-(void)selectitem:(NSInteger)item
+{
+    selected = item;
+    [[self.model item:selected] selected:self];
+}
+
+#pragma mark -
+#pragma marl col del
+
+-(CGSize)collectionView:(UICollectionView*)col layout:(UICollectionViewLayout*)layout sizeForItemAtIndexPath:(NSIndexPath*)index
+{
+    CGSize size = CGSizeMake(col.bounds.size.width / [self.model count], col.bounds.size.height);
+    
+    return size;
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)col
+{
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView*)col numberOfItemsInSection:(NSInteger)section
+{
+    NSInteger count = [self.model count];
+    
+    return count;
+}
+
+-(UICollectionViewCell*)collectionView:(UICollectionView*)col cellForItemAtIndexPath:(NSIndexPath*)index
+{
+    vcammenuoptionscel *cel = [col dequeueReusableCellWithReuseIdentifier:celid forIndexPath:index];
+    [cel config:[self.model item:index.item]];
+    
+    return cel;
+}
+
+-(void)collectionView:(UICollectionView*)col didSelectItemAtIndexPath:(NSIndexPath*)index
+{
+    NSInteger item = index.item;
+    
+    if(item != selected)
+    {
+        [self selectitem:item];
+    }
+}
+
+@end

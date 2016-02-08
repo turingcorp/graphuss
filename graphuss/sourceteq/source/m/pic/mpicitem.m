@@ -41,6 +41,7 @@
 
 -(void)update:(UIImage*)image
 {
+    [self loadedfirsttime:YES];
     self.imagehd = image;
     [[mpic singleton] update:self.name image:image];
     [self loadthumb];
@@ -60,16 +61,22 @@
     return string;
 }
 
--(void)loadedfirsttime
+-(void)loadedfirsttime:(BOOL)firsttime
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^
                    {
-                       self.firsttime = NO;
+                       self.firsttime = firsttime;
+                       NSUInteger intval = 0;
+                       
+                       if(firsttime)
+                       {
+                           intval = 1;
+                       }
                        
                        NSString *query = [NSString stringWithFormat:
-                                          @"UPDATE pic SET firsttime=0 WHERE id=%@;",
-                                          @(self.picid)];
+                                          @"UPDATE pic SET firsttime=%@ WHERE id=%@;",
+                                          @(intval), @(self.picid)];
                        
                        [db query:query];
                    });

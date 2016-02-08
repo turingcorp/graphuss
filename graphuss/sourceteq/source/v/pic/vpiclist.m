@@ -91,7 +91,7 @@
     }
     else
     {
-        if([[mpic singleton] count])
+        if([self.collection numberOfItemsInSection:0])
         {
             [self.collection selectItemAtIndexPath:[NSIndexPath indexPathForItem:-1 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         }

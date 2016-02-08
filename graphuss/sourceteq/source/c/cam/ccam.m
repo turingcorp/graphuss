@@ -90,10 +90,10 @@
     
     [self.cam addfinder:self.session];
     
-    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    self.device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
     NSError *error;
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:self.device error:&error];
     
     if(error)
     {
@@ -109,8 +109,42 @@
         
         self.output = [[AVCaptureStillImageOutput alloc] init];
         [self.output setOutputSettings:@{AVVideoCodecKey:AVVideoCodecJPEG}];
+        
         [self.session addOutput:self.output];
         [self.session startRunning];
+        
+        if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+        {
+            switch([cmain singleton].interfaceOrientation)
+            {
+                case UIInterfaceOrientationLandscapeRight:
+                    
+                    self.orientation = AVCaptureVideoOrientationLandscapeRight;
+                    self.imageorientation = UIImageOrientationUp;
+                    
+                    break;
+                    
+                default:
+                    
+                    self.orientation = AVCaptureVideoOrientationLandscapeLeft;
+                    self.imageorientation = UIImageOrientationDown;
+            }
+            
+            AVCaptureConnection *connection = [self.output connectionWithMediaType:AVMediaTypeVideo];
+            
+            if(connection.supportsVideoOrientation)
+            {
+                dispatch_async(dispatch_get_main_queue(),
+                               ^
+                               {
+                                   [self.cam.finder.preview.connection setVideoOrientation:self.orientation];
+                                   [self.cam setNeedsLayout];
+                                   [self.cam setNeedsUpdateConstraints];
+                               });
+            }
+        }
+        
+        [self initialconfiguration];
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
@@ -139,6 +173,11 @@
                  
                  if(image)
                  {
+                     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+                     {
+                         image = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:self.imageorientation];
+                     }
+                     
                      [self picreceived:image];
                  }
                  else
@@ -185,6 +224,275 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
 }
 
+-(void)initialconfiguration
+{
+    [self insidefocus:[mcamsettings singleton].focusautomatic amount:[mcamsettings singleton].focusamount];
+    [self insideexposure:[mcamsettings singleton].exposureautomatic duration:[mcamsettings singleton].exposureduration iso:[mcamsettings singleton].exposureiso];
+    [self insideflashtype:[mcamsettings singleton].flashtype];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^
+                   {
+                       self.isos = [[mcamiso alloc] init:self.device];
+                       [[NSNotificationCenter defaultCenter] postNotificationName:notreloadisos object:nil];
+                   });
+}
+
+-(void)insidefocus:(BOOL)automatic amount:(CGFloat)amount
+{
+    __weak ccam *weakself = self;
+    
+    dispatch_async(queue,
+                   ^
+                   {
+                       NSError *error;
+                       
+                       if([weakself.device lockForConfiguration:&error])
+                       {
+                           if(automatic)
+                           {
+                               [weakself.device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
+                           }
+                           else
+                           {
+                               if([weakself.device respondsToSelector:@selector(setFocusModeLockedWithLensPosition:completionHandler:)])
+                               {
+                                   [weakself.device setFocusModeLockedWithLensPosition:amount completionHandler:nil];
+                               }
+                               else
+                               {
+                                   [weakself.device setFocusMode:AVCaptureFocusModeAutoFocus];
+                               }
+                           }
+                           
+                           [weakself.device unlockForConfiguration];
+                       }
+                       else
+                       {
+                           if(error)
+                           {
+                               NSLog(@"focus error: %@", error.localizedDescription);
+                               [[analytics singleton] trackevent:ga_event_cam_focus action:ga_action_error label:error.localizedDescription];
+                           }
+                       }
+                   });
+}
+
+-(void)insideexposure:(BOOL)automatic duration:(CGFloat)duration iso:(CGFloat)iso
+{
+    __weak ccam *weakself = self;
+    
+    dispatch_async(queue,
+                   ^
+                   {
+                       NSError *error;
+                       
+                       if([weakself.device lockForConfiguration:&error])
+                       {
+                           if(automatic)
+                           {
+                               if([weakself.device isExposureModeSupported:AVCaptureExposureModeContinuousAutoExposure])
+                               {
+                                   [weakself.device setExposureMode:AVCaptureExposureModeContinuousAutoExposure];
+                               }
+                               else
+                               {
+                                   [self exposureerror:NSLocalizedString(@"cam_flash_error_exposure", nil) sendanalytics:NO];
+                               }
+                           }
+                           else
+                           {
+                               if([weakself.device respondsToSelector:@selector(setExposureModeCustomWithDuration:ISO:completionHandler:)])
+                               {
+                                   [weakself.device setExposureModeCustomWithDuration:[self exposuredurationfor:duration] ISO:iso completionHandler:nil];
+                               }
+                               else
+                               {
+                                   if([weakself.device isExposureModeSupported:AVCaptureExposureModeAutoExpose])
+                                   {
+                                       [weakself.device setExposureMode:AVCaptureExposureModeAutoExpose];
+                                   }
+                                   else
+                                   {
+                                       [self exposureerror:NSLocalizedString(@"cam_flash_error_exposure", nil) sendanalytics:NO];
+                                   }
+                               }
+                           }
+                           
+                           [weakself.device unlockForConfiguration];
+                       }
+                       else
+                       {
+                           if(error)
+                           {
+                               [self exposureerror:error.localizedDescription sendanalytics:YES];
+                           }
+                       }
+                   });
+}
+
+-(void)insideflashtype:(cam_flash)flashtype
+{
+    __weak ccam *weakself = self;
+    
+    dispatch_async(queue,
+                   ^
+                   {
+                       NSError *error;
+                       __weak AVCaptureDevice *device = weakself.device;
+                       
+                       if([device lockForConfiguration:&error])
+                       {
+                           if(flashtype == cam_flash_torch)
+                           {
+                               if(device.hasFlash)
+                               {
+                                   if(device.flashAvailable)
+                                   {
+                                       if([device isFlashModeSupported:AVCaptureFlashModeOff])
+                                       {
+                                           [device setFlashMode:AVCaptureFlashModeOff];
+                                       }
+                                   }
+                               }
+                               
+                               if(device.hasTorch)
+                               {
+                                   if(device.torchAvailable)
+                                   {
+                                       if([device isTorchModeSupported:AVCaptureTorchModeOn])
+                                       {
+                                           [device setTorchMode:AVCaptureTorchModeOn];
+                                       }
+                                       else
+                                       {
+                                           [self flasherror:NSLocalizedString(@"cam_flash_error_torchnotsupported", nil)];
+                                       }
+                                   }
+                                   else
+                                   {
+                                       [self flasherror:NSLocalizedString(@"cam_flash_error_torchnotavailable", nil)];
+                                   }
+                               }
+                               else
+                               {
+                                   [self flasherror:NSLocalizedString(@"cam_flash_error_notorch", nil)];
+                               }
+                           }
+                           else
+                           {
+                               if(device.hasTorch)
+                               {
+                                   if(device.torchAvailable)
+                                   {
+                                       if([device isTorchModeSupported:AVCaptureTorchModeOff])
+                                       {
+                                           [device setTorchMode:AVCaptureTorchModeOff];
+                                       }
+                                   }
+                               }
+                               
+                               if(device.hasFlash)
+                               {
+                                   if(device.flashAvailable)
+                                   {
+                                       AVCaptureFlashMode mode;
+                                       NSString *possibleerror;
+                                       
+                                       switch(flashtype)
+                                       {
+                                            case cam_flash_off:
+                                               
+                                               mode = AVCaptureFlashModeOff;
+                                               possibleerror = NSLocalizedString(@"cam_flash_error_flashoffnotsupported", nil);
+                                               
+                                               break;
+                                               
+                                            case cam_flash_auto:
+                                               
+                                               mode = AVCaptureFlashModeAuto;
+                                               possibleerror = NSLocalizedString(@"cam_flash_error_flashautonotsupported", nil);
+                                               
+                                               break;
+                                               
+                                            case cam_flash_on:
+                                               
+                                               mode = AVCaptureFlashModeOn;
+                                               possibleerror = NSLocalizedString(@"cam_flash_error_flashonnotsupported", nil);
+                                               
+                                               break;
+                                               
+                                            default:
+                                               
+                                               possibleerror = @"";
+                                               
+                                               break;
+                                       }
+                                       
+                                       if([device isFlashModeSupported:mode])
+                                       {
+                                           [device setFlashMode:mode];
+                                       }
+                                       else
+                                       {
+                                           [self flasherror:possibleerror];
+                                       }
+                                   }
+                                   else
+                                   {
+                                       [self flasherror:NSLocalizedString(@"cam_flash_error_flashnotavailable", nil)];
+                                   }
+                               }
+                               else
+                               {
+                                   [self flasherror:NSLocalizedString(@"cam_flash_error_noflash", nil)];
+                               }
+                           }
+                           
+                           [device unlockForConfiguration];
+                       }
+                       else
+                       {
+                           if(error)
+                           {
+                               [self flasherror:error.localizedDescription];
+                           }
+                       }
+                   });
+}
+
+-(void)exposureerror:(NSString*)error sendanalytics:(BOOL)sendanalytics
+{
+    [valert alert:error inview:self.view];
+    
+    NSLog(@"exposure error: %@", error);
+    
+    if(sendanalytics)
+    {
+        [[analytics singleton] trackevent:ga_event_cam_exposure action:ga_action_error label:error];
+    }
+}
+
+-(void)flasherror:(NSString*)error
+{
+    [valert alert:error inview:self.view];
+    
+    NSLog(@"flash error: %@", error);
+    [[analytics singleton] trackevent:ga_event_cam_flash action:ga_action_error label:error];
+}
+
+-(CMTime)exposuredurationfor:(CGFloat)duration
+{
+    AVCaptureDeviceFormat *format = self.device.activeFormat;
+    CMTime minduration = format.minExposureDuration;
+    CMTime maxduration = format.maxExposureDuration;
+    CMTime rangeduration = CMTimeSubtract(maxduration, minduration);
+    CMTime relative = CMTimeMultiplyByFloat64(rangeduration, duration);
+    CMTime current = CMTimeAdd(minduration, relative);
+    
+    return current;
+}
+
 #pragma mark public
 
 -(void)shoot
@@ -198,6 +506,35 @@
                    {
                        [self insideshoot];
                    });
+}
+
+-(void)detaillastpic
+{
+    NSInteger count = [[mpic singleton] count];
+    
+    if(count)
+    {
+        mpicitem *pic = [[mpic singleton] item:0];
+        [[cmain singleton] pushViewController:[[cpicdetail alloc] init:pic] animated:YES];
+    }
+}
+
+-(void)focus:(BOOL)automatic amount:(CGFloat)amount
+{
+    [[mcamsettings singleton] focusauto:automatic amount:amount];
+    [self insidefocus:automatic amount:amount];
+}
+
+-(void)exposure:(BOOL)automatic duration:(CGFloat)duration iso:(CGFloat)iso
+{
+    [[mcamsettings singleton] exposureauto:automatic duration:duration iso:iso];
+    [self insideexposure:automatic duration:duration iso:iso];
+}
+
+-(void)flashtype:(cam_flash)flashtype
+{
+    [[mcamsettings singleton] flashtype:flashtype];
+    [self insideflashtype:flashtype];
 }
 
 @end

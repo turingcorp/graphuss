@@ -14,8 +14,13 @@
 
 -(void)layoutSubviews
 {
+    dispatch_async(dispatch_get_main_queue(),
+                   ^
+                   {
+                       [self.preview setFrame:self.bounds];
+                   });
+    
     [super layoutSubviews];
-    [self.preview setFrame:self.bounds];
 }
 
 #pragma mark public

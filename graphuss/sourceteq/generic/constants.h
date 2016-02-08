@@ -16,11 +16,11 @@
 
 // notifications
 
-#define notloadfinished         @"loadfinished"
 #define notreloadpics           @"reloadpics"
 #define notrefrespic            @"refreshpic"
 #define notwritingbusy          @"writingbusy"
 #define notwritingfree          @"writingfree"
+#define notreloadisos           @"reloadisos"
 
 // extra
 

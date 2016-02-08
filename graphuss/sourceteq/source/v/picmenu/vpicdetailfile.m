@@ -65,13 +65,13 @@
 
 -(void)layoutSubviews
 {
-    [super layoutSubviews];
-    
     CGFloat height = ([self.model count] * (itemheight + 4)) + 20;
     
     self.concolheight.constant = height;
     self.conblurheight.constant = height;
     self.conminblurheight.constant = self.bounds.size.height - height;
+    
+    [super layoutSubviews];
 }
 
 #pragma mark -

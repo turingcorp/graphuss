@@ -164,6 +164,15 @@
     [self loadpics];
 }
 
+-(void)deleteall
+{
+    NSString *query = [NSString stringWithFormat:
+                       @"DELETE FROM pic;"];
+    
+    [db query:query];
+    [self loadpics];
+}
+
 -(void)duplicatepic:(mpicitem*)pic
 {
     [self savepic:pic.imagehd];

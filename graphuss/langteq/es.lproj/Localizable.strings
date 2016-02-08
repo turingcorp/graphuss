@@ -1,0 +1,113 @@
+"app_title"="Imateq";
+
+"pic_list_empty"="No hay fotos en tu libreria";
+"pic_list_empty_button"="Empieza a fotografiar";
+
+"pic_detail_title"="Foto";
+"pic_detail_menu_file"="Archivo";
+"pic_detail_menu_preview"="Ver";
+"pic_detail_menu_edit"="Editar";
+"pic_detail_menu_filters"="Filtros";
+
+"pic_detail_file_duplicate"="Duplicar";
+"pic_detail_file_share"="Compartir";
+"pic_detail_file_compression"="Compresion";
+"pic_detail_file_delete"="Borrar";
+"pic_detail_file_delete_title"="Borar foto";
+"pic_detail_file_delete_descr"="Sera borrada permanentemente";
+"pic_detail_file_compress_cancel"="Cancelar";
+"pic_detail_file_compress_compress"="Comprimir";
+"pic_detail_file_compress_title"="Comprimir imagen";
+"pic_detail_file_compress_descr"="\nMenos calidad, archivo mas pequeño";
+"pic_detail_file_compress_done"="Imagen compresa";
+
+"pic_detail_scale_title"="Escalar foto";
+"pic_detail_scale_lblwidth"="Pixeles de ancho";
+"pic_detail_scale_lblheight"="Pixeles de alto";
+"pic_detail_scale_btnaccept"="Escalar foto";
+"pic_detail_scale_btncancel"="Cancelar";
+"pic_detail_scale_done"="Foto escalada";
+
+"pic_detail_filters_menu_light"="Luz";
+"pic_detail_filters_menu_black_white"="B / N";
+"pic_detail_filters_menu_black_white_basic"="Basico";
+"pic_detail_filters_menu_black_white_contrast"="Contraste";
+"pic_detail_filters_menu_black_white_bluish"="Azulado";
+"pic_detail_filters_menu_black_white_header"="Blanco y negro";
+"pic_detail_filters_menu_black_white_button"="Agregar";
+"pic_detail_filters_menu_colors"="Colores";
+"pic_detail_filters_menu_colors_red"="Rojo";
+"pic_detail_filters_menu_colors_onlyred"="Solo rojo";
+"pic_detail_filters_menu_colors_blue"="Azul";
+"pic_detail_filters_menu_colors_purple"="Morado";
+"pic_detail_filters_menu_colors_black"="Negro";
+"pic_detail_filters_menu_colors_onlyblack"="Solo negro";
+"pic_detail_filters_menu_colors_button"="Agregar";
+
+"pic_detail_fitlers_light_button"="Agregar";
+
+"cam_menu_item_focus"="Enfoque";
+"cam_menu_item_focus_label"="Auto enfoque";
+"cam_menu_item_focus_label_min"="Cerca";
+"cam_menu_item_focus_label_max"="Lejos";
+"cam_menu_item_exposure"="Exposicion";
+"cam_menu_item_exposure_label"="Auto exposicion";
+"cam_menu_item_exposure_label_min"="Min duracion";
+"cam_menu_item_exposure_label_max"="Max duracion";
+"cam_menu_item_exposure_label_iso"="Sensibilidad ISO";
+"cam_menu_item_flash"="Flash";
+"cam_menu_item_flash_off"="Off";
+"cam_menu_item_flash_auto"="Auto";
+"cam_menu_item_flash_on"="On";
+"cam_menu_item_flash_torch"="Antorcha";
+
+"cam_flash_error_notorch"="Dispositivo sin antorcha";
+"cam_flash_error_torchnotavailable"="Antorcha no disponible";
+"cam_flash_error_torchnotsupported"="Antorcha no soportada";
+"cam_flash_error_noflash"="Dispositivo sin flash";
+"cam_flash_error_flashnotavailable"="Flash no disponible";
+"cam_flash_error_flashonnotsupported"="Flash no soporta on";
+"cam_flash_error_flashoffnotsupported"="Flash no soporta off";
+"cam_flash_error_flashautonotsupported"="Flash no soporta auto";
+"cam_flash_error_exposure"="Dispositivo no soporta editar la exposicion";
+
+"config_title"="Configuracion";
+"config_item_about"="Acerca";
+"config_item_contact"="Contacto";
+"config_item_library"="Libreria";
+"config_library_title"="Libreria";
+"config_library_disk_descr"="%@ MB de fotos en disco. Libera memoria borrando las fotos en la app.";
+"config_library_disk_actionname"="Borrar todas las fotos";
+"config_library_disk_alert_title"="¿Borrar fotos?";
+"config_library_disk_alert_message"="Borrara todas las fotos de la app";
+"config_library_disk_alert_button"="Borrar todas";
+"config_library_disk_title"="Limpiando";
+"config_library_disk_in_descr"="Borrando fotos";
+"config_library_disk_in_finalize"="Fotos borradas";
+"config_library_disk_in_continue"="Continuar";
+"config_about_title"="Acerca";
+"config_about_in_title"="Imateq\n";
+"config_about_in_descr"="Version %@\n";
+"config_about_in_copy"="Copyright 2016 Iturbide";
+"config_contact_title"="Contacto";
+"config_contact_message_title"="Enviar un mensaje corto";
+"config_contact_message_send"="Enviar";
+"config_contact_message_cancel"="Cancelar";
+"config_contact_message_sent"="¡Gracias por tu mensaje!";
+"config_contact_email_title"="Escribir correo";
+"config_contact_rate_title"="Calificar en la tienda";
+
+"rate_descr"="¿Como calificarias esta aplicacion?";
+"rate_donereview"="Calificacion enviada. ¿Te gustaria escribir una reseña en la tienda?";
+"rate_send"="Enviar";
+"rate_done"="Ahora no";
+"rate_review"="Escribir";
+"rate_accept"="Listo";
+"rate_thankyou"="Gracias por tu apoyo";
+
+"error_notauthorized"="No esta autorizado a usar la camara";
+"error_empty_input"="No se pudo conectar a la camara";
+"error_wrongbuffer"="No se pudo tomar foto, intenta de nuevo";
+"error_emptypicture"="Foto dañada, intenta de nuevo";
+
+"alert_cancel"="Cancelar";

@@ -70,7 +70,7 @@
 -(void)isfirsttime
 {
     [self.firsttime setAlpha:1];
-    [self.pic loadedfirsttime];
+    [self.pic loadedfirsttime:NO];
     
     timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
 }

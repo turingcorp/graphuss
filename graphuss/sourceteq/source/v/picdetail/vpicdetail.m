@@ -29,6 +29,7 @@
     self.conimageheight = [NSLayoutConstraint constraintWithItem:image attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:1];
     
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[image]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[image]" options:0 metrics:metrics views:views]];
     [self addConstraint:self.conimageheight];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifiedwritingbusy:) name:notwritingbusy object:nil];
@@ -43,9 +44,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)layoutSubviews
+-(void)updateConstraints
 {
-    [super layoutSubviews];
+    [super updateConstraints];
     
     self.conimageheight.constant = self.bounds.size.width;
 }

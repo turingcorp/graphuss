@@ -17,6 +17,7 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:notwritingbusy object:nil];
     [self setTitle:NSLocalizedString(@"pic_detail_title", nil)];
+    
     [[analytics singleton] trackscreen:ga_screen_pic_detail];
 }
 
@@ -68,7 +69,7 @@
                        [self.viewdetail loadpic:self.pic];
                        [self.viewdetail loadmenu];
                        
-                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC), dispatch_get_main_queue(),
+                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_MSEC * 300), dispatch_get_main_queue(),
                                       ^
                                       {
                                           [[NSNotificationCenter defaultCenter] postNotificationName:notwritingfree object:nil];
@@ -223,11 +224,9 @@
     [self updateimage];
 }
 
-extern uint64_t dispatch_benchmark(size_t count, void (^block)(void));
-
--(void)edit_light:(CGFloat)light
+-(void)edit_filter:(id<mgraphicsfilterprotocol>)filter
 {
-    self.image = [mgraphics light:self.image add:light];
+    self.image = [mgraphics image:self.image add:filter];
     
     [self updateimage];
 }

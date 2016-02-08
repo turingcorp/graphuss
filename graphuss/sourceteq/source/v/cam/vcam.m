@@ -26,12 +26,17 @@
     vcampreview *preview = [[vcampreview alloc] init];
     self.preview = preview;
     
+    vcammenuoptions *options = [[vcammenuoptions alloc] init:self];
+    self.options = options;
+    [self.options setHidden:YES];
+    
     [self addSubview:finder];
     [self addSubview:spinner];
     [self addSubview:preview];
+    [self addSubview:options];
     [self addSubview:menu];
     
-    NSDictionary *views = @{@"spinner":spinner, @"menu":menu, @"finder":finder, @"preview":preview};
+    NSDictionary *views = @{@"spinner":spinner, @"menu":menu, @"finder":finder, @"preview":preview, @"options":options};
     NSDictionary *metrics = @{};
     
     self.comenuheight = [NSLayoutConstraint constraintWithItem:menu attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:50];
@@ -44,28 +49,38 @@
     [self addConstraint:self.copreviewheight];
     [self addConstraint:self.copreviewmargin];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[spinner]-0-|" options:0 metrics:metrics views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[spinner(50)]" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-150-[spinner(80)]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[menu]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[menu]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[finder]-0-|" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[finder]" options:0 metrics:metrics views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[preview]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[options]-0-|" options:0 metrics:metrics views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[options]-0-[menu]-0-|" options:0 metrics:metrics views:views]];
     
     return self;
 }
 
 -(void)layoutSubviews
 {
-    [super layoutSubviews];
-    
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height;
-    CGFloat previewheight = width * 4.0 / 3.0;
+    CGFloat previewheight;
+    
+    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+    {
+        previewheight = width * 3.0 / 4.0;
+    }
+    else
+    {
+         previewheight = width * 4.0 / 3.0;
+    }
+    
     CGFloat menuheight = height - previewheight;
     
-    if(menuheight < 60)
+    if(menuheight < 80)
     {
-        menuheight = 60;
+        menuheight = 80;
     }
     
     self.comenuheight.constant = menuheight;
@@ -77,6 +92,8 @@
         self.copreviewmargin.constant = previewheight;
         marginfirsttime = NO;
     }
+    
+    [super layoutSubviews];
 }
 
 #pragma mark functionality
@@ -136,7 +153,12 @@
 {
     [[analytics singleton] trackevent:ga_event_shoot action:ga_action_restart label:nil];
     [self animatepreviewhide];
-    [self.menu setUserInteractionEnabled:YES];
+    [self.menu refresh];
+}
+
+-(void)optionsshowed:(BOOL)showed
+{
+    [self.options setHidden:!showed];
 }
 
 @end

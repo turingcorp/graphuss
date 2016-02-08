@@ -26,6 +26,7 @@
     [image setTranslatesAutoresizingMaskIntoConstraints:NO];
     [image.layer setBorderWidth:1];
     [image.layer setBorderColor:[UIColor colorWithWhite:0 alpha:0.4].CGColor];
+    [image setImage:self.detail.pic.imagehd];
     self.image = image;
     
     [scroll addSubview:image];
@@ -54,8 +55,6 @@
 
 -(void)layoutSubviews
 {
-    [super layoutSubviews];
-    
     UIImage *imagedata = self.detail.pic.imagehd;
     NSUInteger previewwidth = self.bounds.size.width;
     NSUInteger previewheight = self.bounds.size.height;
@@ -66,10 +65,14 @@
     {
         self.conimagetop.constant = (previewheight - imageheight) / 2.0;
         self.conimageleft.constant = (previewwidth - imagewidth) / 2.0;
-        
-        [self.image setContentMode:UIViewContentModeCenter];
         self.conimagewidth.constant = imagewidth;
         self.conimageheight.constant = imageheight;
+        
+        dispatch_async(dispatch_get_main_queue(),
+                       ^
+                       {
+                           [self.image setContentMode:UIViewContentModeCenter];
+                       });
     }
     else
     {
@@ -95,10 +98,15 @@
         
         self.conimagewidth.constant = scrollwidth;
         self.conimageheight.constant = scrollheight;
-        [self.scroll setContentSize:CGSizeMake(scrollwidth, scrollheight)];
+        
+        dispatch_async(dispatch_get_main_queue(),
+                       ^
+                       {
+                           [self.scroll setContentSize:CGSizeMake(scrollwidth, scrollheight)];
+                       });
     }
     
-    [self.image setImage:imagedata];
+    [super layoutSubviews];
 }
 
 @end

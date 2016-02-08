@@ -8,10 +8,18 @@
 		<string>pic/detail</string>
 		<string>camera</string>
 		<string>config</string>
+		<string>config/library</string>
+		<string>config/library/delete</string>
+		<string>config/about</string>
+		<string>config/contact</string>
+		<string>rate</string>
 	</array>
 	<key>events</key>
 	<array>
 		<string>shoot</string>
+		<string>cam/focus</string>
+		<string>cam/exposure</string>
+		<string>cam/flash</string>
 		<string>pic/file/duplicate</string>
 		<string>pic/file/share</string>
 		<string>pic/file/compress</string>
@@ -19,6 +27,13 @@
 		<string>pic/edit/rotate</string>
 		<string>pic/edit/scale</string>
 		<string>pic/filter/light</string>
+		<string>pic/filter/blackandwhite</string>
+		<string>pic/filter/color</string>
+		<string>config/contact/message</string>
+		<string>config/contact/email</string>
+		<string>config/contact/rate</string>
+		<string>rate</string>
+		<string>rate/review</string>
 	</array>
 	<key>actions</key>
 	<array>
@@ -30,6 +45,12 @@
 		<string>cancel</string>
 		<string>left</string>
 		<string>right</string>
+		<string>automatic</string>
+		<string>manual</string>
+		<string>off</string>
+		<string>on</string>
+		<string>torch</string>
+		<string>content</string>
 	</array>
 </dict>
 </plist>

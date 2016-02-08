@@ -7,12 +7,12 @@ NSString *documents;
 +(void)launch
 {
     [[analytics singleton] start];
+    [updater update];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
-                   ^(void)
+                   ^
                    {
-                       [updater update];
-                       [[NSNotificationCenter defaultCenter] postNotificationName:notloadfinished object:nil];
+                       [[mcamsettings singleton] refresh];
                    });
 }
 
@@ -52,6 +52,7 @@ NSString *documents;
     [userdef removePersistentDomainForName:NSArgumentDomain];
     [userdef removePersistentDomainForName:NSRegistrationDomain];
     [userdef setValue:appid forKey:@"appid"];
+    [userdef setValue:@0 forKey:@"ttl"];
     [userdef setValue:[[NSUUID UUID] UUIDString] forKey:@"uuid"];
     [userdef setValue:dictionary forKey:@"settings"];
     [userdef synchronize];

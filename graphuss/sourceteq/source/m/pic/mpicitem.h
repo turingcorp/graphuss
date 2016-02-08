@@ -7,7 +7,7 @@
 -(void)update:(UIImage*)image;
 -(NSString*)fileforimage;
 -(NSString*)fileforthumb;
--(void)loadedfirsttime;
+-(void)loadedfirsttime:(BOOL)firsttime;
 
 @property(strong, nonatomic)UIImage *thumb;
 @property(weak, nonatomic)UIImage *imagehd;

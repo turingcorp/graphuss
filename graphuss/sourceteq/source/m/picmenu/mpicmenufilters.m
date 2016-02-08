@@ -33,6 +33,7 @@
     {
         array = [NSArray arrayWithObjects:
                  [[mpicmenufilterslight alloc] init],
+                 [[mpicmenufiltersbw alloc] init],
                  [[mpicmenufilterscolor alloc] init],
                  nil];
     }

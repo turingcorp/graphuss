@@ -10,7 +10,7 @@
 -(void)edit_rotateright;
 -(void)edit_compress:(CGFloat)quality;
 -(void)edit_scale:(CGFloat)scale;
--(void)edit_light:(CGFloat)light;
+-(void)edit_filter:(id<mgraphicsfilterprotocol>)filter;
 
 @property(strong, nonatomic)mpicitem *pic;
 @property(weak, nonatomic)vpicdetail *viewdetail;
