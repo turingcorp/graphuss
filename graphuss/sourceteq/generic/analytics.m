@@ -34,7 +34,7 @@
 {
     self.tracker = [[GAI sharedInstance] trackerWithTrackingId:analyticsid];
     [[GAI sharedInstance] setTrackUncaughtExceptions:YES];
-    [[GAI sharedInstance] setDispatchInterval:10];
+    [[GAI sharedInstance] setDispatchInterval:15];
     [[GAI sharedInstance].logger setLogLevel:kGAILogLevelNone];
     
 #if DEBUG
