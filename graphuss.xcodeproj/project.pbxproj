@@ -1670,7 +1670,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Agustin Iturbide (Q3HFYLXFGT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/graphuss/sourceteq/core/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1680,7 +1681,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.graphuss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ebc98a07-7fe8-438c-9a45-d963f150804c";
+				PROVISIONING_PROFILE = "2e2460a5-197b-44fd-81b6-014d47abb850";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1691,7 +1692,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Agustin Iturbide (7AMWG3RLHN)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/graphuss/sourceteq/core/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1701,7 +1703,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.graphuss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ee2970f4-bdb6-4092-9608-4cdf35928c5d";
+				PROVISIONING_PROFILE = "6dec715b-5876-41f5-aaac-7cf507f9d620";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

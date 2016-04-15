@@ -34,8 +34,16 @@
 {
     self.tracker = [[GAI sharedInstance] trackerWithTrackingId:analyticsid];
     [[GAI sharedInstance] setTrackUncaughtExceptions:YES];
-    [[GAI sharedInstance] setDispatchInterval:5];
+    [[GAI sharedInstance] setDispatchInterval:15];
     [[GAI sharedInstance].logger setLogLevel:kGAILogLevelNone];
+    
+#if DEBUG
+    
+    [[GAI sharedInstance] setDryRun:YES];
+    //    [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
+    
+#endif
+    
 }
 
 -(void)trackscreen:(ga_screen)screen
